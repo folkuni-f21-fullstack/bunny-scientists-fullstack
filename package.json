@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-backend": "cd backend/ && tsc",
+    "run-backend": "node backend/dist/server.js"
   },
   "dependencies": {
     "cors": "^2.8.5",
