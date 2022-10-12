@@ -1,6 +1,16 @@
+import {useState} from 'react';
 import "./MenuNav.scss";
 
 const MenuNav = () => {
+    // const [isActive, setIsActive] = useState("")
+
+    // function toggleActive() {
+    //     if(isActive == "active"){
+    //         setIsActive("")
+    //     } else {
+    //         setIsActive("active")
+    //     }
+    // }
     return (
         <nav className="menu-nav">
             <ul>

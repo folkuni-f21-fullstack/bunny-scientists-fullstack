@@ -7,8 +7,8 @@ const HomePage = () => {
     <main className="home-page">
       <Hero/>
       <MenuNav/>
-      <h2 id="food">Mat</h2>
       <section className="cards-container">
+        <h2 id="food">Mat</h2>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
@@ -20,8 +20,8 @@ const HomePage = () => {
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
       </section>
-      <h2 id="kids">Barn</h2>
       <section className="cards-container">
+        <h2 id="kids">Barn</h2>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
@@ -33,8 +33,9 @@ const HomePage = () => {
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
       </section>
-      <h2 id="beverages">Dryck</h2>
+      
       <section className="cards-container">
+        <h2 id="beverages">Dryck</h2>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
@@ -46,8 +47,8 @@ const HomePage = () => {
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
       </section>
-      <h2 id="desserts">Efterätter</h2>
       <section className="cards-container">
+        <h2 id="desserts">Efterätter</h2>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
         <article>Här är olika prylar</article>
