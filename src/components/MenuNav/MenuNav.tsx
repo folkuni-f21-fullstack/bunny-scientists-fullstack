@@ -35,41 +35,29 @@ const MenuNav = () => {
     <nav className="menu-nav">
       <ul>
         <li>
-          <a
-            className={foodSelected}
-            onClick={(e) => toggleActive(e)}
-            href="#food"
-          >
-            Mat
-          </a>
+          <a className={foodSelected} onClick={(e) => toggleActive(e)} href="#food"> Mat </a>
         </li>
         <span className="vertical-line"></span>
         <li>
-          <a
-            className={kidsSelected}
+          <a className={kidsSelected}
             onClick={(e) => toggleActive(e)}
-            href="#kids"
-          >
+            href="#kids">
             Barn
           </a>
         </li>
         <span className="vertical-line"></span>
         <li>
-          <a
-            className={beveragesSelected}
+          <a className={beveragesSelected}
             onClick={(e) => toggleActive(e)}
-            href="#beverages"
-          >
+            href="#beverages">
             Dryck
           </a>
         </li>
         <span className="vertical-line"></span>
         <li>
-          <a
-            className={dessertSelected}
+          <a className={dessertSelected}
             onClick={(e) => toggleActive(e)}
-            href="#desserts"
-          >
+            href="#desserts" >
             Efterrätt
           </a>
         </li>
