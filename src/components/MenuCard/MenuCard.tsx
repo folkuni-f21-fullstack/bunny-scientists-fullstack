@@ -1,8 +1,14 @@
 import "./MenuCard.scss";
 
 const MenuCard = () => {
+
+   
+
+
     return (
-        <h1>Hello World</h1>
+        <article className="menucard-container">
+            
+        </article>
     )
 }
 export default MenuCard
