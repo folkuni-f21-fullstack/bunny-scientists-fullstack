@@ -1,3 +1,5 @@
+@import "./styles/variables.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,4 +14,28 @@
     "Footer";
   gap: 0;
   min-height: 100vh;
+}
+
+//  GENERICS
+
+h1, h2 {
+  font-size: var(--fs-title);
+  font-weight: 400;
+  font-family: $header-font;
+  padding-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: var(--fs-sub-title);
+}
+
+p {
+  font-size: var(--fs-text);
+  font-family: $text-font;
+  font-weight: 300;
+  padding-bottom: 0.5rem;
+}
+
+main {
+  padding: 2rem;
 }

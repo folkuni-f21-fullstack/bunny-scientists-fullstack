@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 $green-bg: #4c7972;
@@ -12,7 +12,8 @@ $header-font: "Bebas Neue";
 $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
 
 :root {
-  --fs-text: 15px;
+  --fs-text: 16px;
   --fs-title: 24px;
-  --fs-semi-title: 20px;
+  --fs-sub-title: 20px;
 }
+
