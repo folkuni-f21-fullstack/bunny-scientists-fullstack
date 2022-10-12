@@ -22,7 +22,13 @@ h1, h2 {
   font-size: var(--fs-title);
   font-weight: 400;
   font-family: $header-font;
-  padding-bottom: 0.5rem;
+  
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: $light-grey;
+  margin-bottom: 1rem;
 }
 
 h2 {
@@ -33,7 +39,7 @@ p {
   font-size: var(--fs-text);
   font-family: $text-font;
   font-weight: 300;
-  padding-bottom: 0.5rem;
+  padding-bottom: 1rem;
 }
 
 main {
