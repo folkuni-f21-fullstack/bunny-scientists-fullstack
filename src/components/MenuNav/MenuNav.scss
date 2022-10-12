@@ -1,34 +1,33 @@
 @import "../../styles/variables.scss";
-.menu-nav{
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    padding: 0 2rem;
-    background-color: $body-bg;
-    ul{
-        list-style: none;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        li {
-              padding: 0.7rem 0;
-        }
+.menu-nav {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  padding: 0 2rem;
+  background-color: $body-bg;
+  ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    li {
+      padding: 0.7rem 0;
     }
-    .vertical-line{
-        margin: 0.2rem;
-        width: 2px;
-        background-color: $medium-grey;
-    }
-    a {
-        text-decoration: none;
-        font-family: $header-font;
-        color: #000;
-      
-    }
-    a:target {
-        color: $green-bg;
-    }
-    .active {
-        color: $green-bg;
-    }
+  }
+  .vertical-line {
+    margin: 0.2rem;
+    width: 2px;
+    background-color: $medium-grey;
+  }
+  a {
+    text-decoration: none;
+    font-family: $header-font;
+    color: #000;
+  }
+  a:active {
+    color: $green-bg;
+  }
+  .active {
+    color: $green-bg;
+  }
 }
