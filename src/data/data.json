@@ -15,7 +15,8 @@
                         "id": "200",
                         "name": "Escargots Tradition",
                         "price": 149,
-                        "description": "Authentic French country recipe of escargots with parsley, garlic & butter"
+                        "description": "Authentic French country recipe of escargots with parsley, garlic & butter",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "201",

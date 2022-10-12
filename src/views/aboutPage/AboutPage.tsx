@@ -7,7 +7,7 @@ import data from '../../data/data.json'
 const AboutPage = () => {
   return (
     <main>
-      <h1>Om oss</h1>
+      <h1 className="about-header">Om oss</h1>
       <div className="line"></div>
       <p>Escargot-togo är den första snigelrestaurangen i Sverige som erbjuder takeaway till rimliga priser.</p>
       <p>Vi öppnade våra dörrar till restaurangen år 2018 där vi möttes av omedelbar och stor framgång. </p>
@@ -35,8 +35,6 @@ const AboutPage = () => {
         </div>
       </section>
     </main>
-    
-
   )
 };
 
