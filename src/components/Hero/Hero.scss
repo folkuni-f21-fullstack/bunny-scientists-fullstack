@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+//mobil vy
+.hero-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    max-width: 100%;
+    max-height: 18rem;
+
+    img {
+        width: 100%;
+        max-height: 14rem;
+        object-fit: cover;
+    }
+
+    figcaption {
+        position: absolute;
+        font-family: 'Roboto Condensed', sans-serif;
+        font-size: 4.3rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: end;
+        color: #FFFFFF;
+        margin: 0.5rem 1.2rem;
+    }
+}
