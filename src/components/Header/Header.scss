@@ -1,13 +1,97 @@
 @import "../../styles/variables.scss";
 
-header {
+.header {
   grid-area: Header;
   background-color: $green-bg;
-  min-height: 10vh;
+
   display: flex;
   justify-content: space-between;
-
-  .nav-container {
+  flex-direction: column;
+  .header-container {
+    position: sticky;
+    top: 0;
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-accordion {
+    display: flex;
+    margin-left: 2rem;
+    flex-direction: column;
+    height: 0;
+    transition: 0.35s;
+    ul {
+      margin-top: 3rem;
+      list-style: none;
+      li {
+        margin: 1rem;
+        a {
+          text-decoration: none;
+          color: white;
+          font-family: $header-font;
+          font-size: 2rem;
+        }
+      }
+    }
+    .line {
+      margin-left: 1rem;
+      height: 2px;
+      width: 55%;
+      background-color: #aeaeae;
+    }
+    .login-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2rem;
+      color: white;
+      .login-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  .nav-accordion-open {
+    display: flex;
+    margin-left: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 3rem;
+    height: 90vh;
+    transition: 0.35s;
+    ul {
+      margin-top: 3rem;
+      list-style: none;
+      li {
+        margin: 1rem;
+        a {
+          text-decoration: none;
+          color: white;
+          font-family: $header-font;
+          font-size: 2rem;
+        }
+      }
+    }
+    .line {
+      margin-left: 1rem;
+      height: 2px;
+      width: 55%;
+      background-color: #aeaeae;
+    }
+    .login-container {
+      display: flex;
+      justify-content: flex-end;
+      margin-right: 2rem;
+      color: white;
+      a {
+        text-decoration: none;
+        font-family: $text-font;
+        color: white;
+      }
+      .login-icon {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+  .nav-button-container {
     height: 100%;
     display: flex;
     align-items: center;
