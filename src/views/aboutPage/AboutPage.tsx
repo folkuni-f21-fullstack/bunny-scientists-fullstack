@@ -1,7 +1,7 @@
 import "../aboutPage/AboutPage.scss";
-import VD from "../../assets/staff/vd.jfif"
-import Reception from "../../assets/staff/reception.jfif"
-import Chef from "../../assets/staff/chef.jfif"
+import VD from "../../assets/staff/vd.jpg"
+import Reception from "../../assets/staff/reception.jpg"
+import Chef from "../../assets/staff/chef.jpg"
 
 const AboutPage = () => {
   return (
