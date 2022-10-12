@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-
-$green-bg: #4C7972;
-$body-bg: #EFEFEF;
+$green-bg: #4c7972;
+$body-bg: #efefef;
 $container-bg: #ffffff;
-$footer-bg: #03292C;
-$price-bg: #FF0000;
+$footer-bg: #03292c;
+$price-bg: #ff0000;
 
+$text-font: "Roboto Condensed", sans-serif;
+$header-font: "Bebas Neue";
+$box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
 
-$text-font: 'Roboto Condensed', sans-serif;
-$header-font: 'Bebas Neue';
-$box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.30);
-
+:root {
+  --fs-text: 15px;
+  --fs-title: 24px;
+  --fs-semi-title: 20px;
+}
