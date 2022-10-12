@@ -1,34 +1,167 @@
 {
-"food":{
-    "snail-1":{
-        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
-        "price": 146
-    },
-    "snail-2":{
-        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
-        "price": 146
-    },
-    "snail-3":{
-        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
-        "price": 146
-    },
-    "snail-4":{
-        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
-        "price": 146
+    "array": {
+        "restaurant-info": {
+            "name": "Escargot Togo",
+            "mail": "escargoto@mail.com",
+            "address": "Idagatan 55",
+            "phone": "05499999"
+        },
+        "menu": [
+            {
+                "id": "101",
+                "name": "escargots",
+                "menu-items": [
+                    {
+                        "id": "200",
+                        "name": "Escargots Tradition",
+                        "price": 149,
+                        "description": "Authentic French country recipe of escargots with parsley, garlic & butter"
+                    },
+                    {
+                        "id": "201",
+                        "name": "Escargots “au gratin”",
+                        "price": 149,
+                        "description": "Escargots with mushroom, artichoke bottom, spinach, Béchamel sauce. Topped with melted cheese"
+                    },
+                    {
+                        "id": "202",
+                        "name": "Oeuf Cocotte d'Escargots",
+                        "price": 189,
+                        "description": "Egg poached in Béchamel sauce topped with escargots and mushrooms, seasoned with parsley, garlic & butter"
+                    },
+                    {
+                        "id": "203",
+                        "name": "Mille Feuilles d'Escargots",
+                        "price": 199,
+                        "description": "Signature dish with homemade puff pastry , escargots & mushrooms with garlic and butter sauce"
+                    },
+                    {
+                        "id": "204",
+                        "name": "Quiche aux Escargots",
+                        "price": 199,
+                        "description": "Warm “cake” (quiche style) of escargots seasoned with parsley, garlic & butter baked with spinach and shredded mozzarella cheese in a thin puff pastry crust"
+                    },
+                    {
+                        "id": "205",
+                        "name": "Salade aux Escargots",
+                        "price": 199,
+                        "description": "Chopped Romaine lettuce mixed with escargots (seasoned with parsley, garlic & butter) and sautéed mushrooms. Topped with homemade seasoned croutons."
+                    },
+                    {
+                        "id": "206",
+                        "name": "Garlic de Speciale",
+                        "price": 199,
+                        "description": "Escargot with minced garlic and dill, filled with freshly harvested species"
+                    },
+                    {
+                        "id": "207",
+                        "name": "Escargot Togo",
+                        "price": 199,
+                        "description": "Our special and most luxurious dish, topped with gold flakes. No more description is needed"
+                    }
+                ]
+            },
+            {
+                "id": "102",
+                "name": "kids",
+                "menu-items": [
+                    {
+                        "id": "300",
+                        "name": "Hamburger",
+                        "price": 89,
+                        "description": "150g Hamburgare med sallad, dressing och ost"
+                    },
+                    {
+                        "id": "301",
+                        "name": "Pancakes”",
+                        "price": 89,
+                        "description": "Pankakor med sylt och grädde"
+                    },
+                    {
+                        "id": "302",
+                        "name": "Fish & chips",
+                        "price": 129,
+                        "description": "Friterad fisk med tjocka bitar av friterad potatis, serveras med dill och citron"
+                    },
+                    {
+                        "id": "303",
+                        "name": "Kid's snail special",
+                        "price": 199,
+                        "description": "en snigel som passar för det lilla barnet."
+                    }
+                ]
+            }, 
+            {
+                "id": "103",
+                "name": "drinks",
+                "menu-items": [
+                    {
+                        "id": "400",
+                        "name": "Mandato Primitivo Appassimento Puglia",
+                        "price": 99,
+                        "description": "Livfulla smaker av solmogen mörk frukt som svarta plommon, körsbär och björnbär. Mjölkchoklad från ekfat och vidare till en fin örtighet som ramar in smaken elegant."
+                    },
+                    {
+                        "id": "401",
+                        "name": "Nino Ardevi Prosecco",
+                        "price": 89,
+                        "description": "Friska smaker av citrus, gröna äpplen och aprikos. Intensiva och eleganta dofter av blommor, grapefrukt, päron, gröna äpplen, aprikos och lime"
+                    },
+                    {
+                        "id": "402",
+                        "name": "Le Prince de Courthézon Côtes du Rhône",
+                        "price": 129,
+                        "description": "Aromer av mogna hallon, kryddiga plommon och nymalen svartpeppar. Silkeslena smaker med lager av svart frukt, djup och intensitet."
+                    },
+                    {
+                        "id": "403",
+                        "name": "Coca-Cola",
+                        "price": 29,
+                        "description": "500ml Coca-Cola."
+                    },
+                    {
+                        "id": "404",
+                        "name": "Fanta",
+                        "price": 29,
+                        "description": "500ml Fanta."
+                    }
+                ]
+            },{
+                "id": "104",
+                "name": "desserts",
+                "menu-items": [
+                    {
+                        "id": "500",
+                        "name": "Crêpe au chocolat",
+                        "price": 99,
+                        "description": "Thin and light crêpe filled with homemade chocolate sauce. Served with a side of whipped cream"
+                    },
+                    {
+                        "id": "501",
+                        "name": "Crêpe Suzette",
+                        "price": 49,
+                        "description": "Flavored with fresh orange sauce & flamed with Grand-Marnier liquor"
+                    },
+                    {
+                        "id": "502",
+                        "name": "Chocolate mousse",
+                        "price": 69,
+                        "description": "Prepared with milk chocolate and egg whites, Ice cream style"
+                    },
+                    {
+                        "id": "503",
+                        "name": "Crêpe Banana Split",
+                        "price": 79,
+                        "description": "With sliced banana, 1 scoop of ice-cream, homemade chocolate sauce, whipped cream & roasted sliced almonds"
+                    },
+                    {
+                        "id": "504",
+                        "name": "Crème brûlée",
+                        "price": 69,
+                        "description": "Chilled crème brulée topped with a caramelized crust"
+                    }
+                ]
+            }
+        ]
     }
-}, "kid":{
-    "pancakes":{
-        "description": "holy moly",
-        "price": 146
-    },
-    "fruitbowl":{
-        "description": "holy moly",
-        "price": 146
-    },
-    "baby-snail":{
-        "description": "holy moly",
-        "price": 146
-    }
-}
-
 }
