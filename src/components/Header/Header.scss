@@ -3,13 +3,12 @@
 .header {
   grid-area: Header;
   background-color: $green-bg;
-
+  position: sticky;
+  top: 0;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
   .header-container {
-    position: sticky;
-    top: 0;
     min-height: 10vh;
     display: flex;
     justify-content: space-between;
@@ -18,7 +17,9 @@
     display: flex;
     margin-left: 2rem;
     flex-direction: column;
+    justify-content: space-between;
     height: 0;
+    opacity: 0;
     transition: 0.35s;
     ul {
       margin-top: 3rem;
@@ -46,6 +47,11 @@
       color: white;
       .login-icon {
         margin-right: 0.5rem;
+      }
+      a {
+        color: white;
+        text-decoration: none;
+        font-family: "Roboto Condensed", sans-serif;
       }
     }
   }
