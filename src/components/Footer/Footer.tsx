@@ -5,6 +5,7 @@ import {
 } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import "./Footer.scss";
+import data from '../../data/data.json'
 
 const Footer = () => {
   return (
@@ -13,8 +14,8 @@ const Footer = () => {
         <section>
           <h2>Kontakt</h2>
           <ul>
-            <li>Telefon: 070 999 99 99</li>
-            <li>Adress: Idagatan</li>
+            <li>Telefon: {data.array.restaurant.phone}</li>
+            <li>Adress: {data.array.restaurant.address}</li>
           </ul>
         </section>
         <section>
