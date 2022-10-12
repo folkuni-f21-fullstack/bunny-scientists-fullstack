@@ -1,0 +1,34 @@
+{
+"food":{
+    "snail-1":{
+        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
+        "price": 146
+    },
+    "snail-2":{
+        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
+        "price": 146
+    },
+    "snail-3":{
+        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
+        "price": 146
+    },
+    "snail-4":{
+        "description": "Try out the delicacy made of cooked land snails with herbs. It is usually served as a starter dish. The snails which are used for the dish also carry this name",
+        "price": 146
+    }
+}, "kid":{
+    "pancakes":{
+        "description": "holy moly",
+        "price": 146
+    },
+    "fruitbowl":{
+        "description": "holy moly",
+        "price": 146
+    },
+    "baby-snail":{
+        "description": "holy moly",
+        "price": 146
+    }
+}
+
+}
