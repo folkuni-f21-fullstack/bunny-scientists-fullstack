@@ -9,6 +9,7 @@
     padding: .7rem;
     @include menuCardDesign();
     overflow: hidden;
+    margin: 0 1rem;
 
     .menucard-image-container{
         overflow: hidden;
@@ -52,8 +53,15 @@
 
         .menucard-info {
             position: relative;
-            height: 3rem;
+            height: 5rem;
             overflow-y: hidden;
+
+            .menucard-desc{
+                margin: 0;
+                font-family: $text-font;
+                font-size: var(--fs-text);
+                line-height: normal;    
+            }
 
             .white-fade {
 
