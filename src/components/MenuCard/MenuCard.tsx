@@ -3,6 +3,7 @@ import { Menu } from '../../models/data'
 import bild from '../../assets/menu/menu-item-1.jpg'
 
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { useState } from "react";
 
 // interface MenuCardProps {
 //     menu: Menu;
@@ -10,13 +11,26 @@ import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 // };
 
 export default function MenuCard() {
+    
+    const [menuCardClass, setMenuCardClass] = useState<string>("menucard-container");
+    const [menuCardOpen, setMenuCardOpen] = useState<boolean>(false);
+
+    const toggleDrop = () => {
+        if (!menuCardOpen) {
+            setMenuCardClass("menucard-container-open");
+            setMenuCardOpen(true);
+          } else {
+            setMenuCardClass("menucard-container");
+            setMenuCardOpen(false);
+          }        
+    }
   
 
    
 
 
     return (
-        <article className="menucard-container">
+        <article onClick={toggleDrop} className={menuCardClass}>
             <div className="menucard-image-container">
                 <figure className="menucard-figure">
                     <img className="menucard-image" src={bild} alt="" />
