@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
+
 $green-bg: #4c7972;
+$green-light-bg: #5d928a;
 $body-bg: #efefef;
 $container-bg: #ffffff;
 $footer-bg: #03292c;
@@ -19,3 +21,22 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
   --fs-sub-title: 20px;
 }
 
+@mixin menuCardDesign() {
+  background-color: $container-bg;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
+  border-radius: .2rem 
+}
+
+@mixin addBtnStyle() {
+  background-color: $green-bg;
+  color: $container-bg;
+  font-family: $header-font;
+  padding: .3rem 1.3rem;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
+  border-radius: .2rem;
+  border: none;
+  &:hover {
+    background-color: $green-light-bg
+  }
+  
+}
