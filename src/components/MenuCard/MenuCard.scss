@@ -1,104 +1,118 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
 
 .menucard-container {
-    transition: .1s all;
-    display: flex;
-    flex-direction: row-reverse;
-    position: relative;
-    margin: 0 auto;
-    height: 7rem;
-    padding: .7rem;
-    @include menuCardDesign();
-    overflow: hidden;
-    margin: 0 1rem;
+	transition: 0.1s all;
+	display: flex;
+	flex-direction: row-reverse;
+	position: relative;
+	margin: 0 auto;
+	height: 7rem;
+	padding: 0.7rem;
+	@include menuCardDesign();
+	overflow: hidden;
+	// margin: 0 1rem;
+	width: 100%;
+	margin-bottom: 1rem;
 }
 .menucard-container-open {
-    transition: .1s all;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    margin: 0 auto;
-    height: 15rem;
-    padding: .7rem;
-    @include menuCardDesign();
-    overflow: hidden;
-    margin: 0 1rem;
+	transition: 0.1s all;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	margin: 0 auto;
+	height: 15rem;
+	padding: 0.7rem;
+	@include menuCardDesign();
+	overflow: hidden;
+	width: 100%;
+	margin-bottom: 1rem;
 
-    .menucard-image-container{
-        flex: 2.5;
-    }
-    .menucard-dropdown {
-        margin-top: .7rem;
-        flex: .5;
-        .white-fade{
-            display: none;
-        }
-    }
+	.menucard-image-container {
+		flex: 2.5;
+	}
+	.menucard-dropdown {
+		margin-top: 0.7rem;
+		flex: 0.5;
+		.white-fade {
+			display: none;
+		}
+	}
 }
-.menucard-image-container{
-    overflow: hidden;
-    display: flex;
-    flex: 1;
+.menucard-image-container {
+	overflow: hidden;
+	display: flex;
+	flex: 1;
 }
 
 .menucard-figure {
-    overflow: hidden;
-    border-radius: .2rem
+	overflow: hidden;
+	border-radius: 0.2rem;
 }
 
 .menucard-image {
-    width: 130%;   
+	width: 130%;
 }
 
 .menucard-dropdown {
-    display: flex;
-    flex: 1.5;
-    position: relative;
-    flex-direction: column;
+	display: flex;
+	flex: 1.5;
+	position: relative;
+	flex-direction: column;
 
-    .menucard-header {
-        font-family: $header-font;
-        display: flex;
-        align-items: center;
-        margin-right: 1rem;
+	.menucard-header {
+		font-family: $header-font;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		margin-right: 3rem;
 
-        .menucard-title {
+		.menucard-title {
+			font-family: $header-font;
+			font-size: 1.5rem;
+			margin-right: 0.4rem;
+			font-weight: 400;
+			min-width: max-content;
+            padding-bottom: 0.5rem;
+		}
+
+		.menucard-price {
             font-family: $header-font;
-            margin-right: .4rem;
-            font-weight: 400;
-            // min-width: max-content;
-        }
+			color: #000;
+			font-size: 1.2rem;
+			font-weight: 400;
+			min-width: max-content;
+		}
+	}
 
-        .menucard-price {
-            color: $price-bg;
-            // min-width: max-content;
-        }
-    }
+	.menucard-info {
+		position: relative;
+		height: 5rem;
+		overflow-y: hidden;
 
-    .menucard-info {
-        position: relative;
-        height: 5rem;
-        overflow-y: hidden;
+		.menucard-desc {
+			margin: 0;
+			font-family: $text-font;
+			font-size: var(--fs-text);
+			line-height: normal;
+		}
 
-        .menucard-desc{
-            margin: 0;
-            font-family: $text-font;
-            font-size: var(--fs-text);
-            line-height: normal;    
-        }
-
-        .white-fade {
-            position: absolute;
-            bottom: 0       ;
-            width: 100%;
-            height: 1.6rem;
-            background-image: linear-gradient(rgba(255, 255, 255, 0), rgb(255, 255, 255), rgb(255, 255, 255));
-        }
-    }
+		.white-fade {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 1.6rem;
+			background-image: linear-gradient(
+				rgba(255, 255, 255, 0),
+				rgb(255, 255, 255),
+				rgb(255, 255, 255)
+			);
+		}
+	}
 }
 .menucard-drop {
-    background-color: white;
-    position: absolute;
-    bottom: .7rem;
-    left: .7rem;
+	background-color: white;
+	position: absolute;
+	bottom: 0.7rem;
+	left: 0.7rem;
 }

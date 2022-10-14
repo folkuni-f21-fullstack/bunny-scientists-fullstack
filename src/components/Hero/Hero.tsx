@@ -1,13 +1,14 @@
-import "./Hero.scss"
-import Escargot from "../../assets/escargot-hero.jpg"
+import Escargot from '../../assets/escargot-hero.jpg';
+import './Hero.scss';
 
-const Header = () => {
-    return (
-        <figure className="hero-wrapper">
-            <img src={Escargot} alt="" />
-            <figcaption>Slemmigt bättre</figcaption>
-        </figure>
-    )
-}
+const Hero = () => {
+	return (
+		<figure className='hero-wrapper'>
+			<img src={Escargot} alt='' />
+			<figcaption>Slemmigt bättre</figcaption>
+			<div id='sniglar'></div>
+		</figure>
+	);
+};
 
-export default Header
+export default Hero;
