@@ -2,28 +2,51 @@ import "./HomePage.scss";
 import MenuNav from "../../components/MenuNav/MenuNav";
 import Hero from "../../components/Hero/Hero"
 import MenuCard from "../../components/MenuCard/MenuCard";
+import Data from "../../data/data.json"
+import { MenuItem } from '../../models/data'
 
 const HomePage = () => {
+  const itemsByCategory = Data.array.menu
+  const escargots = itemsByCategory[0]["menu-items"]
+  const kids = itemsByCategory[1]["menu-items"]
+  const drinks = itemsByCategory[2]["menu-items"]
+  const desserts = itemsByCategory[3]["menu-items"]
+  // console.log(escargots)
   return (
     <main className="home-page">
       <Hero/>
       <MenuNav/>
-      <h2 id="food">Mat</h2>
+      <h2 id="sniglar">Sniglar</h2>
       <section className="cards-container">
-        <MenuCard/>
-        
+        {
+          escargots.map((menuItem, i:number)=>{
+            return (<MenuCard menuItem={menuItem} key={i}/>)
+          })
+        }
       </section>
       <h2 id="kids">Barn</h2>
       <section className="cards-container">
-        
+        {
+          kids.map((menuItem, i:number)=>{
+            return (<MenuCard menuItem={menuItem} key={i}/>)
+          })
+        }
       </section>
       <h2 id="beverages">Dryck</h2>
       <section className="cards-container">
-        
+        {
+          drinks.map((menuItem, i:number)=>{
+            return (<MenuCard menuItem={menuItem} key={i}/>)
+          })
+        }
       </section>
       <h2 id="desserts">Efterätter</h2>
       <section className="cards-container">
-        
+      {
+          desserts.map((menuItem, i:number)=>{
+            return (<MenuCard menuItem={menuItem} key={i}/>)
+          })
+        }
       </section>
     </main>
   )
