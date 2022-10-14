@@ -22,43 +22,50 @@
                         "id": "201",
                         "name": "Escargots “au gratin”",
                         "price": 149,
-                        "description": "Escargots with mushroom, artichoke bottom, spinach, Béchamel sauce. Topped with melted cheese"
+                        "description": "Escargots with mushroom, artichoke bottom, spinach, Béchamel sauce. Topped with melted cheese",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "202",
                         "name": "Oeuf Cocotte d'Escargots",
                         "price": 189,
-                        "description": "Egg poached in Béchamel sauce topped with escargots and mushrooms, seasoned with parsley, garlic & butter"
+                        "description": "Egg poached in Béchamel sauce topped with escargots and mushrooms, seasoned with parsley, garlic & butter",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "203",
                         "name": "Mille Feuilles d'Escargots",
                         "price": 199,
-                        "description": "Signature dish with homemade puff pastry , escargots & mushrooms with garlic and butter sauce"
+                        "description": "Signature dish with homemade puff pastry , escargots & mushrooms with garlic and butter sauce",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "204",
                         "name": "Quiche aux Escargots",
                         "price": 199,
-                        "description": "Warm “cake” (quiche style) of escargots seasoned with parsley, garlic & butter baked with spinach and shredded mozzarella cheese in a thin puff pastry crust"
+                        "description": "Warm “cake” (quiche style) of escargots seasoned with parsley, garlic & butter baked with spinach and shredded mozzarella cheese in a thin puff pastry crust",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "205",
                         "name": "Salade aux Escargots",
                         "price": 199,
-                        "description": "Chopped Romaine lettuce mixed with escargots (seasoned with parsley, garlic & butter) and sautéed mushrooms. Topped with homemade seasoned croutons."
+                        "description": "Chopped Romaine lettuce mixed with escargots (seasoned with parsley, garlic & butter) and sautéed mushrooms. Topped with homemade seasoned croutons.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "206",
                         "name": "Garlic de Speciale",
                         "price": 199,
-                        "description": "Escargot with minced garlic and dill, filled with freshly harvested species"
+                        "description": "Escargot with minced garlic and dill, filled with freshly harvested species",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "207",
                         "name": "Escargot Togo",
                         "price": 199,
-                        "description": "Our special and most luxurious dish, topped with gold flakes. No more description is needed"
+                        "description": "Our special and most luxurious dish, topped with gold flakes. No more description is needed",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     }
                 ]
             },
@@ -70,25 +77,29 @@
                         "id": "300",
                         "name": "Hamburger",
                         "price": 89,
-                        "description": "150g Hamburgare med sallad, dressing och ost"
+                        "description": "150g Hamburgare med sallad, dressing och ost",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "301",
                         "name": "Pancakes”",
                         "price": 89,
-                        "description": "Pankakor med sylt och grädde"
+                        "description": "Pankakor med sylt och grädde",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "302",
                         "name": "Fish & chips",
                         "price": 129,
-                        "description": "Friterad fisk med tjocka bitar av friterad potatis, serveras med dill och citron"
+                        "description": "Friterad fisk med tjocka bitar av friterad potatis, serveras med dill och citron",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "303",
                         "name": "Kid's snail special",
                         "price": 199,
-                        "description": "en snigel som passar för det lilla barnet."
+                        "description": "en snigel som passar för det lilla barnet.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     }
                 ]
             }, 
@@ -100,31 +111,36 @@
                         "id": "400",
                         "name": "Mandato Primitivo Appassimento Puglia",
                         "price": 99,
-                        "description": "Livfulla smaker av solmogen mörk frukt som svarta plommon, körsbär och björnbär. Mjölkchoklad från ekfat och vidare till en fin örtighet som ramar in smaken elegant."
+                        "description": "Livfulla smaker av solmogen mörk frukt som svarta plommon, körsbär och björnbär. Mjölkchoklad från ekfat och vidare till en fin örtighet som ramar in smaken elegant.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "401",
                         "name": "Nino Ardevi Prosecco",
                         "price": 89,
-                        "description": "Friska smaker av citrus, gröna äpplen och aprikos. Intensiva och eleganta dofter av blommor, grapefrukt, päron, gröna äpplen, aprikos och lime"
+                        "description": "Friska smaker av citrus, gröna äpplen och aprikos. Intensiva och eleganta dofter av blommor, grapefrukt, päron, gröna äpplen, aprikos och lime",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "402",
                         "name": "Le Prince de Courthézon Côtes du Rhône",
                         "price": 129,
-                        "description": "Aromer av mogna hallon, kryddiga plommon och nymalen svartpeppar. Silkeslena smaker med lager av svart frukt, djup och intensitet."
+                        "description": "Aromer av mogna hallon, kryddiga plommon och nymalen svartpeppar. Silkeslena smaker med lager av svart frukt, djup och intensitet.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "403",
                         "name": "Coca-Cola",
                         "price": 29,
-                        "description": "500ml Coca-Cola."
+                        "description": "500ml Coca-Cola.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "404",
                         "name": "Fanta",
                         "price": 29,
-                        "description": "500ml Fanta."
+                        "description": "500ml Fanta.",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     }
                 ]
             },{
@@ -135,31 +151,36 @@
                         "id": "500",
                         "name": "Crêpe au chocolat",
                         "price": 99,
-                        "description": "Thin and light crêpe filled with homemade chocolate sauce. Served with a side of whipped cream"
+                        "description": "Thin and light crêpe filled with homemade chocolate sauce. Served with a side of whipped cream",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "501",
                         "name": "Crêpe Suzette",
                         "price": 49,
-                        "description": "Flavored with fresh orange sauce & flamed with Grand-Marnier liquor"
+                        "description": "Flavored with fresh orange sauce & flamed with Grand-Marnier liquor",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "502",
                         "name": "Chocolate mousse",
                         "price": 69,
-                        "description": "Prepared with milk chocolate and egg whites, Ice cream style"
+                        "description": "Prepared with milk chocolate and egg whites, Ice cream style",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "503",
                         "name": "Crêpe Banana Split",
                         "price": 79,
-                        "description": "With sliced banana, 1 scoop of ice-cream, homemade chocolate sauce, whipped cream & roasted sliced almonds"
+                        "description": "With sliced banana, 1 scoop of ice-cream, homemade chocolate sauce, whipped cream & roasted sliced almonds",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     },
                     {
                         "id": "504",
                         "name": "Crème brûlée",
                         "price": 69,
-                        "description": "Chilled crème brulée topped with a caramelized crust"
+                        "description": "Chilled crème brulée topped with a caramelized crust",
+                        "image": "../assets/menu/menu-item-1.jpg"
                     }
                 ]
             }
