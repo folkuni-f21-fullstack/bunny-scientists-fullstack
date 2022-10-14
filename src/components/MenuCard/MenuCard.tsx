@@ -1,13 +1,12 @@
 import "./MenuCard.scss";
 import { MenuItem } from '../../models/data'
-import bild from '../../assets/menu/menu-item-1.jpg'
 
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { useState } from "react";
 
 
 export default function MenuCard(menuItem:MenuItem) {
-    console.log(menuItem.menuItem.image)
+    // console.log(menuItem.menuItem.image)
     const [menuCardClass, setMenuCardClass] = useState<string>("menucard-container");
     const [menuCardOpen, setMenuCardOpen] = useState<boolean>(false);
 
