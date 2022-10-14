@@ -22,20 +22,12 @@ export default function MenuCard(menuItem:MenuItem) {
 
     return (
         <article onClick={toggleDrop} className={menuCardClass}>
-            <div className="menucard-image-container">
-                <figure className="menucard-figure"  >
-                    <img className="menucard-image" src={menuItem.menuItem.image} alt="" />
-                    </figure>
-            </div>
-
-            <div className="menucard-dropdown">
-                <header className="menucard-header"><h3 className="menucard-title">{menuItem.menuItem.name}</h3><h3 className="menucard-price">{menuItem.menuItem.price} kr</h3></header>
-                <div className="menucard-info">
-                    <span className="menucard-desc">{menuItem.menuItem.description}</span> 
-                    <div className="white-fade"></div>
-                </div>  
-            </div>
-          <IoMdArrowDropdown className="menucard-drop"/>
+            <h3 className="title">{menuItem.menuItem.name}</h3>
+            <p className="price">{menuItem.menuItem.price} kr</p>
+            <p className="desc">{menuItem.menuItem.description}</p>
+            <img className="image" src={menuItem.menuItem.image} alt="" />
+            
+          {/* <IoMdArrowDropdown className="menucard-drop"/> */}
         </article>
     )
 }
