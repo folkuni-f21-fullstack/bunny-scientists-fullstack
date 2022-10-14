@@ -1,13 +1,15 @@
 @import '../../styles/variables.scss';
 
 footer {
-	padding: 1.5rem;
+	padding: 1.5rem 0 1.5rem 0;
 	color: #ffffff;
 	grid-area: Footer;
 	background-color: $footer-bg;
 	min-height: 10vh;
 	display: flex;
-	justify-content: center;
+	gap: 0.8rem;
+	align-items: center;
+	flex-direction: column;
 	a {
 		display: flex;
 		align-items: center;
@@ -23,8 +25,6 @@ footer {
 	}
 	section,
 	p {
-		display: flex;
-		flex-direction: column;
 		text-align: center;
 	}
 	ul {
@@ -37,5 +37,16 @@ footer {
 		justify-content: center;
 		gap: 1rem;
 		font-size: 2.2rem;
+	}
+}
+@media only screen and (min-width: 770px) {
+	footer {
+		article {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			max-width: 500px;
+			margin-bottom: 2rem;
+		}
 	}
 }
