@@ -16,7 +16,7 @@
                         "name": "Escargots Tradition",
                         "price": 149,
                         "description": "Authentic French country recipe of escargots with parsley, garlic & butter",
-                        "image": "../assets/menu/menu-item-1.jpg"
+                        "image": "https://images.unsplash.com/photo-1533177243638-dd485701f717?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80"
                     },
                     {
                         "id": "201",
@@ -82,7 +82,7 @@
                     },
                     {
                         "id": "301",
-                        "name": "Pancakes”",
+                        "name": "Pancakes",
                         "price": 89,
                         "description": "Pankakor med sylt och grädde",
                         "image": "../assets/menu/menu-item-1.jpg"
