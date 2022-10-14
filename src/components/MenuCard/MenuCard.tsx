@@ -30,15 +30,12 @@ export default function MenuCard(menuItem:MenuItem) {
             </div>
 
             <div className="menucard-dropdown">
-            <header className="menucard-header"><h3 className="menucard-title">{menuItem.menuItem.name}</h3><h3 className="menucard-price">{menuItem.menuItem.price} kr</h3></header>
-            <div className="menucard-info">
-                <span className="menucard-desc">{menuItem.menuItem.description}</span> 
-                <div className="white-fade"></div>
-            </div>  
-            
-
+                <header className="menucard-header"><h3 className="menucard-title">{menuItem.menuItem.name}</h3><h3 className="menucard-price">{menuItem.menuItem.price} kr</h3></header>
+                <div className="menucard-info">
+                    <span className="menucard-desc">{menuItem.menuItem.description}</span> 
+                    <div className="white-fade"></div>
+                </div>  
             </div>
-           
           <IoMdArrowDropdown className="menucard-drop"/>
         </article>
     )
