@@ -2,10 +2,14 @@
 @import "../../styles/variables.scss";
 .menu-nav {
   position: sticky;
-  top: 0;
+  top:0rem;
   z-index: 1;
   padding: 0 2rem;
   background-color: $body-bg;
+  // display: flex;
+  justify-content: center;
+  
+  // max-width: 1000px;
   ul {
     list-style: none;
     display: flex;

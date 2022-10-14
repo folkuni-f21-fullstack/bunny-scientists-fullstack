@@ -4,6 +4,7 @@
   grid-area: Header;
   background-color: $green-bg;
   position: sticky;
+  // z-index: 1;
   top: 0;
   display: flex;
   justify-content: space-between;
