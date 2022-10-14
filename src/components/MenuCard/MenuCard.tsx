@@ -7,7 +7,7 @@ import { useState } from "react";
 
 
 export default function MenuCard(menuItem:MenuItem) {
-    console.log(menuItem.menuItem.name)
+    console.log(menuItem.menuItem.image)
     const [menuCardClass, setMenuCardClass] = useState<string>("menucard-container");
     const [menuCardOpen, setMenuCardOpen] = useState<boolean>(false);
 
@@ -24,8 +24,8 @@ export default function MenuCard(menuItem:MenuItem) {
     return (
         <article onClick={toggleDrop} className={menuCardClass}>
             <div className="menucard-image-container">
-                <figure className="menucard-figure">
-                    <img className="menucard-image" src={bild} alt="" />
+                <figure className="menucard-figure"  >
+                    <img className="menucard-image" src={menuItem.menuItem.image} alt="" />
                     </figure>
             </div>
 
