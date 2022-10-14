@@ -1,17 +1,13 @@
 import "./MenuCard.scss";
-import { Menu } from '../../models/data'
+import { MenuItem } from '../../models/data'
 import bild from '../../assets/menu/menu-item-1.jpg'
 
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { useState } from "react";
 
-// interface MenuCardProps {
-//     menu: Menu;
-    
-// };
 
-export default function MenuCard() {
-    
+export default function MenuCard(menuItem:MenuItem) {
+    console.log(menuItem.menuItem.name)
     const [menuCardClass, setMenuCardClass] = useState<string>("menucard-container");
     const [menuCardOpen, setMenuCardOpen] = useState<boolean>(false);
 
@@ -24,10 +20,6 @@ export default function MenuCard() {
             setMenuCardOpen(false);
           }        
     }
-  
-
-   
-
 
     return (
         <article onClick={toggleDrop} className={menuCardClass}>
@@ -38,9 +30,9 @@ export default function MenuCard() {
             </div>
 
             <div className="menucard-dropdown">
-            <header className="menucard-header"><h3 className="menucard-title">Escargots</h3><h3 className="menucard-price">119kr</h3></header>
+            <header className="menucard-header"><h3 className="menucard-title">{menuItem.menuItem.name}</h3><h3 className="menucard-price">{menuItem.menuItem.price} kr</h3></header>
             <div className="menucard-info">
-                <span className="menucard-desc">Escargots with mushroom, artichoke bottom, spinach, Béchamel sauce. Topped with melted cheese</span> 
+                <span className="menucard-desc">{menuItem.menuItem.description}</span> 
                 <div className="white-fade"></div>
             </div>  
             
