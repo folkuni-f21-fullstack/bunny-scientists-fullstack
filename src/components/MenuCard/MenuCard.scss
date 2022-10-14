@@ -65,19 +65,21 @@
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		margin-right: 0.3rem;
+		margin-right: 3rem;
 
 		.menucard-title {
 			font-family: $header-font;
-			font-size: 1.2rem;
+			font-size: 1.5rem;
 			margin-right: 0.4rem;
 			font-weight: 400;
 			min-width: max-content;
+            padding-bottom: 0.5rem;
 		}
 
 		.menucard-price {
-			color: $price-bg;
-			font-size: 1rem;
+            font-family: $header-font;
+			color: #000;
+			font-size: 1.2rem;
 			font-weight: 400;
 			min-width: max-content;
 		}
