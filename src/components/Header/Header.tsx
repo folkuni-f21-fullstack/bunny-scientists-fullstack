@@ -33,15 +33,15 @@ const Header = () => {
             <img className="logo" src={Logo} alt="" />
           </div>
           <nav className="desktop-nav">
-            <a className="desktop-nav-link" href="">
-              HEM
-            </a>
-            <a className="desktop-nav-link" href="">
-              OM OSS
-            </a>
-            <a className="desktop-nav-link" href="">
-              BESTÄLLNINGAR
-            </a>
+            <Link className="desktop-nav-link" to="/">
+              Hem
+            </Link>
+            <Link className="desktop-nav-link" to="/about">
+              Om oss
+            </Link>
+            <Link className="desktop-nav-link" to="/orders">
+              Beställningar
+            </Link>
           </nav>
           <div className="cart-container">
             <IoIosCart className="cart" />
@@ -65,15 +65,21 @@ const Header = () => {
       <div className={navOpenClass}>
         <ul>
           <li>
-            <Link to="/">Hem </Link>
+            <Link to="/" onClick={() => toggleNav()}>
+              Hem
+            </Link>
           </li>
           <div className="line"></div>
           <li>
-            <Link to="/about">Om oss</Link>
+            <Link to="/about" onClick={() => toggleNav()}>
+              Om oss
+            </Link>
           </li>
           <div className="line"></div>
           <li>
-            <Link to="/orders">Beställningar</Link>
+            <Link to="/orders" onClick={() => toggleNav()}>
+              Beställningar
+            </Link>
           </li>
           <div className="line"></div>
         </ul>
