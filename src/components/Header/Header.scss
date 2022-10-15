@@ -4,7 +4,6 @@
   grid-area: Header;
   background-color: $green-bg;
   position: sticky;
-  // z-index: 1;
   top: 0;
   display: flex;
   justify-content: space-between;
@@ -13,6 +12,9 @@
     min-height: 10vh;
     display: flex;
     justify-content: space-between;
+    .header-desktop {
+      display: none;
+    }
   }
   .nav-accordion {
     display: flex;
@@ -192,5 +194,60 @@
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1090px) {
+  .burger {
+    display: none;
+  }
+  .header {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+
+    .header-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      .nav-button-container {
+        display: none;
+      }
+      .logo-container {
+        display: none;
+      }
+      .cart-container {
+        display: none;
+      }
+      .header-desktop {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo-container-desktop {
+          .logo {
+            aspect-ratio: 1;
+            width: 5rem;
+          }
+        }
+        .desktop-nav-link {
+          margin: 2rem;
+          font-size: 1.5rem;
+          text-decoration: none;
+          color: white;
+          font-family: $header-font;
+        }
+        .cart-container {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          margin-right: 1rem;
+          .cart {
+            font-size: 3rem;
+            color: white;
+          }
+        }
+      }
+    }
+  }
 }
