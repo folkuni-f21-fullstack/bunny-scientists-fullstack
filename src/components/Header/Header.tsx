@@ -28,6 +28,25 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header-container">
+        <div className="header-desktop">
+          <div className="logo-container-desktop">
+            <img className="logo" src={Logo} alt="" />
+          </div>
+          <nav className="desktop-nav">
+            <a className="desktop-nav-link" href="">
+              HEM
+            </a>
+            <a className="desktop-nav-link" href="">
+              OM OSS
+            </a>
+            <a className="desktop-nav-link" href="">
+              BESTÄLLNINGAR
+            </a>
+          </nav>
+          <div className="cart-container">
+            <IoIosCart className="cart" />
+          </div>
+        </div>
         <nav className="nav-button-container">
           <div className={burgerMenuClass} onClick={toggleNav}>
             <span></span>
