@@ -84,7 +84,7 @@ const Header = () => {
           <div className="line"></div>
         </ul>
         <div className="login-container">
-          <Link to="/admin">
+          <Link to="/admin" onClick={() => toggleNav()}>
             <BiLogIn className="login-icon" />
             Log in Admin
           </Link>
