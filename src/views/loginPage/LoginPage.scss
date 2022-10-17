@@ -1,1 +1,54 @@
 @import "../../styles/variables.scss";
+
+.login-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-size: 3rem;
+        margin: 3rem 0rem 0rem;
+    }
+
+    hr {
+        height: 2px;
+        border-width: 0;
+        background-color: $medium-grey;
+        margin-bottom: 4rem;
+    }
+}
+
+.login-container {
+    width: 50%;
+
+    section {
+        margin: 8rem auto 20rem auto;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 20rem;
+        margin: auto;
+        gap: 1rem;
+        font-family: $text-font;
+        font-size: 1.4rem;
+
+        .login-button {
+            @include addBtnStyle;
+            font-size: 1.4rem;
+            margin: 2rem auto;
+            width: 7rem;
+        }
+
+        input {
+            //color: $green-bg;
+            font-size: 1.4rem;
+            padding: 0.5rem;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid $green-bg;
+        }
+    }
+}

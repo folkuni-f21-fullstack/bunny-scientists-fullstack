@@ -24,7 +24,7 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
 @mixin menuCardDesign() {
   background-color: $container-bg;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
-  border-radius: .2rem 
+  border-radius: .2rem
 }
 
 @mixin addBtnStyle() {
@@ -35,8 +35,8 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
   border-radius: .2rem;
   border: none;
+
   &:hover {
     background-color: $green-light-bg
   }
-  
 }
