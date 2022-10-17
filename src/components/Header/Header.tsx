@@ -9,22 +9,21 @@ const Header = () => {
   const [burgerMenuClass, setBurgerMenuClass] = useState<string>("burger");
   const [navOpenClass, setNavOpenClass] = useState<string>("nav-accordion");
 
+
   const toggleNav = () => {
     if (!navOpen) {
       setBurgerMenuClass("burger open");
       setNavOpenClass("nav-accordion-open");
       setNavOpen(true);
+      console.log("accordion öppnas")
     } else {
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
+      console.log("accordion stängs")
     }
   };
-  window.addEventListener("scroll", () => {
-    setBurgerMenuClass("burger");
-    setNavOpen(false);
-    setNavOpenClass("nav-accordion");
-  });
+
   return (
     <header className="header">
       <div className="header-container">
@@ -84,7 +83,7 @@ const Header = () => {
           <div className="line"></div>
         </ul>
         <div className="login-container">
-          <Link to="/admin">
+          <Link to="/login" onClick={() => toggleNav()}>
             <BiLogIn className="login-icon" />
             Log in Admin
           </Link>

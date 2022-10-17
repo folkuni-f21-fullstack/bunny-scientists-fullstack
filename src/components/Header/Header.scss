@@ -65,8 +65,13 @@
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 3rem;
+    z-index: 3;
+    position: relative;
+    top: 0;
+    bottom: 0;
     height: 90vh;
     transition: 0.35s;
+    ;
     ul {
       margin-top: 3rem;
       list-style: none;
