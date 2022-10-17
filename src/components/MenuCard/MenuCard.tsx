@@ -21,7 +21,7 @@ export default function MenuCard(menuItem:MenuItem) {
     }
 
     return (
-        <article onClick={toggleDrop} className={menuCardClass}>
+        <article  className={menuCardClass}>
           <div className="title-container">
             <h3 className="title">{menuItem.menuItem.name}</h3>
             <p className="price">{menuItem.menuItem.price} kr</p>
@@ -36,7 +36,7 @@ export default function MenuCard(menuItem:MenuItem) {
             <div className="btn">
               <button className="add-btn">Lägg till</button>
             </div>
-            <div className="menucard-drop"><IoMdArrowDropdown /></div>
+            <div onClick={toggleDrop} className="menucard-drop"><IoMdArrowDropdown /></div>
           
         </article>
     )
