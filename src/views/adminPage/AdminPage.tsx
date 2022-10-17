@@ -4,7 +4,23 @@ import { useState } from 'react';
 import { OrderType } from "../../models/data";
 // import Order from "../../components/Order/Order";
  
-const allOrders = [{id: 1, ordernr: 4525, order: [{type: "Vitlökssniglar", quantity: 2}]}, {id: 2, ordernr: 4526}, {id: 3, ordernr: 4527}, {id: 4, ordernr: 4528}, {id: 5, ordernr: 4529}, {id: 6, ordernr: 4530}, {id: 7, ordernr: 4531}, {id: 8, ordernr: 4532}]
+const allOrders = [
+  {id: 1, ordernr: 4525, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Currysnigel", quantity: 2}]}, 
+  
+  {id: 2, ordernr: 4526, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Grässnigel", quantity: 1}]}, 
+
+  {id: 3, ordernr: 4527, order: [{type: "Snigel deluxe", quantity: 1}, {type: "Currysnigel", quantity: 3}]}, 
+  
+  {id: 4, ordernr: 4528, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Snigel almond", quantity: 2}]}, 
+  
+  {id: 5, ordernr: 4529, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Currysnigel", quantity: 2}]}, 
+  
+  {id: 6, ordernr: 4530, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Currysnigel", quantity: 2}]}, 
+  
+  {id: 7, ordernr: 4531, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Currysnigel", quantity: 2}]}, 
+  
+  {id: 8, ordernr: 4532, order: [{type: "Vitlökssnigel", quantity: 2}, {type: "Currysnigel", quantity: 2}]
+}]
 
 
 
@@ -17,47 +33,51 @@ const AdminPage = () => {
 
   const selectedOrderArr:any = allOrders[isSelected.id-1].order;
    
-
   
   return (
     <main className="admin-page">
       {isOrderPageActive ? 
       <header>
-        <h2 className="active" >Beställningar</h2>
-        <h2 onClick={()=>{setIsOrderPageActive(!isOrderPageActive)}}>Arkiv</h2>
+        <h2  >Beställningar</h2>
+        <h2 onClick={()=>{setIsOrderPageActive(!isOrderPageActive)}}className="active">Arkiv</h2>
       </header>
       : 
       <header>
-        <h2 onClick={()=>{setIsOrderPageActive(!isOrderPageActive)}}>Beställningar</h2>
-        <h2 className="active">Arkiv</h2>
+        <h2 onClick={()=>{setIsOrderPageActive(!isOrderPageActive)}}className="active">Beställningar</h2>
+        <h2>Arkiv</h2>
       </header>}
       <div className="line"></div>
     {isOrderPageActive ? 
       <div className="admin-wrapper">
         <section className="orders-list">
           <ul>
-            {fiveOldestOrders.map((order:OrderType, i:number)=>{
-              return ( <li key={i} className={order.id === isSelected.id ? "selected": ""} onClick={()=>{
-              setIsSelected({id:order.id})
-              }}>{order.ordernr}</li>)
+            {fiveOldestOrders.map((order:any, i:number)=>{ return ( 
+            <li key={i} className={order.id === isSelected.id ? "selected": ""} onClick={()=>{ setIsSelected({id:order.id})}}>{order.ordernr}</li>
+            )
             })}
          </ul>
         </section>
         <div className="line"></div>
         <section className="order-details">
-          <article className="order-detail-item">
-            {selectedOrderArr.map((order:any, i:number)=>{
-              <p>{order.type}</p>
-            })}
-            {/* {console.log(allOrders[isSelected.id-1].order[0].type)} */}
-            {/* <p>Vitlöksnigel</p> */}
-            <div className="quantity-container">
-              <button className="decrease">-</button>
-              <p className="quantity">1</p>
-              <button className="decrease">+</button>
-            </div>
-          </article>
+          {selectedOrderArr.map((order:any, i:number)=>{
+            return (
+              <article key={i} className="order-detail-item">
+                <p>{order.type}</p> 
+                <div className="quantity-container">
+                  <button className="decrease">-</button>
+                  <p className="quantity">{order.quantity}</p>
+                  <button className="decrease">+</button>
+                </div>
+              </article>)
+          })}
         </section>
+        <section className="customer-info">
+          <h2>Kundinformation</h2>
+          <p>Kund: <span>Linus Pellesson</span></p>
+          <p>Telefon: <span>070-177 14 32</span></p>
+          <p>Meddelande från beställare: <span>Ingen senap tack, hälften av brödet ska vara blött</span></p>
+        </section>
+        <button className="confirm-btn">Bekräfta</button>
       </div> 
       :
       <div className="admin-wrapper">
