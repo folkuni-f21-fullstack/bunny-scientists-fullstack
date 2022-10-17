@@ -24,9 +24,9 @@
   }
   .cards-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: 1rem;
   
     .menucard-container {
       width: 48%;
