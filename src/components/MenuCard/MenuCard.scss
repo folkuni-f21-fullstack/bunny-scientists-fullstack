@@ -6,8 +6,7 @@
 	display: grid;
 	margin-bottom: 1rem;
 	border-radius: 5px;
-	box-shadow: 4px 4px 10px  rgb(89, 88, 88);
-	// grid-template-areas: repeat (auto-fit, minmax 300px, 1fr) 
+	// box-shadow: 4px 4px 10px  rgb(89, 88, 88);
 	grid-template-areas: "title price image"
 						"desc price image";
 	.title {
@@ -22,6 +21,9 @@
 		font-size: 1rem;
 		margin: 0;
 		padding: 0;
+		// color: $price-bg;
+		font-family: $header-font;
+		font-weight: 400;
 	}
 	.desc {
 		grid-area: desc;
@@ -34,8 +36,9 @@
 		grid-area: image;
 		margin-left: 5px;
 		width: 150px;
+		border-radius: 5px;
 	}
-	.add-btn {
+	.btn {
 		grid-area: add;
 		display: none;
 	}
@@ -46,21 +49,29 @@
 		grid-template-areas: "image image image"
 							"title title price"
 							"desc desc add";
+		grid-template-columns: 1fr 1fr 1fr;
+		// box-shadow: 4px 4px 10px  rgb(89, 88, 88);
 		.title {
 			display: flex;
 			align-items: center;
 			font-size: 1.4rem;
 			width: 100%;
+			padding: 0.5rem 0;
 		}
 		.price {
 			font-size: 1rem;
 			margin: 0;
 			padding: 0;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			
 		}
 		.desc {
 			font-size: 1rem;
 			margin: 0;
 			padding: 0;
+			padding-right: 0.5rem;
 			line-height:normal;
 		}
 		.image { 
@@ -69,8 +80,23 @@
 			height: 100px;
 			object-fit: cover;
 		}
-		.add-btn{
+		.btn{
 			display: block;
+			display: flex;
+			justify-content: flex-end;
+			align-items: flex-end;
+		}
+		.add-btn{
+			
+			background-color: $green-bg;
+			color: #fff;
+			font-family: $header-font;
+			font-size: var(--fs-text);
+			padding: 0.5rem 1.2rem;
+			border: none;
+			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55);
+			border-radius: 3px;
+			max-height: fit-content;
 		}
 	}
 	

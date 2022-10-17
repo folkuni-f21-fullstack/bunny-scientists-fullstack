@@ -7,14 +7,16 @@
   margin-top: 1rem;
   margin-left: 0.5rem;
 }
-
-main .line {
+.about-main {
+  padding: 1rem;
+}
+.about-main .line {
   margin: 0.5rem;
   width: 90%;
   margin-bottom: 2rem;
 }
 
-main p {
+.about-main p {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2rem;
   margin: 0.5rem;
@@ -51,31 +53,23 @@ main p {
 
 @media only screen and (min-width: 735px) {
 
-  .about-header {
-    margin: 2rem 10rem;
+  .about-main {
+    max-width: 1000px;
+    margin: 0 auto;
+   
   }
 
-  .contact {
-    margin: 0rem 10rem;
-  }
 
-  main p {
-    margin-left: 10rem;
+  .about-main p {
     font-size: 2rem;
     line-height: 3rem;
   }
 
-  main .line {
-    width: 75%;
-    margin: auto;
-    margin-left: 10rem;
-  }
 
   .staff {
     flex-direction: row;
     justify-content: center;
     margin-top: 4rem;
-    margin-left: 6rem;
 
     div {
       margin: 2rem;
