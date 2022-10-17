@@ -4,6 +4,8 @@ import { IoIosCart } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { scrollToTop } from "../../App";
+
 const Header = () => {
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [burgerMenuClass, setBurgerMenuClass] = useState<string>("burger");
@@ -32,13 +34,13 @@ const Header = () => {
             <img className="logo" src={Logo} alt="" />
           </div>
           <nav className="desktop-nav">
-            <Link className="desktop-nav-link" to="/">
+            <Link className="desktop-nav-link" to="/" onClick={scrollToTop}>
               Hem
             </Link>
-            <Link className="desktop-nav-link" to="/about">
+            <Link className="desktop-nav-link" to="/about" onClick={scrollToTop}>
               Om oss
             </Link>
-            <Link className="desktop-nav-link" to="/orders">
+            <Link className="desktop-nav-link" to="/orders" onClick={scrollToTop}>
               Beställningar
             </Link>
           </nav>

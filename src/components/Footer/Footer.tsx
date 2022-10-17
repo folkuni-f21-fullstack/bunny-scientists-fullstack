@@ -1,12 +1,9 @@
-import {
-	AiFillFacebook,
-	AiFillInstagram,
-	AiFillLinkedin,
-} from 'react-icons/ai';
+import { AiFillFacebook, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
 import { BiLogIn } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import data from '../../data/data.json';
 import './Footer.scss';
+import { scrollToTop } from '../../App';
 
 const Footer = () => {
 	return (
@@ -35,7 +32,7 @@ const Footer = () => {
 				</section>
 			</article>
 			<Link to='/login'>
-				<a href=''>
+				<a onClick={scrollToTop}>
 					Admin inlog <BiLogIn />
 				</a>
 			</Link>
