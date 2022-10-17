@@ -63,7 +63,7 @@
 			margin: 0;
 			padding: 0;
 			display: flex;
-			justify-content: center;
+			justify-content: flex-end;
 			align-items: center;
 			
 		}
@@ -83,7 +83,7 @@
 		.btn{
 			display: block;
 			display: flex;
-			justify-content: center;
+			justify-content: flex-end;
 			align-items: flex-end;
 		}
 		.add-btn{

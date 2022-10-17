@@ -26,13 +26,17 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1rem;
-    // background-color: red;
+    gap: 2rem;
   
     .menucard-container {
       width: 48%;
       margin: 0;
     }
   }
+  .home-page {
+   h2 {
+      font-size: 3rem;
+    }
   
+  }
 }
