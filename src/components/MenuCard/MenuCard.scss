@@ -1,27 +1,29 @@
 @import '../../styles/variables.scss';
 
 .menucard-container {
-	background-color: #fff;
+	@include menuCardDesign;
 	padding: 1rem;
 	display: grid;
-	margin-bottom: 1rem;
-	border-radius: 5px;
-	// box-shadow: 4px 4px 10px  rgb(89, 88, 88);
-	grid-template-areas: "title price image"
-						"desc price image";
+	margin-bottom: 1rem;	
+	grid-auto-rows: 1.4rem auto;
+	grid-template-areas:"title title image"
+						"desc desc image"
+						"down down image";
+}
+.title-container{
+	display: flex;
+}
 	.title {
 		grid-area: title;
 		font-size: 1rem;
-		width: 50%;
 		font-family: $header-font;
 		font-weight: 400;
 	}
 	.price {
-		grid-area: price;
 		font-size: 1rem;
-		margin: 0;
+		margin: 0 0 0 .3rem;
 		padding: 0;
-		// color: $price-bg;
+		color: $price-bg;
 		font-family: $header-font;
 		font-weight: 400;
 	}
@@ -30,51 +32,114 @@
 		font-size: 1rem;
 		margin: 0;
 		padding: 0;
-		line-height:normal;
+		line-height: normal;
+	}
+	.image-container{
+		overflow: hidden;
+		grid-area: image;
 	}
 	.image { 
-		grid-area: image;
-		margin-left: 5px;
-		width: 150px;
-		border-radius: 5px;
+		width: 150px;	
 	}
+
 	.btn {
 		grid-area: add;
 		display: none;
+
+}
+
+
+.menucard-drop{
+	display: flex;
+	align-items: flex-end;
+	grid-area: down;
+}
+.menucard-container-open {
+	background-color: #fff;
+	padding: 1rem;
+	display: grid;
+	margin-bottom: 1rem;
+	border-radius: 5px;
+	
+	grid-template-areas: "image image image"
+						 "title title title"
+						 "desc desc desc"
+						 "down . add"
+						 ;
+
+	.image-container{
+		
+		grid-area: image;
+		height: 100px;
+		position: relative;	
+		margin-bottom: .5rem;
+	}
+
+	.image { 	
+	object-fit: contain;
+	width: 100%;
+	position: absolute;
+	bottom: -5rem;
+}
+.desc{
+	margin-bottom: .5rem;
+}
+
+.btn {
+	grid-area: add;
+	display: flex;	
+	justify-content: flex-end;
+}
+	.menucard-drop{
+		display: flex;
+		justify-content: end;
+		align-items: flex-start;
+		transform: rotate(180deg);
+		grid-area: down;
+		.svg{
+			display: flex;
+		}
 	}
 }
+.add-btn{
+	@include addBtnStyle;
+	}
 
 @media only screen and (min-width: 730px) {
 	.menucard-container {
-		grid-template-areas: "image image image"
-							"title title price"
-							"desc desc add";
-		grid-template-columns: 1fr 1fr 1fr;
-		// box-shadow: 4px 4px 10px  rgb(89, 88, 88);
-		.title {
-			display: flex;
-			align-items: center;
-			font-size: 1.4rem;
-			width: 100%;
-			padding: 0.5rem 0;
-		}
-		.price {
-			font-size: 1rem;
-			margin: 0;
-			padding: 0;
-			display: flex;
-			justify-content: flex-end;
-			align-items: center;
-			
-		}
-		.desc {
-			font-size: 1rem;
-			margin: 0;
-			padding: 0;
-			padding-right: 0.5rem;
-			line-height:normal;
-		}
+		grid-template-rows: auto;	
+		grid-template-areas: 	"image image image"
+								"title title title"
+								"desc desc desc"
+								"desc desc desc"
+								"add add add";
+		
+	.title {
+		min-width: max-content;
+		grid-area: title;
+		font-size: 1.4rem;
+		font-family: $header-font;
+		font-weight: 400;
+	}
+
+	.price {
+		min-width: max-content;
+		font-size: 1.4rem;
+		margin: 0 0 0 .3rem;
+		padding: 0;
+		color: $price-bg;
+		font-family: $header-font;
+		font-weight: 400;
+	}
+	.desc {
+		font-size: 1rem;
+		margin: .5rem 0 0 0;
+		padding: 0;
+		padding-right: 0.5rem;
+		line-height: normal;
+	}
 		.image { 
+
 			margin-left: 0;
 			width: 100%;
 			height: 100px;
@@ -86,18 +151,10 @@
 			justify-content: flex-end;
 			align-items: flex-end;
 		}
-		.add-btn{
-			
-			background-color: $green-bg;
-			color: #fff;
-			font-family: $header-font;
-			font-size: var(--fs-text);
-			padding: 0.5rem 1.2rem;
-			border: none;
-			box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.55);
-			border-radius: 3px;
-			max-height: fit-content;
+
+		.menucard-drop{
+			display: none;
 		}
+		
 	}
-	
 }

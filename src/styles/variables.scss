@@ -4,6 +4,7 @@
 
 $green-bg: #4c7972;
 $green-light-bg: #5d928a;
+$green-dark-bg: #406862;
 $body-bg: #efefef;
 $container-bg: #ffffff;
 $footer-bg: #03292c;
@@ -31,7 +32,7 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
   background-color: $green-bg;
   color: $container-bg;
   font-family: $header-font;
-  padding: .3rem 1.3rem;
+  padding: .4rem 1.4rem;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
   border-radius: .2rem;
   border: none;
@@ -39,4 +40,9 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
   &:hover {
     background-color: $green-light-bg
   }
+  &:active{
+    background-color: $green-dark-bg
+
+  }
+  
 }
