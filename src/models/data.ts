@@ -8,3 +8,10 @@ export interface MenuItem {
     }
 	
 };
+export interface OrderType {
+   id: number;
+    ordernr: number;
+    
+    
+	
+};
