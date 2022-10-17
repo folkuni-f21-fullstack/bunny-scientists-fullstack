@@ -2,7 +2,7 @@
 @import '../../styles/variables.scss';
 .menu-nav {
 	position: sticky;
-	top: 0rem;
+	top: 7rem;
 	z-index: 1;
 	width: 100%;
 	margin-top: 1rem;
@@ -41,4 +41,12 @@
 	.active {
 		color: $green-bg;
 	}
+}
+@media screen and (min-width: 1090px) {
+	.menu-nav {
+		a {
+			font-size: 23px;
+		}
+	}
+	
 }
