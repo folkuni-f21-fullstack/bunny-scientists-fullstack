@@ -7,6 +7,7 @@
 	h2 {
 		width: 90%;
 		padding-top: 1rem;
+    // font
 	}
 	h2:nth-of-type(n + 2) {
 		padding-top: 3rem;
@@ -29,7 +30,7 @@
     // background-color: red;
   
     .menucard-container {
-      max-width: 48%;
+      width: 48%;
       margin: 0;
     }
   }

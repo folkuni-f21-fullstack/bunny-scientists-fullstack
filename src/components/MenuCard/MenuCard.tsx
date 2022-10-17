@@ -26,7 +26,9 @@ export default function MenuCard(menuItem:MenuItem) {
             <p className="price">{menuItem.menuItem.price} kr</p>
             <p className="desc">{menuItem.menuItem.description}</p>
             <img className="image" src={menuItem.menuItem.image} alt="" />
-            <button className="add-btn">Lägg till</button>
+            <div className="btn">
+              <button className="add-btn">Lägg till</button>
+            </div>
           {/* <IoMdArrowDropdown className="menucard-drop"/> */}
         </article>
     )
