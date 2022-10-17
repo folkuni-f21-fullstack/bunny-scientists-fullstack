@@ -39,7 +39,10 @@
 		grid-area: image;
 	}
 	.image { 
-		width: 150px;	
+		grid-area: image;
+		// margin-left: 5px;
+		width: 150px;
+		border-radius: 5px;
 	}
 
 	.btn {
