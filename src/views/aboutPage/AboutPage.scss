@@ -1,31 +1,33 @@
 @import "../../styles/variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 
-
 .about-header {
   font-size: 3rem;
   margin-top: 1rem;
   margin-left: 0.5rem;
 }
 
-main .line {
+.about-main {
+  padding: 2rem;
+}
+
+.about-main .line {
   margin: 0.5rem;
   width: 90%;
   margin-bottom: 2rem;
 }
 
-main p {
+.about-main p {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2rem;
   margin: 0.5rem;
-  line-height: 2rem;
+  line-height: 3rem;
 }
 
 .contact {
-  font-size: 2rem;
+  font-size: 1.2rem;
   margin-top: 1rem;
-  margin-left: 0.5rem;
-  padding-bottom: 0.7rem;
+  padding-bottom: 0.8rem;
 }
 
 .staff {
@@ -49,35 +51,24 @@ main p {
   }
 }
 
-@media only screen and (min-width: 735px) {
+@media only screen and (min-width: 770px) {
 
-  .about-header {
-    margin: 2rem 10rem;
+  .about-main {
+    max-width: 1000px;
+    margin: 0 auto;
   }
 
-  .contact {
-    margin: 0rem 10rem;
-  }
-
-  main p {
-    margin-left: 10rem;
-    font-size: 2rem;
+  .about-main p {
+    font-size: 1.2rem;
     line-height: 3rem;
-  }
-
-  main .line {
-    width: 75%;
-    margin: auto;
-    margin-left: 10rem;
   }
 
   .staff {
     flex-direction: row;
     justify-content: center;
     margin-top: 4rem;
-    margin-left: 6rem;
 
-    div {
+    .staff-card {
       margin: 2rem;
     }
   }

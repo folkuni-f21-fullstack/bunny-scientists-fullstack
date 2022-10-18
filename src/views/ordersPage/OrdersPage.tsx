@@ -1,5 +1,4 @@
-import "../loginPage/LoginPage.scss";
-
+import "../ordersPage/ordersPage.scss";
 
 const OrderPage = () => {
   return (

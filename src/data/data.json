@@ -2,9 +2,9 @@
     "array": {
         "restaurant": {
             "name": "Escargot Togo",
-            "mail": "escargoto@mail.com",
+            "mail": "escargottogo@snigelpost.com",
             "address": "Idagatan 55",
-            "phone": "05499999"
+            "phone": "054 99 99 93"
         },
         "menu": [
             {
@@ -13,56 +13,56 @@
                 "menu-items": [
                     {
                         "id": "200",
-                        "name": "Escargots Tradition",
+                        "name": "Tradition",
                         "price": 149,
                         "description": "Authentic French country recipe of escargots with parsley, garlic & butter",
                         "image": "https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg"
                     },
                     {
                         "id": "201",
-                        "name": "Escargots “au gratin”",
+                        "name": "Au Gratin”",
                         "price": 149,
                         "description": "Escargots with mushroom, artichoke bottom, spinach, Béchamel sauce. Topped with melted cheese",
                         "image": "https://www.ratemds.com/blog/wp-content/uploads/2017/03/shutterstock_1159135375-720x320@2x.jpg"
                     },
                     {
                         "id": "202",
-                        "name": "Oeuf Cocotte d'Escargots",
+                        "name": "Cocotte",
                         "price": 189,
                         "description": "Egg poached in Béchamel sauce topped with escargots and mushrooms, seasoned with parsley, garlic & butter",
                         "image": "https://www.beaune-tourism.com/sites/ot-beaune/files/styles/gallery_lightbox/public/content/images/vente_des_vins-beaune-escargots_paysage-min-min.jpg?itok=FeKJpG8U"
                     },
                     {
                         "id": "203",
-                        "name": "Mille Feuilles d'Escargots",
+                        "name": "Feuilles",
                         "price": 199,
                         "description": "Signature dish with homemade puff pastry , escargots & mushrooms with garlic and butter sauce",
                         "image": "http://4.bp.blogspot.com/-3Flatg29-fE/VbCo46M5neI/AAAAAAAAct0/oPD9NVTW-rE/w1200-h630-p-k-no-nu/Caracoles%2Bde%2BBorgo%25C3%25B1a%2Ba%2Bla%2BMantequilla%2B%2528Escargots%2Bde%2BBourgogne%2Bbeurr%25C3%25A9s%2529.jpg"
                     },
                     {
                         "id": "204",
-                        "name": "Quiche aux Escargots",
+                        "name": "Quiche",
                         "price": 199,
                         "description": "Warm “cake” (quiche style) of escargots seasoned with parsley, garlic & butter baked with spinach and shredded mozzarella cheese in a thin puff pastry crust",
                         "image": "https://static.cookist.it/wp-content/uploads/sites/21/2018/07/escargot.jpg"
                     },
                     {
                         "id": "205",
-                        "name": "Salade aux Escargots",
+                        "name": "Salade",
                         "price": 199,
                         "description": "Chopped Romaine lettuce mixed with escargots (seasoned with parsley, garlic & butter) and sautéed mushrooms. Topped with homemade seasoned croutons.",
                         "image": "https://www.agrodolce.it/app/uploads/2017/04/shutterstock_246135493.jpg"
                     },
                     {
                         "id": "206",
-                        "name": "Garlic de Speciale",
+                        "name": "Garlic",
                         "price": 199,
                         "description": "Escargot with minced garlic and dill, filled with freshly harvested species",
                         "image": "https://assets.pikiran-rakyat.com/crop/14x607:1279x1544/x/photo/2022/07/30/3204133209.jpg"
                     },
                     {
                         "id": "207",
-                        "name": "Escargot Togo",
+                        "name": "Estogo",
                         "price": 199,
                         "description": "Our special and most luxurious dish, topped with gold flakes. No more description is needed",
                         "image": "https://www.tastefrance.com/sites/tastefrance.com/files/2021-04/image_Yarmolovich_Anastasy.jpg"
@@ -82,21 +82,21 @@
                     },
                     {
                         "id": "301",
-                        "name": "Pancakes",
+                        "name": "Pancakes”",
                         "price": 89,
                         "description": "Pankakor med sylt och grädde",
                         "image": "https://media.eggs.ca/assets/RecipePhotos/_resampled/FillWyIxMjgwIiwiNzIwIl0/Fluffy-Pancakes-New-CMS.jpg"
                     },
                     {
                         "id": "302",
-                        "name": "Fish & chips",
+                        "name": "Fish & Chips",
                         "price": 129,
                         "description": "Friterad fisk med tjocka bitar av friterad potatis, serveras med dill och citron",
                         "image": "https://img.koket.se/standard-mega/per-morbergs-fish-and-chips.jpg"
                     },
                     {
                         "id": "303",
-                        "name": "Kid's snail special",
+                        "name": "Kid Special",
                         "price": 199,
                         "description": "en snigel som passar för det lilla barnet.",
                         "image": "https://www.sheknows.com/wp-content/uploads/2018/12/jhvm7qchoinvje6owciw.jpeg"
@@ -109,37 +109,37 @@
                 "menu-items": [
                     {
                         "id": "400",
-                        "name": "Mandato Primitivo Appassimento Puglia",
+                        "name": "Mandato",
                         "price": 99,
                         "description": "Livfulla smaker av solmogen mörk frukt som svarta plommon, körsbär och björnbär. Mjölkchoklad från ekfat och vidare till en fin örtighet som ramar in smaken elegant.",
                         "image": "https://www.creativefabrica.com/wp-content/uploads/2019/07/Wine-Bottle-Mockup-by-Nest-Studio-2-580x392.jpg"
                     },
                     {
                         "id": "401",
-                        "name": "Nino Ardevi Prosecco",
+                        "name": "Prosecco",
                         "price": 89,
                         "description": "Friska smaker av citrus, gröna äpplen och aprikos. Intensiva och eleganta dofter av blommor, grapefrukt, päron, gröna äpplen, aprikos och lime",
                         "image": "https://static.independent.co.uk/2021/12/10/08/presidents%20blend%20.jpg"
                     },
                     {
                         "id": "402",
-                        "name": "Le Prince de Courthézon Côtes du Rhône",
+                        "name": "Courthézon",
                         "price": 129,
                         "description": "Aromer av mogna hallon, kryddiga plommon och nymalen svartpeppar. Silkeslena smaker med lager av svart frukt, djup och intensitet.",
                         "image": "https://media.gq-magazine.co.uk/photos/600ab116a4d204d1fe57ae9c/master/w_1600%2Cc_limit/220121_Wine.jpg"
                     },
                     {
                         "id": "403",
-                        "name": "Coca-Cola",
+                        "name": "Cola",
                         "price": 29,
-                        "description": "500ml Coca-Cola.",
+                        "description": "500ml Coca-Cola. Serveras i ett kallt glas med isbitar",
                         "image": "https://cdn.abicart.com/shop/images/191674885-origpic-8f5206/ws91/86391/art91/h4885/Coca-Cola-Diet-Coke-20cl-24pack.jpg"
                     },
                     {
                         "id": "404",
                         "name": "Fanta",
                         "price": 29,
-                        "description": "500ml Fanta.",
+                        "description": "500ml Fanta. Serveras i ett kallt glas med isbitar",
                         "image": "https://static-prod.adweek.com/wp-content/uploads/2017/06/fanta-spiral-bottle-hed-2017.jpg"
                     }
                 ]
@@ -149,35 +149,35 @@
                 "menu-items": [
                     {
                         "id": "500",
-                        "name": "Crêpe au chocolat",
+                        "name": "Au Chocolat",
                         "price": 99,
                         "description": "Thin and light crêpe filled with homemade chocolate sauce. Served with a side of whipped cream",
                         "image": "https://image.over-blog.com/VL4ACp5WoKdlCKV1YZaNI-AeEOo=/filters:no_upscale()/image%2F0651923%2F20210129%2Fob_3304f2_crepes-au-chocolat.jpg"
                     },
                     {
                         "id": "501",
-                        "name": "Crêpe Suzette",
+                        "name": "Suzette",
                         "price": 49,
                         "description": "Flavored with fresh orange sauce & flamed with Grand-Marnier liquor",
                         "image": "https://food-images.files.bbci.co.uk/food/recipes/classiccrepessuzette_66236_16x9.jpg"
                     },
                     {
                         "id": "502",
-                        "name": "Chocolate mousse",
+                        "name": "Mousse",
                         "price": 69,
                         "description": "Prepared with milk chocolate and egg whites, Ice cream style",
                         "image": "https://img.taste.com.au/I3x-cteh/taste/2010/01/chocolate_mousse_in_minutes_1980x1320-117905-1.jpg"
                     },
                     {
                         "id": "503",
-                        "name": "Crêpe Banana Split",
+                        "name": "Banana Split",
                         "price": 79,
                         "description": "With sliced banana, 1 scoop of ice-cream, homemade chocolate sauce, whipped cream & roasted sliced almonds",
                         "image": "https://images-gmi-pmc.edge-generalmills.com/fe3a5aca-9475-4a09-8507-2651c81fd7b8.jpg"
                     },
                     {
                         "id": "504",
-                        "name": "Crème brûlée",
+                        "name": "Crème Brûlée",
                         "price": 69,
                         "description": "Chilled crème brulée topped with a caramelized crust",
                         "image": "https://shared.cdn.smp.schibsted.com/v2/images/7db8e189-2052-4470-94db-5a4ebc7008b8?fit=crop&h=591&w=1000&s=d64df287e22d9b54ef073c3cbeba0cff290ab1cd"

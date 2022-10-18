@@ -6,17 +6,17 @@ import { MenuItem } from '../../models/data';
 import './HomePage.scss';
 
 const HomePage = () => {
-	const itemsByCategory = Data.array.menu;
-	const escargots = itemsByCategory[0]['menu-items'];
-	const kids = itemsByCategory[1]['menu-items'];
-	const drinks = itemsByCategory[2]['menu-items'];
-	const desserts = itemsByCategory[3]['menu-items'];
+  const itemsByCategory = Data.array.menu;
+  const escargots = itemsByCategory[0]['menu-items'];
+  const kids = itemsByCategory[1]['menu-items'];
+  const drinks = itemsByCategory[2]['menu-items'];
+  const desserts = itemsByCategory[3]['menu-items'];
 
-	return (
-		<main className='home-page'>
-			<Hero />
-			<MenuNav />
-			<div className='main-wrapper'>
+  return (
+    <main className='home-page'>
+      <Hero />
+      <MenuNav />
+      <div className='main-wrapper'>
         <h2>Sniglar</h2>
         <section className='cards-container'>
           {escargots.map((menuItem, i: number) => {
@@ -42,8 +42,8 @@ const HomePage = () => {
           })}
         </section>
       </div>
-		</main>
-	);
+    </main>
+  );
 };
 
 export default HomePage;

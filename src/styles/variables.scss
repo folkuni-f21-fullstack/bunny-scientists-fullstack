@@ -4,16 +4,18 @@
 
 $green-bg: #4c7972;
 $green-light-bg: #5d928a;
+$green-dark-bg: #406862;
 $body-bg: #efefef;
 $container-bg: #ffffff;
 $footer-bg: #03292c;
 $price-bg: #ff0000;
 $light-grey: #E9E9E9;
-$medium-grey: #B5B5B5;
+$medium-grey: #F6F6F6;
+$dark-grey: #B5B5B5;
 
 $text-font: "Roboto Condensed", sans-serif;
 $header-font: "Bebas Neue";
-$box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
+$box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
 
 :root {
   --fs-text: 16px;
@@ -24,19 +26,24 @@ $box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
 @mixin menuCardDesign() {
   background-color: $container-bg;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
-  border-radius: .2rem 
+  border-radius: .2rem
 }
 
 @mixin addBtnStyle() {
   background-color: $green-bg;
   color: $container-bg;
   font-family: $header-font;
-  padding: .3rem 1.3rem;
+  padding: .4rem 1.4rem;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
   border-radius: .2rem;
   border: none;
+
   &:hover {
     background-color: $green-light-bg
+  }
+  &:active{
+    background-color: $green-dark-bg
+
   }
   
 }
