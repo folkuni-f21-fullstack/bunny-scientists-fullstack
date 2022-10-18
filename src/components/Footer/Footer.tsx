@@ -33,7 +33,7 @@ const Footer = () => {
 			</article>
 			<Link to='/login'>
 				<a onClick={scrollToTop}>
-					Admin inlog <BiLogIn />
+					Admin inlogg <BiLogIn />
 				</a>
 			</Link>
 			<p>© 2022 All rights reserved Escargot Togo</p>
