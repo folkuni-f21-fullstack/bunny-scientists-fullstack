@@ -30,9 +30,11 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <div className="header-desktop">
-          <div className="logo-container-desktop">
-            <img className="logo" src={Logo} alt="" />
-          </div>
+          <Link to="/">
+            <div className="logo-container-desktop">
+             <img className="logo" src={Logo} alt="" />
+            </div>
+          </Link>
           <nav className="desktop-nav">
             <Link className="desktop-nav-link" to="/" onClick={scrollToTop}>
               Hem
@@ -56,9 +58,11 @@ const Header = () => {
             <span></span>
           </div>
         </nav>
+        <Link to="/">
         <div className="logo-container">
           <img className="logo" src={Logo} alt="" />
         </div>
+        </Link>
         <div className="cart-container">
           <IoIosCart className="cart" />
         </div>
