@@ -30,22 +30,18 @@ export default function MenuCard(props:any) {
 
     return (
         <article  className={menuCardContainer}>
-          <div className="title-container">
-            <h3 className="title">{menuItem.name}</h3>
-            <p className="price">{menuItem.price} kr</p>
-          </div>
-            
-            
-            <p className="desc">{menuItem.description}</p>
-            <figure className="image-container">
-              <img className="image" src={menuItem.image} alt="" />
-            </figure>
-            
-            <div className="btn">
-              <button className="add-btn">Lägg till</button>
+          <div onClick={toggleDrop} className="menucard">
+            <div className="title-container">
+              <h3 className="title">{menuItem.name}</h3>
+              <p className="price">{menuItem.price} kr</p>
             </div>
-            <div onClick={toggleDrop} className="menucard-drop"><IoMdArrowDropdown /></div>
-          
+              <p className="desc">{menuItem.description}</p>
+              <figure className="image-container">
+                <img className="image" src={menuItem.image} alt="" />
+              </figure>
+              <div className="dropdown-fig"><IoMdArrowDropdown /></div>
+          </div>
+          <div className="btn-container"><button className="add-btn">Lägg till</button></div>
         </article>
     )
 }
