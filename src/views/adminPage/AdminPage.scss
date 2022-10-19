@@ -73,6 +73,10 @@
     .customer-info {
         p {
             font-weight: 700;
+            font-size: var(--fs-text);
+            .message {
+                display: block;
+            }
             span {
                 font-weight: 400;
             }

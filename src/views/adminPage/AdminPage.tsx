@@ -73,9 +73,12 @@ const AdminPage = () => {
         </section>
         <section className="customer-info">
           <h2>Kundinformation</h2>
+          <p>Meddelande från beställare: 
+            <span className="message">"Ingen senap tack, hälften av brödet ska vara blött"</span>
+          </p>
           <p>Kund: <span>Linus Pellesson</span></p>
           <p>Telefon: <span>070-177 14 32</span></p>
-          <p>Meddelande från beställare: <span>Ingen senap tack, hälften av brödet ska vara blött</span></p>
+          
         </section>
         <button className="confirm-btn">Bekräfta</button>
       </div> 
