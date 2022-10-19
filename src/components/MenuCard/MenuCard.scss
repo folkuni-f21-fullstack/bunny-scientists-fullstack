@@ -13,42 +13,41 @@
 .title-container{
 	display: flex;
 }
-	.title {
-		grid-area: title;
-		font-size: 1rem;
-		font-family: $header-font;
-		font-weight: 400;
-	}
-	.price {
-		font-size: 1rem;
-		margin: 0 0 0 .3rem;
-		padding: 0;
-		color: $price-bg;
-		font-family: $header-font;
-		font-weight: 400;
-	}
-	.desc {
-		grid-area: desc;
-		font-size: 1rem;
-		margin: 0;
-		padding: 0;
-		line-height: normal;
-	}
-	.image-container{
-		overflow: hidden;
-		grid-area: image;
-	}
-	.image { 
-		grid-area: image;
-		// margin-left: 5px;
-		width: 150px;
-		border-radius: 5px;
-	}
+.title {
+	grid-area: title;
+	font-size: 1rem;
+	font-family: $header-font;
+	font-weight: 400;
+}
+.price {
+	font-size: 1rem;
+	margin: 0 0 0 .3rem;
+	padding: 0;
+	color: $price-bg;
+	font-family: $header-font;
+	font-weight: 400;
+}
+.desc {
+	grid-area: desc;
+	font-size: 1rem;
+	margin: 0;
+	padding: 0;
+	line-height: normal;
+}
+.image-container{
+	overflow: hidden;
+	grid-area: image;
+}
+.image { 
+	grid-area: image;
+	// margin-left: 5px;
+	width: 150px;
+	border-radius: 5px;
+}
 
-	.btn {
-		grid-area: add;
-		display: none;
-
+.btn {
+	grid-area: add;
+	display: none;
 }
 
 

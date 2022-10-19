@@ -1,0 +1,33 @@
+@import '../../styles/variables.scss';
+
+.archive-list {
+
+    .archive-list-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.2rem 0.5rem;
+        margin: 0.3rem 0;
+        h2, p {
+            color: #fff;
+        }
+        p {
+            font-weight: 400;
+            font-family: $header-font;
+        }
+    .archive-list-drop{
+        svg {
+            font-size: var(--fs-title);
+            color: #fff;
+        }
+    }
+    }
+    .archive-list-item:nth-child(even) {
+        background-color: $green-bg;
+    }
+    .archive-list-item:nth-child(odd) {
+        background-color: $green-light-bg;
+    }
+
+   
+}

@@ -1,6 +1,16 @@
 @import "../../styles/variables.scss";
 
 .admin-page {
+    .admin-wrapper {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // width: 100%;
+        .subheading {
+            margin-top: 1rem;
+        }
+    }
     padding: 1rem;
     header {
         display: flex;
@@ -9,87 +19,9 @@
     }
     h2 {
         color: $footer-bg;
+        cursor: pointer;
     }
     .active {
         color: $dark-grey;
-    }
-    .orders-list {
-      ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        max-height: 15rem;
-      }
-      li {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          margin: 0.1rem;
-          width: 100%;
-          background-color: $light-grey;
-          font-family: $header-font;
-          font-size: 1.5rem;
-      }
-    }
-
-    li.selected {
-        color: #fff;
-        background-color: $green-bg;
-        padding: 1rem;
-        font-size: 3rem;
-    }
-    .order-detail-item {
-        padding: 0 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: $light-grey;
-        p {
-            font-family: $header-font;
-        }
-    }
-    .quantity-container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.5rem;
-        p {
-            font-size: var(--fs-sub-title);
-            font-family: $header-font;
-            padding: 0 0.5rem;
-        }
-        button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.2rem;
-            width: 30px;
-            height: 30px;
-            color: #fff;
-            background: #4C7972;
-            border: 1px solid #FFFFFF;
-            box-shadow: $box-shadow;
-            border-radius: 50%;
-        }
-    }
-
-    .customer-info {
-        p {
-            font-weight: 700;
-            font-size: var(--fs-text);
-            .message {
-                display: block;
-            }
-            span {
-                font-weight: 400;
-            }
-        }
-    }
-    .confirm-btn {
-        @include addBtnStyle;
-        font-size: 1.5rem;
-       
     }
 }

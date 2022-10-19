@@ -1,0 +1,119 @@
+@import '../../styles/variables.scss';
+.orders-list {
+	ul { 
+		overflow-x: hidden;
+		overflow-y: scroll;
+		max-height: 15rem;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		border-bottom: 2px solid#4C7972;
+		// margin-bottom: 1rem;
+		li {
+			display: flex;
+			cursor: pointer;
+			flex-direction: column;
+			align-items: center;
+			margin: 0.1rem;
+			width: 100%;
+			background-color: $light-grey;
+			font-family: $header-font;
+			font-size: 1.5rem;
+		} 
+		li.selected {
+			color: #fff;
+			background-color: $green-bg;
+			border: 6px solid #7E9E99;
+			font-size: 3rem;
+		}
+	}
+ } 
+
+.order-details {
+	margin-bottom: 1rem;
+	.order-detail-item {
+	padding: 0 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background-color: $light-grey;
+
+	p {
+		font-family: $header-font;
+	}
+}
+}
+
+.quantity-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.2rem;
+	margin: 0.2rem;
+	background-color: #fff;
+	border-radius: 20px;
+	p {
+		font-size: var(--fs-sub-title);
+		font-family: $header-font;
+		padding: 0 0.5rem;
+	}
+}
+.decrease, .increase {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fs-text);
+	width: 22px;
+	height: 22px;
+	color: #fff;
+	background: #4C7972;
+	border: 1px solid #FFFFFF;
+	box-shadow: $box-shadow;
+	border-radius: 50%;
+	cursor: pointer;
+}
+.customer-info {
+	// margin: 1rem 0;
+	padding: 0.3rem;
+	background-color: $light-grey;
+	p {
+		font-weight: 700;
+		font-size: var(--fs-text);
+		.message {
+			display: block;
+		}
+		span {
+			font-weight: 400;
+		}
+	}
+ 	p:nth-child(2){
+		margin-top: 1rem
+ 	}
+}
+.confirm-btn {
+	@include addBtnStyle;
+	font-size: 1.5rem;
+	align-self: center;
+	margin-bottom: 1rem;
+	cursor: pointer;
+}
+.add-to-order-container{
+	border: 1px solid $dark-grey;
+	padding: 0.3rem;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 10rem;
+	box-shadow: $box-shadow;
+	div {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 2px dotted $dark-grey;
+		margin-bottom: 0.2rem;
+	}
+	p {
+		font-family: $text-font;
+		font-size: var(--fs-text);
+		font-weight: 400;
+	}
+
+}
