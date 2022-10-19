@@ -28,7 +28,7 @@ const AdminArchive = () => {
       <section className="archive-list">
         {archivedOrders.map((order, i) =>{
           return (
-            <div className="archive-list-item">
+            <div key={i}className="archive-list-item">
               <p>kl {order.time}</p>
               <h2>{order.ordernr}</h2>
               <figure className="archive-list-drop">
