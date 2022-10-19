@@ -1,12 +1,12 @@
+import { MenuItem } from '../../models/data';
 import "./MenuCard.scss";
-import { MenuItem } from '../../models/data'
 
-import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 
-export default function MenuCard(menuItem:MenuItem) {
-    // console.log(menuItem.menuItem.image)
+export default function MenuCard(props:any) {
+    const menuItem: MenuItem = props.menuItem
     const [menuCardContainer, setMenuCardContainer] = useState<string>("menucard-container");
     const [menuCardContainerOpen, setMenuCardContainerOpen] = useState<boolean>(false);
 
@@ -29,18 +29,23 @@ export default function MenuCard(menuItem:MenuItem) {
       })
 
     return (
-        <article className={menuCardContainer}>
-          <div onClick={toggleDrop} className="menucard">
-                <div className="title-container">
-                  <h3 className="title">{menuItem.menuItem.name}</h3>
-                  <p className="price">{menuItem.menuItem.price} kr</p>
-                </div>
-
-                <p className="desc">{menuItem.menuItem.description}</p>
-                <figure className="image-container"><img className="image" src={menuItem.menuItem.image} alt="" /></figure>
-                <div className="dropdown-fig"><IoMdArrowDropdown /></div>
+        <article  className={menuCardContainer}>
+          <div className="title-container">
+            <h3 className="title">{menuItem.name}</h3>
+            <p className="price">{menuItem.price} kr</p>
           </div>
-                <div className="btn-container"><button className="add-btn">Lägg till</button></div>
+            
+            
+            <p className="desc">{menuItem.description}</p>
+            <figure className="image-container">
+              <img className="image" src={menuItem.image} alt="" />
+            </figure>
+            
+            <div className="btn">
+              <button className="add-btn">Lägg till</button>
+            </div>
+            <div onClick={toggleDrop} className="menucard-drop"><IoMdArrowDropdown /></div>
+          
         </article>
     )
 }
