@@ -1,11 +1,7 @@
 @import '../../styles/variables.scss';
 
 .archive-list {
-
     .archive-list-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         padding: 0.2rem 0.5rem;
         margin: 0.3rem 0;
         h2, p {
@@ -28,6 +24,20 @@
     .archive-list-item:nth-child(odd) {
         background-color: $green-light-bg;
     }
-
-   
+    .list-item-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+   .accordion {
+        display: none;
+   }
+   .accordion-open {
+    background-color: $medium-grey;
+    display: block;
+    h2, p{
+        color:#000
+    }
+}
 }
