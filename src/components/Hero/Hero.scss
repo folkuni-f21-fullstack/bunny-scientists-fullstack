@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
+.hero-wrapper {
+	display: flex;
+	justify-content: center;
+	position: relative;
+	width: 100%;
+	max-height: 18rem;
+
+	img {
+		width: 100%;
+		max-height: 14rem;
+		object-fit: cover;
+	}
+
+	figcaption {
+		position: absolute;
+		font-family: 'Roboto Condensed', sans-serif;
+		font-size: 4.3rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		text-align: end;
+		color: #ffffff;
+		margin: 0.5rem 1.2rem;
+	}
+}
+
+@media only screen and (min-width: 562px) {
+	.hero-wrapper {
+		figcaption {
+			margin-top: 0.5rem;
+			margin-left: 10rem;
+			margin-right: 1.2rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 705px) {
+	.hero-wrapper {
+		figcaption {
+			margin-top: 0.5rem;
+			margin-left: 20rem;
+			margin-right: 1.2rem;
+		}
+	}
+}
+
+@media only screen and (min-width: 780px) {
+	.hero-wrapper {
+		img {
+			max-height: 18rem;
+		}
+
+        figcaption {
+            font-size: 5rem;
+            margin-top: 1rem;
+            margin-left: 28rem;
+            margin-right: 1rem;
+        }
+    }
+}
+
+@media only screen and (min-width: 1068px) {
+	.hero-wrapper {
+		img {
+			max-height: 18rem;
+		}
+
+		figcaption {
+			font-size: 5rem;
+			margin-top: 1rem;
+			margin-left: 30rem;
+			margin-right: 1rem;
+		}
+	}
+}

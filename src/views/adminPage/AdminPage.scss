@@ -1,0 +1,27 @@
+@import "../../styles/variables.scss";
+
+.admin-page {
+    .admin-wrapper {
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+        // align-items: center;
+        // width: 100%;
+        .subheading {
+            margin-top: 1rem;
+        }
+    }
+    padding: 1rem;
+    header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    h2 {
+        color: $footer-bg;
+        cursor: pointer;
+    }
+    .active {
+        color: $dark-grey;
+    }
+}

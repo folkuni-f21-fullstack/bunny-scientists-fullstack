@@ -1,5 +1,49 @@
-.main {
-  grid-area: Content;
-  background-color: rgb(97, 97, 255);
-  min-height: 80vh;
+.home-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  // .cards-container {
+  //   margin: 2rem;
+  // }
+
+  h2 {
+    width: 90%;
+    padding-top: 1rem;
+  }
+
+  h2:nth-of-type(n + 2) {
+    padding-top: 3rem;
+  }
+
+  .main-wrapper {
+    width: 90%;
+  }
+}
+
+@media only screen and (min-width: 730px) {
+  .main-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .cards-container {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .menucard-container {
+      width: 48%;
+      margin: 0;
+    }
+  }
+
+  .home-page {
+    h2 {
+      font-size: 3rem;
+    }
+
+  }
 }

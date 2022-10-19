@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+
+.menu-nav {
+	position: sticky;
+	top: 7rem;
+	z-index: 1;
+	width: 100%;
+	margin-top: 1rem;
+	padding: 0.2rem;
+	background-color: $body-bg;
+	display: flex;
+	justify-content: center;
+
+	ul {
+		width: 80%;
+		max-width: 800px;
+		list-style: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+
+		li {
+			padding: 0.7rem 0;
+		}
+	}
+	.vertical-line {
+		margin: 0.2rem;
+		width: 2px;
+		background-color: $dark-grey;
+	}
+	a {
+		text-decoration: none;
+		font-family: $header-font;
+		color: #000;
+	}
+	a:active {
+		color: $green-bg;
+	}
+	.active {
+		color: $green-bg;
+	}
+}
+@media screen and (min-width: 1090px) {
+	.menu-nav {
+		a {
+			font-size: 23px;
+		}
+	}
+	
+}

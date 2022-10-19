@@ -1,0 +1,191 @@
+@import '../../styles/variables.scss';
+
+.menucard-container {
+	@include menuCardDesign;
+	
+	
+	
+	margin-bottom: 1rem;	
+	padding: .5rem;
+	align-items: center;
+}
+
+.menucard{
+	transition: all .1s;
+	height: 7rem;
+	align-self: center;
+	overflow: hidden;
+	display: grid;
+	grid-auto-rows: auto;
+	grid-template-areas:
+	"title title image image"
+	"desc desc image image"
+	"down down image image";
+}
+
+.title-container{
+	
+	grid-area: title;
+	width: max-content;
+	display: flex;		
+	gap: .5rem;
+	margin-right: .7rem;
+}
+
+.title{
+	font-family: $header-font;
+	font-weight: 400;
+	font-size: var(--fs-title);
+}
+
+.price{
+	font-family: $header-font;
+	color: $price-bg;
+	font-weight: 400;
+	font-size: var(--fs-title);
+}
+
+.desc{
+	grid-area: desc;
+	margin: 0 .5rem 0 0;
+	font-size: var(--fs-text);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	line-height: var(--fs-text);
+	max-height: 64px;
+	-webkit-line-clamp: 4; 
+	-webkit-box-orient: vertical;
+}
+.image-container{
+	
+	padding-bottom: .5rem;
+	grid-area: image;
+
+	width: 9rem;
+	max-height: 7.5rem;
+
+	.image{
+		height: 100%;
+		
+	}
+}
+
+.btn-container{
+	display: none;
+}
+
+.dropdown-fig{
+	grid-area: down;
+	align-self: flex-end;
+	justify-self: start;
+	
+}
+.menucard-container-open {
+	
+	@include menuCardDesign;
+	position: relative;
+	
+	transition: all .1s;
+	margin-bottom: 1rem;	
+	padding: .5rem;
+
+	.menucard{
+		height: 15rem;
+		position: relative;
+		display: grid;
+		grid-auto-rows: auto;
+		grid-template-areas:
+		"image image image image"
+		"title title title title"
+		"desc desc desc desc"
+		"down . . .";
+}
+.image-container{
+	
+	grid-area: image;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 7rem;
+	position: relative;
+	
+	.image{
+		position: absolute;
+		height: 370%;
+		bottom: -8rem;
+		}
+	}
+	.btn-container{
+		position: absolute;
+		right: .5rem;
+		bottom: .5rem;
+		display: block;
+		
+
+		.add-btn{
+			@include addBtnStyle
+		}
+	}
+	.dropdown-fig{
+		transform: rotate(180deg);
+		transition: .1s all;
+		
+	}
+}
+
+@media only screen and (min-width: 730px) {
+	.menucard-container{
+		@include menuCardDesign;
+		position: relative;
+
+	
+	.menucard {
+		height: 14rem;
+		position: relative;
+
+		grid-template-rows: auto;	
+		grid-template-areas: 
+		"image image image image"						
+		"title title title title"
+		"desc desc desc desc";
+		.desc{
+			margin-bottom: 2rem;
+		}
+								
+		.image-container{
+	
+			grid-area: image;
+			overflow: hidden;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 7rem;
+			position: relative;
+			
+			.image{
+				position: absolute;
+				height: 370%;
+				bottom: -8rem;
+				}
+			}
+		
+	}
+	.btn-container{
+		position: absolute;
+		right: .5rem;
+		bottom: .5rem;
+		display: block;
+		
+		.add-btn{
+			@include addBtnStyle
+		}
+	}
+	
+	.dropdown-fig{
+		display: none;
+	}
+	
+}
+}
