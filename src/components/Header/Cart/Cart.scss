@@ -1,0 +1,28 @@
+.cart-overlay {
+  display: none;
+}
+
+.cart-overlay-open {
+  display: block;
+  position: absolute;
+  right: -1rem;
+  top: 100%;
+  width: 100vw;
+  height: 80vh;
+  background-color: #f6f6f6;
+  &:before {
+    content: "";
+    background-color: #f6f6f6;
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    right: 0.8rem;
+    top: -2rem;
+    clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
+  }
+  .products {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid;
+  }
+}
