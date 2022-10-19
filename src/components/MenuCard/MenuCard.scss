@@ -53,8 +53,8 @@
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	line-height: var(--fs-text);
-	max-height: 64px;
-	-webkit-line-clamp: 4; 
+	max-height: 48px;
+	-webkit-line-clamp: 3; 
 	-webkit-box-orient: vertical;
 }
 .image-container{
