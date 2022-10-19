@@ -1,12 +1,12 @@
+import { MenuItem } from '../../models/data';
 import "./MenuCard.scss";
-import { MenuItem } from '../../models/data'
 
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 import { useState } from "react";
+import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 
-export default function MenuCard(menuItem:MenuItem) {
-    // console.log(menuItem.menuItem.image)
+export default function MenuCard(props:any) {
+    const menuItem: MenuItem = props.menuItem
     const [menuCardClass, setMenuCardClass] = useState<string>("menucard-container");
     const [menuCardOpen, setMenuCardOpen] = useState<boolean>(false);
 
@@ -23,14 +23,14 @@ export default function MenuCard(menuItem:MenuItem) {
     return (
         <article  className={menuCardClass}>
           <div className="title-container">
-            <h3 className="title">{menuItem.menuItem.name}</h3>
-            <p className="price">{menuItem.menuItem.price} kr</p>
+            <h3 className="title">{menuItem.name}</h3>
+            <p className="price">{menuItem.price} kr</p>
           </div>
             
             
-            <p className="desc">{menuItem.menuItem.description}</p>
+            <p className="desc">{menuItem.description}</p>
             <figure className="image-container">
-              <img className="image" src={menuItem.menuItem.image} alt="" />
+              <img className="image" src={menuItem.image} alt="" />
             </figure>
             
             <div className="btn">
