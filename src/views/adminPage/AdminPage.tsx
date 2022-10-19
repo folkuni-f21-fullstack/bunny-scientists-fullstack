@@ -1,5 +1,5 @@
-import "../adminPage/AdminPage.scss";
 import { useState } from 'react';
+import "../adminPage/AdminPage.scss";
 
 import { OrderType } from "../../models/data";
 // import Order from "../../components/Order/Order";
@@ -51,7 +51,7 @@ const AdminPage = () => {
       <div className="admin-wrapper">
         <section className="orders-list">
           <ul>
-            {fiveOldestOrders.map((order:any, i:number)=>{ return ( 
+            {allOrders.map((order:any, i:number)=>{ return ( 
             <li key={i} className={order.id === isSelected.id ? "selected": ""} onClick={()=>{ setIsSelected({id:order.id})}}>{order.ordernr}</li>
             )
             })}

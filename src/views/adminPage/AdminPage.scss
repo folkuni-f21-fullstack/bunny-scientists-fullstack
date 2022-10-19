@@ -13,22 +13,27 @@
     .active {
         color: $dark-grey;
     }
+    .orders-list {
+      ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        max-height: 15rem;
+      }
+      li {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin: 0.1rem;
+          width: 100%;
+          background-color: $light-grey;
+          font-family: $header-font;
+          font-size: 1.5rem;
+      }
+    }
 
-    ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    li {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 0.1rem;
-        width: 100%;
-        background-color: $light-grey;
-        font-family: $header-font;
-        font-size: 1.5rem;
-    }
     li.selected {
         color: #fff;
         background-color: $green-bg;
