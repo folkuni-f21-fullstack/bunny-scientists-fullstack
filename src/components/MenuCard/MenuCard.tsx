@@ -1,7 +1,7 @@
 import "./MenuCard.scss";
 import { MenuItem } from '../../models/data'
 
-import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
+import { IoMdArrowDropdown } from "react-icons/io";
 import { useState } from "react";
 
 
@@ -20,7 +20,13 @@ export default function MenuCard(menuItem:MenuItem) {
           } 
         }       
       }
-      
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 730){
+          setMenuCardContainer("menucard-container");
+          setMenuCardContainerOpen(false);
+        }
+      })
 
     return (
         <article className={menuCardContainer}>
