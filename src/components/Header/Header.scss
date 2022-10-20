@@ -25,7 +25,7 @@
     height: 0;
     opacity: 0;
     transition: 0.35s;
-    
+
     ul {
       display: none;
       margin-top: 3rem;
@@ -73,7 +73,6 @@
     bottom: 0;
     height: calc(100vh - 5rem);
     transition: 0.35s;
-    ;
     ul {
       display: auto;
       margin-top: 3rem;
@@ -197,6 +196,7 @@
   display: flex;
   align-items: center;
   margin-right: 1rem;
+  position: relative;
   .cart {
     font-size: 2rem;
     color: white;
@@ -251,6 +251,7 @@
           display: flex;
           align-items: center;
           margin-right: 1rem;
+          position: relative;
           .cart {
             font-size: 3rem;
             color: white;
