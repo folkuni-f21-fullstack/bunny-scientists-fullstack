@@ -1,62 +1,44 @@
+import { iteratorSymbol } from "immer/dist/internal";
+import { useEffect, useState } from "react";
+import { IoMdTrash, IoMdTrash } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { CartItem } from "../../../models/data";
+import { decrementQuantity, incrementQuantity, removeItem } from "../../../reducers/cartReducer";
+import { RootState } from "../../../store";
 import "./Cart.scss";
-import { IoMdTrash } from "react-icons/io";
 interface Props {
   cartMenuClass: string;
   cartOpenClass: string;
 }
 
-const Cart = ({ cartMenuClass, cartOpenClass }: Props) => {
+const Cart = ({ cartMenuClass }: Props) => {
+  const cart = useSelector((state: RootState) => state.cart)
+  const dispatch = useDispatch();
+  
   return (
     <div>
       <div className={cartMenuClass}>
         <div>
           <h2>PRODUKT</h2>
           <ul className="products">
-            <li className="product-in-cart">
-              <h3>Tradition</h3>
-              <p>249 kr</p>
-              <div className="add-remove-container">
-                <button className="decrease">-</button>
-                <p>2</p>
-                <button className="increase">+</button>
-              </div>
-            </li>
-            <li className="product-in-cart">
-              <h3>Tradition</h3>
-              <p>249 kr</p>
-              <div className="add-remove-container">
-                <button className="decrease">-</button>
-                <p>2</p>
-                <button className="increase">+</button>
-              </div>
-            </li>
-            <li className="product-in-cart">
-              <h3>Tradition</h3>
-              <p>249 kr</p>
-              <div className="add-remove-container">
-                <button className="decrease">-</button>
-                <p>2</p>
-                <button className="increase">+</button>
-              </div>
-            </li>
-            <li className="product-in-cart">
-              <h3>Tradition</h3>
-              <p>249 kr</p>
-              <div className="add-remove-container">
-                <button className="decrease">-</button>
-                <p>2</p>
-                <button className="increase">+</button>
-              </div>
-            </li>
-            <li className="product-in-cart">
-              <h3>Tradition</h3>
-              <p>249 kr</p>
-              <div className="add-remove-container">
-                <button className="decrease">-</button>
-                <p>2</p>
-                <button className="increase">+</button>
-              </div>
-            </li>
+            {
+              cart.map((item) => {
+                return (
+                  <li className="product-in-cart">
+                    <div onClick={()=> dispatch(removeItem(item))} className="empty-cart-container">
+                      <IoMdTrash className="trash-icon" />
+                    </div>
+                    <h3>{item.menuItem.name}</h3>
+                    <p>{item.menuItem.price} kr</p>
+                    <div className="add-remove-container">
+                      <button className="decrease" onClick={()=> dispatch(decrementQuantity(item))}>-</button>
+                      <p>{item.amount}</p>
+                      <button className="increase" onClick={()=> dispatch(incrementQuantity(item))}>+</button>
+                    </div>
+                  </li>
+                )
+              })
+            }
           </ul>
           <div className="empty-cart-container">
             <h1>TÖM VARUKORG</h1>
@@ -64,7 +46,7 @@ const Cart = ({ cartMenuClass, cartOpenClass }: Props) => {
           </div>
           <div className="total-container">
             <h2>TOTALT (INKL. MOMS)</h2>
-            <h1>523 kr</h1>
+            <h1>{cart.reduce((total, currentItem) => total = total + (currentItem.menuItem.price * currentItem.amount), 0)}</h1>
           </div>
           <button className="checkout">TILL KASSAN</button>
         </div>
