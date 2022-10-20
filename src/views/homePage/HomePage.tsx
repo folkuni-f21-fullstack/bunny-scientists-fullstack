@@ -20,22 +20,22 @@ const HomePage = () => {
         <h2>Sniglar</h2>
         <section className='cards-container'>
           {escargots.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='kids'>Barn</h2>
+        <h2>Barn</h2>
         <section className='cards-container'>
           {kids.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='beverages'>Dryck</h2>
+        <h2>Dryck</h2>
         <section className='cards-container'>
           {drinks.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='desserts'>Efterätter</h2>
+        <h2>Efterätter</h2>
         <section className='cards-container'>
           {desserts.map((menuItem, i: number) => {
             return <MenuCard menuItem={menuItem} key={i} />;

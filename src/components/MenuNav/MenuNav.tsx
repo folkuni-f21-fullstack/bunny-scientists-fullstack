@@ -1,41 +1,41 @@
-import "./MenuNav.scss";
 import { useState } from "react";
+import "./MenuNav.scss";
 const MenuNav = () => {
   const [foodSelected, setfoodSelected] = useState("");
   const [kidsSelected, setkidsSelected] = useState("");
   const [beveragesSelected, setbeveragesSelected] = useState("");
   const [dessertSelected, setdessertSelected] = useState("");
-  function toggleActive(e: any): void {
-    if (e.target.innerHTML === "Dryck") {
-      setbeveragesSelected("active");
-      setkidsSelected("");
-      setdessertSelected("");
-      setfoodSelected("");
-    } else if (e.target.innerHTML === "Barn") {
-      setbeveragesSelected("");
-      setkidsSelected("active");
-      setdessertSelected("");
-      setfoodSelected("");
-    } else if (e.target.innerHTML === "Sniglar") {
+  window.addEventListener('scroll', () => {
+    console.log(window.pageYOffset)
+    if (window.pageYOffset > 320 && window.pageYOffset < 1441){
       setbeveragesSelected("");
       setkidsSelected("");
       setdessertSelected("");
       setfoodSelected("active");
-    } else if (e.target.innerHTML === "Efterrätt") {
+    } else if (window.pageYOffset > 1442 && window.pageYOffset < 2030){
+      setbeveragesSelected("");
+      setkidsSelected("active");
+      setdessertSelected("");
+      setfoodSelected("");
+    } else if (window.pageYOffset > 2031 && window.pageYOffset < 2900){
+      setbeveragesSelected("active");
+      setkidsSelected("");
+      setdessertSelected("");
+      setfoodSelected("");
+    } else if (window.pageYOffset > 2901){
       setbeveragesSelected("");
       setkidsSelected("");
       setdessertSelected("active");
       setfoodSelected("");
     }
-  }
+  })
   return (
     <nav className="menu-nav">
       <ul>
         <li>
           <a
             className={foodSelected}
-            onClick={(e) => toggleActive(e)}
-            href="#sniglar"
+            onClick={()=>window.scrollTo(0,322)}
           >
             Sniglar
           </a>
@@ -44,8 +44,7 @@ const MenuNav = () => {
         <li>
           <a
             className={kidsSelected}
-            onClick={(e) => toggleActive(e)}
-            href="#kids"
+            onClick={()=>window.scrollTo(0,1443)}
           >
             Barn
           </a>
@@ -54,8 +53,7 @@ const MenuNav = () => {
         <li>
           <a
             className={beveragesSelected}
-            onClick={(e) => toggleActive(e)}
-            href="#beverages"
+            onClick={()=>window.scrollTo(0,2032)}
           >
             Dryck
           </a>
@@ -64,8 +62,7 @@ const MenuNav = () => {
         <li>
           <a
             className={dessertSelected}
-            onClick={(e) => toggleActive(e)}
-            href="#desserts"
+            onClick={()=>window.scrollTo(0,2902)}
           >
             Efterrätt
           </a>
