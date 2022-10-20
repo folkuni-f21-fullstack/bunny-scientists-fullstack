@@ -6,36 +6,87 @@ const MenuNav = () => {
   const [beveragesSelected, setbeveragesSelected] = useState("");
   const [dessertSelected, setdessertSelected] = useState("");
   window.addEventListener('scroll', () => {
-    console.log(window.pageYOffset)
-    if (window.pageYOffset > 320 && window.pageYOffset < 1441){
-      setbeveragesSelected("");
-      setkidsSelected("");
-      setdessertSelected("");
-      setfoodSelected("active");
-    } else if (window.pageYOffset > 1442 && window.pageYOffset < 2030){
-      setbeveragesSelected("");
-      setkidsSelected("active");
-      setdessertSelected("");
-      setfoodSelected("");
-    } else if (window.pageYOffset > 2031 && window.pageYOffset < 2900){
-      setbeveragesSelected("active");
-      setkidsSelected("");
-      setdessertSelected("");
-      setfoodSelected("");
-    } else if (window.pageYOffset > 2901){
-      setbeveragesSelected("");
-      setkidsSelected("");
-      setdessertSelected("active");
-      setfoodSelected("");
+    if (window.innerWidth < 730) {
+      if (window.pageYOffset > 240 && window.pageYOffset < 1470){
+        setbeveragesSelected("");
+        setkidsSelected("");
+        setdessertSelected("");
+        setfoodSelected("active");
+      } else if (window.pageYOffset > 1471 && window.pageYOffset < 2120){
+        setbeveragesSelected("");
+        setkidsSelected("active");
+        setdessertSelected("");
+        setfoodSelected("");
+      } else if (window.pageYOffset > 2121 && window.pageYOffset < 2920){
+        setbeveragesSelected("active");
+        setkidsSelected("");
+        setdessertSelected("");
+        setfoodSelected("");
+      } else if (window.pageYOffset > 2921){
+        setbeveragesSelected("");
+        setkidsSelected("");
+        setdessertSelected("active");
+        setfoodSelected("");
+      }
+    } else if (window.innerWidth > 730) {
+      if (window.pageYOffset > 320 && window.pageYOffset < 1441){
+        setbeveragesSelected("");
+        setkidsSelected("");
+        setdessertSelected("");
+        setfoodSelected("active");
+      } else if (window.pageYOffset > 1442 && window.pageYOffset < 2030){
+        setbeveragesSelected("");
+        setkidsSelected("active");
+        setdessertSelected("");
+        setfoodSelected("");
+      } else if (window.pageYOffset > 2031 && window.pageYOffset < 2900){
+        setbeveragesSelected("active");
+        setkidsSelected("");
+        setdessertSelected("");
+        setfoodSelected("");
+      } else if (window.pageYOffset > 2901){
+        setbeveragesSelected("");
+        setkidsSelected("");
+        setdessertSelected("active");
+        setfoodSelected("");
+      }
     }
   })
+  function scrollToFood() {
+    if(window.innerWidth < 730){
+      window.scrollTo(0,240)
+    } else if(window.innerWidth > 730){
+      window.scrollTo(0,320)
+    }
+  }
+  function scrollToKid() {
+    if(window.innerWidth < 730){
+      window.scrollTo(0,1472)
+    } else if(window.innerWidth > 730){
+      window.scrollTo(0,1442)
+    }
+  }
+  function scrollToBeverage() {
+    if(window.innerWidth < 730){
+      window.scrollTo(0,2122)
+    } else if(window.innerWidth > 730){
+      window.scrollTo(0,2031)
+    }
+  }
+  function scrollToDessert() {
+    if(window.innerWidth < 730){
+      window.scrollTo(0,2922)
+    } else if(window.innerWidth > 730){
+      window.scrollTo(0,2902)
+    }
+  }
   return (
     <nav className="menu-nav">
       <ul>
         <li>
           <a
             className={foodSelected}
-            onClick={()=>window.scrollTo(0,322)}
+            onClick={scrollToFood}
           >
             Sniglar
           </a>
@@ -44,7 +95,7 @@ const MenuNav = () => {
         <li>
           <a
             className={kidsSelected}
-            onClick={()=>window.scrollTo(0,1443)}
+            onClick={scrollToKid}
           >
             Barn
           </a>
@@ -53,7 +104,7 @@ const MenuNav = () => {
         <li>
           <a
             className={beveragesSelected}
-            onClick={()=>window.scrollTo(0,2032)}
+            onClick={scrollToBeverage}
           >
             Dryck
           </a>
@@ -62,7 +113,7 @@ const MenuNav = () => {
         <li>
           <a
             className={dessertSelected}
-            onClick={()=>window.scrollTo(0,2902)}
+            onClick={scrollToDessert}
           >
             Efterrätt
           </a>

@@ -16,7 +16,8 @@ export default function MenuCard(props:any) {
 
     const toggleDrop = () => {
 
-       if (window.innerWidth < 730){ if (!menuCardContainerOpen) {
+       if (window.innerWidth < 730){ 
+        if (!menuCardContainerOpen) {
             setMenuCardContainer("menucard-container-open");
             setMenuCardContainerOpen(true);
           } else {
