@@ -12,17 +12,17 @@ type Props = {
 const OrderItem = ({order, index}: Props) => {
     const [className, setClassName] = useState<string>('accordion')
     const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
-    
 
     const toggleDrop = () => {
-        if (!accordionOpen) {
-            setClassName("accordion-open");
-            setAccordionOpen(true);
-          } else {
-            setClassName("accordion");
-            setAccordionOpen(false);
-          }        
-      }
+      if (!accordionOpen) {
+          setClassName("accordion-open");
+          setAccordionOpen(true);
+        } else {
+          setClassName("accordion");
+          setAccordionOpen(false);
+        }        
+    }
+
     return (
         <div onClick={toggleDrop} key={index}className="archive-list-item">
               <section className="list-item-details">
@@ -43,11 +43,11 @@ const OrderItem = ({order, index}: Props) => {
                 </div>
                 <div>
                   <h2>Beställare</h2>
-                  {order.customer.map((order:any, i:number)=> {
+                  {order.customer.map((customer:any, i:number)=> {
                     return (
                     <div key={i}>
-                      <p>{order.name}</p>
-                      <p>{order.phone}</p>
+                      <p>{customer.name}</p>
+                      <p>{customer.phone}</p>
                     </div>
                     )
                   })}
