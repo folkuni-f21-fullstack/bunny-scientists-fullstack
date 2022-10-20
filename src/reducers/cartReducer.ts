@@ -1,38 +1,41 @@
-import { CartItem } from "../models/data";
+import type { PayloadAction } from '@reduxjs/toolkit';
 import { createSlice } from "@reduxjs/toolkit";
+import { CartItem, MenuItem } from "../models/data";
+
 const initialState: CartItem[] = [];
 
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {
+    addToCart: (state: CartItem[], action: PayloadAction<MenuItem>) => {
       const itemInCart = state.find((item) => item.menuItem.id === action.payload.id);
       if (itemInCart) {
         itemInCart.amount++
       } else {
-        state.push({ ...action.payload, amount: 1 });
+        const object:CartItem = {menuItem: action.payload, amount: 1}
+        state.push(object);
       }
     },
-    incrementQuantity: (state, action) => {
-      const item = state.find((item) => item.menuItem.id === action.payload)
+    incrementQuantity: (state: CartItem[], action: PayloadAction<CartItem>) => {
+      const item = state.find((item) => item.menuItem.id === action.payload.menuItem.id)
       if (item) {
         item.amount++
       }
     },
-    decrementQuantity: (state, action) => {
-      const item = state.find((item) => item.menuItem.id === action.payload)
+    decrementQuantity: (state: CartItem[], action: PayloadAction<CartItem>) => {
+      const item = state.find((item) => item.menuItem.id === action.payload.menuItem.id)
       if (item) {
         if (item.amount === 1) {
-          const removeItem = state.filter((item) => item.menuItem.id !== action.payload)
+          const removeItem = state.filter((item) => item.menuItem.id !== action.payload.menuItem.id)
           state = removeItem
         } else {
           item.amount--
         }
       }
     },
-    removeItem: (state, action) => {
-      const removeItem = state.filter((item) => item.menuItem.id !== action.payload)
+    removeItem: (state: CartItem[], action: PayloadAction<CartItem>) => {
+      const removeItem = state.filter((item) => item.menuItem.id !== action.payload.menuItem.id)
       state = removeItem
     }
   },
