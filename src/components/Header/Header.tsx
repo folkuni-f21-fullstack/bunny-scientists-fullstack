@@ -70,7 +70,7 @@ const Header = () => {
           </nav>
           <div className="cart-container">
             <IoIosCart className="cart" onClick={() => toggleCart()} />
-            <Cart cartMenuClass={cartMenuClass} cartOpenClass={cartOpenClass} />
+            <Cart cartMenuClass={cartMenuClass} />
           </div>
         </div>
         <nav className="nav-button-container">
@@ -88,7 +88,7 @@ const Header = () => {
         </Link>
         <div className="cart-container">
           <IoIosCart className="cart" onClick={() => toggleCart()} />
-          <Cart cartMenuClass={cartMenuClass} cartOpenClass={cartOpenClass} />
+          <Cart cartMenuClass={cartMenuClass} />
         </div>
       </div>
       <div className={navOpenClass}>

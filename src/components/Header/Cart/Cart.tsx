@@ -1,11 +1,15 @@
 import "./Cart.scss";
 import { IoMdTrash } from "react-icons/io";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../store";
+
 interface Props {
   cartMenuClass: string;
-  cartOpenClass: string;
 }
 
-const Cart = ({ cartMenuClass, cartOpenClass }: Props) => {
+const Cart = ({ cartMenuClass }: Props) => {
+  const cart = useSelector((state: RootState) => state.cart);
+
   return (
     <div>
       <div className={cartMenuClass}>
