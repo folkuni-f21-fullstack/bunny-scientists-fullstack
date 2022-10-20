@@ -56,28 +56,28 @@ const MenuNav = () => {
     if(window.innerWidth < 730){
       window.scrollTo(0,240)
     } else if(window.innerWidth > 730){
-      window.scrollTo(0,320)
+      window.scrollTo(0,323)
     }
   }
   function scrollToKid() {
     if(window.innerWidth < 730){
       window.scrollTo(0,1472)
     } else if(window.innerWidth > 730){
-      window.scrollTo(0,1442)
+      window.scrollTo(0,1444)
     }
   }
   function scrollToBeverage() {
     if(window.innerWidth < 730){
       window.scrollTo(0,2122)
     } else if(window.innerWidth > 730){
-      window.scrollTo(0,2031)
+      window.scrollTo(0,2033)
     }
   }
   function scrollToDessert() {
     if(window.innerWidth < 730){
       window.scrollTo(0,2922)
     } else if(window.innerWidth > 730){
-      window.scrollTo(0,2902)
+      window.scrollTo(0,2904)
     }
   }
   return (
