@@ -10,7 +10,7 @@
             {
                 "id": "101",
                 "name": "escargots",
-                "menu-items": [
+                "menuItems": [
                     {
                         "id": "200",
                         "name": "Tradition",
@@ -72,7 +72,7 @@
             {
                 "id": "102",
                 "name": "kids",
-                "menu-items": [
+                "menuItems": [
                     {
                         "id": "300",
                         "name": "Hamburger",
@@ -106,7 +106,7 @@
             {
                 "id": "103",
                 "name": "drinks",
-                "menu-items": [
+                "menuItems": [
                     {
                         "id": "400",
                         "name": "Mandato",
@@ -146,7 +146,7 @@
             },{
                 "id": "104",
                 "name": "desserts",
-                "menu-items": [
+                "menuItems": [
                     {
                         "id": "500",
                         "name": "Au Chocolat",
