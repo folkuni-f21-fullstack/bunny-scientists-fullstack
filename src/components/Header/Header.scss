@@ -10,7 +10,7 @@
   justify-content: space-between;
   flex-direction: column;
   .header-container {
-    min-height: 10vh;
+    min-height: 5rem;
     display: flex;
     justify-content: space-between;
     .header-desktop {
@@ -71,7 +71,7 @@
     position: relative;
     top: 0;
     bottom: 0;
-    height: 90vh;
+    height: calc(100vh - 5rem);
     transition: 0.35s;
     ul {
       display: auto;

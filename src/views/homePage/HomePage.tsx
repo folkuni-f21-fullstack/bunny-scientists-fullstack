@@ -7,10 +7,10 @@ import './HomePage.scss';
 
 const HomePage = () => {
   const itemsByCategory = Data.array.menu;
-  const escargots = itemsByCategory[0]['menu-items'];
-  const kids = itemsByCategory[1]['menu-items'];
-  const drinks = itemsByCategory[2]['menu-items'];
-  const desserts = itemsByCategory[3]['menu-items'];
+  const escargots = itemsByCategory[0].menuItems;
+  const kids = itemsByCategory[1].menuItems;
+  const drinks = itemsByCategory[2].menuItems;
+  const desserts = itemsByCategory[3].menuItems;
 
   return (
     <main className='home-page'>
