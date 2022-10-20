@@ -1,31 +1,15 @@
-<<<<<<< HEAD
-import { iteratorSymbol } from "immer/dist/internal";
-import { useEffect, useState } from "react";
-import { IoMdTrash, IoMdTrash } from "react-icons/io";
+import { IoMdTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { CartItem } from "../../../models/data";
 import { decrementQuantity, incrementQuantity, removeItem } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
-=======
-import { useEffect, useState } from "react";
-import { IoMdTrash } from "react-icons/io";
-import { useSelector } from "react-redux";
-import { CartItem } from "../../../models/data";
-import { RootState } from "../../../store";
-import "./Cart.scss";
-
->>>>>>> dev
 interface Props {
   cartMenuClass: string;
 }
 
 const Cart = ({ cartMenuClass }: Props) => {
   const cart = useSelector((state: RootState) => state.cart)
-<<<<<<< HEAD
   const dispatch = useDispatch();
-=======
->>>>>>> dev
   
   return (
     <div>
@@ -37,7 +21,6 @@ const Cart = ({ cartMenuClass }: Props) => {
               cart.map((item) => {
                 return (
                   <li className="product-in-cart">
-<<<<<<< HEAD
                     <div onClick={()=> dispatch(removeItem(item))} className="empty-cart-container">
                       <IoMdTrash className="trash-icon" />
                     </div>
@@ -49,16 +32,6 @@ const Cart = ({ cartMenuClass }: Props) => {
                       <button className="increase" onClick={()=> dispatch(incrementQuantity(item))}>+</button>
                     </div>
                   </li>
-=======
-                  <h3>{item.menuItem.name}</h3>
-                  <p>{item.menuItem.price} kr</p>
-                  <div className="add-remove-container">
-                    <button className="decrease">-</button>
-                    <p>{item.amount}</p>
-                    <button className="increase">+</button>
-                  </div>
-                </li>
->>>>>>> dev
                 )
               })
             }
