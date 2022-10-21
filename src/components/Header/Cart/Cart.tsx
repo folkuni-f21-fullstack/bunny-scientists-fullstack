@@ -1,6 +1,6 @@
 import { IoMdTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { decrementQuantity, incrementQuantity, removeItem } from "../../../reducers/cartReducer";
+import { decrementQuantity, incrementQuantity, removeAll, removeItem } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
 interface Props {
@@ -36,7 +36,7 @@ const Cart = ({ cartMenuClass }: Props) => {
               })
             }
           </ul>
-          <div className="empty-cart-container">
+          <div className="empty-cart-container" onClick={()=> dispatch(removeAll())}>
             <h1>TÖM VARUKORG</h1>
             <IoMdTrash className="trash-icon" />
           </div>
