@@ -1,0 +1,45 @@
+@import "../../styles/variables.scss";
+
+.archive-list {
+    .archive-list-item {
+        
+        margin: 0.3rem 0;
+        h2, p {
+            color: #fff;
+        }
+        p {
+            font-weight: 400;
+            font-family: $header-font;
+        }
+    .archive-list-drop{
+        svg {
+            font-size: var(--fs-title);
+            color: #fff;
+        }
+    }
+    }
+    .archive-list-item:nth-child(even) {
+        background-color: $green-bg;
+    }
+    .archive-list-item:nth-child(odd) {
+        background-color: $green-light-bg;
+    }
+    .list-item-details{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.2rem 0.5rem;
+    }
+   .accordion {
+        display: none;
+   }
+   .accordion-open {
+    background-color: $medium-grey;
+    display: block;
+    padding: 0.3rem;
+    h2, p{
+        color:#000
+    }
+}
+}

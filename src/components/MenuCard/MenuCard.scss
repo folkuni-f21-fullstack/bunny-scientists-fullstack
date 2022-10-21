@@ -2,9 +2,6 @@
 
 .menucard-container {
 	@include menuCardDesign;
-	
-	
-	
 	margin-bottom: 1rem;	
 	padding: .5rem;
 	align-items: center;
@@ -24,7 +21,6 @@
 }
 
 .title-container{
-	
 	grid-area: title;
 	width: max-content;
 	display: flex;		
@@ -53,21 +49,18 @@
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	line-height: var(--fs-text);
-	max-height: 64px;
-	-webkit-line-clamp: 4; 
+	max-height: 48px;
+	-webkit-line-clamp: 3; 
 	-webkit-box-orient: vertical;
 }
 .image-container{
-	
 	padding-bottom: .5rem;
 	grid-area: image;
-
 	width: 9rem;
 	max-height: 7.5rem;
 
 	.image{
 		height: 100%;
-		
 	}
 }
 
@@ -79,13 +72,11 @@
 	grid-area: down;
 	align-self: flex-end;
 	justify-self: start;
-	
 }
+
 .menucard-container-open {
-	
 	@include menuCardDesign;
 	position: relative;
-	
 	transition: all .1s;
 	margin-bottom: 1rem;	
 	padding: .5rem;
@@ -102,7 +93,6 @@
 		"down . . .";
 }
 .image-container{
-	
 	grid-area: image;
 	overflow: hidden;
 	margin: 0;
@@ -122,7 +112,6 @@
 		right: .5rem;
 		bottom: .5rem;
 		display: block;
-		
 
 		.add-btn{
 			@include addBtnStyle
