@@ -46,5 +46,4 @@ export type Schema = {
     archive: Archive[]
     credentials: Credentials
     menu: Menu[]
-    //här läggs alla typer som databasen kommer använda
 }
