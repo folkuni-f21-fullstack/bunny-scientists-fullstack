@@ -22,7 +22,7 @@ app.use(express.static(staticPath))
 
 // app.use('/api/menu', menuRoute)
 // app.use('/api/orders', ordersRoute)
-// app.use('/api/archieve', archieveRoute)
+// app.use('/api/archive', archiveRoute)
 // app.use('/api/credentials', credentialsRoute)
 
 // Starta servern

@@ -1,9 +1,25 @@
 export type Order = {
-    //???
+    orderNumber: number,
+    orderItems: OrderItem[]
+    customerComment: string,
+    customer: string,
+    phoneNumber: number
+}
+
+export type OrderItem = {
+    menuItem: MenuItem,
+    amount: number
+}
+
+export type MenuItem = {
+    id: string,
+    name: string,
+    price: number
 }
 
 export type Archive = {
-    // ??
+    order: Order,
+    commentToChef: string
 }
 
 export type Credentials = {
