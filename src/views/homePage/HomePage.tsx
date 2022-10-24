@@ -12,6 +12,14 @@ const HomePage = () => {
   const drinks = itemsByCategory[2].menuItems;
   const desserts = itemsByCategory[3].menuItems;
 
+  /**
+   *const fetchMenu = async () => {
+		const response = await fetch('/api/menu')
+		const data: Menu[] = await response.json()
+		setMaybeMenu(data) //behövs validering?
+	}
+  */
+
   return (
     <main className='home-page'>
       <Hero />
