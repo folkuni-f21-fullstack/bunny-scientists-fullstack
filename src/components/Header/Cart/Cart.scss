@@ -22,9 +22,9 @@
     top: -2rem;
     clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
   }
+
   .product-h2 {
     padding-left: 5rem;
-  }
   .products {
     position: relative;
     left: 2rem;
@@ -39,6 +39,9 @@
     overflow-y: scroll;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    border: 1px solid;
+    border-radius: 5px;
+
     .product-in-cart {
       display: flex;
       justify-content: space-around;
@@ -111,7 +114,6 @@
     top: 100%;
     width: 30vw;
     padding: 1rem;
-
     background-color: #f6f6f6;
     &:before {
       content: "";
@@ -121,11 +123,15 @@
       position: absolute;
       right: 0.8rem;
       top: -2rem;
+
       left: 22.8rem;
       clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
     }
     .empty-cart-container {
       padding-right: 2rem;
+    }
+      left: 11.6rem;
+      clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
     }
   }
 }

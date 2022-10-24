@@ -203,7 +203,7 @@
   }
 }
 
-@media screen and (min-width: 1090px) {
+@media screen and (min-width: 600px) {
   .burger {
     display: none;
   }
@@ -229,7 +229,9 @@
         display: none;
       }
       .header-desktop {
-        width: 55%;
+        width: 100%;
+        margin: 0rem 1rem 0rem 1rem;
+        max-width: 1000px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -239,13 +241,19 @@
             width: 5rem;
           }
         }
-        .desktop-nav-link {
-          margin: 2rem;
-          font-size: 1.6rem;
-          text-decoration: none;
-          color: white;
-          font-family: $header-font;
+        .desktop-nav {
+          width: 60%;
+          display: flex;
+          justify-content: space-around;
+
+          .desktop-nav-link {
+            font-size: 1.6rem;
+            text-decoration: none;
+            color: white;
+            font-family: $header-font;
+          }
         }
+
         .cart-container {
           height: 100%;
           display: flex;

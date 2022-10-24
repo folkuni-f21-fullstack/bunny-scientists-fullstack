@@ -9,13 +9,15 @@ import { addToCart } from '../../reducers/cartReducer';
 
 export default function MenuCard(props:any) {
     const menuItem: MenuItem = props.menuItem
+    let id: string = props.id
     const [menuCardContainer, setMenuCardContainer] = useState<string>("menucard-container");
     const [menuCardContainerOpen, setMenuCardContainerOpen] = useState<boolean>(false);
     const dispatch = useDispatch();
 
     const toggleDrop = () => {
 
-       if (window.innerWidth < 730){ if (!menuCardContainerOpen) {
+       if (window.innerWidth < 730){ 
+        if (!menuCardContainerOpen) {
             setMenuCardContainer("menucard-container-open");
             setMenuCardContainerOpen(true);
           } else {
@@ -33,7 +35,7 @@ export default function MenuCard(props:any) {
       })
 
     return (
-        <article  className={menuCardContainer}>
+        <article id={id} className={menuCardContainer}>
           <div onClick={toggleDrop} className="menucard">
             <div className="title-container">
               <h3 className="title">{menuItem.name}</h3>

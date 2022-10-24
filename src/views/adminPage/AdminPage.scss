@@ -1,12 +1,12 @@
 @import "../../styles/variables.scss";
 
 .admin-page {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     .admin-wrapper {
         display: flex;
         flex-direction: column;
-        // justify-content: center;
-        // align-items: center;
-        // width: 100%;
         .subheading {
             margin-top: 1rem;
         }

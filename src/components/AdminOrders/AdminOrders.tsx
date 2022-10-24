@@ -26,10 +26,10 @@ const AdminOrders = () => {
 
   const selectedOrderArr:any = allOrders[isSelected.id-1].order;
 
-  const allEscargotsInMenu = Data.array.menu[0]['menu-items']
-  const allKidsInMenu = Data.array.menu[1]['menu-items']
-  const allDrinksInMenu = Data.array.menu[2]['menu-items']
-  const allDessertsInMenu = Data.array.menu[3]['menu-items']
+  const allEscargotsInMenu = Data.array.menu[0].menuItems
+  const allKidsInMenu = Data.array.menu[1].menuItems
+  const allDrinksInMenu = Data.array.menu[2].menuItems
+  const allDessertsInMenu = Data.array.menu[3].menuItems
   
   return (
     <div className="admin-wrapper">
