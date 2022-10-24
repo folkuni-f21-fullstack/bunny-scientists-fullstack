@@ -45,7 +45,6 @@ const AdminOrders = () => {
         </ul>
       </section>
       <div className="line"></div>
-      <button className="confirm-btn">Bekräfta</button>
       <section className="order-details">
         {selectedOrderArr.map((order: any, i: number) => {
           return (
@@ -104,6 +103,8 @@ const AdminOrders = () => {
           <textarea name="" id="" cols="40" rows="5"></textarea>
         </form>
       </section>
+      
+      <button className="confirm-btn">Bekräfta</button>
     </div>
   )
 }

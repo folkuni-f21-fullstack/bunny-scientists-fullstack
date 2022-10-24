@@ -103,6 +103,9 @@
 		box-shadow: $box-shadow;
 		background-color: #fff;
 		padding: 0.3rem;
+		&:hover{
+			background-color: $light-grey;
+		}
 	}
 	button {	
 		@include roundBtnStyle
