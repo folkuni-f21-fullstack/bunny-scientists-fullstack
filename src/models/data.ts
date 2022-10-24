@@ -15,6 +15,17 @@ export type CartItem = {
   amount: number;
 };
 
+export type OrderItem = {
+  menuItem: MenuItem,
+  amount: number
+}
+export type Order = {
+  orderNumber: number,
+  orderItems: OrderItem[]
+  customerComment: string,
+  customer: string,
+  phoneNumber: number
+}
 /*
               Hur state ska se ut:
         1. Vad ligger i kundvagnen.

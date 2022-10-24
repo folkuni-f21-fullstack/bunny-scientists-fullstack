@@ -1,37 +1,47 @@
 import "./AdminOrders.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
-
+import { Order } from "../../models/data";
 import Data from '../../data/data.json';
 
-const allOrders = [
-  { id: 1, ordernr: 4525, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Currysnigel", quantity: 2 }] },
-
-  { id: 2, ordernr: 4526, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Grässnigel", quantity: 1 }] },
-
-  { id: 3, ordernr: 4527, order: [{ type: "Snigel deluxe", quantity: 1 }, { type: "Currysnigel", quantity: 3 }] },
-
-  { id: 4, ordernr: 4528, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Snigel almond", quantity: 2 }] },
-
-  { id: 5, ordernr: 4529, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Currysnigel", quantity: 2 }] },
-
-  { id: 6, ordernr: 4530, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Currysnigel", quantity: 2 }] },
-
-  { id: 7, ordernr: 4531, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Currysnigel", quantity: 2 }] },
-
-  {
-    id: 8, ordernr: 4532, order: [{ type: "Vitlökssnigel", quantity: 2 }, { type: "Currysnigel", quantity: 2 }]
-  }]
 
 const AdminOrders = () => {
-  const [isSelected, setIsSelected] = useState<any>({ id: allOrders[0].id });
+  const [allOrders, setAllOrders] = useState<Order[]>([{
+    orderNumber: 231354,
+    orderItems: [
+      {
+        menuItem: {
+        id: '200',
+        name: 'Tradition',
+        price: 149,
+        description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
+        image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg'
+      },
+      amount: 2}
+    ],
+    customerComment: "HEY ",
+    customer: "Jesus",
+    phoneNumber: 57357357
+  }]);
 
-  const selectedOrderArr: any = allOrders[isSelected.id - 1].order;
+  const [isSelected, setIsSelected] = useState<any>({ id: allOrders[0].orderNumber });
+
+  const selectedOrderArr: any = allOrders[0].orderItems;
 
   const allEscargotsInMenu = Data.array.menu[0].menuItems
   const allKidsInMenu = Data.array.menu[1].menuItems
   const allDrinksInMenu = Data.array.menu[2].menuItems
   const allDessertsInMenu = Data.array.menu[3].menuItems
+
+  useEffect(() => {
+    fetch('http://localhost:1337/api/orders')
+    .then(response => response.json())
+    // .then(setAllOrders)
+    
+    .catch(()=>console.log("error"))
+  
+  }, [])
+  
 
   return (
     <div className="admin-wrapper">
@@ -100,7 +110,7 @@ const AdminOrders = () => {
       <h2 className='subheading'>Meddelande till kocken</h2>
       <section className='message-to-chef'>
         <form action="">
-          <textarea name="" id="" cols="40" rows="5"></textarea>
+          <textarea name="" id="" cols={40} rows={5}></textarea>
         </form>
       </section>
       
