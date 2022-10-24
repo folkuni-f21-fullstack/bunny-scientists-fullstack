@@ -20,15 +20,10 @@ app.use(express.static(staticPath))
 
 // Routes / endpoints
 
-//app.use('/api/fruits', fruitsRoute)
-
-// Wildcard route, fångar alla övriga requests
-app.get('*', (req, res) => {
-	console.log('Wildcard route aktiverad för GET ' + req.url)
-	const indexPath: string = staticPath + '/index.html'
-	console.log('Path to index.html: ' + indexPath)
-	res.sendFile(indexPath)
-})
+// app.use('/api/menu', menuRoute)
+// app.use('/api/orders', ordersRoute)
+// app.use('/api/archieve', archieveRoute)
+// app.use('/api/credentials', credentialsRoute)
 
 // Starta servern
 app.listen(PORT, () => {

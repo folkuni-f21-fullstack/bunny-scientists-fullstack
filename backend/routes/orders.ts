@@ -13,3 +13,10 @@ import { data as defaultData} from '../defaultData.js'
 // POST   - lägga till ny data
 // PUT    - uppdatera data
 // DELETE - ta bort data
+
+//GET hämta ordrar
+//POST kund lägger order från varukorg
+//DELETE ta bort ordrar när man skickar vidare till archieve
+//DELETE ta bort order om användare vill ändra sin order
+
+// ändra ordrar lokalt innan man skickar vidare till archieve
