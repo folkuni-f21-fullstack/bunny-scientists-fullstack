@@ -56,7 +56,7 @@ const Cart = ({ cartMenuClass }: Props) => {
             className="empty-cart-container"
             onClick={() => dispatch(removeAll())}
           >
-            <h1>TÖM VARUKORG</h1>
+            <h1 className="empty-cart">TÖM VARUKORG</h1>
             <IoMdTrash className="trash-icon" />
           </div>
           <div className="total-container">
