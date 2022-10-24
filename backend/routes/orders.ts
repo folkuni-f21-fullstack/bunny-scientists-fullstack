@@ -1,18 +1,10 @@
-import express, {Request, Response} from 'express'
-const router = express.Router()
+import express, { Request, Response } from "express";
+const router = express.Router();
 
-import db from '../db.js'
-import { Order } from '../models.js'
+import db from "../db.js";
+import { Order } from "../models.js";
 // import { isValidOrder } from '../validation.js'
-import { data as defaultData} from '../defaultData.js'
-
-// Exempel: frontend skickar "GET /api/data", backend tar emot och servar ett svar
-// HTTP methods: GET, POST, PUT, DELETE -> motsvarar CRUD = Create, Read, Update, Delete
-// Dessa fyra används när vi bygger ett RESTful API
-// GET    - hämta data
-// POST   - lägga till ny data
-// PUT    - uppdatera data
-// DELETE - ta bort data
+import { data as defaultData } from "../defaultData.js";
 
 //GET hämta ordrar
 //POST kund lägger order från varukorg
@@ -20,3 +12,13 @@ import { data as defaultData} from '../defaultData.js'
 //DELETE ta bort order om användare vill ändra sin order
 
 // ändra ordrar lokalt innan man skickar vidare till archieve
+
+router.get("/", (req, res) => {
+  if (db.data?.orders) {
+    res.send(db.data.orders);
+  } else {
+    res.sendStatus(404);
+  }
+});
+
+export default router;
