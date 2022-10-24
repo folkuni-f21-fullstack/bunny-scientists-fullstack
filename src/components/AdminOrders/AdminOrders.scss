@@ -1,6 +1,7 @@
 @import '../../styles/variables.scss';
+
 .orders-list {
-	ul { 
+	ul {
 		overflow-x: hidden;
 		overflow-y: scroll;
 		max-height: 15rem;
@@ -8,7 +9,6 @@
 		flex-direction: column;
 		align-items: center;
 		border-bottom: 2px solid#4C7972;
-		// margin-bottom: 1rem;
 		li {
 			display: flex;
 			cursor: pointer;
@@ -19,7 +19,7 @@
 			background-color: $light-grey;
 			font-family: $header-font;
 			font-size: 1.5rem;
-		} 
+		}
 		li.selected {
 			color: #fff;
 			background-color: $green-bg;
@@ -27,24 +27,23 @@
 			font-size: 3rem;
 		}
 	}
- } 
+}
 
 .order-details {
 	margin-bottom: 1rem;
 	.order-detail-item {
-	padding: 0 1rem;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	background-color: $light-grey;
-
-	p {
-		font-family: $header-font;
+		padding: 0 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $light-grey;
+		p {
+			font-family: $header-font;
+		}
 	}
 }
-}
 
-.quantity-container{
+.quantity-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -57,23 +56,12 @@
 		font-family: $header-font;
 		padding: 0 0.5rem;
 	}
+	.increase, .decrease {
+		@include roundBtnStyle
+	}
 }
-.decrease, .increase {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: var(--fs-text);
-	width: 22px;
-	height: 22px;
-	color: #fff;
-	background: #4C7972;
-	border: 1px solid #FFFFFF;
-	box-shadow: $box-shadow;
-	border-radius: 50%;
-	cursor: pointer;
-}
+
 .customer-info {
-	// margin: 1rem 0;
 	padding: 0.3rem;
 	background-color: $light-grey;
 	p {
@@ -86,10 +74,11 @@
 			font-weight: 400;
 		}
 	}
- 	p:nth-child(2){
+	p:nth-child(2) {
 		margin-top: 1rem
- 	}
+	}
 }
+
 .confirm-btn {
 	@include addBtnStyle;
 	font-size: 1.5rem;
@@ -97,23 +86,35 @@
 	margin-bottom: 1rem;
 	cursor: pointer;
 }
-.add-to-order-container{
+
+.add-to-order-container {
 	border: 1px solid $dark-grey;
 	padding: 0.3rem;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	max-height: 10rem;
 	box-shadow: $box-shadow;
+	
 	div {
 		display: flex;
 		justify-content: space-between;
-		border-bottom: 2px dotted $dark-grey;
+		// border-bottom: 2px dotted $dark-grey;
 		margin-bottom: 0.2rem;
+		box-shadow: $box-shadow;
+		background-color: #fff;
+		padding: 0.3rem;
+	}
+	button {	
+		@include roundBtnStyle
 	}
 	p {
 		font-family: $text-font;
 		font-size: var(--fs-text);
 		font-weight: 400;
 	}
-
+}
+.message-to-chef{
+	textarea {
+		width: 100%;
+	}
 }
