@@ -22,9 +22,9 @@ const Cart = ({ cartMenuClass }: Props) => {
         <div>
           <h2 className="product-h2">PRODUKT</h2>
           <ul className="products">
-            {cart.map((item) => {
+            {cart.map((item, id) => {
               return (
-                <li className="product-in-cart">
+                <li key={id} className="product-in-cart">
                   <div
                     onClick={() => dispatch(removeItem(item))}
                     className="empty-cart-container"
