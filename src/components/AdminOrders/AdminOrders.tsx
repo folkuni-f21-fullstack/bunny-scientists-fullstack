@@ -45,24 +45,24 @@ const AdminOrders = () => {
 	const allDrinksInMenu = Data.array.menu[2].menuItems;
 	const allDessertsInMenu = Data.array.menu[3].menuItems;
 
-	const fetchOrders = async () => {
-		const response = await fetch('/api/orders', {
-			mode: 'cors',
-		});
-		console.log('response', response); //ERROR, why?
-		const data: Order[] = await response.json();
-		console.log('data', data);
-		// console.log("data", data)
-		setAllOrders(data);
-	};
 
-	useEffect(() => {
-		// fetch('http://localhost:1337/api/orders')
-		// 	.then(response => response.json())
-		// 	.then(setAllOrders)
-		// 	.catch(() => console.log('error'));
-		fetchOrders();
-	}, []);
+
+  const fetchOrders = async () => {
+    const response = await fetch('/api/orders');
+    const data: Order[] = await response.json();
+    console.log("data", data)
+    setAllOrders(data)
+
+  }
+
+  useEffect(() => {
+    // fetch('http://localhost:1337/api/orders', {mode: 'cors'})
+    // .then(response => response.json())
+    // .then(setAllOrders)
+    // .catch(()=>console.log("error"))
+    fetchOrders()
+    
+  }, [])
 
 	return (
 		<div className='admin-wrapper'>
