@@ -3,17 +3,35 @@ import Logo from "../../assets/logo.svg";
 import Cart from "./Cart/Cart";
 import { IoIosCart } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../App";
+import { useSelector, useDispatch } from "react-redux";
+import { RootState } from "../../store"
+import { CartItem } from "../../models/data";
 
-const Header = () => {
+type Props = {
+  
+ 
+}
+
+const Header = ({  }: Props) => {
+  const dispatch = useDispatch();
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [burgerMenuClass, setBurgerMenuClass] = useState<string>("burger");
   const [navOpenClass, setNavOpenClass] = useState<string>("nav-accordion");
   const [cartOpen, setCartOpen] = useState<boolean>(false);
   const [cartMenuClass, setCartMenuClass] = useState<string>("cart-overlay");
-  const [cartOpenClass, setCartOpenClass] = useState<string>("");
+  // const [cartOpenClass, setCartOpenClass] = useState<string>("");
+
+
+// diplay amount of articles in cart
+  const productList = useSelector((state: RootState) => state.cart);
+  let newList = productList.map(f => (f.amount))
+  let displayAmount = [...newList].reduce((a, b) => a + b, 0);
+
+
+ 
 
   const toggleNav = () => {
     if (!navOpen) {
@@ -40,6 +58,8 @@ const Header = () => {
     }
   };
 
+
+  
   return (
     <header className="header">
       <div className="header-container">
@@ -69,6 +89,8 @@ const Header = () => {
             </Link>
           </nav>
           <div className="cart-container">
+            {displayAmount > 0 &&
+            <p className="cart-counter">{displayAmount}</p>}
             <IoIosCart className="cart" onClick={() => toggleCart()} />
             <Cart cartMenuClass={cartMenuClass} />
           </div>
@@ -87,8 +109,10 @@ const Header = () => {
           </div>
         </Link>
         <div className="cart-container">
+        {displayAmount > 0 &&
+            <p className="cart-counter">{displayAmount}</p>}
           <IoIosCart className="cart" onClick={() => toggleCart()} />
-          <Cart cartMenuClass={cartMenuClass} />
+          <Cart cartMenuClass={cartMenuClass}/>
         </div>
       </div>
       <div className={navOpenClass}>

@@ -192,6 +192,7 @@
   }
 }
 .cart-container {
+  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
@@ -200,6 +201,22 @@
   .cart {
     font-size: 2rem;
     color: white;
+    
+  }
+  .cart-counter {
+    position: absolute;
+    top: 10px;
+    right: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #E5674E;
+    border-radius: 50%;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 12px;
+    font-weight: 700;
+    color: #FFF;
   }
 }
 
@@ -260,12 +277,15 @@
           align-items: center;
           margin-right: 1rem;
           position: relative;
+          
           .cart {
             font-size: 3rem;
             color: white;
           }
+          
         }
       }
     }
   }
 }
+
