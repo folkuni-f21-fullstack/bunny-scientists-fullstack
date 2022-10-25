@@ -27,7 +27,7 @@ app.use(express.static(staticPath));
 // Routes / endpoints
 
 app.use("/api/menu", menuRoute);
-app.use('/api/orders', ordersRoute)
+app.use("/api/orders", ordersRoute);
 // app.use('/api/archive', archiveRoute)
 // app.use('/api/credentials', credentialsRoute)
 
