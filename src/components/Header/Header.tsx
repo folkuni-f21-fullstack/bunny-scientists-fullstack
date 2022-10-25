@@ -34,6 +34,8 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setBurgerMenuClass("burger open");
       setNavOpenClass("nav-accordion-open");
       setNavOpen(true);
+      setCartMenuClass("cart-overlay");
+      setCartOpen(false);
       console.log("accordion öppnas");
     } else {
       setBurgerMenuClass("burger");
@@ -46,6 +48,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
     if (!cartOpen) {
       setCartMenuClass("cart-overlay-open");
       setCartOpen(true);
+      setBurgerMenuClass("burger");
+      setNavOpen(false);
+      setNavOpenClass("nav-accordion");
       console.log("cart öppnas");
     } else {
       setCartMenuClass("cart-overlay");
