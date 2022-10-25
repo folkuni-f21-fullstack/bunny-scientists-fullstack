@@ -95,8 +95,7 @@ const MenuNav = () => {
         <li>
           <a
             className={kidsSelected}
-            onClick={scrollToKid}
-          >
+            onClick={scrollToKid}>
             Barn
           </a>
         </li>
