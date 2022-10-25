@@ -1,8 +1,8 @@
-import "./AdminOrders.scss";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
-import { Order } from "../../models/data";
 import Data from "../../data/data.json";
+import { Order } from "../../models/data";
+import "./AdminOrders.scss";
 
 const AdminOrders = () => {
   const [allOrders, setAllOrders] = useState<Order[]>([
@@ -27,12 +27,15 @@ const AdminOrders = () => {
       phoneNumber: 57357357,
     },
   ]);
-
-  const [isSelected, setIsSelected] = useState<any>({
-    id: allOrders[0].orderNumber,
+  const [selectedOrder, setSelectedOrder] = useState<Order>({
+    orderNumber: 1,
+    orderItems: [],
+    customerComment: "",
+    customer: "",
+    phoneNumber: 0,
   });
 
-  const selectedOrderArr: any = allOrders[0].orderItems;
+  const [isSelected, setIsSelected] = useState<number>(1);
 
   const allEscargotsInMenu = Data.array.menu[0].menuItems;
   const allKidsInMenu = Data.array.menu[1].menuItems;
@@ -40,35 +43,49 @@ const AdminOrders = () => {
   const allDessertsInMenu = Data.array.menu[3].menuItems;
 
   const fetchOrders = async () => {
-    const response = await fetch("/api/orders");
-    console.log("response", response); //ERROR, why?
+    const response = await fetch("/api/orders", {
+      mode: "cors",
+    });
     const data: Order[] = await response.json();
-    // console.log("data", data)
     setAllOrders(data);
   };
 
   useEffect(() => {
-    // fetch('http://localhost:1337/api/orders', {mode: 'cors'})
-    // .then(response => response.json())
-    // .then(setAllOrders)
-    // .catch(()=>console.log("error"))
     fetchOrders();
   }, []);
+
+  useEffect(() => {
+    setSelectedOrder(allOrders[0]);
+    setIsSelected(allOrders[0].orderNumber);
+  }, [allOrders]);
+
+  // function decrease(order){
+  //   console.log(order.orderItems)
+  //   order.amount = order.amount -1
+  //   console.log(order.amount) //Skriv över objektet i databasen med nya värdet
+  // }
+
+  // function increase(order){
+  //   console.log(order.orderItems)
+  //   order.amount = order.amount +1
+  //   console.log(order.amount) //Skriv över objektet i databasen med nya värdet
+  // }
 
   return (
     <div className="admin-wrapper">
       <section className="orders-list">
         <ul>
-          {allOrders.map((order: any, i: number) => {
+          {allOrders.map((order: Order, i: number) => {
             return (
               <li
                 key={i}
-                className={order.id === isSelected.id ? "selected" : ""}
+                className={order.orderNumber === isSelected ? "selected" : ""}
                 onClick={() => {
-                  setIsSelected({ id: order.id });
+                  setIsSelected(order.orderNumber);
+                  setSelectedOrder(order);
                 }}
               >
-                {order.ordernr}
+                {order.orderNumber}
               </li>
             );
           })}
@@ -76,17 +93,17 @@ const AdminOrders = () => {
       </section>
       <div className="line"></div>
       <section className="order-details">
-        {selectedOrderArr.map((order: any, i: number) => {
+        {selectedOrder.orderItems.map((order, i: number) => {
           return (
             <article key={i} className="order-detail-item">
-              <p>{order.type}</p>
+              <p>{order.menuItem.name}</p>
               <div className="quantity-container">
                 <button className="decrease">
                   {" "}
                   <IoIosRemove />
                 </button>
-                <p className="quantity">{order.quantity}</p>
-                <button className="decrease">
+                <p className="quantity">{order.amount}</p>
+                <button className="increase">
                   {" "}
                   <IoIosAdd />
                 </button>
@@ -99,15 +116,13 @@ const AdminOrders = () => {
       <section className="customer-info">
         <p>
           Meddelande från beställare:
-          <span className="message">
-            "Ingen senap tack, hälften av brödet ska vara blött"
-          </span>
+          <span className="message">{selectedOrder.customerComment}</span>
         </p>
         <p>
-          Kund: <span>Linus Pellesson</span>
+          Kund: <span>{selectedOrder.customer}</span>
         </p>
         <p>
-          Telefon: <span>070-177 14 32</span>
+          Telefon: <span>{selectedOrder.phoneNumber}</span>
         </p>
       </section>
       <h2 className="subheading">Lägg till maträtt</h2>
@@ -167,4 +182,5 @@ const AdminOrders = () => {
     </div>
   );
 };
+
 export default AdminOrders;

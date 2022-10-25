@@ -34,8 +34,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setBurgerMenuClass("burger open");
       setNavOpenClass("nav-accordion-open");
       setNavOpen(true);
-      setCartMenuClass("cart-overlay");
-      setCartOpen(false);
       console.log("accordion öppnas");
     } else {
       setBurgerMenuClass("burger");
@@ -48,9 +46,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
     if (!cartOpen) {
       setCartMenuClass("cart-overlay-open");
       setCartOpen(true);
-      setNavOpen(false);
-      setNavOpenClass("nav-accordion");
-      setBurgerMenuClass("burger");
       console.log("cart öppnas");
     } else {
       setCartMenuClass("cart-overlay");
@@ -68,17 +63,18 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               <div className="logo-container-desktop">
                 <img className="logo" src={Logo} alt="" />
               </div>
-              <Link to="/">
-                <div
-                  className="logout-container"
-                  onClick={() => {
-                    setIsAdminView(false);
-                  }}
-                >
+
+              <div
+                className="logout-container"
+                onClick={() => {
+                  setIsAdminView(false);
+                }}
+              >
+                <Link className="logout" to="/">
                   <h1 className="logout-text">LOGGA UT</h1>
-                  <BiLogOut className="logout-icon" />
-                </div>
-              </Link>
+                  <BiLogOut className="logout-icon" />{" "}
+                </Link>
+              </div>
             </div>
             <div className="logo-container">
               <img className="logo" src={Logo} alt="" />

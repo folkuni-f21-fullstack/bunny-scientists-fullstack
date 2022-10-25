@@ -24,6 +24,8 @@
         flex-direction: row;
         align-items: center;
         margin-right: 1rem;
+        font-style: normal;
+        color: white;
       }
     }
   }
@@ -203,7 +205,6 @@
   }
 }
 .cart-container {
-  position: relative;
   height: 100%;
   display: flex;
   align-items: center;
@@ -212,7 +213,6 @@
   .cart {
     font-size: 2rem;
     color: white;
-    
   }
   .cart-counter {
     position: absolute;
@@ -221,13 +221,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #E5674E;
+    background: #e5674e;
     border-radius: 50%;
     width: 1.5rem;
     height: 1.5rem;
     font-size: 12px;
     font-weight: 700;
-    color: #FFF;
+    color: #fff;
   }
 }
 
@@ -282,12 +282,13 @@
         }
         .logout-container {
           display: flex;
-
-          .logout-icon {
-            font-size: 2rem;
-            color: white;
-          }
-          .logout-text {
+          align-items: center;
+          .logout {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 1rem;
+            font-style: normal;
             color: white;
           }
         }
@@ -310,15 +311,12 @@
           align-items: center;
           margin-right: 1rem;
           position: relative;
-          
           .cart {
             font-size: 3rem;
             color: white;
           }
-          
         }
       }
     }
   }
 }
-
