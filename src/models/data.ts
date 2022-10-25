@@ -21,10 +21,15 @@ export type OrderItem = {
 }
 export type Order = {
   orderNumber: number,
-  orderItems: OrderItem[]
+  orderItems: OrderItem[],
   customerComment: string,
   customer: string,
   phoneNumber: number
+}
+export type MenuCategory = {
+  id: string,
+  name: string,
+  menuItems: MenuItem[]
 }
 /*
               Hur state ska se ut:
