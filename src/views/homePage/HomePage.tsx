@@ -7,10 +7,18 @@ import './HomePage.scss';
 
 const HomePage = () => {
   const itemsByCategory = Data.array.menu;
-  const escargots = itemsByCategory[0]['menu-items'];
-  const kids = itemsByCategory[1]['menu-items'];
-  const drinks = itemsByCategory[2]['menu-items'];
-  const desserts = itemsByCategory[3]['menu-items'];
+  const escargots = itemsByCategory[0].menuItems;
+  const kids = itemsByCategory[1].menuItems;
+  const drinks = itemsByCategory[2].menuItems;
+  const desserts = itemsByCategory[3].menuItems;
+
+  /**
+   *const fetchMenu = async () => {
+		const response = await fetch('/api/menu')
+		const data: Menu[] = await response.json()
+		setMaybeMenu(data) //behövs validering?
+	}
+  */
 
   return (
     <main className='home-page'>
@@ -20,22 +28,22 @@ const HomePage = () => {
         <h2>Sniglar</h2>
         <section className='cards-container'>
           {escargots.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='kids'>Barn</h2>
+        <h2>Barn</h2>
         <section className='cards-container'>
           {kids.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='beverages'>Dryck</h2>
+        <h2>Dryck</h2>
         <section className='cards-container'>
           {drinks.map((menuItem, i: number) => {
-            return <MenuCard menuItem={menuItem} key={i} />;
+            return <MenuCard menuItem={menuItem} key={i}/>;
           })}
         </section>
-        <h2 id='desserts'>Efterätter</h2>
+        <h2>Efterätter</h2>
         <section className='cards-container'>
           {desserts.map((menuItem, i: number) => {
             return <MenuCard menuItem={menuItem} key={i} />;

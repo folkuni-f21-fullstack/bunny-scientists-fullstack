@@ -1,9 +1,9 @@
 import { AiFillFacebook, AiFillInstagram, AiFillLinkedin } from 'react-icons/ai';
 import { BiLogIn } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
+import { scrollToTop } from '../../App';
 import data from '../../data/data.json';
 import './Footer.scss';
-import { scrollToTop } from '../../App';
 
 const Footer = () => {
 	return (
@@ -31,10 +31,8 @@ const Footer = () => {
 					</ul>
 				</section>
 			</article>
-			<Link to='/login'>
-				<a onClick={scrollToTop}>
-					Admin inlogg <BiLogIn />
-				</a>
+			<Link to='/login' onClick={scrollToTop}>
+        Admin inlogg <BiLogIn />
 			</Link>
 			<p>© 2022 All rights reserved Escargot Togo</p>
 		</footer>

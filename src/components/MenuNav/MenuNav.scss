@@ -1,18 +1,16 @@
 @import '../../styles/variables.scss';
-@import '../../styles/variables.scss';
+
 .menu-nav {
 	position: sticky;
-	top: 7rem;
+	top: 5rem;
 	z-index: 1;
 	width: 100%;
 	margin-top: 1rem;
 	padding: 0.2rem;
 	background-color: $body-bg;
-	// display: flex;
 	display: flex;
 	justify-content: center;
 
-	// max-width: 1000px;
 	ul {
 		width: 80%;
 		max-width: 800px;
@@ -32,6 +30,7 @@
 	}
 	a {
 		text-decoration: none;
+    cursor: pointer;
 		font-family: $header-font;
 		color: #000;
 	}
