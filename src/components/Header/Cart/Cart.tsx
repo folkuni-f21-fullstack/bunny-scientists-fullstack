@@ -8,11 +8,12 @@ import {
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
-interface Props {
+type Props = {
   cartMenuClass: string;
-}
+  setNavOpen: (navOpen: boolean) => void;
+};
 
-const Cart = ({ cartMenuClass }: Props) => {
+const Cart = ({ cartMenuClass, setNavOpen }: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 

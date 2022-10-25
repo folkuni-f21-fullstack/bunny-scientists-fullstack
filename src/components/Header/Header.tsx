@@ -7,15 +7,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../App";
 import { useSelector, useDispatch } from "react-redux";
-import { RootState } from "../../store"
+import { RootState } from "../../store";
 import { CartItem } from "../../models/data";
 
-type Props = {
-  
- 
-}
-
-const Header = ({  }: Props) => {
+const Header = () => {
   const dispatch = useDispatch();
   const [navOpen, setNavOpen] = useState<boolean>(false);
   const [burgerMenuClass, setBurgerMenuClass] = useState<string>("burger");
@@ -24,20 +19,18 @@ const Header = ({  }: Props) => {
   const [cartMenuClass, setCartMenuClass] = useState<string>("cart-overlay");
   // const [cartOpenClass, setCartOpenClass] = useState<string>("");
 
-
-// diplay amount of articles in cart
+  // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  let newList = productList.map(f => (f.amount))
+  let newList = productList.map((f) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
-
-
- 
 
   const toggleNav = () => {
     if (!navOpen) {
       setBurgerMenuClass("burger open");
       setNavOpenClass("nav-accordion-open");
       setNavOpen(true);
+      setCartMenuClass("cart-overlay");
+      setCartOpen(false);
       console.log("accordion öppnas");
     } else {
       setBurgerMenuClass("burger");
@@ -50,6 +43,9 @@ const Header = ({  }: Props) => {
     if (!cartOpen) {
       setCartMenuClass("cart-overlay-open");
       setCartOpen(true);
+      setNavOpen(false);
+      setNavOpenClass("nav-accordion");
+      setBurgerMenuClass("burger");
       console.log("cart öppnas");
     } else {
       setCartMenuClass("cart-overlay");
@@ -58,8 +54,6 @@ const Header = ({  }: Props) => {
     }
   };
 
-
-  
   return (
     <header className="header">
       <div className="header-container">
@@ -89,10 +83,11 @@ const Header = ({  }: Props) => {
             </Link>
           </nav>
           <div className="cart-container">
-            {displayAmount > 0 &&
-            <p className="cart-counter">{displayAmount}</p>}
+            {displayAmount > 0 && (
+              <p className="cart-counter">{displayAmount}</p>
+            )}
             <IoIosCart className="cart" onClick={() => toggleCart()} />
-            <Cart cartMenuClass={cartMenuClass} />
+            <Cart cartMenuClass={cartMenuClass} setNavOpen={setNavOpen} />
           </div>
         </div>
         <nav className="nav-button-container">
@@ -109,10 +104,9 @@ const Header = ({  }: Props) => {
           </div>
         </Link>
         <div className="cart-container">
-        {displayAmount > 0 &&
-            <p className="cart-counter">{displayAmount}</p>}
+          {displayAmount > 0 && <p className="cart-counter">{displayAmount}</p>}
           <IoIosCart className="cart" onClick={() => toggleCart()} />
-          <Cart cartMenuClass={cartMenuClass}/>
+          <Cart cartMenuClass={cartMenuClass} setNavOpen={setNavOpen} />
         </div>
       </div>
       <div className={navOpenClass}>
