@@ -16,6 +16,16 @@
     .header-desktop {
       display: none;
     }
+    .logout-container {
+      display: flex;
+      align-items: center;
+      .logout {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 1rem;
+      }
+    }
   }
   .nav-accordion {
     display: flex;
@@ -186,6 +196,7 @@
 }
 .logo-container {
   display: flex;
+  margin-left: 2rem;
   .logo {
     aspect-ratio: 1;
     width: 5rem;
@@ -219,6 +230,16 @@
       min-width: 100%;
       display: flex;
       justify-content: center;
+      .logout-container {
+        display: none;
+        align-items: center;
+        .logout {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          margin-right: 1rem;
+        }
+      }
       .nav-button-container {
         display: none;
       }
@@ -235,10 +256,22 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
         .logo-container-desktop {
           .logo {
             aspect-ratio: 1;
             width: 5rem;
+          }
+        }
+        .logout-container {
+          display: flex;
+
+          .logout-icon {
+            font-size: 2rem;
+            color: white;
+          }
+          .logout-text {
+            color: white;
           }
         }
         .desktop-nav {
