@@ -28,9 +28,7 @@ const AdminOrders = () => {
 		},
 	]);
 
-	const [isSelected, setIsSelected] = useState<any>({
-		id: allOrders[0].orderNumber,
-	});
+	const [isSelected, setIsSelected] = useState<any>({});
 
 	const selectedOrder: Order = {
 		orderNumber: 1,
@@ -63,6 +61,9 @@ const AdminOrders = () => {
 		// 	.catch(() => console.log('error'));
 		fetchOrders();
 	}, []);
+	useEffect(() => {
+		setIsSelected(allOrders[0].orderNumber);
+	}, [allOrders]);
 
 	return (
 		<div className='admin-wrapper'>
