@@ -68,6 +68,7 @@ const Cart = ({ cartMenuClass }: Props) => {
                     total + currentItem.menuItem.price * currentItem.amount),
                 0
               )}
+              kr
             </h1>
           </div>
           <button className="checkout">TILL KASSAN</button>
