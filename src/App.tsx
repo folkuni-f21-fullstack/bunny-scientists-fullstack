@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -12,28 +11,19 @@ import OrdersPage from "./views/ordersPage/OrdersPage";
 
 //funktion för att komma till toppen av sidan vid route navigering
 const scrollToTop = () => {
-  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-};
+  window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+}
 function App() {
-  const [isAdminView, setIsAdminView] = useState<boolean>(false);
 
   return (
     <div className="App">
-      <Header setIsAdminView={setIsAdminView} isAdminView={isAdminView} />
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/orders" element={<OrdersPage />} />
-        <Route
-          path="/login"
-          element={
-            <LoginPage
-              isAdminView={isAdminView}
-              setIsAdminView={setIsAdminView}
-            />
-          }
-        />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/admin" element={<AdminPage />} />
       </Routes>
       <Footer />
@@ -42,3 +32,4 @@ function App() {
 }
 
 export { App, scrollToTop };
+

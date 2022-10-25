@@ -8,9 +8,9 @@ import {
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
-type Props = {
+interface Props {
   cartMenuClass: string;
-};
+}
 
 const Cart = ({ cartMenuClass }: Props) => {
   const cart = useSelector((state: RootState) => state.cart);

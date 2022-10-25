@@ -1,18 +1,14 @@
 import "../loginPage/LoginPage.scss";
 import { useNavigate } from "react-router-dom";
-type Props = {
-  isAdminView: boolean;
-  setIsAdminView: (isAdminView: boolean) => void;
-};
 
-const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
-  const navigate = useNavigate();
+const LoginPage = () => {
+
+  const navigate = useNavigate()
 
   const handleSubmit = (event: any) => {
-    event.preventDefault();
-    setIsAdminView(true);
-    navigate("/admin");
-  };
+    event.preventDefault()
+    navigate('/admin')
+  }
 
   //required === username.id
   //required === username.password
@@ -33,8 +29,8 @@ const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
           </form>
         </section>
       </div>
-    </main>
-  );
+    </main >
+  )
 };
 
 export default LoginPage;
