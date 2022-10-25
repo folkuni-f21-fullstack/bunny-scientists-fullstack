@@ -13,6 +13,8 @@ await db.read() //väntar på att filen är inläst
 if (!db.data) {
     db.data = defaultData //defaultData används om det inte finns något i db
     db.write()
+} else {
+    console.log(db.data)
 }
 
 export default db

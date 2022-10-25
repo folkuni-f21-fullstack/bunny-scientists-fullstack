@@ -5,19 +5,21 @@ import { Order } from "../../models/data";
 import Data from '../../data/data.json';
 
 
+
 const AdminOrders = () => {
   const [allOrders, setAllOrders] = useState<Order[]>([{
     orderNumber: 231354,
     orderItems: [
       {
         menuItem: {
-        id: '200',
-        name: 'Tradition',
-        price: 149,
-        description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
-        image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg'
-      },
-      amount: 2}
+          id: '200',
+          name: 'Tradition',
+          price: 149,
+          description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
+          image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg'
+        },
+        amount: 2
+      }
     ],
     customerComment: "HEY ",
     customer: "Jesus",
@@ -33,15 +35,22 @@ const AdminOrders = () => {
   const allDrinksInMenu = Data.array.menu[2].menuItems
   const allDessertsInMenu = Data.array.menu[3].menuItems
 
+  const fetchOrders = async () => {
+    const response = await fetch('/api/orders');
+    console.log("response", response) //ERROR, why?
+    const data: Order[] = await response.json();
+    // console.log("data", data)
+    setAllOrders(data)
+  }
+
   useEffect(() => {
-    fetch('http://localhost:1337/api/orders')
-    .then(response => response.json())
+    // fetch('http://localhost:1337/api/orders', {mode: 'cors'})
+    // .then(response => response.json())
     // .then(setAllOrders)
-    
-    .catch(()=>console.log("error"))
-  
+    // .catch(()=>console.log("error"))
+    fetchOrders()
   }, [])
-  
+
 
   return (
     <div className="admin-wrapper">
@@ -113,7 +122,7 @@ const AdminOrders = () => {
           <textarea name="" id="" cols={40} rows={5}></textarea>
         </form>
       </section>
-      
+
       <button className="confirm-btn">Bekräfta</button>
     </div>
   )

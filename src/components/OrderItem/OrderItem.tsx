@@ -3,7 +3,6 @@ import { IoMdArrowDropdown } from "react-icons/io";
 
 import { useState } from "react";
 
-
 type Props = {
   order: any;
   index: number;
@@ -35,7 +34,6 @@ const OrderItem = ({ order, index }: Props) => {
             <IoMdArrowDropdown />
           </figure>
         }
-
       </section>
       <section className={className}>
         <div>

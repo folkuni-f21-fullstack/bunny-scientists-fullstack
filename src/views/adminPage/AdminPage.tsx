@@ -3,9 +3,6 @@ import "../adminPage/AdminPage.scss";
 import AdminOrders from '../../components/AdminOrders/AdminOrders';
 import AdminArchive from '../../components/AdminArchive/AdminArchive';
 
-
-
-
 const AdminPage = () => {
   const [isOrderPageActive, setIsOrderPageActive] = useState<boolean>(true);
 

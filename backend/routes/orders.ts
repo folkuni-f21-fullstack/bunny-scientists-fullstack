@@ -1,6 +1,6 @@
 import express, { Request, Response } from "express";
 const router = express.Router();
-
+// const cors = require("cors")
 import db from "../db.js";
 import { Order } from "../models.js";
 // import { isValidOrder } from '../validation.js'
@@ -15,6 +15,7 @@ import { data as defaultData } from "../defaultData.js";
 
 router.get("/", (req, res) => {
   if (db.data?.orders) {
+    // console.log(db.data.orders)
     res.send(db.data.orders);
   } else {
     res.sendStatus(404);
