@@ -55,10 +55,6 @@ const AdminOrders = () => {
 	};
 
 	useEffect(() => {
-		// fetch('http://localhost:1337/api/orders')
-		// 	.then(response => response.json())
-		// 	.then(setAllOrders)
-		// 	.catch(() => console.log('error'));
 		fetchOrders();
 	}, []);
 	useEffect(() => {
