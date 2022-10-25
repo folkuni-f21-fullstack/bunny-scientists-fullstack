@@ -27,16 +27,13 @@ const AdminOrders = () => {
 			phoneNumber: 57357357,
 		},
 	]);
-
-	const [isSelected, setIsSelected] = useState<any>({});
-
-	const selectedOrder: Order = {
-		orderNumber: 1,
+	const [selectedOrder, setSelectedOrder] = useState<Order>({orderNumber: 1,
 		orderItems: [],
 		customerComment: '',
 		customer: '',
-		phoneNumber: 0,
-	};
+		phoneNumber: 0,});
+
+	const [isSelected, setIsSelected] = useState<number>(1);
 
 	const allEscargotsInMenu = Data.array.menu[0].menuItems;
 	const allKidsInMenu = Data.array.menu[1].menuItems;
@@ -47,19 +44,30 @@ const AdminOrders = () => {
 		const response = await fetch('/api/orders', {
 			mode: 'cors',
 		});
-		console.log('response', response); //ERROR, why?
 		const data: Order[] = await response.json();
-		console.log('data', data);
-		// console.log("data", data)
 		setAllOrders(data);
 	};
 
 	useEffect(() => {
 		fetchOrders();
 	}, []);
+
 	useEffect(() => {
+		setSelectedOrder(allOrders[0])
 		setIsSelected(allOrders[0].orderNumber);
 	}, [allOrders]);
+
+  // function decrease(order){
+  //   console.log(order.orderItems)
+  //   order.amount = order.amount -1
+  //   console.log(order.amount) //Skriv över objektet i databasen med nya värdet
+  // }
+
+  // function increase(order){
+  //   console.log(order.orderItems)
+  //   order.amount = order.amount +1
+  //   console.log(order.amount) //Skriv över objektet i databasen med nya värdet
+  // }
 
 	return (
 		<div className='admin-wrapper'>
@@ -76,12 +84,13 @@ const AdminOrders = () => {
 								}
 								onClick={() => {
 									setIsSelected(order.orderNumber);
+									setSelectedOrder(order);
 								}}>
 								{order.orderNumber}
 							</li>
 						);
 					})}
-				</ul>
+				</ul> 
 			</section>
 			<div className='line'></div>
 			<section className='order-details'>
@@ -90,12 +99,12 @@ const AdminOrders = () => {
 						<article key={i} className='order-detail-item'>
 							<p>{order.menuItem.name}</p>
 							<div className='quantity-container'>
-								<button className='decrease'>
+								<button className='decrease' >
 									{' '}
 									<IoIosRemove />
 								</button>
 								<p className='quantity'>{order.amount}</p>
-								<button className='decrease'>
+								<button className='increase' >
 									{' '}
 									<IoIosAdd />
 								</button>
