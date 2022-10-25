@@ -1,7 +1,7 @@
 import cors from 'cors';
 import { useEffect, useState } from 'react';
 import { IoIosAdd, IoIosRemove } from 'react-icons/io';
-import Data from '../../data/data.json';
+// import Data from '../../data/data.json';
 import { Order } from '../../models/data';
 import './AdminOrders.scss';
 
