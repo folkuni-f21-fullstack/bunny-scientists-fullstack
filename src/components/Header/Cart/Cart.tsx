@@ -10,10 +10,9 @@ import { RootState } from "../../../store";
 import "./Cart.scss";
 type Props = {
   cartMenuClass: string;
-  setNavOpen: (navOpen: boolean) => void;
 };
 
-const Cart = ({ cartMenuClass, setNavOpen }: Props) => {
+const Cart = ({ cartMenuClass }: Props) => {
   const cart = useSelector((state: RootState) => state.cart);
   const dispatch = useDispatch();
 
