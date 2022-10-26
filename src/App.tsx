@@ -9,6 +9,7 @@ import CartPage from "./views/cartPage/CartPage";
 import HomePage from "./views/homePage/HomePage";
 import LoginPage from "./views/loginPage/LoginPage";
 import OrdersPage from "./views/ordersPage/OrdersPage";
+import ConfirmedPage from "./views/confirmedPage/confirmedPage";
 
 //funktion för att komma till toppen av sidan vid route navigering
 const scrollToTop = () => {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route path="/orders" element={<OrdersPage />} />
+        <Route path="/confirmed" element={<ConfirmedPage />} />
         <Route
           path="/login"
           element={
