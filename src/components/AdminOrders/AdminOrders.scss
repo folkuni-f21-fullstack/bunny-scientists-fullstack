@@ -96,12 +96,16 @@
 	}
 }
 
-.confirm-btn {
-	@include addBtnStyle;
-	font-size: 1.5rem;
-	align-self: center;
-	margin-bottom: 1rem;
-	cursor: pointer;
+.confirm-container {
+	display: flex;
+	justify-content: center;
+	.confirm-btn {
+		@include addBtnStyle;
+		font-size: 1.5rem;
+		align-self: center;
+		margin-bottom: 1rem;
+		cursor: pointer;
+	}
 }
 
 .add-to-order-list {
@@ -157,7 +161,7 @@
 
 			.orders-list-container {
 				grid-area: list;
-				
+
 			}
 
 			.order-details-container {
@@ -171,10 +175,12 @@
 				grid-area: customer;
 				height: 100%;
 				padding-left: 1rem;
+
 				.customer-info {
 					height: 100%;
 					background-color: $body-bg;
 				}
+
 				.subheading {
 					margin-top: 0;
 				}
@@ -188,7 +194,8 @@
 				padding-left: 1rem;
 				grid-area: message;
 			}
-			.confirm-container{
+
+			.confirm-container {
 				grid-area: confirm;
 				display: flex;
 				justify-content: center;
