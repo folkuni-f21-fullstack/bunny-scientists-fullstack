@@ -10,7 +10,7 @@ import { RootState } from "./../../store";
 import './HomePage.scss';
 
 const HomePage = () => {
-  const [itemsByCategory, setItemsByCategory] = useState(Data.array.menu);
+  let itemsByCategory: MenuCategory[] = []
   const menu = useSelector((state: RootState) => state.menu);
   // const fetchMenu = async () => {
 	// 	const response = await fetch('/api/menu', {
@@ -39,7 +39,7 @@ const HomePage = () => {
     let items: any = async () => {
       await fetchProducts()
     } 
-    setItemsByCategory(items)
+    itemsByCategory = items
   }, []);
   return (
     <main className='home-page'>
