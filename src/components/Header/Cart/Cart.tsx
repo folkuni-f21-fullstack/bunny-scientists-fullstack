@@ -25,12 +25,7 @@ const Cart = ({ cartMenuClass }: Props) => {
             {cart.map((item, id) => {
               return (
                 <li key={id} className="product-in-cart">
-                  <div
-                    onClick={() => dispatch(removeItem(item))}
-                    className="empty-cart-container"
-                  >
-                    <IoMdTrash className="trash-icon" />
-                  </div>
+                  
                   <h3>{item.menuItem.name}</h3>
                   <p>{item.menuItem.price} kr</p>
                   <div className="add-remove-container">
