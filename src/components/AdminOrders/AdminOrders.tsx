@@ -93,7 +93,7 @@ const AdminOrders = () => {
               );
             })}
           </ul>
-        
+
         </section>
         <div className="line"></div>
       </div>
@@ -183,15 +183,13 @@ const AdminOrders = () => {
       <div className="message-to-chef-container">
         <h3 className="subheading">Meddelande till kocken</h3>
         <section className="message-to-chef">
-          <form action="">
-            <textarea name="" id="" cols={20} rows={5}></textarea>
-          </form>
+          <textarea name="" id="" cols={20} rows={5}></textarea>
         </section>
       </div>
 
       <div className="confirm-container">
         <button className="confirm-btn">Bekräfta</button>
-        </div>
+      </div>
     </div>
   );
 };
