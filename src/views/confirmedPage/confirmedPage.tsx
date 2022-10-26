@@ -2,27 +2,31 @@ import '../confirmedPage/confirmedPage.scss'
 import snail from '../../assets/moving-snail.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { OrderType } from '../../models/data';
 
 
 const ConfirmedPage = () => {
   const navigate = useNavigate();
-  // const [orderNumber, setOrderNumber] = useState();
+  const [orderNumber, setOrderNumber] = useState<OrderType[]>();
+  
 
 function navigateHome(){
   navigate('/');
 }
 // HÄMTA DATA FRÅN ORDER HÄR
-// useEffect(() => {
-//   const data = async () => {
-//       const response = await fetch('')
-//       const data = await response.json();
-//       setOrderNumber()
-      
-//   }
-//   return (data)
-// }, []);
+const fetchOrder = async () => {
+  const response = await fetch('/api/orders', {
+    mode: 'cors',
+  });
+  const data: OrderType[] = await response.json();
+  setOrderNumber(data);
+};
 
+useEffect(() => {
+  fetchOrder();
+}, []);
 
+console.log(orderNumber)
 
   return (
     <main className='confirmed-container'>
