@@ -20,19 +20,13 @@ const Cart = ({ cartMenuClass }: Props) => {
     <div>
       <div className={cartMenuClass}>
         <div>
-          <h3 className="product-h2">PRODUKT</h3>
+          <h3 className="product-h2">PRODUKTER</h3>
           <ul className="products">
             {cart.map((item, id) => {
               return (
                 <li key={id} className="product-in-cart">
-                  <div
-                    onClick={() => dispatch(removeItem(item))}
-                    className="empty-cart-container"
-                  >
-                    <IoMdTrash className="trash-icon" />
-                  </div>
-                  <h3>{item.menuItem.name}</h3>
-                  <p>{item.menuItem.price} kr</p>
+                  <h3 className="menu-item-name">{item.menuItem.name}</h3>
+                  <p className="menu-item-price">{item.menuItem.price} kr</p>
                   <div className="add-remove-container">
                     <button
                       className="decrease"
@@ -67,7 +61,7 @@ const Cart = ({ cartMenuClass }: Props) => {
                   (total =
                     total + currentItem.menuItem.price * currentItem.amount),
                 0
-              )}
+              )}{" "}
               kr
             </h3>
           </div>
