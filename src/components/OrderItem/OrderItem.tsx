@@ -25,7 +25,7 @@ const OrderItem = ({ order, index }: Props) => {
     <div onClick={toggleDrop} key={index} className="archive-list-item">
       <section className="list-item-details">
         <p>kl {order.time}</p>
-        <h2>{order.ordernr}</h2>
+        <h3>{order.ordernr}</h3>
         {accordionOpen ?
           <figure className="archive-list-drop-up">
             <IoMdArrowDropdown />
@@ -37,7 +37,7 @@ const OrderItem = ({ order, index }: Props) => {
       </section>
       <section className={className}>
         <div>
-          <h2>Order</h2>
+          <h3>Order</h3>
           {order.order.map((order: any, i: number) => {
             return (
               <p className="order-items" key={i}> <span> {order.quantity} st </span>{order.type}</p>
@@ -45,12 +45,12 @@ const OrderItem = ({ order, index }: Props) => {
           })}
         </div>
         <div className="customer">
-          <h2>Beställare</h2>
+          <h3>Beställare</h3>
           <p>{order.customer.name}</p>
           <p>{order.customer.phone}</p>
         </div>
         <div className="order-comment">
-          <h2>Kommentar</h2>
+          <h3>Kommentar</h3>
           <p>{order.comment}</p>
         </div>
       </section>
