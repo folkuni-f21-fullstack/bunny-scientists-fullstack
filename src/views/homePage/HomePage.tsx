@@ -9,6 +9,8 @@ import './HomePage.scss';
 const HomePage = () => {
   const [itemsByCategory, setItemsByCategory] = useState(Data.array.menu);
 
+
+  //Den hämtar inte från databasen. why?
   const fetchMenu = async () => {
 		const response = await fetch('/api/menu', {
 			mode: 'cors',

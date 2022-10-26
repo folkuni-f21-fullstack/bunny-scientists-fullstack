@@ -42,7 +42,7 @@ const AdminOrders = () => {
   const allDrinksInMenu = Data.array.menu[2].menuItems;
   const allDessertsInMenu = Data.array.menu[3].menuItems;
 
-  const fetchOrders = async () => {
+  const fetchOrders = async () => { //hämtar ordrar från databas
     const response = await fetch("/api/orders", {
       mode: "cors",
     });
@@ -50,11 +50,13 @@ const AdminOrders = () => {
     setAllOrders(data);
   };
 
-  useEffect(() => {
+  useEffect(() => { //hämtar alla ordrar i databasen när sidan startar
     fetchOrders();
   }, []);
 
-  useEffect(() => {
+
+
+  useEffect(() => { // Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
     setSelectedOrder(allOrders[0]);
     setIsSelected(allOrders[0].orderNumber);
   }, [allOrders]);
@@ -128,6 +130,7 @@ const AdminOrders = () => {
       <h2 className="subheading">Lägg till maträtt</h2>
       <section className="add-to-order-container">
         {allEscargotsInMenu.map((order: any, i: number) => {
+          console.log(allOrders)
           return (
             <div key={i}>
               <p>{order.name}</p>

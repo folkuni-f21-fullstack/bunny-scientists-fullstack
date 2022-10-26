@@ -71,7 +71,7 @@
             },
             {
                 "id": "102",
-                "name": "kids",
+                "name": "barnmeny",
                 "menuItems": [
                     {
                         "id": "300",
@@ -105,7 +105,7 @@
             }, 
             {
                 "id": "103",
-                "name": "drinks",
+                "name": "dryck",
                 "menuItems": [
                     {
                         "id": "400",
@@ -145,7 +145,7 @@
                 ]
             },{
                 "id": "104",
-                "name": "desserts",
+                "name": "efterrätt",
                 "menuItems": [
                     {
                         "id": "500",

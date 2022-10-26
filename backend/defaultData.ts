@@ -72,7 +72,7 @@ export const data: Schema = {
         },
         {
             id: '102',
-            name: 'kids',
+            name: 'Barnmeny',
             menuItems: [
                 {
                     id: '300',
@@ -106,7 +106,7 @@ export const data: Schema = {
         },
         {
             id: '103',
-            name: 'drinks',
+            name: 'Dryck',
             menuItems: [
                 {
                     id: '400',
@@ -147,7 +147,7 @@ export const data: Schema = {
         },
         {
             id: '104',
-            name: 'desserts',
+            name: 'Efterrätt',
             menuItems: [
                 {
                     id: '500',
