@@ -6,7 +6,7 @@
     flex-direction: column;
     margin: 0 auto;
     width: 90vw;
-    height: 30rem;
+    height: calc(100vh - 320px);
     justify-content: space-between;
 
     .confirmed-header{
@@ -24,6 +24,7 @@
             max-width: 10rem;
         }
     }
+    
 .confirmed-text-container{
     display: flex;
     flex-direction: column;
