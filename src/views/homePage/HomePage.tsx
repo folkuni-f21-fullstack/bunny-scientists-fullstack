@@ -27,7 +27,7 @@ const HomePage = () => {
 	// }, []);
   useEffect(() => {
      let bla = dispatch(fetchMenu())
-     console.log(bla);
+    //  console.log(bla);
      
   }, []);
   return (
