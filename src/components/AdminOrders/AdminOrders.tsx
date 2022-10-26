@@ -130,7 +130,6 @@ const AdminOrders = () => {
       <h2 className="subheading">Lägg till maträtt</h2>
       <section className="add-to-order-container">
         {allEscargotsInMenu.map((order: any, i: number) => {
-          console.log(allOrders)
           return (
             <div key={i}>
               <p>{order.name}</p>
