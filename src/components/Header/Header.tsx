@@ -1,14 +1,13 @@
 import "./Header.scss";
 import Logo from "../../assets/logo.svg";
 import Cart from "./Cart/Cart";
-import { IoIosCart, IoIosLogOut } from "react-icons/io";
+import { IoIosCart } from "react-icons/io";
 import { BiLogIn } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../App";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "../../store";
-import { CartItem } from "../../models/data";
 import { BiLogOut } from "react-icons/bi";
 
 type Props = {
