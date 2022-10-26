@@ -1,0 +1,59 @@
+@import "../../styles/variables.scss";
+
+
+.confirmed-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90vw;
+    height: 30rem;
+    justify-content: space-between;
+
+    .confirmed-header{
+        
+            font-size: 3rem;
+            margin-top: 1rem;
+            margin-left: 0.5rem;
+    }
+
+    .confirmed-img-container{
+        display: flex;
+        justify-content: center;  
+
+        .confirmed-img{
+            max-width: 10rem;
+        }
+    }
+.confirmed-text-container{
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+
+    .confirmed-text{
+        font-family: $text-font;
+        font-size: var(--fs-text);
+        margin-bottom: .5rem;
+    }
+
+    .confirmed-bold{
+        font-family: $text-font;
+        font-size: var(--fs-text);
+        font-weight: 600;
+        margin-bottom: .5rem;
+    }
+
+}
+    
+
+    .confirmed-btn-container{
+        display: flex;
+        justify-content: center;
+
+        .confirmed-btn{
+            @include addBtnStyle;
+           
+        }
+    }
+    
+    
+}
