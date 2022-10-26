@@ -20,7 +20,7 @@ const Cart = ({ cartMenuClass }: Props) => {
     <div>
       <div className={cartMenuClass}>
         <div>
-          <h2 className="product-h2">PRODUKT</h2>
+          <h3 className="product-h2">PRODUKT</h3>
           <ul className="products">
             {cart.map((item, id) => {
               return (
@@ -56,12 +56,12 @@ const Cart = ({ cartMenuClass }: Props) => {
             className="empty-cart-container"
             onClick={() => dispatch(removeAll())}
           >
-            <h1 className="empty-cart">TÖM VARUKORG</h1>
+            <h3 className="empty-cart">TÖM VARUKORG</h3>
             <IoMdTrash className="trash-icon" />
           </div>
           <div className="total-container">
-            <h2>TOTALT (INKL. MOMS)</h2>
-            <h1>
+            <h3>TOTALT (INKL. MOMS)</h3>
+            <h3 className="price">
               {cart.reduce(
                 (total, currentItem) =>
                   (total =
@@ -69,7 +69,7 @@ const Cart = ({ cartMenuClass }: Props) => {
                 0
               )}
               kr
-            </h1>
+            </h3>
           </div>
           <button className="checkout">TILL KASSAN</button>
         </div>

@@ -40,6 +40,8 @@ h2 {
 
 h3 {
   font-size: var(--fs-sub-title);
+  font-family: $header-font;
+  font-weight: 400;
 }
 
 p, a, ul {

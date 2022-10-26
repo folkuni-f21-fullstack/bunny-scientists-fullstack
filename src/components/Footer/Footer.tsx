@@ -10,14 +10,14 @@ const Footer = () => {
 		<footer>
 			<article>
 				<section>
-					<h2>Kontakt</h2>
+					<h3>Kontakt</h3>
 					<ul>
 						<li>Telefon: {data.array.restaurant.phone}</li>
 						<li>Adress: {data.array.restaurant.address}</li>
 					</ul>
 				</section>
 				<section>
-					<h2>Sociala medier</h2>
+					<h3>Sociala medier</h3>
 					<ul className='socials'>
 						<li>
 							<AiFillFacebook />
