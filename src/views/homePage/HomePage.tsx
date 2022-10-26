@@ -5,14 +5,13 @@ import MenuCard from '../../components/MenuCard/MenuCard';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import Data from '../../data/data.json';
 import { MenuCategory, MenuItem } from '../../models/data';
+import { fetchMenuSuccess } from '../../reducers/menuReducer';
 import { RootState } from "./../../store";
 import './HomePage.scss';
 
 const HomePage = () => {
   const [itemsByCategory, setItemsByCategory] = useState(Data.array.menu);
   const menu = useSelector((state: RootState) => state.menu);
-  const dispatch = useDispatch();
-  console.log(menu)
   // const fetchMenu = async () => {
 	// 	const response = await fetch('/api/menu', {
 	// 		mode: 'cors',
@@ -24,6 +23,24 @@ const HomePage = () => {
 	// useEffect(() => {
 	// 	fetchMenu();
 	// }, []);
+  const dispatch = useDispatch();
+  async function fetchProducts (){
+    return await fetch('/api/menu')
+      .then(res => res.json())
+      .then(json=> {
+        console.log(json)
+        dispatch(fetchMenuSuccess(json))
+        return json;
+      })
+      .catch(error => console.log(error))
+  }
+
+  useEffect(() => {
+    let items: any = async () => {
+      await fetchProducts()
+    } 
+    setItemsByCategory(items)
+  }, []);
   return (
     <main className='home-page'>
       <Hero />

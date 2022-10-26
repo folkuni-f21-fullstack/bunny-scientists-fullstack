@@ -35,6 +35,7 @@ export const menuSlice = createSlice({
   reducers: {
     fetchMenuSuccess: (state: fetchMenu, action: PayloadAction<MenuCategory[]>) => {
       const menu = action.payload
+      console.log(action.payload)
       state.menu = menu
       return state
     }

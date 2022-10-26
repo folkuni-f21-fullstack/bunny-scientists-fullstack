@@ -4,7 +4,6 @@ import { Route, Routes } from "react-router-dom";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import { fetchMenuSuccess } from './reducers/menuReducer';
 import AboutPage from "./views/aboutPage/AboutPage";
 import AdminPage from "./views/adminPage/AdminPage";
 import CartPage from "./views/cartPage/CartPage";
@@ -19,21 +18,21 @@ const scrollToTop = () => {
 };
 function App() {
   const [isAdminView, setIsAdminView] = useState<boolean>(false);
-  const dispatch = useDispatch();
-  async function fetchProducts (){
-    return await fetch('/api/menu')
-      .then(res => res.json())
-      .then(json=> {
-        console.log(json)
-        dispatch(fetchMenuSuccess(json))
-        return json.products;
-      })
-      .catch(error => console.log(error))
-  }
+  // const dispatch = useDispatch();
+  // async function fetchProducts (){
+  //   return await fetch('/api/menu')
+  //     .then(res => res.json())
+  //     .then(json=> {
+  //       console.log(json)
+  //       dispatch(fetchMenuSuccess(json))
+  //       return json;
+  //     })
+  //     .catch(error => console.log(error))
+  // }
 
-  useEffect(() => {
-    fetchProducts()
-  }, []);
+  // useEffect(() => {
+  //   let items = fetchProducts()
+  // }, []);
   return (
     <div className="App">
       <Header setIsAdminView={setIsAdminView} isAdminView={isAdminView} />
