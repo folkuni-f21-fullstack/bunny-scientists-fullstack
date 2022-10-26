@@ -1,7 +1,152 @@
 import { Schema } from './models.js'
 
 export const data: Schema = {
-    orders: [],
+    orders: [
+      {
+        orderNumber: 1,
+        orderItems: [
+          {
+            menuItem: {
+              id: '200',
+              name: 'Tradition',
+              price: 149,
+              description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 2,
+          },
+          {
+            menuItem: {
+              id: '202',
+              name: 'Cocotte',
+              price: 189,
+              description: 'Ägg pocherat i Béchamelsås toppad med escargots och svamp, smaksatt med persilja, vitlök och smör',
+              image: 'https://www.beaune-tourism.com/sites/ot-beaune/files/styles/gallery_lightbox/public/content/images/vente_des_vins-beaune-escargots_paysage-min-min.jpg?itok=FeKJpG8U'
+          },
+            amount: 2,
+          },
+          {
+            menuItem: {
+              id: '204',
+              name: 'Quiche',
+              price: 199,
+              description: 'Varm kaka (quichestil) av escargots kryddad med persilja, vitlök & smör bakad med spenat och strimlad mozzarellaost i en tunn smördegsskorpa',
+              image: 'https://static.cookist.it/wp-content/uploads/sites/21/2018/07/escargot.jpg'
+          },
+            amount: 2,
+          },
+          {
+            menuItem: {
+              id: '201',
+              name: 'Au Gratin',
+              price: 149,
+              description: 'Escargots med svamp, kronärtskocksbotten, spenat, Béchamelsås. Toppad med smält ost',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 2,
+          },
+        ],
+        customerComment: 'HEY ',
+        customer: 'Ida Idasson',
+        phoneNumber: "0724929392",
+      },
+      {
+        orderNumber: 2,
+        orderItems: [
+          {
+            menuItem: {
+              id: '200',
+              name: 'Tradition',
+              price: 149,
+              description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 2,
+          },
+          {
+            menuItem: {
+              id: '202',
+              name: 'Cocotte',
+              price: 189,
+              description: 'Ägg pocherat i Béchamelsås toppad med escargots och svamp, smaksatt med persilja, vitlök och smör',
+              image: 'https://www.beaune-tourism.com/sites/ot-beaune/files/styles/gallery_lightbox/public/content/images/vente_des_vins-beaune-escargots_paysage-min-min.jpg?itok=FeKJpG8U'
+          },
+            amount: 1,
+          },
+          {
+            menuItem: {
+              id: '204',
+              name: 'Quiche',
+              price: 199,
+              description: 'Varm kaka (quichestil) av escargots kryddad med persilja, vitlök & smör bakad med spenat och strimlad mozzarellaost i en tunn smördegsskorpa',
+              image: 'https://static.cookist.it/wp-content/uploads/sites/21/2018/07/escargot.jpg'
+          },
+            amount: 3,
+          },
+          {
+            menuItem: {
+              id: '201',
+              name: 'Au Gratin',
+              price: 149,
+              description: 'Escargots med svamp, kronärtskocksbotten, spenat, Béchamelsås. Toppad med smält ost',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 2,
+          },
+        ],
+        customerComment: 'HEY ',
+        customer: 'Jesus',
+        phoneNumber: "0723094922",
+      },
+      {
+        orderNumber: 3,
+        orderItems: [
+          {
+            menuItem: {
+              id: '200',
+              name: 'Tradition',
+              price: 149,
+              description: 'Autentiskt franskt lantrecept på escargots med persilja, vitlök och smör',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 1,
+          },
+          {
+            menuItem: {
+              id: '202',
+              name: 'Cocotte',
+              price: 189,
+              description: 'Ägg pocherat i Béchamelsås toppad med escargots och svamp, smaksatt med persilja, vitlök och smör',
+              image: 'https://www.beaune-tourism.com/sites/ot-beaune/files/styles/gallery_lightbox/public/content/images/vente_des_vins-beaune-escargots_paysage-min-min.jpg?itok=FeKJpG8U'
+          },
+            amount: 2,
+          },
+          {
+            menuItem: {
+              id: '204',
+              name: 'Quiche',
+              price: 199,
+              description: 'Varm kaka (quichestil) av escargots kryddad med persilja, vitlök & smör bakad med spenat och strimlad mozzarellaost i en tunn smördegsskorpa',
+              image: 'https://static.cookist.it/wp-content/uploads/sites/21/2018/07/escargot.jpg'
+          },
+            amount: 5,
+          },
+          {
+            menuItem: {
+              id: '201',
+              name: 'Au Gratin',
+              price: 149,
+              description: 'Escargots med svamp, kronärtskocksbotten, spenat, Béchamelsås. Toppad med smält ost',
+              image: 'https://www.sbs.com.au/food/sites/sbs.com.au.food/files/img_7379-snails.jpg',
+            },
+            amount: 1,
+          },
+        ],
+        customerComment: 'HEY ',
+        customer: 'Jesus',
+        phoneNumber: "0720899112",
+      }
+    ],
     archive: [],
     credentials: {
         username: 'admin',
@@ -72,7 +217,7 @@ export const data: Schema = {
         },
         {
             id: '102',
-            name: 'kids',
+            name: 'Barnmeny',
             menuItems: [
                 {
                     id: '300',
@@ -106,7 +251,7 @@ export const data: Schema = {
         },
         {
             id: '103',
-            name: 'drinks',
+            name: 'Dryck',
             menuItems: [
                 {
                     id: '400',
@@ -147,7 +292,7 @@ export const data: Schema = {
         },
         {
             id: '104',
-            name: 'desserts',
+            name: 'Efterrätt',
             menuItems: [
                 {
                     id: '500',
@@ -167,7 +312,7 @@ export const data: Schema = {
                     id: '502',
                     name: 'Mousse',
                     price: 69,
-                    description: 'Tillagad med mjölkchoklad och äggvita, glassstil, "den bästa efterrätt jag någonsin smakat"',
+                    description:  `Tillagad med mjölkchoklad och äggvita, glassstil, 'den bästa efterrätt jag någonsin smakat' `,
                     image: 'https://img.taste.com.au/I3x-cteh/taste/2010/01/chocolate_mousse_in_minutes_1980x1320-117905-1.jpg'
                 },
                 {
@@ -181,7 +326,7 @@ export const data: Schema = {
                     id: '504',
                     name: 'Crème Brûlée',
                     price: 69,
-                    description: 'Kyld crème brulée toppad med en karamelliserad skorpa, "wow, det här var gott!"',
+                    description: `Kyld crème brulée toppad med en karamelliserad skorpa, 'wow, det här var gott!'`,
                     image: 'https://shared.cdn.smp.schibsted.com/v2/images/7db8e189-2052-4470-94db-5a4ebc7008b8?fit=crop&h=591&w=1000&s=d64df287e22d9b54ef073c3cbeba0cff290ab1cd'
                 }
             ]
