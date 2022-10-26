@@ -29,7 +29,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
   let newList = productList.map((f) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
 
-
   const toggleNav = () => {
     if (!navOpen) {
       setBurgerMenuClass("burger open");
@@ -62,7 +61,8 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
 
   return (
     <>
-      {isAdminView ? (
+      {/* kollar ifall admin finns i URL */}
+      {window.location.href.includes("admin") || isAdminView ? (
         <header className="header">
           <div className="header-container">
             <div className="header-desktop">
@@ -128,7 +128,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 </Link>
               </nav>
               <div className="cart-container">
-              {displayAmount > 0 && (<p className="cart-counter">{displayAmount}</p>)}
+                {displayAmount > 0 && (
+                  <p className="cart-counter">{displayAmount}</p>
+                )}
                 <IoIosCart className="cart" onClick={() => toggleCart()} />
                 <Cart cartMenuClass={cartMenuClass} />
               </div>
@@ -148,7 +150,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
             </Link>
 
             <div className="cart-container">
-            {displayAmount > 0 && <p className="cart-counter">{displayAmount}</p>}
+              {displayAmount > 0 && (
+                <p className="cart-counter">{displayAmount}</p>
+              )}
               <IoIosCart className="cart" onClick={() => toggleCart()} />
               <Cart cartMenuClass={cartMenuClass} />
             </div>
