@@ -1,8 +1,16 @@
-import { createSlice, nanoid, createAsyncThunk } from '@reduxjs/toolkit'
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { MenuCategory } from '../models/data';
+
+
 
 // import { client } from '../../api/client'
-
-const initialState = {
+type fetchMenu = {
+  menu: MenuCategory[],
+  status: string, 
+  error: null
+}
+const initialState: fetchMenu = {
   menu: [],
   status: 'idle',
   error: null
@@ -20,21 +28,15 @@ export const menuSlice = createSlice({
   name: 'menu',
   initialState,
   reducers: {
-    // omit existing reducers here
-  },
-  extraReducers(builder) {
-    builder
-      .addCase(fetchMenu.pending, (state, action) => {
-        state.status = 'loading'
-      })
-      .addCase(fetchMenu.fulfilled, (state, action) => {
-        state.status = 'succeeded'
-        // Add any fetched posts to the array
-        state.menu = state.menu.concat(action.payload)
-      })
-      .addCase(fetchMenu.rejected, (state, action) => {
-        state.status = 'failed'
-        state.error = action.error.message
-      })
+    fetchMenuSuccess: (state: fetchMenu, action: PayloadAction<MenuCategory[]>) => {
+      const menu = action.payload
+      state.menu = menu
+      return state
+    }
   }
 })
+
+export default menuSlice.reducer;
+export const {
+  fetchMenuSuccess,
+} = menuSlice.actions;

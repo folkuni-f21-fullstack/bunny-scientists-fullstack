@@ -1,19 +1,28 @@
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import Hero from '../../components/Hero/Hero';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import Data from '../../data/data.json';
-import { MenuItem, MenuCategory } from '../../models/data';
-import { useEffect, useState } from 'react';
-import './HomePage.scss';
+import { MenuCategory, MenuItem } from '../../models/data';
+import { fetchMenu, fetchMenuSuccess } from '../../reducers/menuReducer';
 import { RootState } from "./../../store";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchMenu } from '../../reducers/menuReducer';
+import './HomePage.scss';
 
 const HomePage = () => {
   const [itemsByCategory, setItemsByCategory] = useState(Data.array.menu);
   const menu = useSelector((state: RootState) => state.menu);
   const dispatch = useDispatch();
-// console.log(menu)
+  async function fetchProducts (){
+    return await fetch('/api/menu')
+      .then(res => res.json())
+      .then(json=> {
+        dispatch(fetchMenuSuccess(json))
+        return json.products;
+      })
+      .catch(error => console.log(error))
+  }
+  console.log(menu)
   // const fetchMenu = async () => {
 	// 	const response = await fetch('/api/menu', {
 	// 		mode: 'cors',
@@ -26,9 +35,9 @@ const HomePage = () => {
 	// 	fetchMenu();
 	// }, []);
   useEffect(() => {
-     let bla = dispatch(fetchMenu())
-     console.log(bla);
-     
+    //  let bla = dispatch(fetchMenu())
+    //  console.log(bla);
+    fetchProducts()
   }, []);
   return (
     <main className='home-page'>
