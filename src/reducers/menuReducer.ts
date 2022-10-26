@@ -16,12 +16,17 @@ const initialState: fetchMenu = {
   error: null
 }
 
-export const fetchMenu = createAsyncThunk('posts/fetchPosts', async () => {
+export const fetchMenu = createAsyncThunk('api/menu', async () => {
   const response = await fetch("/api/menu", {
     mode: "cors",
   });
+ console.log(response.json())
   const data: any[] = await response.json();
+  console.log(data);
   return data
+
+  
+  // state.menu = data
 })
 
 export const menuSlice = createSlice({
