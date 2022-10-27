@@ -131,7 +131,7 @@ const AdminOrders = () => {
             <>
               {menuByCategory.map((category: MenuCategory, i: number) => {
                 return (
-                  <>
+                  <div key={i}>
                     {category.menuItems.map((item: MenuItem, j: number) => {
                       return (
                         <div key={j}>
@@ -143,7 +143,7 @@ const AdminOrders = () => {
                         </div>
                       )
                     })}
-                  </>)
+                  </div>)
               })}
             </>
           ) : null}
