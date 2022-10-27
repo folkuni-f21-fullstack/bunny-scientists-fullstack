@@ -41,13 +41,13 @@ const cartSlice = createSlice({
       return state
     },
     removeAll: (state: CartItem[]) => {
-      state = []
-      return state
+      return []
     }
   },
 });
 
 export default cartSlice.reducer;
+
 export const {
   addToCart,
   incrementQuantity,

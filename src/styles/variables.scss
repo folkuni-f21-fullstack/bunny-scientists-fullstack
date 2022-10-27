@@ -70,3 +70,10 @@ $box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
     background-color: $green-dark-bg
   }
 }
+@media only screen and (min-width: 730px) {
+  :root {
+    --fs-text: 15px;
+    --fs-title: 48px;
+    --fs-sub-title: 23px;
+  }
+}
