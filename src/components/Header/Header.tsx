@@ -84,7 +84,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h1 className="logout-text">LOGGA UT</h1>
+                  <h3 className="logout-text">LOGGA UT</h3>
                   <BiLogOut className="logout-icon" />
                 </Link>
               </div>

@@ -3,27 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import Hero from '../../components/Hero/Hero';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import MenuNav from '../../components/MenuNav/MenuNav';
-import Data from '../../data/data.json';
-import { MenuCategory, MenuItem } from '../../models/data';
+import { MenuCategory } from '../../models/data';
 import { FetchMenu, fetchMenuThunk } from '../../reducers/menuReducer';
 import { RootState, AppDispatch } from "./../../store";
 import './HomePage.scss';
 
 const HomePage = () => {
   const [itemsByCategory, setItemsByCategory]= useState<MenuCategory[]>([])
-  // let itemsByCategory: MenuCategory[] = []
   const menu: FetchMenu = useSelector((state: RootState) => state.menu);
-  // const fetchMenu = async () => {
-	// 	const response = await fetch('/api/menu', {
-	// 		mode: 'cors',
-	// 	});
-	// 	const data: MenuCategory[] = await response.json();
-	// 	setItemsByCategory(data);
-	// };
-
-	// useEffect(() => {
-	// 	fetchMenu();
-	// }, []);
   const dispatch: AppDispatch = useDispatch();
 
   async function fetchProducts (): Promise<MenuCategory[]>{
@@ -48,7 +35,6 @@ const HomePage = () => {
   if (itemsByCategory.length === 0) {
     return null
   }
-  console.log('Items', itemsByCategory)
   return (
     <main className='home-page'>
       <Hero />
