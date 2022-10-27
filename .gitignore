@@ -14,7 +14,8 @@ dist-ssr
 
 #Data
 backend/data.json
-.env
+**/*.env
+vite.config.ts
 
 # Editor directories and files
 .vscode/*
