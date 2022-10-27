@@ -1,48 +1,43 @@
-import type { PayloadAction } from '@reduxjs/toolkit';
+import type { AnyAction, PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { MenuCategory } from '../models/data';
 
-
-
-// import { client } from '../../api/client'
-type fetchMenu = {
+type fetchMenuType = {
   menu: MenuCategory[],
-  status: string, 
-  error: null
+  loading: 'idle' | 'pending' | 'succeeded' | 'failed',
 }
-const initialState: fetchMenu = {
+type KnownError = {
+  errorMessage: string
+}
+const initialState: fetchMenuType = {
   menu: [],
-  status: 'idle',
-  error: null
+  loading: 'idle',
 }
-
 export const fetchMenu = createAsyncThunk('api/menu', async () => {
-  const response = await fetch("/api/menu", {
-    mode: "cors",
-  });
- console.log(response.json())
-  const data: any[] = await response.json();
-  console.log(data);
-  return data
-
-  
-  // state.menu = data
+  const response = await fetch("/api/menu");
+  if(response.status === 426) {
+    return console.log(response)
+  }
+  return (await response.json()) as MenuCategory[]
 })
 
-export const menuSlice = createSlice({
+// import { client } from '../../api/client'
+const menuSlice = createSlice ({
   name: 'menu',
   initialState,
-  reducers: {
-    fetchMenuSuccess: (state: fetchMenu, action: PayloadAction<MenuCategory[]>) => {
-      const menu = action.payload
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchMenu.pending, (state) => {
+      state.loading = 'pending'
+    })
+    builder.addCase(fetchMenu.fulfilled, (state, action) => {
+      state.loading = 'succeeded'
+      if(action.payload) {
+        state.menu = action.payload
+      }
       console.log(action.payload)
-      state.menu = menu
-      return state
-    }
+    })
   }
 })
 
-export default menuSlice.reducer;
-export const {
-  fetchMenuSuccess,
-} = menuSlice.actions;
+export default menuSlice.reducer
