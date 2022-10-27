@@ -1,6 +1,6 @@
 import { IoMdTrash } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   decrementQuantity,
   incrementQuantity,
@@ -11,11 +11,21 @@ import { RootState } from "../../../store";
 import "./Cart.scss";
 type Props = {
 	cartMenuClass: string;
+  toggleCart: () => void
 };
 
-const Cart = ({ cartMenuClass }: Props) => {
+
+const Cart = ({ cartMenuClass, toggleCart }: Props) => {
 	const cart = useSelector((state: RootState) => state.cart);
 	const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleCheckOut(){
+  navigate('/cart');
+  toggleCart()
+
+}
+// const [orderNumber, setOrderNumber] = useState();
 
   return (
     <div>
@@ -66,7 +76,7 @@ const Cart = ({ cartMenuClass }: Props) => {
               kr
             </h3>
           </div>
-          <button className="checkout">TILL KASSAN</button>
+          <button onClick={handleCheckOut} className="checkout">TILL KASSAN</button>
         </div>
       </div>
     </div>

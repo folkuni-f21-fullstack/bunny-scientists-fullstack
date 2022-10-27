@@ -139,7 +139,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                   <p className="cart-counter">{displayAmount}</p>
                 )}
                 <IoIosCart className="cart" onClick={() => toggleCart()} />
-                <Cart cartMenuClass={cartMenuClass} />
+                <Cart cartMenuClass={cartMenuClass} toggleCart={toggleCart} />
               </div>
             </div>
             <nav className="nav-button-container">
@@ -161,7 +161,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 <p className="cart-counter">{displayAmount}</p>
               )}
               <IoIosCart className="cart" onClick={() => toggleCart()} />
-              <Cart cartMenuClass={cartMenuClass} />
+              <Cart cartMenuClass={cartMenuClass} toggleCart={toggleCart} />
             </div>
           </div>
           <div className={navOpenClass}>
