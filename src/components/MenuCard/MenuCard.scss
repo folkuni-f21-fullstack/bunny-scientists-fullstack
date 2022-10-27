@@ -13,7 +13,7 @@
 	align-self: center;
 	overflow: hidden;
 	display: grid;
-	grid-auto-rows: auto;
+	grid-template-rows: 1.5rem auto;
 	grid-template-areas:
 	"title title image image"
 	"desc desc image image"
@@ -31,14 +31,14 @@
 .title{
 	font-family: $header-font;
 	font-weight: 400;
-	font-size: var(--fs-title);
+	font-size: var(--fs-sub-title);
 }
 
 .price{
 	font-family: $header-font;
 	color: $price-bg;
 	font-weight: 400;
-	font-size: var(--fs-title);
+	font-size: var(--fs-sub-title);
 }
 
 .desc{
@@ -69,6 +69,7 @@
 }
 
 .dropdown-fig{
+	color: rgb(210, 210, 210);
 	grid-area: down;
 	align-self: flex-end;
 	justify-self: start;
@@ -82,10 +83,10 @@
 	padding: .5rem;
 
 	.menucard{
-		height: 15rem;
+		height: 13rem;
 		position: relative;
 		display: grid;
-		grid-auto-rows: auto;
+		grid-template-rows: max-content 1.5rem auto;
 		grid-template-areas:
 		"image image image image"
 		"title title title title"
@@ -131,16 +132,16 @@
 
 	
 	.menucard {
-		height: 14rem;
+		height: 13.5rem;
 		position: relative;
 
-		grid-template-rows: auto;	
+		grid-template-rows: max-content 1.5rem auto;
 		grid-template-areas: 
 		"image image image image"						
 		"title title title title"
 		"desc desc desc desc";
-		.desc{
-			margin-bottom: 2rem;
+		.desc{		
+			margin-top: .3rem;
 		}
 								
 		.image-container{
@@ -152,6 +153,7 @@
 			width: 100%;
 			height: 7rem;
 			position: relative;
+			margin-bottom: .2rem;
 			
 			.image{
 				position: absolute;

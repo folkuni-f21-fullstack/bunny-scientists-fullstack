@@ -50,7 +50,7 @@
                         "id": "205",
                         "name": "Salade",
                         "price": 199,
-                        "description": "Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar. Toppad med hemgjorda kryddade krutonger.",
+                        "description": "Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar.",
                         "image": "https://www.agrodolce.it/app/uploads/2017/04/shutterstock_246135493.jpg"
                     },
                     {
@@ -71,7 +71,7 @@
             },
             {
                 "id": "102",
-                "name": "kids",
+                "name": "barnmeny",
                 "menuItems": [
                     {
                         "id": "300",
@@ -105,7 +105,7 @@
             }, 
             {
                 "id": "103",
-                "name": "drinks",
+                "name": "dryck",
                 "menuItems": [
                     {
                         "id": "400",
@@ -145,7 +145,7 @@
                 ]
             },{
                 "id": "104",
-                "name": "desserts",
+                "name": "efterrätt",
                 "menuItems": [
                     {
                         "id": "500",
