@@ -312,7 +312,7 @@ export const data: Schema = {
                     id: '502',
                     name: 'Mousse',
                     price: 69,
-                    description: 'Tillagad med mjölkchoklad och äggvita, glassstil, 'den bästa efterrätt jag någonsin smakat'',
+                    description: `Tillagad med mjölkchoklad och äggvita, glassstil, 'den bästa efterrätt jag någonsin smakat'`,
                     image: 'https://img.taste.com.au/I3x-cteh/taste/2010/01/chocolate_mousse_in_minutes_1980x1320-117905-1.jpg'
                 },
                 {
@@ -326,7 +326,7 @@ export const data: Schema = {
                     id: '504',
                     name: 'Crème Brûlée',
                     price: 69,
-                    description: 'Kyld crème brulée toppad med en karamelliserad skorpa, 'wow, det här var gott!'',
+                    description: `Kyld crème brulée toppad med en karamelliserad skorpa, 'wow, det här var gott!'`,
                     image: 'https://shared.cdn.smp.schibsted.com/v2/images/7db8e189-2052-4470-94db-5a4ebc7008b8?fit=crop&h=591&w=1000&s=d64df287e22d9b54ef073c3cbeba0cff290ab1cd'
                 }
             ]
