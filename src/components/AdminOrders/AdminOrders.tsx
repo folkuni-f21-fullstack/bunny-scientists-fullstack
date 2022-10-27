@@ -129,24 +129,23 @@ const AdminOrders = () => {
 
           {menu.loading === "succeeded" && menu.menu.length ? (
             <>
-              {menuByCategory.map((category:MenuCategory, i: number) => {
-                <>
-                  {category.menuItems.map((item:MenuItem, j: number) => {
-                    return(
-<div key={j}>
-                      <p>{item.name}</p>
-                      <button>
-                        {" "}
-                        <IoIosAdd />
-                      </button>
-                    </div>
-
-                    )
-                    
-                  })}
-                </>
-              })} 
-          </>
+              {menuByCategory.map((category: MenuCategory, i: number) => {
+                return (
+                  <>
+                    {category.menuItems.map((item: MenuItem, j: number) => {
+                      return (
+                        <div key={j}>
+                          <p>{item.name}</p>
+                          <button>
+                            {" "}
+                            <IoIosAdd />
+                          </button>
+                        </div>
+                      )
+                    })}
+                  </>)
+              })}
+            </>
           ) : null}
         </section>
       </div>

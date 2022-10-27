@@ -12,6 +12,7 @@ const initialState: fetchMenuType = {
   loading: 'idle',
   error: ''
 }
+
 export const fetchMenu = createAsyncThunk('api/menu', async () => {
   const response = await fetch("/api/menu");
   const data: Promise<MenuCategory[]> = response.json();
