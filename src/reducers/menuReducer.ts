@@ -5,10 +5,7 @@ import { MenuCategory } from '../models/data';
 type fetchMenuType = {
   menu: MenuCategory[],
   loading: 'idle' | 'pending' | 'succeeded' | 'failed',
-  error: ''
-}
-type KnownError = {
-  errorMessage: string
+  error: string
 }
 const initialState: fetchMenuType = {
   menu: [],
@@ -16,7 +13,7 @@ const initialState: fetchMenuType = {
   error: ''
 }
 export const fetchMenu = createAsyncThunk('api/menu', async () => {
-  const response = await fetch("http://localhost:5174/api/menu");
+  const response = await fetch("/api/menu");
   const data: Promise<MenuCategory[]> = response.json();
   return data
 })
@@ -32,9 +29,19 @@ const menuSlice = createSlice ({
     })
     builder.addCase(fetchMenu.fulfilled, (state, action) => {
       state.loading = 'succeeded'
-      if(action.payload) {
-        state.menu = action.payload
-        return state
+      const menu: MenuCategory[] = action.payload
+      let stateCopy = {...state}
+      stateCopy.menu = menu //kopiera
+      state.menu = menu
+    })
+    builder.addCase(fetchMenu.rejected, (state, action) => {
+      state.loading = 'failed'
+      const menu: MenuCategory[] = []
+      let stateCopy = {...state}
+      stateCopy.menu = menu //kopiera
+      state.menu = menu
+      if(typeof action.error.message === "string"){
+        state.error = action.error.message
       }
     })
   }

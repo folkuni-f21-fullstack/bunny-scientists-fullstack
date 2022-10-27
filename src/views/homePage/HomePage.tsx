@@ -10,22 +10,14 @@ import './HomePage.scss';
 
 const HomePage = () => {
   const menu = useSelector((state: RootState) => state.menu);
-  // console.log(menu)
-  // const fetchMenu = async () => {
-	// 	const response = await fetch('/api/menu', {
-	// 		mode: 'cors',
-	// 	});
-	// 	const data: MenuCategory[] = await response.json();
-	// 	setmenu.menu(data);
-	// };
 
   return (
     <main className='home-page'>
       <Hero />
       <MenuNav />
-      {menu.loading && <div>loading...</div>}
-      {!menu.loading && menu.error ? <div>Error: {menu.error}</div>: null}
-      {!menu.loading && menu.menu.length ? (
+      {menu.loading === "idle" || menu.loading === "pending" && <div>loading...</div>}
+      {menu.loading === "failed" && menu.error ? <div>Error: {menu.error}</div>: null}
+      {menu.loading === "succeeded" && menu.menu.length ? (
         <div className='main-wrapper'>
           <h2>{menu.menu[0].name}</h2>
           <section className='cards-container'>
