@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import decrease from '../../assets/icons/decrease-icon.svg';
 import increase from '../../assets/icons/increase-icon.svg';
 import trash from '../../assets/icons/trash-icon.svg';
+import { useNavigate } from 'react-router-dom';
 import {
   decrementQuantity,
   incrementQuantity,
@@ -15,31 +16,24 @@ import './CartPage.scss';
 
 const CartPage = () => {
 	const dispatch = useDispatch();
+  const navigate = useNavigate();
 	// diplay amount of articles in cart
 	const productList = useSelector((state: RootState) => state.cart);
 	console.log(productList);
 
-  const [nameOpen, setNameOpen] = useState(false);
-  const [messageOpen, setMessageOpen] = useState(false);
-
-  const [name, setName] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
-
-  function checkName() {
-    if (!name) {
-      setNameOpen(false);
+const sendMail: (e: any) => void = (e: any) => {
+  e.preventDefault();
+    if (productList.length > 0){
+      navigate('/confirmed');
+      dispatch(removeAll())
+    } else {
+      console.log('empty shit')
     }
-    return;
   }
-  function checkMessage() {
-    if (!message) {
-      setMessageOpen(false);
-    }
-    return;
-  }
-  function sendMail() {
-    window.open(`mailto:l.eklind1@gmail.com?subject=${name}&body=${message}`);
-  }
+
+
+
+  
 	return (
 		<div className='cart-wrapper'>
 			<section className='cart-header'>
@@ -91,14 +85,14 @@ const CartPage = () => {
         </ul>
         <div className='line'></div>
         <section className='form'>
-          <form onSubmit={() => sendMail()} className="contact-form">
+          <form onSubmit={sendMail} className="contact-form">
             <label htmlFor="name">namn</label>
             <input type="text" id='name' />
             <label htmlFor="number">telefonnummer</label>
             <input type="text" id="number" />
             <label htmlFor="message">meddelande</label>
-            <textarea id='message' placeholder='Lämna meddelande till resturangen' ></textarea>
-            <input className='submit-button' type="submit" value="beställ" />
+            <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6}> </textarea>
+            <input className='submit-button' type="submit" value="Slutför köp" />
           </form>
           <div>
             <h2>
