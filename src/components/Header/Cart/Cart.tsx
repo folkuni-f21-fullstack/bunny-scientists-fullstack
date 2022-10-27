@@ -1,38 +1,33 @@
-import { IoMdTrash } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { IoMdTrash } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem,
+  removeItem
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
 type Props = {
-  cartMenuClass: string;
+	cartMenuClass: string;
 };
 
 const Cart = ({ cartMenuClass }: Props) => {
-  const cart = useSelector((state: RootState) => state.cart);
-  const dispatch = useDispatch();
+	const cart = useSelector((state: RootState) => state.cart);
+	const dispatch = useDispatch();
 
   return (
     <div>
       <div className={cartMenuClass}>
         <div>
-          <h3 className="product-h2">PRODUKT</h3>
+          <h3 className="product-h2">PRODUKTER</h3>
           <ul className="products">
             {cart.map((item, id) => {
               return (
                 <li key={id} className="product-in-cart">
-                  <div
-                    onClick={() => dispatch(removeItem(item))}
-                    className="empty-cart-container"
-                  >
-                    <IoMdTrash className="trash-icon" />
-                  </div>
-                  <h3>{item.menuItem.name}</h3>
-                  <p>{item.menuItem.price} kr</p>
+                  <h3 className="menu-item-name">{item.menuItem.name}</h3>
+                  <p className="menu-item-price">{item.menuItem.price} kr</p>
                   <div className="add-remove-container">
                     <button
                       className="decrease"
@@ -67,7 +62,7 @@ const Cart = ({ cartMenuClass }: Props) => {
                   (total =
                     total + currentItem.menuItem.price * currentItem.amount),
                 0
-              )}
+              )}{" "}
               kr
             </h3>
           </div>

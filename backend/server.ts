@@ -1,7 +1,10 @@
 import cors from 'cors';
-import express, { Request, Response } from 'express';
+import * as dotenv from 'dotenv';
+import express from 'express';
 const app = express();
-const PORT = 5174;
+dotenv.config()
+const PORT = process.env.PORT;
+
 // const cors = require("cors")
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';

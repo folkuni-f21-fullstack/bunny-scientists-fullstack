@@ -196,7 +196,7 @@ export const data: Schema = {
                     id: '205',
                     name: 'Salade',
                     price: 199,
-                    description: 'Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar. Toppad med hemgjorda kryddade krutonger.',
+                    description: 'Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar.',
                     image: 'https://www.agrodolce.it/app/uploads/2017/04/shutterstock_246135493.jpg'
                 },
                 {

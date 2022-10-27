@@ -1,19 +1,17 @@
-import "./Header.scss";
-import Logo from "../../assets/logo.svg";
-import Cart from "./Cart/Cart";
-import { IoIosCart, IoIosLogOut } from "react-icons/io";
-import { BiLogIn } from "react-icons/bi";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { IoIosCart } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../App";
-import { useSelector, useDispatch } from "react-redux";
+import Logo from "../../assets/logo.svg";
 import { RootState } from "../../store";
-import { CartItem } from "../../models/data";
-import { BiLogOut } from "react-icons/bi";
+import Cart from "./Cart/Cart";
+import "./Header.scss";
 
 type Props = {
-  isAdminView: boolean;
-  setIsAdminView: (isAdminView: boolean) => void;
+	isAdminView: boolean;
+	setIsAdminView: (isAdminView: boolean) => void;
 };
 
 const Header = ({ setIsAdminView, isAdminView }: Props) => {
@@ -22,23 +20,29 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
   const [navOpenClass, setNavOpenClass] = useState<string>("nav-accordion");
   const [cartOpen, setCartOpen] = useState<boolean>(false);
   const [cartMenuClass, setCartMenuClass] = useState<string>("cart-overlay");
-  // const [cartOpenClass, setCartOpenClass] = useState<string>("");
-  const dispatch = useDispatch();
+
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
   let newList = productList.map((f) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
 
-
   const toggleNav = () => {
+    // om navOpen är false när funktionen körs
     if (!navOpen) {
+      // sätter burgaren till ett kryss
       setBurgerMenuClass("burger open");
+      // sätter naven's class till open
       setNavOpenClass("nav-accordion-open");
+      // nav nu öppen, sätter navOpen till true
       setNavOpen(true);
+      // stänger cart ifall den är öppen
       setCartMenuClass("cart-overlay");
+      // cart nu stängd, sätter cartOpen till false
       setCartOpen(false);
       console.log("accordion öppnas");
     } else {
+      // annars betyder det att användaren vill stänga menyn,
+      // tar bort klasser för öppen och ändrar tillbaka till hamburgaren
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
@@ -46,6 +50,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
     }
   };
   const toggleCart = () => {
+    // I princip samma sak som toggleNav
     if (!cartOpen) {
       setCartMenuClass("cart-overlay-open");
       setCartOpen(true);
@@ -62,7 +67,8 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
 
   return (
     <>
-      {isAdminView ? (
+      {/* kollar ifall admin finns i URL och visar isåfall admin Header*/}
+      {window.location.href.includes("admin") || isAdminView ? (
         <header className="header">
           <div className="header-container">
             <div className="header-desktop">
@@ -77,8 +83,8 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h1 className="logout-text">LOGGA UT</h1>
-                  <BiLogOut className="logout-icon" />{" "}
+                  <h3 className="logout-text">LOGGA UT</h3>
+                  <BiLogOut className="logout-icon" />
                 </Link>
               </div>
             </div>
@@ -100,6 +106,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
           </div>
         </header>
       ) : (
+        // generell Header för hela sidan
         <header className="header">
           <div className="header-container">
             <div className="header-desktop">
@@ -128,7 +135,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 </Link>
               </nav>
               <div className="cart-container">
-              {displayAmount > 0 && (<p className="cart-counter">{displayAmount}</p>)}
+                {displayAmount > 0 && (
+                  <p className="cart-counter">{displayAmount}</p>
+                )}
                 <IoIosCart className="cart" onClick={() => toggleCart()} />
                 <Cart cartMenuClass={cartMenuClass} />
               </div>
@@ -148,7 +157,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
             </Link>
 
             <div className="cart-container">
-            {displayAmount > 0 && <p className="cart-counter">{displayAmount}</p>}
+              {displayAmount > 0 && (
+                <p className="cart-counter">{displayAmount}</p>
+              )}
               <IoIosCart className="cart" onClick={() => toggleCart()} />
               <Cart cartMenuClass={cartMenuClass} />
             </div>

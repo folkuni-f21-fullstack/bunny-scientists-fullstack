@@ -1,7 +1,7 @@
-@import "../../../styles/variables.scss";
+@import '../../../styles/variables.scss';
 
 .cart-overlay {
-  display: none;
+	display: none;
 }
 
 .cart-overlay-open {
@@ -12,6 +12,9 @@
   width: 100vw;
   min-width: 375px;
   background-color: #f6f6f6;
+  box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   &:before {
     content: "";
     background-color: #f6f6f6;
@@ -23,7 +26,7 @@
     clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
   }
   .product-h2 {
-    padding-left: 2rem;
+    padding-left: 2.5rem;
   }
   .products {
     position: relative;
@@ -33,9 +36,9 @@
     flex-direction: column;
     width: 85%;
     height: 85%;
+    min-height: 250px;
     max-height: 250px;
-    border: 1px solid;
-    border-radius: 5px;
+
     overflow-y: scroll;
     scroll-behavior: smooth;
     overflow-x: hidden;
@@ -44,6 +47,13 @@
       justify-content: space-around;
       align-items: center;
       height: 55px;
+      .menu-item-name {
+        flex: 1;
+        padding-left: 1rem;
+      }
+      .menu-item-price {
+        flex: 0.5;
+      }
     }
   }
   .add-remove-container {
@@ -107,30 +117,30 @@
 }
 
 @media screen and (min-width: 450px) {
-  .cart-overlay-open {
-    display: block;
-    position: absolute;
-    max-width: 400px;
-    min-width: 400px;
-    left: -22rem;
-    top: 100%;
-    width: 30vw;
-    padding: 1rem;
+	.cart-overlay-open {
+		display: block;
+		position: absolute;
+		max-width: 400px;
+		min-width: 400px;
+		left: -22rem;
+		top: 100%;
+		width: 30vw;
+		padding: 1rem;
 
-    background-color: #f6f6f6;
-    &:before {
-      content: "";
-      background-color: #f6f6f6;
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      right: 0.8rem;
-      top: -2rem;
-      left: 22.8rem;
-      clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
-    }
-    .empty-cart-container {
-      padding-right: 2rem;
-    }
-  }
+		background-color: #f6f6f6;
+		&:before {
+			content: '';
+			background-color: #f6f6f6;
+			width: 2rem;
+			height: 2rem;
+			position: absolute;
+			right: 0.8rem;
+			top: -2rem;
+			left: 22.8rem;
+			clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
+		}
+		.empty-cart-container {
+			padding-right: 2rem;
+		}
+	}
 }
