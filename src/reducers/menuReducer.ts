@@ -5,6 +5,7 @@ import { MenuCategory } from '../models/data';
 type fetchMenuType = {
   menu: MenuCategory[],
   loading: 'idle' | 'pending' | 'succeeded' | 'failed',
+  error: ''
 }
 type KnownError = {
   errorMessage: string
@@ -12,13 +13,12 @@ type KnownError = {
 const initialState: fetchMenuType = {
   menu: [],
   loading: 'idle',
+  error: ''
 }
 export const fetchMenu = createAsyncThunk('api/menu', async () => {
-  const response = await fetch("/api/menu");
-  if(response.status === 426) {
-    return console.log(response)
-  }
-  return (await response.json()) as MenuCategory[]
+  const response = await fetch("http://localhost:5174/api/menu");
+  const data: Promise<MenuCategory[]> = response.json();
+  return data
 })
 
 // import { client } from '../../api/client'
@@ -34,8 +34,8 @@ const menuSlice = createSlice ({
       state.loading = 'succeeded'
       if(action.payload) {
         state.menu = action.payload
+        return state
       }
-      console.log(action.payload)
     })
   }
 })

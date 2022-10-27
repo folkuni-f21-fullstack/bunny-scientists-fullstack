@@ -1,7 +1,7 @@
 import cors from 'cors';
 import express, { Request, Response } from 'express';
 const app = express();
-const PORT = 1337;
+const PORT = 5174;
 // const cors = require("cors")
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
