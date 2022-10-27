@@ -2,47 +2,40 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { MenuCategory } from '../models/data';
 
-
-
-// import { client } from '../../api/client'
-type fetchMenu = {
+export type FetchMenu = {
   menu: MenuCategory[],
   status: string, 
   error: null
 }
-const initialState: fetchMenu = {
+const initialState: FetchMenu = {
   menu: [],
   status: 'idle',
   error: null
 }
 
-export const fetchMenu = createAsyncThunk('api/menu', async () => {
+export const fetchMenuThunk = createAsyncThunk('api/menu', async () => {
   const response = await fetch("/api/menu", {
     mode: "cors",
   });
- console.log(response.json())
-  const data: any[] = await response.json();
-  console.log(data);
+  const data: MenuCategory[] = await response.json();
   return data
-
-  
-  // state.menu = data
 })
 
 export const menuSlice = createSlice({
   name: 'menu',
   initialState,
-  reducers: {
-    fetchMenuSuccess: (state: fetchMenu, action: PayloadAction<MenuCategory[]>) => {
-      const menu = action.payload
+  reducers: { //Ändra namn
+    fetchMenu: (state: FetchMenu, action: PayloadAction<MenuCategory[]>) => {
+      const menu: MenuCategory[] = action.payload
       console.log(action.payload)
-      state.menu = menu
-      return state
+      let stateCopy = {...state}
+      stateCopy.menu = menu //kopiera
+      return stateCopy
     }
   }
 })
 
 export default menuSlice.reducer;
 export const {
-  fetchMenuSuccess,
+  fetchMenu,
 } = menuSlice.actions;

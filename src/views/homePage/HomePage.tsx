@@ -5,13 +5,14 @@ import MenuCard from '../../components/MenuCard/MenuCard';
 import MenuNav from '../../components/MenuNav/MenuNav';
 import Data from '../../data/data.json';
 import { MenuCategory, MenuItem } from '../../models/data';
-import { fetchMenuSuccess } from '../../reducers/menuReducer';
-import { RootState } from "./../../store";
+import { FetchMenu, fetchMenuThunk } from '../../reducers/menuReducer';
+import { RootState, AppDispatch } from "./../../store";
 import './HomePage.scss';
 
 const HomePage = () => {
-  let itemsByCategory: MenuCategory[] = []
-  const menu = useSelector((state: RootState) => state.menu);
+  const [itemsByCategory, setItemsByCategory]= useState<MenuCategory[]>([])
+  // let itemsByCategory: MenuCategory[] = []
+  const menu: FetchMenu = useSelector((state: RootState) => state.menu);
   // const fetchMenu = async () => {
 	// 	const response = await fetch('/api/menu', {
 	// 		mode: 'cors',
@@ -23,30 +24,37 @@ const HomePage = () => {
 	// useEffect(() => {
 	// 	fetchMenu();
 	// }, []);
-  const dispatch = useDispatch();
-  async function fetchProducts (){
+  const dispatch: AppDispatch = useDispatch();
+
+  async function fetchProducts (): Promise<MenuCategory[]>{
     return await fetch('/api/menu')
       .then(res => res.json())
       .then(json=> {
         console.log(json)
-        dispatch(fetchMenuSuccess(json))
+        dispatch(fetchMenuThunk())
         return json;
       })
       .catch(error => console.log(error))
   }
 
-  useEffect(() => {
-    let items: any = async () => {
-      await fetchProducts()
-    } 
-    itemsByCategory = items
+  useEffect(() => { //asyncront.
+    async function f() {
+      let menuCategoryArray: MenuCategory[] = await fetchProducts()
+      setItemsByCategory(menuCategoryArray)
+    }
+    f()
   }, []);
+
+  if (itemsByCategory.length === 0) {
+    return null
+  }
+  console.log('Items', itemsByCategory)
   return (
     <main className='home-page'>
       <Hero />
       <MenuNav />
       <div className='main-wrapper'>
-        <h2>{itemsByCategory[0].name}</h2>
+        <h2>Escargots</h2>
         <section className='cards-container'>
           {itemsByCategory[0].menuItems.map((menuItem, i: number) => {
             return <MenuCard menuItem={menuItem} key={i}/>;
