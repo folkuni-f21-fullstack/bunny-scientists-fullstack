@@ -196,7 +196,7 @@ export const data: Schema = {
                     id: '205',
                     name: 'Salade',
                     price: 199,
-                    description: 'Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar. Toppad med hemgjorda kryddade krutonger.',
+                    description: 'Hackad romansallad blandad med escargots (kryddad med persilja, vitlök & smör) och sauterade svampar.',
                     image: 'https://www.agrodolce.it/app/uploads/2017/04/shutterstock_246135493.jpg'
                 },
                 {
@@ -217,7 +217,7 @@ export const data: Schema = {
         },
         {
             id: '102',
-            name: 'kids',
+            name: 'Barnmeny',
             menuItems: [
                 {
                     id: '300',
@@ -251,7 +251,7 @@ export const data: Schema = {
         },
         {
             id: '103',
-            name: 'drinks',
+            name: 'Dryck',
             menuItems: [
                 {
                     id: '400',
@@ -292,7 +292,7 @@ export const data: Schema = {
         },
         {
             id: '104',
-            name: 'desserts',
+            name: 'Efterrätt',
             menuItems: [
                 {
                     id: '500',
@@ -312,7 +312,7 @@ export const data: Schema = {
                     id: '502',
                     name: 'Mousse',
                     price: 69,
-                    description: `Tillagad med mjölkchoklad och äggvita, glassstil, 'den bästa efterrätt jag någonsin smakat'`,
+                    description:  `Tillagad med mjölkchoklad och äggvita, glassstil, 'den bästa efterrätt jag någonsin smakat' `,
                     image: 'https://img.taste.com.au/I3x-cteh/taste/2010/01/chocolate_mousse_in_minutes_1980x1320-117905-1.jpg'
                 },
                 {
