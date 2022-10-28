@@ -2,11 +2,12 @@ import cors from 'cors';
 import express, { Request, Response } from 'express';
 const app = express();
 const PORT = 1337;
-// const cors = require("cors")
+//const cors = require("cors")
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 import menuRoute from './routes/menu.js';
 import ordersRoute from './routes/orders.js';
+import credentialsRoute from './routes/credentials.js'
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const staticPath = join(__dirname, '../../dist');
 
@@ -30,8 +31,15 @@ app.use(express.static(staticPath));
 
 app.use('/api/menu', menuRoute);
 app.use('/api/orders', ordersRoute);
+app.use('/api/credentials', credentialsRoute);
 // app.use('/api/archive', archiveRoute)
-// app.use('/api/credentials', credentialsRoute)
+
+//test
+//app.use('./api/credentials', (req, res) => {
+//	res.send({
+//		token: 'test123'
+//	})
+//})
 
 // Starta servern
 app.listen(PORT, () => {
