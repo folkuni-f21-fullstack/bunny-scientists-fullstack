@@ -1,15 +1,16 @@
-import express, { Request, Response } from 'express';
-import db from '../db.js';
-import { Credentials } from '../models.js';
-const router = express.Router();
+import express from 'express'
+import db from '../db.js'
+import { Credentials } from '../models.js'
+const router = express.Router()
 
-//jämför om vad som skickas in är lika med vad som finns i databasen
-function compareCredentials(credentials: Credentials) {
+//jämför vad som skrivits in i user med vad som finns i databasen
+//finns username och password i databasen så skickas det tillbaka ett resultat
+function compareCredentials(user: Credentials) {
 	if (db.data) {
-		console.log(db.data.credentials)
-		//result fel?
-		//const result = db.data.credentials.find((user) => user.username === credentials.username && user.password === credentials.password);
-		const result = db.data.credentials.filter((user) => user.username === credentials.username && user.password === credentials.password);
+		console.log("det här är db data", db.data.credentials)
+		const result = db.data.credentials.find(credentials =>
+		credentials.username === user.username && user.password === user.password);
+		console.log('här är resultatet', result)
 		return result;
 	} else {
 		return false;
@@ -23,43 +24,22 @@ router.get('/', (req, res) => {
 	} else {
 		res.sendStatus(404);
 	}
-});
+})
 
+//tar state från login och skickar det vidare till compareCredentials
+//om resultatet från compareCredentials finns så skickas det vidare till frontend 
 router.post('/', (req, res) => {
-	const credentials = req.body
-	const result = compareCredentials(credentials)
-	console.log(result)
-	if (result !== false && credentials.hasOwnProperty('username') && credentials.hasOwnProperty('password')) {
-		if (result.length === 0) {
-			//skicka true?
-			res.sendStatus(404)
-		} else {
+	const user = req.body
+	console.log('här är user', user)
+	const result = compareCredentials(user)
+	console.log('här är resultatet i .post', result)
+	if (result !== false && user.hasOwnProperty('username') && user.hasOwnProperty('password')) {
+		if (result) {
 			res.send(result)
-			//skicka false?
+		} else {
+			res.sendStatus(404)
 		}
 	}
-});
+})
 
-export default router;
-
-//	let users: Credentials = db.get('credentials').value()
-//	res.send(users);
-
-//router.post('/', (req, res) => {
-//    const credentials = req.body;
-//    const result: any = compareCredentials(credentials);
-//    const resObj = {success: false};
-//    
-//    if (credentials.hasOwnProperty('username') && credentials.hasOwnProperty('password')) {
-//        if (result.length === 1) {
-//            resObj.success = true;
-//            //resObj.message = `Logged in as ${credentials.username}`
-//        } else {
-//            //resObj.message = 'Error. Wrong username and/or password'
-//        }
-//    } else {
-//        //resObj.message = 'Wrong input'
-//    }
-//
-//    res.json(resObj);
-//});
+export default router

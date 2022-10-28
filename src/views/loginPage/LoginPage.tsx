@@ -1,60 +1,42 @@
-import "../loginPage/LoginPage.scss";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { Credentials } from '../../models/data';
+import '../loginPage/LoginPage.scss'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { Credentials } from '../../models/data'
 
 type Props = {
     isAdminView: boolean;
     setIsAdminView: (isAdminView: boolean) => void;
-};
+}
 
 const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
-
-    //const [user, setUser] = useState<string>()
-    //const [credentials, setCredentials] = useState<Credentials[]>([]);
-
     const navigate = useNavigate();
 
+    //function körs när användaren clickar på "logga in" knappen
     const handleLogin = async (event: any) => {
         event.preventDefault();
-        //state som postas och ska jämföras
-        let user = {
+        //state som skickas och ska jämföras
+        let user: Credentials = {
             username: username,
             password: password
         }
-        console.log(user)
+
+        //skickar user till /api/credentials
         const sendingCredentials = {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         }
         const credentialsResult = await fetch('/api/credentials', sendingCredentials)
-        //if (credentialsResult == true ?)
-
-        //post ska användas och skicka in user som argument till bodyn
-        //let credentialsResult = await fetch('/api/credentials/login', {
-        //    mode: 'cors',
-        //})
-        //credentialsResult = await credentialsResult.json()
-        console.log(credentialsResult) //loggar ut credentials, alltså användarna som finns
-        //credentialsResult.success
-        if (credentialsResult.status === 200) { //if success then proceed
+        console.log(credentialsResult) //visar resultatet vi får från databasen
+        if (credentialsResult.status === 200) {
             setIsAdminView(true);
             navigate("/admin");
         } else {
             //alert('Wrong username/password')
         }
-    };
-
-    // if setCredentials.username === setUsername return true
-    // if setCredentials.password === setPassword return true
-    // else return false + alert
-
-    //required === username.id
-    //required === username.password
-    //checka med databas om input stämmer
+    }
 
     return (
         <main className="login-wrapper">
@@ -72,7 +54,7 @@ const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
                 </section>
             </div>
         </main>
-    );
-};
+    )
+}
 
-export default LoginPage;
+export default LoginPage
