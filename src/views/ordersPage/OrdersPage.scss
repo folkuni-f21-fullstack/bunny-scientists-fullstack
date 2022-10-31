@@ -1,1 +1,7 @@
 @import "../../styles/variables.scss";
+
+.main {
+  display: flex;
+  flex: 1;
+  min-height: 70vh;
+}
