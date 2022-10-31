@@ -1,6 +1,6 @@
 import '../loginPage/LoginPage.scss'
 import { useNavigate } from 'react-router-dom'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Credentials } from '../../models/data'
 
 type Props = {
@@ -11,7 +11,16 @@ type Props = {
 const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
     const [username, setUsername] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+    const [wrongCredentials, setWrongCredentials] = useState<boolean>(false)
     const navigate = useNavigate();
+
+    //är man inloggad så kan man inte komma tillbaka till /login utan att logga ut först
+    useEffect(() => {
+        const auth = localStorage.getItem('user')
+        if (auth) {
+            navigate('/admin')
+        }
+    }, [])
 
     //function körs när användaren clickar på "logga in" knappen
     const handleLogin = async (event: any) => {
@@ -28,13 +37,15 @@ const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(user)
         }
+        
         const credentialsResult = await fetch('/api/credentials', sendingCredentials)
-        console.log(credentialsResult) //visar resultatet vi får från databasen
         if (credentialsResult.status === 200) {
+            localStorage.setItem('user', JSON.stringify(credentialsResult))
             setIsAdminView(true);
-            navigate("/admin");
+            navigate('/admin');
         } else {
-            //alert('Wrong username/password')
+            //visar användaren om den skrivit in fel användarnamn/lösenord
+            setWrongCredentials(true)
         }
     }
 
@@ -51,6 +62,7 @@ const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
                         <input type="password" onChange={(e) => setPassword(e.target.value)} value={password} required />
                         <input className="login-button" type="submit" value="logga in" />
                     </form>
+                    {wrongCredentials ? <p className='credentials-alert'>Wrong username and or password!</p> : <></>}
                 </section>
             </div>
         </main>

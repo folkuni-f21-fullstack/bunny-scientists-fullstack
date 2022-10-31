@@ -60,6 +60,10 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
     }
   };
 
+  const clearCredentials = () => {
+    localStorage.removeItem('user')
+  }
+
   return (
     <>
       {isAdminView ? (
@@ -77,7 +81,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h1 className="logout-text">LOGGA UT</h1>
+                  <h1 className="logout-text" onClick={clearCredentials}>LOGGA UT</h1>
                   <BiLogOut className="logout-icon" />{" "}
                 </Link>
               </div>
@@ -93,7 +97,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               }}
             >
               <Link className="logout" to="/">
-                <h1 className="logout-text">LOGGA UT</h1>
+                <h1 className="logout-text" onClick={clearCredentials}>LOGGA UT</h1>
                 <BiLogOut className="logout-icon" />
               </Link>
             </div>
