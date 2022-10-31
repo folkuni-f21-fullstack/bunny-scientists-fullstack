@@ -29,7 +29,7 @@ const ConfirmedPage = () => {
 
   useEffect(() => {
     // fetchOrder();
-    const items = JSON.parse(localStorage.getItem('games'));
+    const items = JSON.parse(localStorage.getItem('orders'));
     if (items) {
       setIsItems(true)
       setLatestOrder(items[items.length - 1])
@@ -40,27 +40,33 @@ const ConfirmedPage = () => {
 
   return (
     <div>
-    {
-      isItems? (
-    <main className = 'confirmed-container' >
-      <h1 className='confirmed-header'>Vi har tagit emot din order</h1>
-      <figure className='confirmed-img-container'><img className='confirmed-img' src={snail} alt="" /></figure>
+      {
+        isItems ? (
+          <main className='confirmed-container' >
+            <h1 className='confirmed-header'>Vi har tagit emot din order</h1>
+            <figure className='confirmed-img-container'><img className='confirmed-img' src={snail} alt="" /></figure>
 
-      <section className='confirmed-text-container'>
-        <p className='confirmed-text'>Ordern är redo om ca <span className='confirmed-bold'>4h 35min</span></p>
-        <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>5</span></p>
-        <p className='confirmed-text'>Klicka <span className='confirmed-bold'>här</span> för att ändra ordern</p>
-      </section>
+            <section className='confirmed-text-container'>
+              <p className='confirmed-text'>Ordern är redo om ca <span className='confirmed-bold'>4h 35min</span></p>
+              <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>{latestOrder.game}</span></p>
+              <p className='confirmed-text'>Klicka <span className='confirmed-bold'>här</span> för att ändra ordern</p>
+            </section>
 
-      <div className='confirmed-btn-container'>
-        <button className='confirmed-btn' onClick={navigateHome}>STARTSIDA</button>
-      </div>
+            <div className='confirmed-btn-container'>
+              <button className='confirmed-btn' onClick={navigateHome}>STARTSIDA</button>
+            </div>
 
-    </main >
-  ): (
-  <div>Hej</div>
-)}
-</div>
+          </main >
+        ) : (
+
+          <main className='confirmed-container' >
+            <h1 className='confirmed-header'>Vi hittar inga tidigare ordrar</h1>
+            <div className="confirmed-btn-container">
+              <button className='confirmed-btn' onClick={navigateHome}> Till Menyn</button>
+            </div>
+          </main>
+        )}
+    </div>
   )
 };
 
