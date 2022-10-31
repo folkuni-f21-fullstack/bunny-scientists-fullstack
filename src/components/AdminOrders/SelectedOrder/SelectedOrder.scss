@@ -79,9 +79,10 @@
 	overflow-y: scroll;
 	max-height: 10rem;
 	box-shadow: $box-shadow;
-
-	div>div {
+	
+	div {
 		display: flex;
+		flex-direction: row;
 		justify-content: space-between;
 		// border-bottom: 2px dotted $dark-grey;
 		margin-bottom: 0.2rem;
