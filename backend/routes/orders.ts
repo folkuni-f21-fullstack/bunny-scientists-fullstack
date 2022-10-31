@@ -2,9 +2,8 @@ import express, { Request, Response } from 'express';
 const router = express.Router();
 
 import db from '../db.js';
-import { Order } from '../models.js';
-// import { isValidOrder } from '../validation.js'
 import { data as defaultData } from '../defaultData.js';
+import { Order } from '../models.js';
 import { isValidOrder } from '../validation.js';
 
 //GET hämta ordrar
@@ -13,8 +12,6 @@ import { isValidOrder } from '../validation.js';
 //DELETE ta bort order om användare vill ändra sin order
 
 // ändra ordrar lokalt innan man skickar vidare till archieve
-type IdObject = { id: number };
-type IdParam = Request<IdObject>;
 
 router.get('/', (req, res) => {
 	if (db.data?.orders) {
@@ -41,13 +38,15 @@ router.post('/', async (req, res) => {
 	}
 });
 
-router.delete('/:id', async (req: IdParam, res) => {
+router.delete('/:id', async (req, res) => {
 	if (!db.data) {
 		res.sendStatus(404);
 		return;
 	}
-	let id: number = req.params.id;
+  console.log(typeof req.params.id)
+	let id: number = parseInt(req.params.id)
 	let newOrders: Order[] = db.data.orders.filter(order => order.orderNumber !== id);
+  console.log(id)
   console.log(newOrders)
 	if (newOrders.length < db.data.orders.length) {
 		db.data.orders = newOrders;

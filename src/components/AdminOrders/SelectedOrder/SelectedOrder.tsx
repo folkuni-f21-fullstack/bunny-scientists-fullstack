@@ -123,7 +123,7 @@ function increaseAmount(order: OrderItem) {
     //   method: 'POST',
     //   body: JSON.stringify(archiveObj)
     // })
-    await fetch(`http://localhost:5174/api/orders/:${archiveObj.orderNumber}`, {
+    await fetch(`http://localhost:5174/api/orders/${archiveObj.orderNumber}`, {
       method: 'DELETE'
     })
   }
