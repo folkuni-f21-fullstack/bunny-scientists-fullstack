@@ -7,31 +7,44 @@ import { OrderType } from '../../models/data';
 
 const ConfirmedPage = () => {
   const navigate = useNavigate();
-  const [orderNumber, setOrderNumber] = useState<OrderType[]>();
-  
+  const [latestOrder, setLatestOrder] = useState<OrderType[]>();
+  const [isItems, setIsItems] = useState<boolean>(false)
 
-function navigateHome(){
-  navigate('/');
-}
-// HÄMTA DATA FRÅN ORDER HÄR
-const fetchOrder = async () => {
-  const response = await fetch('/api/orders', {
-    mode: 'cors',
-  });
-  const data: OrderType[] = await response.json();
-  setOrderNumber(data);
-};
+  function navigateHome() {
+    navigate('/');
+  }
 
-useEffect(() => {
-  fetchOrder();
-}, []);
 
-console.log(orderNumber)
+  // HÄMTA DATA FRÅN ORDER HÄR
+  // const fetchOrder = async () => {
+  //   const response = await fetch('/api/orders', {
+  //     mode: 'cors',
+  //   });
+  //   const data: OrderType[] = await response.json();
+  //   // console.log(data)
+
+
+  //   setLatestOrder(data);
+  // };
+
+  useEffect(() => {
+    // fetchOrder();
+    const items = JSON.parse(localStorage.getItem('games'));
+    if (items) {
+      setIsItems(true)
+      setLatestOrder(items[items.length - 1])
+    }
+  }, []);
+
+  console.log(latestOrder)
 
   return (
-    <main className='confirmed-container'>
+    <div>
+    {
+      isItems? (
+    <main className = 'confirmed-container' >
       <h1 className='confirmed-header'>Vi har tagit emot din order</h1>
-      <figure className='confirmed-img-container'><img className='confirmed-img' src={snail} alt="" /></figure> 
+      <figure className='confirmed-img-container'><img className='confirmed-img' src={snail} alt="" /></figure>
 
       <section className='confirmed-text-container'>
         <p className='confirmed-text'>Ordern är redo om ca <span className='confirmed-bold'>4h 35min</span></p>
@@ -39,15 +52,15 @@ console.log(orderNumber)
         <p className='confirmed-text'>Klicka <span className='confirmed-bold'>här</span> för att ändra ordern</p>
       </section>
 
-        <div className='confirmed-btn-container'> 
-          <button className='confirmed-btn' onClick={navigateHome}>STARTSIDA</button>
-        </div>
+      <div className='confirmed-btn-container'>
+        <button className='confirmed-btn' onClick={navigateHome}>STARTSIDA</button>
+      </div>
 
-     
-
-
-
-    </main>
+    </main >
+  ): (
+  <div>Hej</div>
+)}
+</div>
   )
 };
 
