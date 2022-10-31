@@ -51,7 +51,7 @@ const CartPage = () => {
 const sendOrder: (e: any) => void = (e: any) => {
   e.preventDefault();
     if (productList.length > 0){
-      navigate('/confirmed');
+      navigate('/orders');
       dispatch(removeAll())
       postData()
     } else {
