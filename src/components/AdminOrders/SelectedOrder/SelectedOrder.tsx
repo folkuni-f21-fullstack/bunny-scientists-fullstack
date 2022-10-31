@@ -54,16 +54,21 @@ function increaseAmount(order: OrderItem) {
     console.log(order)
     let dishCopy = [...selectedOrderItem]
     let bajs:MenuItem[] = []
+    // console.log(bajs)
     dishCopy.map((dish) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
       }
+
+      //Den här funktionen körs bara när man klickar på minus. Inte när man klickar på ordernumren. Därför kollar den bara om amount är 0 (och därför ska ta bort ordern i listan) när man klickat på minus. 
+      //Är amount 0 när man byter order kollas det aldrig av, därför ligger den kvar. 
+      
       if (dish.amount < 1 && dish.menuItem.id === order.menuItem.id) {
         dishCopy = removeDish(dishCopy, order.menuItem.id)
         let selectedOrderItemsCopy = [...dishCopy]
         let menuCopy = [...menuByCategory]
         let menuList: MenuItem[] = []
-    
+        console.log("hola")
         menuCopy.map((category: MenuCategory, i: number) => {
           category.menuItems.map((menuItem, p) => {
             menuList.push(menuItem)
