@@ -38,13 +38,14 @@
     height: 85%;
     min-height: 250px;
     max-height: 250px;
-
+    // border: 1px solid;
+    border-radius: 5px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     overflow-x: hidden;
     .product-in-cart {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       height: 55px;
       .menu-item-name {
