@@ -17,9 +17,11 @@ import LoginPage from "./views/loginPage/LoginPage";
 const scrollToTop = () => {
   window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 };
+
 function App() {
   const [isAdminView, setIsAdminView] = useState<boolean>(false);
   const dispatch: AppDispatch = useDispatch();
+
   useEffect(() => {
     dispatch(fetchMenu())
   }, []);
@@ -41,7 +43,12 @@ function App() {
             />
           }
         />
-        <Route path="/admin" element={<AdminPage />}
+        <Route path="/admin" element={
+          <AdminPage
+            isAdminView={isAdminView}
+            setIsAdminView={setIsAdminView}
+          />
+        }
         />
       </Routes>
       <Footer />
