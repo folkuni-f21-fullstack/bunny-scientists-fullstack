@@ -1,18 +1,17 @@
-import "./Header.scss";
-import Logo from "../../assets/logo.svg";
-import Cart from "./Cart/Cart";
-import { IoIosCart } from "react-icons/io";
-import { BiLogIn } from "react-icons/bi";
 import { useState } from "react";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
+import { IoIosCart } from "react-icons/io";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../App";
-import { useSelector } from "react-redux";
+import Logo from "../../assets/logo.svg";
 import { RootState } from "../../store";
-import { BiLogOut } from "react-icons/bi";
+import Cart from "./Cart/Cart";
+import "./Header.scss";
 
 type Props = {
-  isAdminView: boolean;
-  setIsAdminView: (isAdminView: boolean) => void;
+	isAdminView: boolean;
+	setIsAdminView: (isAdminView: boolean) => void;
 };
 
 const Header = ({ setIsAdminView, isAdminView }: Props) => {
@@ -84,7 +83,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h1 className="logout-text">LOGGA UT</h1>
+                  <h3 className="logout-text">LOGGA UT</h3>
                   <BiLogOut className="logout-icon" />
                 </Link>
               </div>
@@ -140,7 +139,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                   <p className="cart-counter">{displayAmount}</p>
                 )}
                 <IoIosCart className="cart" onClick={() => toggleCart()} />
-                <Cart cartMenuClass={cartMenuClass} />
+                <Cart cartMenuClass={cartMenuClass} toggleCart={toggleCart} />
               </div>
             </div>
             <nav className="nav-button-container">
@@ -162,7 +161,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 <p className="cart-counter">{displayAmount}</p>
               )}
               <IoIosCart className="cart" onClick={() => toggleCart()} />
-              <Cart cartMenuClass={cartMenuClass} />
+              <Cart cartMenuClass={cartMenuClass} toggleCart={toggleCart} />
             </div>
           </div>
           <div className={navOpenClass}>

@@ -1,15 +1,18 @@
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { useState } from "react";
 import "./App.scss";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import { fetchMenu } from "./reducers/menuReducer";
+import { AppDispatch } from "./store";
 import AboutPage from "./views/aboutPage/AboutPage";
 import AdminPage from "./views/adminPage/AdminPage";
 import CartPage from "./views/cartPage/CartPage";
+import ConfirmedPage from "./views/confirmedPage/confirmedPage";
 import HomePage from "./views/homePage/HomePage";
 import LoginPage from "./views/loginPage/LoginPage";
 import OrdersPage from "./views/ordersPage/OrdersPage";
-import ConfirmedPage from "./views/confirmedPage/confirmedPage";
 
 //funktion för att komma till toppen av sidan vid route navigering
 const scrollToTop = () => {
@@ -17,6 +20,10 @@ const scrollToTop = () => {
 };
 function App() {
   const [isAdminView, setIsAdminView] = useState<boolean>(false);
+  const dispatch: AppDispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchMenu())
+  }, []);
 
   return (
     <div className="App">
@@ -44,3 +51,4 @@ function App() {
 }
 
 export { App, scrollToTop };
+

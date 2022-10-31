@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import Data from "../../data/data.json";
-import { Order } from "../../models/data";
+import { MenuCategory, Order, MenuItem } from "../../models/data";
 import "./AdminOrders.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "./../../store";
 
 const AdminOrders = () => {
+  const menu = useSelector((state: RootState) => state.menu);
+  const menuByCategory = menu.menu
   const [allOrders, setAllOrders] = useState<Order[]>([
     {
       orderNumber: 231354,
@@ -37,22 +41,6 @@ const AdminOrders = () => {
 
   const [isSelected, setIsSelected] = useState<number>(1);
 
-  const allEscargotsInMenu = Data.array.menu[0].menuItems;
-  const allKidsInMenu = Data.array.menu[1].menuItems;
-  const allDrinksInMenu = Data.array.menu[2].menuItems;
-  const allDessertsInMenu = Data.array.menu[3].menuItems;
-
-  const fetchOrders = async () => { //hämtar ordrar från databas
-    const response = await fetch("/api/orders", {
-      mode: "cors",
-    });
-    const data: Order[] = await response.json();
-    setAllOrders(data);
-  };
-
-  useEffect(() => { //hämtar alla ordrar i databasen när sidan startar
-    fetchOrders();
-  }, []);
 
 
 
@@ -72,6 +60,7 @@ const AdminOrders = () => {
   //   order.amount = order.amount +1
   //   console.log(order.amount) //Skriv över objektet i databasen med nya värdet
   // }
+  console.log(menu);
 
   return (
     <div className="admin-wrapper">
@@ -135,49 +124,29 @@ const AdminOrders = () => {
       <div className="add-to-order-container">
         <h3 className="subheading">Lägg till maträtt</h3>
         <section className="add-to-order-list">
-          {allEscargotsInMenu.map((order: any, i: number) => {
-            return (
-              <div key={i}>
-                <p>{order.name}</p>
-                <button>
-                  {" "}
-                  <IoIosAdd />
-                </button>
-              </div>
-            );
-          })}
-          {allKidsInMenu.map((order: any, i: number) => {
-            return (
-              <div key={i}>
-                <p>{order.name}</p>
-                <button>
-                  <IoIosAdd />{" "}
-                </button>
-              </div>
-            );
-          })}
-          {allDrinksInMenu.map((order: any, i: number) => {
-            return (
-              <div key={i}>
-                <p>{order.name}</p>
-                <button>
-                  {" "}
-                  <IoIosAdd />
-                </button>
-              </div>
-            );
-          })}
-          {allDessertsInMenu.map((order: any, i: number) => {
-            return (
-              <div key={i}>
-                <p>{order.name}</p>
-                <button>
-                  {" "}
-                  <IoIosAdd />
-                </button>
-              </div>
-            );
-          })}
+          {menu.loading === "idle" || menu.loading === "pending" && <div>loading...</div>}
+          {menu.loading === "failed" && menu.error ? <div>Error: {menu.error}</div> : null}
+
+          {menu.loading === "succeeded" && menu.menu.length ? (
+            <>
+              {menuByCategory.map((category: MenuCategory, i: number) => {
+                return (
+                  <div key={i}>
+                    {category.menuItems.map((item: MenuItem, j: number) => {
+                      return (
+                        <div key={j}>
+                          <p>{item.name}</p>
+                          <button>
+                            {" "}
+                            <IoIosAdd />
+                          </button>
+                        </div>
+                      )
+                    })}
+                  </div>)
+              })}
+            </>
+          ) : null}
         </section>
       </div>
       <div className="message-to-chef-container">

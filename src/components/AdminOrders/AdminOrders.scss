@@ -116,7 +116,7 @@
 	max-height: 10rem;
 	box-shadow: $box-shadow;
 
-	div {
+	div>div {
 		display: flex;
 		justify-content: space-between;
 		// border-bottom: 2px dotted $dark-grey;
@@ -153,6 +153,7 @@
 			display: grid;
 			grid-auto-rows: auto;
 			grid-template-areas:
+			"archive archive"
 				"list list"
 				"details customer"
 				"details customer"

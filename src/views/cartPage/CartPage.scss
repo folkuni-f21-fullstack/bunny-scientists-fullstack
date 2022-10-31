@@ -1,1 +1,144 @@
-@import "../../styles/variables.scss";
+@import '../../styles/variables.scss';
+
+.cart-wrapper {
+	width: 100%;
+	max-width: 1000px;
+	margin: 0 auto;
+  height: calc(100vh - 220px);
+  padding: 0 .5rem;
+}
+.cart-header {
+	display: flex;
+	justify-content: space-between;
+  align-items: flex-end;
+	padding: 1.5rem 0 1rem 0;
+  h1 {
+    font-size: 2.7rem;
+    line-height: 2.2rem;
+  }
+  p {
+    font-weight: 400;
+  }
+}
+.selected-products {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: 16rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0 1rem;
+}
+.product-in-cart {
+	list-style-type: none;
+	display: flex;
+  justify-content: space-between;
+  align-items: center;
+	background-color: $container-bg;
+  padding: 1rem;
+  .product {
+    height: max-content;
+    display: flex;
+    align-items: flex-end;
+    gap: .8rem;
+    .trash {
+      width: 1.5rem;
+      display: flex;
+      align-items: flex-end;
+      img {
+        width: 100%;
+      }
+    }
+    .product-item {
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      h2 {
+        line-height: 1.4rem;
+      }
+      p {
+        font-weight: 800;
+        color: $dark-grey;
+      }
+    }
+    
+  }
+  .amount {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .add-remove-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.1rem 0.2rem;
+      background-color: #f6f6f6;
+      border-radius: 20px;
+      p {
+        font-size: var(--fs-sub-title);
+        font-weight: 500;
+
+        padding: 0 .5rem;
+      }
+      .amount-button {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        width: 2.2rem;
+        img {
+          width: 100%;
+        }
+      }
+    }
+    p {
+      font-size: var(--fs-sub-title);
+      font-family: $header-font;
+
+    }
+  }
+}
+.form {
+  display: flex;
+  width: 100%;
+  .contact-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    position: relative;
+    padding-bottom: 5rem;
+    label {
+      font-size: var(--fs-sub-title);
+      font-family: $header-font;
+    }
+    input {
+      font-size: var(--fs-text);
+      font-family: $text-font;
+      width: 10rem;
+      border: none;
+      border-radius: 5px;
+    }
+    .submit-button {
+      font-size: var(--fs-sub-title);
+      font-family: $header-font;
+      background: $green-dark-bg;
+      color: $container-bg;
+      width: max-content;
+      padding: .7rem 1.2rem;
+      position: absolute;
+      bottom: 0;
+      right: -45px;
+    }
+  }
+  div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    p {
+      text-decoration: underline;
+
+    }
+  }
+}
