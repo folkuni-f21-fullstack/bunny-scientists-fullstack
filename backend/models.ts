@@ -1,10 +1,3 @@
-export type Schema = {
-	orders: Order[];
-	archive: Archive[];
-	credentials: Credentials[];
-	menu: Menu[];
-};
-
 export type Order = {
 	orderNumber: number;
 	orderItems: OrderItem[];
@@ -23,11 +16,6 @@ export type MenuItem = {
 	name: string;
 	price: number;
 	description: string;
-};
-
-export type Archive = {
-	order: Order;
-	commentToChef: string;
 };
 
 export type Credentials = {
@@ -49,3 +37,17 @@ export type MenuItems = {
 	image: string;
 };
 
+export type Schema = {
+	orders: Order[];
+	archive: ArchiveItem[];
+	credentials: Credentials;
+	menu: Menu[];
+};
+export type ArchiveItem = {
+  orderNumber: number,
+  orderItems: OrderItem[],
+  customerComment: string,
+  customer: string,
+  phoneNumber: string,
+  time: string
+}

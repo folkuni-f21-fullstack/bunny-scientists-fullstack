@@ -8,9 +8,10 @@ const PORT = process.env.PORT;
 // const cors = require("cors")
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import archiveRoute from './routes/archive.js';
+import credentialsRoute from './routes/credentials.js';
 import menuRoute from './routes/menu.js';
 import ordersRoute from './routes/orders.js';
-import credentialsRoute from './routes/credentials.js'
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const staticPath = join(__dirname, '../../dist');
 
@@ -36,7 +37,7 @@ app.use(express.static(staticPath));
 app.use('/api/menu', menuRoute);
 app.use('/api/orders', ordersRoute);
 app.use('/api/credentials', credentialsRoute);
-// app.use('/api/archive', archiveRoute)
+app.use('/api/archive', archiveRoute)
 
 // Starta servern
 app.listen(PORT, () => {
