@@ -2,7 +2,7 @@ import '../confirmedPage/confirmedPage.scss'
 import snail from '../../assets/moving-snail.png'
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { CartItem, OrderType } from '../../models/data';
+import { OrderType } from '../../models/data';
 
 
 const ConfirmedPage = () => {
@@ -30,7 +30,7 @@ const ConfirmedPage = () => {
   useEffect(() => {
     // fetchOrder();
     
-      const items= JSON.parse(localStorage.getItem('orders')||"");
+      const items= JSON.parse(localStorage.getItem('orders')||"[]");
       if (items) {
         setIsItems(true)
         setLatestOrder(items[items.length - 1])
