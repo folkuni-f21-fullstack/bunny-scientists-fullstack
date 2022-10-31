@@ -42,7 +42,8 @@ function App() {
             />
           }
         />
-        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin" element={<AdminPage />}
+        />
       </Routes>
       <Footer />
     </div>
