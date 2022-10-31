@@ -14,7 +14,10 @@
         }
 
         .archive-list-drop {
-            transition: .1s all;
+            // transitio'n: .1s all;
+            display: flex;
+            // justify-content: center;
+            // align-items: center;
             svg {
                 font-size: var(--fs-sub-title);
                 color: #fff;
@@ -22,7 +25,8 @@
         }
         .archive-list-drop-up{
             transform: rotate(180deg);
-            transition: .1s all;
+            display: flex;
+            // transition: .1s all;
             svg {
                 font-size: var(--fs-sub-title);
                 color: #fff;
