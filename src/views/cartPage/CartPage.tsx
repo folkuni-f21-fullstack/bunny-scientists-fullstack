@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import decrease from '../../assets/icons/decrease-icon.svg';
 import increase from '../../assets/icons/increase-icon.svg';
 import trash from '../../assets/icons/trash-icon.svg';
-import { useNavigate } from 'react-router-dom';
 import {
   decrementQuantity,
   incrementQuantity,
@@ -17,7 +17,7 @@ import './CartPage.scss';
 const CartPage = () => {
   const [customer, setCustomer] = useState<string>("")
   const [customerComment, setCustomerComment] = useState<string>("")
-  const [phoneNumber, setPhoneNumber] = useState<number>()
+  const [phoneNumber, setPhoneNumber] = useState<string>()
 	const dispatch = useDispatch();
   const navigate = useNavigate();
 	// diplay amount of articles in cart
@@ -37,8 +37,7 @@ const CartPage = () => {
 // skickar ordern till backend db
   async function postData() {
     const response = await fetch('/api/orders', {
-      method: 'POST', 
-      mode: 'cors', 
+      method: 'POST',  
       headers: {
         'Content-Type': 'application/json'
       },
@@ -116,7 +115,7 @@ const sendOrder: (e: any) => void = (e: any) => {
             <label htmlFor="name">namn</label>
             <input type="text" id='name' onChange={(e) => setCustomer(e.target.value)} />
             <label htmlFor="number">telefonnummer</label>
-            <input type="text" id="number" onChange={(e) => setPhoneNumber(Number(e.target.value))}  />
+            <input type="text" id="number" onChange={(e) => setPhoneNumber(e.target.value)}  />
             <label htmlFor="message">meddelande</label>
             <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6} onChange={(e) => setCustomerComment(e.target.value)} > </textarea>
             <input className='submit-button' type="submit" value="Slutför köp" />
