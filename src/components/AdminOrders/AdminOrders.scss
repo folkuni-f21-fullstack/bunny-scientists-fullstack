@@ -109,7 +109,7 @@
 }
 
 .add-to-order-list {
-	border: 1px solid $dark-grey;
+	// border: 0.5px solid $medium-grey;
 	padding: 0.3rem;
 	overflow-x: hidden;
 	overflow-y: scroll;
@@ -194,6 +194,9 @@
 			.message-to-chef-container {
 				padding-left: 1rem;
 				grid-area: message;
+				textarea{
+					min-height: 10rem;
+				}
 			}
 
 			.confirm-container {
