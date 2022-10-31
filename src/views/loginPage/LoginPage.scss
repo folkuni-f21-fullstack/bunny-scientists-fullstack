@@ -12,7 +12,6 @@
 }
 
 .login-container {
-    width: 50%;
 
     section {
         margin: 8rem auto 20rem auto;
@@ -44,4 +43,12 @@
             border-bottom: 2px solid $green-bg;
         }
     }
+}
+
+.credentials-alert {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    color: $price-bg;
 }
