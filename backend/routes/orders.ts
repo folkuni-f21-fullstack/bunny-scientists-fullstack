@@ -47,9 +47,8 @@ router.delete('/:id', async (req: IdParam, res) => {
 		return;
 	}
 	let id: number = req.params.id;
-	let newOrders: Order[] = db.data.orders.filter(
-		order => order.orderNumber !== id
-	);
+	let newOrders: Order[] = db.data.orders.filter(order => order.orderNumber !== id);
+  console.log(newOrders)
 	if (newOrders.length < db.data.orders.length) {
 		db.data.orders = newOrders;
 		await db.write();

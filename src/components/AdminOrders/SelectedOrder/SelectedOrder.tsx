@@ -41,16 +41,16 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     setSelectedOrderItem(selectedOrder.orderItems)
   }, [selectedOrder])
 
-  function increaseAmount(order: OrderItem) {
-    let dishCopy = [...selectedOrderItem]
-    dishCopy.map((dish) => {
-      if (dish.menuItem.name === order.menuItem.name) {
-        dish.amount++
-      }
-    })
-    setSelectedOrderItem(dishCopy)
-  }
-   function decreaseAmount(order: OrderItem) {
+function increaseAmount(order: OrderItem) {
+  let dishCopy = [...selectedOrderItem]
+  dishCopy.map((dish) => {
+    if (dish.menuItem.name === order.menuItem.name) {
+      dish.amount++
+    }
+  })
+  setSelectedOrderItem(dishCopy)
+}
+  function decreaseAmount(order: OrderItem) {
     console.log(order)
     let dishCopy = [...selectedOrderItem]
     let bajs:MenuItem[] = []
@@ -105,13 +105,28 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
       }
       
     });
-
-
     selectedOrderItemsCopy.push(newOrder)
     setSelectedOrderItem(selectedOrderItemsCopy)
     setFilteredMenu(bajs)
   }
-
+  async function addToArchive(){
+    let d = new Date()
+    let archiveObj = {
+      time: d.getTime(),
+      orderNumber: selectedOrder.orderNumber,
+      customer: selectedOrder.customer,
+      phoneNumber: selectedOrder.phoneNumber,
+      customerComment: selectedOrder.customerComment,
+      orderItems: selectedOrderItem
+    }
+    // await fetch('http://localhost:5174/api/archive', {
+    //   method: 'POST',
+    //   body: JSON.stringify(archiveObj)
+    // })
+    await fetch(`http://localhost:5174/api/orders/:${archiveObj.orderNumber}`, {
+      method: 'DELETE'
+    })
+  }
   return (
     <article>
       <section className="order-details-container">
@@ -177,6 +192,9 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
         <section className="message-to-chef">
           <textarea name="" id=""></textarea>
         </section>
+      </div>
+      <div className="confirm-container">
+        <button onClick={()=> addToArchive()} className="confirm-btn">Bekräfta</button>
       </div>
     </article>
   )

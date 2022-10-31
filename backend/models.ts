@@ -18,11 +18,6 @@ export type MenuItem = {
 	description: string;
 };
 
-export type Archive = {
-	order: Order;
-	commentToChef: string;
-};
-
 export type Credentials = {
 	username: string;
 	password: string;
@@ -44,7 +39,15 @@ export type MenuItems = {
 
 export type Schema = {
 	orders: Order[];
-	archive: Archive[];
+	archive: ArchiveItem[];
 	credentials: Credentials;
 	menu: Menu[];
 };
+export type ArchiveItem = {
+  orderNumber: number,
+  orderItems: OrderItem[],
+  customerComment: string,
+  customer: string,
+  phoneNumber: number,
+  time: string
+}

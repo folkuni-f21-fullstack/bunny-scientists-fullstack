@@ -54,9 +54,6 @@ const AdminOrders = () => {
         <div className="line"></div>
       </div>
       <SelectedOrder selectedOrder={selectedOrder} />
-      <div className="confirm-container">
-        <button className="confirm-btn">Bekräfta</button>
-      </div>
     </div>
   );
 };

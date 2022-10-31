@@ -26,6 +26,14 @@ export type Order = {
   customer: string,
   phoneNumber: number
 }
+export type ArchiveItem = {
+  orderNumber: number,
+  orderItems: OrderItem[],
+  customerComment: string,
+  customer: string,
+  phoneNumber: number,
+  time: string
+}
 export type MenuCategory = {
   id: string,
   name: string,
