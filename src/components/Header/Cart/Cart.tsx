@@ -1,33 +1,43 @@
-import { IoMdTrash } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
+import { IoMdTrash } from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem,
+  removeItem
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
 type Props = {
-  cartMenuClass: string;
+	cartMenuClass: string;
+  toggleCart: () => void
 };
 
-const Cart = ({ cartMenuClass }: Props) => {
-  const cart = useSelector((state: RootState) => state.cart);
-  const dispatch = useDispatch();
+
+const Cart = ({ cartMenuClass, toggleCart }: Props) => {
+	const cart = useSelector((state: RootState) => state.cart);
+	const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleCheckOut(){
+  navigate('/cart');
+  toggleCart()
+
+}
+// const [orderNumber, setOrderNumber] = useState();
 
   return (
     <div>
       <div className={cartMenuClass}>
         <div>
-          <h3 className="product-h2">PRODUKT</h3>
+          <h3 className="product-h2">PRODUKTER</h3>
           <ul className="products">
             {cart.map((item, id) => {
               return (
                 <li key={id} className="product-in-cart">
-                  
-                  <h3>{item.menuItem.name}</h3>
-                  <p>{item.menuItem.price} kr</p>
+                  <h3 className="menu-item-name">{item.menuItem.name}</h3>
+                  <p className="menu-item-price">{item.menuItem.price} kr</p>
                   <div className="add-remove-container">
                     <button
                       className="decrease"
@@ -62,11 +72,11 @@ const Cart = ({ cartMenuClass }: Props) => {
                   (total =
                     total + currentItem.menuItem.price * currentItem.amount),
                 0
-              )}
+              )}{" "}
               kr
             </h3>
           </div>
-          <button className="checkout">TILL KASSAN</button>
+          <button onClick={handleCheckOut} className="checkout">TILL KASSAN</button>
         </div>
       </div>
     </div>
