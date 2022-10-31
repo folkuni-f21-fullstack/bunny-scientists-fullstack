@@ -55,24 +55,43 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     })
     setSelectedOrderItem(dishCopy)
   }
-  function decreaseAmount(order: OrderItem) {
-    let index = 0;
+   function decreaseAmount(order: OrderItem) {
+    console.log(order)
     let dishCopy = [...selectedOrderItem]
+    let bajs:MenuItem[] = []
     dishCopy.map((dish, i) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
       }
-      index += i
-      if (dish.amount < 1) {
-        dishCopy.splice(i, index)
-      }
-      if (i === 0 && dish.amount < 1) {
-        dishCopy.splice(0, 1)
+      if (dish.amount < 1 && dish.menuItem.id === order.menuItem.id) {
+        dishCopy = removeDish(dishCopy, order.menuItem.id)
+        let selectedOrderItemsCopy = [...dishCopy]
+        let menuCopy = [...menuByCategory]
+        let menuList: MenuItem[] = []
+    
+        menuCopy.map((category: MenuCategory, i: number) => {
+          category.menuItems.map((menuItem, p) => {
+            menuList.push(menuItem)
+          })
+        })
+    
+        let selectedOrderItemsbajs:MenuItem[] = []
+        selectedOrderItemsCopy.map((majs)=> {
+          selectedOrderItemsbajs.push(majs.menuItem)
+        })
+    
+        bajs = menuList.filter((dish) => {
+          const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
+          return !result;
+        });
+        setFilteredMenu(bajs)
       }
     })
     setSelectedOrderItem(dishCopy)
   }
-
+  function removeDish(array:OrderItem[], id:string){
+    return array.filter(item => item.menuItem.id !== id)
+  }
 
   function addToOrder(item: MenuItem) {
     let selectedOrderItemsCopy = [...selectedOrderItem]
