@@ -6,11 +6,6 @@ import "../AdminOrders.scss";
 import { RootState } from "./../../../store";
 import "./SelectedOrder.scss";
 
-
-type ID = [
-  string
-]
-
 type Props = {
   selectedOrder: Order
 }
@@ -59,7 +54,7 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     console.log(order)
     let dishCopy = [...selectedOrderItem]
     let bajs:MenuItem[] = []
-    dishCopy.map((dish, i) => {
+    dishCopy.map((dish) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
       }
