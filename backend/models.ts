@@ -40,9 +40,10 @@ export type MenuItems = {
 export type Schema = {
 	orders: Order[];
 	archive: ArchiveItem[];
-	credentials: Credentials;
+	credentials: Credentials[];
 	menu: Menu[];
 };
+
 export type ArchiveItem = {
   orderNumber: number,
   orderItems: OrderItem[],
