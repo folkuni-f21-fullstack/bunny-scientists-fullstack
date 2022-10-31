@@ -33,7 +33,7 @@ const AdminOrders = () => {
       <div className="orders-list-container">
         <section className="orders-list">
           {allOrders.length === 0 && <div>loading...</div>}
-          {allOrders.length > 1 ? (
+          {allOrders.length > 0 ? (
             <ul>
               {allOrders.map((order: Order, i: number) => {
                 return (

@@ -119,10 +119,13 @@ function increaseAmount(order: OrderItem) {
       customerComment: selectedOrder.customerComment,
       orderItems: selectedOrderItem
     }
-    // await fetch('http://localhost:5174/api/archive', {
-    //   method: 'POST',
-    //   body: JSON.stringify(archiveObj)
-    // })
+    await fetch('http://localhost:5174/api/archive', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(archiveObj)
+    })
     await fetch(`http://localhost:5174/api/orders/${archiveObj.orderNumber}`, {
       method: 'DELETE'
     })

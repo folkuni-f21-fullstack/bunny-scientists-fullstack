@@ -17,8 +17,7 @@ export function isValidOrder(maybeOrder: Order | ArchiveItem): boolean {
 
   if (maybeOrder.hasOwnProperty("phoneNumber")) {
     if (
-      typeof maybeOrder.phoneNumber !== "number" ||
-      maybeOrder.phoneNumber < 0
+      typeof maybeOrder.phoneNumber === "number"
     ) {
       return false;
     }

@@ -48,6 +48,6 @@ export type ArchiveItem = {
   orderItems: OrderItem[],
   customerComment: string,
   customer: string,
-  phoneNumber: number,
+  phoneNumber: string,
   time: string
 }
