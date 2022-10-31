@@ -84,18 +84,12 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     //Kolla igenom menyn. Finns selected order Items ID där? Då ska den bort
 
     //Filtrera "lägg till maträtt till det som inte finns i ordern redan typ"
-    let menuItems: MenuItem[] = []
-    let menuCopy = [...menuByCategory]
-    let menuList: MenuItem[] = []
 
-    let selectedOrderItemsbajs:MenuItem[] = []
-    selectedOrderItemsCopy.map((majs)=> {
-      selectedOrderItemsbajs.push(majs.menuItem)
-    })
-
-    let bajs:MenuItem[] = menuList.filter((dish) => {
-      const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
-      return !result;
+    let bajs:MenuItem[] = filteredMenu.filter((dish) => {
+      if(dish.id !== item.id) {
+        return dish;
+      }
+      
     });
 
 
