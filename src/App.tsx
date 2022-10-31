@@ -12,7 +12,6 @@ import CartPage from "./views/cartPage/CartPage";
 import ConfirmedPage from "./views/confirmedPage/confirmedPage";
 import HomePage from "./views/homePage/HomePage";
 import LoginPage from "./views/loginPage/LoginPage";
-import OrdersPage from "./views/ordersPage/OrdersPage";
 
 //funktion för att komma till toppen av sidan vid route navigering
 const scrollToTop = () => {
