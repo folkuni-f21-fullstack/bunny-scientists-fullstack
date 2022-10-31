@@ -44,7 +44,6 @@ const CartPage = () => {
       },
       body: JSON.stringify(postOrder)      
     });  
-    console.log(response)
     return response.json(); 
   }
 
