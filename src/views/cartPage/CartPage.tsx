@@ -15,22 +15,50 @@ import { RootState } from '../../store';
 import './CartPage.scss';
 
 const CartPage = () => {
+  const [customer, setCustomer] = useState<string>("")
+  const [customerComment, setCustomerComment] = useState<string>("")
+  const [phoneNumber, setPhoneNumber] = useState<number>()
 	const dispatch = useDispatch();
   const navigate = useNavigate();
 	// diplay amount of articles in cart
 	const productList = useSelector((state: RootState) => state.cart);
 	console.log(productList);
 
-const sendMail: (e: any) => void = (e: any) => {
+//detta är vad vi skickar
+
+  const postOrder = {
+    orderNumber: Math.floor(Math.random() * 1000),
+    orderItems: productList,
+    customerComment: customerComment,
+    customer: customer,
+    phoneNumber: phoneNumber
+  }
+
+// skickar ordern till backend db
+  async function postData() {
+    const response = await fetch('/api/orders', {
+      method: 'POST', 
+      mode: 'cors', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postOrder)      
+    });  
+    console.log(response)
+    return response.json(); 
+  }
+
+  
+const sendOrder: (e: any) => void = (e: any) => {
   e.preventDefault();
     if (productList.length > 0){
       navigate('/confirmed');
       dispatch(removeAll())
+      postData()
     } else {
       console.log('empty shit')
     }
   }
-
 
 
   
@@ -85,13 +113,13 @@ const sendMail: (e: any) => void = (e: any) => {
         </ul>
         <div className='line'></div>
         <section className='form'>
-          <form onSubmit={sendMail} className="contact-form">
+          <form onSubmit={sendOrder} className="contact-form">
             <label htmlFor="name">namn</label>
-            <input type="text" id='name' />
+            <input type="text" id='name' onChange={(e) => setCustomer(e.target.value)} />
             <label htmlFor="number">telefonnummer</label>
-            <input type="text" id="number" />
+            <input type="text" id="number" onChange={(e) => setPhoneNumber(Number(e.target.value))}  />
             <label htmlFor="message">meddelande</label>
-            <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6}> </textarea>
+            <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6} onChange={(e) => setCustomerComment(e.target.value)} > </textarea>
             <input className='submit-button' type="submit" value="Slutför köp" />
           </form>
           <div>
