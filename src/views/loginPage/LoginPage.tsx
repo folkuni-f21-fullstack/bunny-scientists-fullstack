@@ -22,7 +22,7 @@ const LoginPage = ({ setIsAdminView, isAdminView }: Props) => {
     <main className="login-wrapper">
       <div className="login-container">
         <h2>Logga in som admin</h2>
-        <hr />
+        <div className="line"></div>
         <section>
           <form action="" onSubmit={handleSubmit}>
             <label htmlFor="">Användarnamn</label>

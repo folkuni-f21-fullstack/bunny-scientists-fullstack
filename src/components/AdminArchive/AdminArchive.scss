@@ -1,2 +1,7 @@
-@import '../../styles/variables.scss';
-
+@import "../../styles/variables.scss";
+.admin-wrapper {
+  min-height: 70vh;
+  .archive-list {
+    grid-area: archive;
+  }
+}

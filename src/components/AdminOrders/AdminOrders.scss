@@ -37,7 +37,7 @@
 
 .order-details-container {
 	margin-bottom: 1rem;
-
+	box-shadow: $box-shadow;
 	.order-detail-item {
 		padding: 0 1rem;
 		display: flex;
@@ -59,6 +59,7 @@
 	margin: 0.2rem;
 	background-color: #fff;
 	border-radius: 20px;
+	box-shadow: $box-shadow;
 
 	p {
 		font-size: var(--fs-sub-title);
@@ -109,14 +110,14 @@
 }
 
 .add-to-order-list {
-	border: 1px solid $dark-grey;
+	// border: 0.5px solid $medium-grey;
 	padding: 0.3rem;
 	overflow-x: hidden;
 	overflow-y: scroll;
 	max-height: 10rem;
 	box-shadow: $box-shadow;
 
-	div {
+	div>div {
 		display: flex;
 		justify-content: space-between;
 		// border-bottom: 2px dotted $dark-grey;
@@ -153,6 +154,7 @@
 			display: grid;
 			grid-auto-rows: auto;
 			grid-template-areas:
+			"archive archive"
 				"list list"
 				"details customer"
 				"details customer"
@@ -193,6 +195,9 @@
 			.message-to-chef-container {
 				padding-left: 1rem;
 				grid-area: message;
+				textarea{
+					min-height: 10rem;
+				}
 			}
 
 			.confirm-container {
