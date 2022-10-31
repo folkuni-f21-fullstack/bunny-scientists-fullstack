@@ -52,7 +52,7 @@ const ConfirmedPage = () => {
 
             <section className='confirmed-text-container'>
               <p className='confirmed-text'>Ordern är redo om ca <span className='confirmed-bold'>4h 35min</span></p>
-              <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>{latestOrder.game}</span></p>
+              <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>5</span></p>
               <p className='confirmed-text'>Klicka <span className='confirmed-bold'>här</span> för att ändra ordern</p>
             </section>
 
