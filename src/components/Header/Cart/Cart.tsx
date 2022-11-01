@@ -1,31 +1,29 @@
-import { IoMdTrash } from 'react-icons/io';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { IoMdTrash } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem
+  removeItem,
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
 type Props = {
-	cartMenuClass: string;
-  toggleCart: () => void
+  cartMenuClass: string;
+  toggleCart: () => void;
 };
 
-
 const Cart = ({ cartMenuClass, toggleCart }: Props) => {
-	const cart = useSelector((state: RootState) => state.cart);
-	const dispatch = useDispatch();
+  const cart = useSelector((state: RootState) => state.cart);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  function handleCheckOut(){
-  navigate('/cart');
-  toggleCart()
-
-}
-// const [orderNumber, setOrderNumber] = useState();
+  function handleCheckOut() {
+    navigate("/cart");
+    toggleCart();
+  }
+  // const [orderNumber, setOrderNumber] = useState();
 
   return (
     <div>
@@ -43,7 +41,7 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
                       className="decrease"
                       onClick={() => dispatch(decrementQuantity(item))}
                     >
-                      -
+                      −
                     </button>
                     <p>{item.amount}</p>
                     <button
@@ -76,7 +74,9 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
               kr
             </h3>
           </div>
-          <button onClick={handleCheckOut} className="checkout">TILL KASSAN</button>
+          <button onClick={handleCheckOut} className="checkout">
+            TILL KASSAN
+          </button>
         </div>
       </div>
     </div>
