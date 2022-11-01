@@ -1,7 +1,7 @@
 import { Schema } from "./models.js";
 
 export const data: Schema = {
-  baseOrderNumber: 1000,
+  baseOrderNumber: "1000",
   archive: [],
   credentials: [
     {
@@ -15,7 +15,7 @@ export const data: Schema = {
   ],
   orders: [
     {
-      orderNumber: 1,
+      orderNumber: "1",
       orderItems: [
         {
           menuItem: {
@@ -71,7 +71,7 @@ export const data: Schema = {
       phoneNumber: "0724929392",
     },
     {
-      orderNumber: 2,
+      orderNumber: "2",
       orderItems: [
         {
           menuItem: {
@@ -127,7 +127,7 @@ export const data: Schema = {
       phoneNumber: "0723094922",
     },
     {
-      orderNumber: 3,
+      orderNumber: "3",
       orderItems: [
         {
           menuItem: {

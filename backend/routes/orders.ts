@@ -32,10 +32,10 @@ router.post("/", async (req, res) => {
       db.data = defaultData;
     }
     addOrderNumber(newOrder);
-    console.log(newOrder);
+    console.log(newOrder)
     db.data.orders.push(newOrder);
     await db.write();
-    res.sendStatus(200);
+    res.send(newOrder);
   } else {
     console.log("invalid Order mutherfker");
     res.status(400).send("Invalid Order");
@@ -43,27 +43,21 @@ router.post("/", async (req, res) => {
 });
 
 function addOrderNumber(newOrder: Order) {
-  if (typeof db.data?.baseOrderNumber === "number") {
-    newOrder["orderNumber"] = db.data?.baseOrderNumber;
+  if (typeof db.data?.baseOrderNumber === "string") {
+    newOrder["orderNumber"] = db.data.baseOrderNumber;
   }
 }
 
-router.put("/:id", async (req, res) => {
-  console.log("hello");
-});
 
 router.delete("/:id", async (req, res) => {
   if (!db.data) {
     res.sendStatus(404);
     return;
   }
-  console.log(typeof req.params.id);
-  let id: number = parseInt(req.params.id);
-  let newOrders: Order[] = db.data.orders.filter(
-    (order) => order.orderNumber !== id
+  let id = req.params.id;
+  let newOrders: Order[] = db.data.orders.filter((order) =>
+    order.orderNumber !== id
   );
-  console.log(id);
-  console.log(newOrders);
   if (newOrders.length < db.data.orders.length) {
     db.data.orders = newOrders;
     await db.write();

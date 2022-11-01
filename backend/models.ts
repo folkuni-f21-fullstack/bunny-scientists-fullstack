@@ -1,5 +1,5 @@
 export type Order = {
-  orderNumber: number;
+  orderNumber: string;
   orderItems: OrderItem[];
   customerComment: string;
   customer: string;
@@ -38,7 +38,7 @@ export type MenuItems = {
 };
 
 export type Schema = {
-  baseOrderNumber: number;
+  baseOrderNumber: string;
   orders: Order[];
   archive: ArchiveItem[];
   credentials: Credentials[];
