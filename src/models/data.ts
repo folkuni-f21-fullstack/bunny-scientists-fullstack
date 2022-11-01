@@ -20,18 +20,19 @@ export type OrderItem = {
   amount: number;
 };
 export type Order = {
+  time:string,
   orderNumber: number;
   orderItems: OrderItem[];
   customerComment: string;
   customer: string;
-  phoneNumber: number;
+  phoneNumber: string;
 };
 export type ArchiveItem = {
   orderNumber: number;
   orderItems: OrderItem[];
   customerComment: string;
   customer: string;
-  phoneNumber: number;
+  phoneNumber: string;
   time: string;
 };
 export type MenuCategory = {

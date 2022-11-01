@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import decrease from "../../assets/icons/decrease-icon.svg";
 import increase from "../../assets/icons/increase-icon.svg";
 import trash from "../../assets/icons/trash-icon.svg";
+import { ArchiveItem } from "../../models/data";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -17,7 +18,7 @@ import "./CartPage.scss";
 const CartPage = () => {
   const [customer, setCustomer] = useState<string>("");
   const [customerComment, setCustomerComment] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>();
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // diplay amount of articles in cart
@@ -25,13 +26,13 @@ const CartPage = () => {
 
   //detta är vad vi skickar
   let localTime = new Date().toLocaleTimeString();
-
-  const postOrder = {
+  const postOrder: ArchiveItem = {
+    orderNumber: 0,
     orderItems: productList,
     customerComment: customerComment,
     customer: customer,
     phoneNumber: phoneNumber,
-    time: localTime,
+    time: localTime
   };
 
   async function getOrderNumber(){ // * Uppdaterar OrderNumber

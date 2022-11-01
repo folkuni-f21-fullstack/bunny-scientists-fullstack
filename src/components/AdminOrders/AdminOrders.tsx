@@ -8,11 +8,12 @@ const AdminOrders = () => {
   const [originalAllOrders, setOriginalAllOrders] = useState<Order[]>([]);
 
   const [selectedOrder, setSelectedOrder] = useState<Order>({
+    time: "",
     orderNumber: 1,
     orderItems: [],
     customerComment: "",
     customer: "",
-    phoneNumber: 0,
+    phoneNumber: "",
   });
 
   useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.

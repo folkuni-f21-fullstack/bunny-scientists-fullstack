@@ -120,7 +120,7 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
 
   async function addToArchive() {
     let archiveObj = {
-      time: new Date().toLocaleTimeString(),
+      time: selectedOrder.time,
       orderNumber: selectedOrder.orderNumber,
       customer: selectedOrder.customer,
       phoneNumber: selectedOrder.phoneNumber,

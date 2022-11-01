@@ -23,6 +23,11 @@ const cartSlice = createSlice({
         localStorage.setItem("cart", JSON.stringify(state));
       }
     },
+    restoreCart: (state: CartItem[], action: PayloadAction<CartItem[]>) => {
+      const object: CartItem[] = [...action.payload]
+      state = object
+      return state
+    },
     incrementQuantity: (state: CartItem[], action: PayloadAction<CartItem>) => {
       const item = state.find(
         (item) => item.menuItem.id === action.payload.menuItem.id
@@ -68,6 +73,7 @@ const cartSlice = createSlice({
 export default cartSlice.reducer;
 
 export const {
+  restoreCart,
   addToCart,
   incrementQuantity,
   decrementQuantity,

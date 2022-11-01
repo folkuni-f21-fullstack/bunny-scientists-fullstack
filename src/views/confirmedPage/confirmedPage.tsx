@@ -1,47 +1,61 @@
-import '../confirmedPage/confirmedPage.scss'
-import snail from '../../assets/moving-snail.png'
+import { JSXElementConstructor, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { OrderType } from '../../models/data';
+import snail from '../../assets/moving-snail.png';
+import { ArchiveItem, OrderType } from '../../models/data';
+import { restoreCart } from '../../reducers/cartReducer';
+import '../confirmedPage/confirmedPage.scss';
 
 
 const ConfirmedPage = () => {
   const navigate = useNavigate();
-  const [latestOrder, setLatestOrder] = useState<OrderType[]>();
+  const [latestOrder, setLatestOrder] = useState<ArchiveItem>();
   const [isItems, setIsItems] = useState<boolean>(false)
+  const dispatch = useDispatch();
 
   function navigateHome() {
     navigate('/');
   }
-
-
-  // HÄMTA DATA FRÅN ORDER HÄR
-  // const fetchOrder = async () => {
-  //   const response = await fetch('/api/orders', {
-  //     mode: 'cors',
-  //   });
-  //   const data: OrderType[] = await response.json();
-  //   // console.log(data)
-
-
-  //   setLatestOrder(data);
-  // };
-
-  useEffect(() => {
-    // fetchOrder();
-    
-      const items= JSON.parse(localStorage.getItem('orders')||"[]");
-      if (items) {
+  useEffect(() => {    
+      const order: ArchiveItem = JSON.parse(localStorage.getItem('order') || "{}");
+      console.log(order)
+      if (Object.entries(order).length !== 0) {
         setIsItems(true)
-        setLatestOrder(items[items.length - 1])
+        setLatestOrder(order)
       }
-    
-
-
   }, []);
-
-  console.log(latestOrder)
-
+  function restoreOrder(){
+    let najs = JSON.parse(localStorage.getItem('order') || "{}")
+    let lastCart = najs.orderItems
+    dispatch(restoreCart(lastCart))
+    navigate('/');
+  }
+  const TimeRemaining = () => {
+    if(latestOrder?.time) {
+      let timeToFinishDish = 20
+      let time = new Date();
+      let hourOrder = parseInt(latestOrder.time.slice(0,2))
+      hourOrder =Math.floor(hourOrder * 60 * 60);
+      let minuteOrder = parseInt(latestOrder.time.slice(3,5))
+      minuteOrder =Math.floor(minuteOrder * 60);
+      let secondsOrder = parseInt(latestOrder.time.slice(6,8))
+      let total = secondsOrder + minuteOrder + hourOrder;
+      total = total * 1000
+      var diff = time.getTime() - total
+      let msec = diff;
+      let hh = Math.floor(msec / 1000 / 60 / 60);
+      msec -= hh * 1000 * 60 * 60;
+      let mm = Math.floor(msec / 1000 / 60);
+      msec -= mm * 1000 * 60;
+      timeToFinishDish = timeToFinishDish - mm
+      if(timeToFinishDish < 0) {
+        return (<>Ordern är redo om ca <span className='confirmed-bold'>Your food is Ready</span></>)
+      } else {
+        return (<>Ordern är redo om ca <span className='confirmed-bold'>{timeToFinishDish} minuter</span></>)
+      }
+    }
+    return (<>kunde inte räkna ut</>)
+  }
   return (
     <div>
       {
@@ -51,9 +65,9 @@ const ConfirmedPage = () => {
             <figure className='confirmed-img-container'><img className='confirmed-img' src={snail} alt="" /></figure>
 
             <section className='confirmed-text-container'>
-              <p className='confirmed-text'>Ordern är redo om ca <span className='confirmed-bold'>4h 35min</span></p>
-              <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>5</span></p>
-              <p className='confirmed-text'>Klicka <span className='confirmed-bold'>här</span> för att ändra ordern</p>
+              <p className='confirmed-text'><TimeRemaining /></p>
+              <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>{latestOrder?.orderNumber}</span></p>
+              <p className='confirmed-text'>Klicka <span onClick={()=> {restoreOrder()}} className='confirmed-bold cursor'>här</span> för att ändra ordern</p>
             </section>
 
             <div className='confirmed-btn-container'>
