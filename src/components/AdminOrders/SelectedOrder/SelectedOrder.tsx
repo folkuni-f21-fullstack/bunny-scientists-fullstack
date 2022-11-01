@@ -27,17 +27,17 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
       })
     })
 
-    let selectedOrderItemsbajs:MenuItem[] = []
-    selectedOrderItemsCopy.map((majs)=> {
-      selectedOrderItemsbajs.push(majs.menuItem)
+    let selectedOrderItems:MenuItem[] = []
+    selectedOrderItemsCopy.map((order)=> {
+      selectedOrderItems.push(order.menuItem)
     })
 
-    let bajs:MenuItem[] = menuList.filter((dish) => {
-      const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
+    let newFilteredMenu:MenuItem[] = menuList.filter((dish) => {
+      const result = selectedOrderItems.find((compare) => dish.id === compare.id);
       return !result;
     });
 
-    setFilteredMenu(bajs)
+    setFilteredMenu(newFilteredMenu)
     setSelectedOrderItem(selectedOrder.orderItems)
   }, [selectedOrder])
 
@@ -53,7 +53,7 @@ function increaseAmount(order: OrderItem) {
   function decreaseAmount(order: OrderItem) {
     console.log(order)
     let dishCopy = [...selectedOrderItem]
-    let bajs:MenuItem[] = []
+    let newFilteredMenu:MenuItem[] = []
     dishCopy.map((dish) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
@@ -70,16 +70,16 @@ function increaseAmount(order: OrderItem) {
           })
         })
     
-        let selectedOrderItemsbajs:MenuItem[] = []
-        selectedOrderItemsCopy.map((majs)=> {
-          selectedOrderItemsbajs.push(majs.menuItem)
+        let menuItemArray:MenuItem[] = []
+        selectedOrderItemsCopy.map((order)=> {
+          menuItemArray.push(order.menuItem)
         })
     
-        bajs = menuList.filter((dish) => {
-          const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
+        newFilteredMenu = menuList.filter((dish) => {
+          const result = menuItemArray.find((compare) => dish.id === compare.id);
           return !result;
         });
-        setFilteredMenu(bajs)
+        setFilteredMenu(newFilteredMenu)
       }
     })
     setSelectedOrderItem(dishCopy)
@@ -99,7 +99,7 @@ function increaseAmount(order: OrderItem) {
 
     //Filtrera "lägg till maträtt till det som inte finns i ordern redan typ"
 
-    let bajs:MenuItem[] = filteredMenu.filter((dish) => {
+    let newFilteredMenu:MenuItem[] = filteredMenu.filter((dish) => {
       if(dish.id !== item.id) {
         return dish;
       }
@@ -107,7 +107,7 @@ function increaseAmount(order: OrderItem) {
     });
     selectedOrderItemsCopy.push(newOrder)
     setSelectedOrderItem(selectedOrderItemsCopy)
-    setFilteredMenu(bajs)
+    setFilteredMenu(newFilteredMenu)
   }
   async function addToArchive(){
     let d = new Date()
