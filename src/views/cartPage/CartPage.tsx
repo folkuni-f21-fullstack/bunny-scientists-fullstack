@@ -9,7 +9,7 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem,
+  removeItem
 } from "../../reducers/cartReducer";
 import { RootState } from "../../store";
 import "./CartPage.scss";
@@ -22,20 +22,31 @@ const CartPage = () => {
   const navigate = useNavigate();
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  console.log(productList);
 
   //detta är vad vi skickar
+  let localTime = new Date().toLocaleTimeString();
 
   const postOrder = {
-    orderNumber: Math.floor(Math.random() * 1000), // ska ändras
     orderItems: productList,
     customerComment: customerComment,
     customer: customer,
     phoneNumber: phoneNumber,
+    time: localTime,
   };
 
-  // skickar ordern till backend db
-  async function postData() {
+  async function getOrderNumber(){ // * Uppdaterar OrderNumber
+    let orderNumberResponse = await fetch("/api/ordernumber", {
+      method: "GET"
+    });
+
+    let orderNumber = await orderNumberResponse.json();
+    console.log(orderNumber)
+    await fetch(`/api/ordernumber/${orderNumber}`, {
+      method: "PUT",
+    });
+  }
+
+  async function postData() {  // * skickar ordern till backend db
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -43,17 +54,17 @@ const CartPage = () => {
       },
       body: JSON.stringify(postOrder),
     });
-
-    return await response.json();
+    let data = await response.json();
+    localStorage.setItem("order", JSON.stringify(data));
   }
 
-  const sendOrder: (e: any) => void = (e: any) => {
+  async function sendOrder(e: void | any) {
     e.preventDefault();
     if (productList.length > 0) {
-      navigate("/orders");
+      await getOrderNumber();
+      await postData();
       dispatch(removeAll());
-      let data = postData();
-      console.log(data);
+      navigate("/orders");
     } else {
       console.log("empty shit");
     }
