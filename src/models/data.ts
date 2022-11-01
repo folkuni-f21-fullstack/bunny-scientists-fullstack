@@ -16,21 +16,35 @@ export type CartItem = {
 };
 
 export type OrderItem = {
-  menuItem: MenuItem,
-  amount: number
-}
+  menuItem: MenuItem;
+  amount: number;
+};
 export type Order = {
-  orderNumber: number,
-  orderItems: OrderItem[],
-  customerComment: string,
-  customer: string,
-  phoneNumber: number
-}
+  orderNumber: number;
+  orderItems: OrderItem[];
+  customerComment: string;
+  customer: string;
+  phoneNumber: number;
+};
+export type ArchiveItem = {
+  orderNumber: number;
+  orderItems: OrderItem[];
+  customerComment: string;
+  customer: string;
+  phoneNumber: number;
+  time: string;
+};
 export type MenuCategory = {
-  id: string,
-  name: string,
-  menuItems: MenuItem[]
-}
+  id: string;
+  name: string;
+  menuItems: MenuItem[];
+};
+
+export type Credentials = {
+  username: string;
+  password: string;
+};
+
 /*
               Hur state ska se ut:
         1. Vad ligger i kundvagnen.
