@@ -11,7 +11,6 @@ type Props = {
 const OrderListItem = ({ order }: Props) => {
   const [className, setClassName] = useState<string>('accordion')
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
-  console.log(order)
 
   const toggleDrop = () => {
     if (!accordionOpen) {

@@ -8,10 +8,11 @@ import "./SelectedOrder.scss";
 
 type Props = {
   selectedOrder: Order,
-  allOrders:Order[]
+  allOrders:Order[],
+  setOriginalAllOrders: (value: Order[] | ((prevVar: Order[]) => Order[])) => void;
 }
 
-const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
+const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props) => {
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
   const [messageToChef, setMessageToChef] = useState<string>("")
@@ -137,6 +138,14 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
     await fetch(`http://localhost:5174/api/orders/${archiveObj.orderNumber}`, {
       method: 'DELETE'
     })
+    // TODO: remove this order from OriginalAllOrders
+    let newOrderArray = allOrders.filter((order)=> {
+      if(order.orderNumber !== archiveObj.orderNumber){
+        return order
+      }
+    })
+    // setSelectedOrder(newOrderArray[0]);
+    setOriginalAllOrders(newOrderArray)
   }
 
 
@@ -144,7 +153,7 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
     <article className='change-order-wrapper'>
       <div className="order-details-container">
         {
-          selectedOrderItem.length < 1 ? (
+          allOrders.length < 1 ? (
             <div><h3>inget att ändra</h3></div>
           ):(
             <>
@@ -174,16 +183,24 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
       <div className="customer-container">
         <h3 className="subheading">Kundinformation</h3>
         <section className="customer-info">
-          <p>
-            Meddelande från beställare:
-            <span className="message">{selectedOrder.customerComment}</span>
-          </p>
-          <p>
-            Kund: <span>{selectedOrder.customer}</span>
-          </p>
-          <p>
-            Telefon: <span>{selectedOrder.phoneNumber}</span>
-          </p>
+          {
+            allOrders.length < 1 ? (
+              <div></div>
+            ): (
+              <>
+                <p>
+                  Meddelande från beställare:
+                  <span className="message">{selectedOrder.customerComment}</span>
+                </p>
+                <p>
+                  Kund: <span>{selectedOrder.customer}</span>
+                </p>
+                <p>
+                  Telefon: <span>{selectedOrder.phoneNumber}</span>
+                </p>
+              </>
+            )
+          }
         </section>
       </div>
       <div className="add-to-order-container">
@@ -191,22 +208,28 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
         <section className="add-to-order-list">
           {menu.loading === "idle" || menu.loading === "pending" && <div>loading...</div>}
           {menu.loading === "failed" && menu.error ? <div></div> : null}
-
-          {menu.loading === "succeeded" && menu.menu.length ? (
-            <>
-              {filteredMenu.map((item: MenuItem, j: number) => {
-                return (
-                  <div key={j}>
-                    <p>{item.name}</p>
-                    <button onClick={() => { addToOrder(item) }}>
-                      {" "}
-                      <IoIosAdd />
-                    </button>
-                  </div>
-                )
-              })}
-            </>
-          ) : null}
+          {
+            allOrders.length < 1 ?(
+              <div></div>
+            ): (
+              <>
+                {menu.loading === "succeeded" && menu.menu.length ? (
+                  <>
+                    {filteredMenu.map((item: MenuItem, j: number) => {
+                      return (
+                        <div key={j}>
+                          <p>{item.name}</p>
+                          <button onClick={() => { addToOrder(item) }}>
+                            {" "}
+                            <IoIosAdd />
+                          </button>
+                        </div>
+                      )
+                    })}
+                  </>
+                ) : null}
+              </>)
+          }
         </section>
       </div>
       <div className="message-to-chef-container">

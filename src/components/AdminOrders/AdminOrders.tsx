@@ -1,4 +1,3 @@
-import { useAutoAnimate } from '@formkit/auto-animate/react';
 import { useEffect, useState } from "react";
 import { MenuCategory, MenuItem, Order } from "../../models/data";
 import "./AdminOrders.scss";
@@ -38,7 +37,6 @@ const AdminOrders = () => {
     let newOrder = JSON.parse(JSON.stringify(order));
     setSelectedOrder(newOrder)
   }
-  const [listRef] = useAutoAnimate<HTMLUListElement>();
 
   return (
     <div className="admin-wrapper">
@@ -46,7 +44,7 @@ const AdminOrders = () => {
         <section className="orders-list">
           {allOrders.length === 0 && <div><h3>Inga ordrar att hämta...</h3></div>}
           {allOrders.length > 0 ? (
-            <ul ref={listRef}>
+            <ul>
               {allOrders.map((order: Order, i: number) => {
                 return (
                   <li
@@ -65,7 +63,7 @@ const AdminOrders = () => {
         </section>
         <div className="line"></div>
       </div>
-      <SelectedOrder allOrders={allOrders} selectedOrder={selectedOrder} />
+      <SelectedOrder setOriginalAllOrders={setOriginalAllOrders} allOrders={allOrders} selectedOrder={selectedOrder} />
     </div>
   );
 };

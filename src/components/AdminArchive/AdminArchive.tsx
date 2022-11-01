@@ -16,6 +16,7 @@ const AdminArchive = () => {
       if(data.length < 1) {
         setArchivedOrders([])
       } else {
+        data.reverse();
         setArchivedOrders(data)
       }
     }
