@@ -12,6 +12,9 @@
   width: 100vw;
   min-width: 375px;
   background-color: #f6f6f6;
+  box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
+  -webkit-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   &:before {
     content: "";
     background-color: #f6f6f6;
@@ -23,7 +26,7 @@
     clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
   }
   .product-h2 {
-    padding-left: 2rem;
+    padding-left: 2.5rem;
   }
   .products {
     position: relative;
@@ -33,17 +36,25 @@
     flex-direction: column;
     width: 85%;
     height: 85%;
+    min-height: 250px;
     max-height: 250px;
-    border: 1px solid;
+    // border: 1px solid;
     border-radius: 5px;
     overflow-y: scroll;
     scroll-behavior: smooth;
     overflow-x: hidden;
     .product-in-cart {
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center;
       height: 55px;
+      .menu-item-name {
+        flex: 1;
+        padding-left: 1rem;
+      }
+      .menu-item-price {
+        flex: 0.5;
+      }
     }
   }
   .add-remove-container {
@@ -52,7 +63,6 @@
     align-items: center;
     padding: 0.3rem;
     margin: 0.3rem;
-    background-color: #f6f6f6;
     border-radius: 20px;
     p {
       font-size: var(--fs-sub-title);
@@ -61,6 +71,7 @@
     }
     .decrease,
     .increase {
+      line-height: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -74,11 +85,6 @@
       border-radius: 50%;
       cursor: pointer;
     }
-    .trash-icon {
-      font-size: 2rem;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
   }
   .empty-cart-container {
     height: 5rem;
@@ -88,11 +94,15 @@
     .empty-cart {
       cursor: pointer;
     }
+    .trash-icon {
+      margin-right: 1rem;
+      cursor: pointer;
+    }
   }
   .total-container {
     display: flex;
     justify-content: space-around;
-    h1 {
+    .price {
       color: $green-bg;
     }
   }
@@ -100,8 +110,9 @@
     background-color: $green-bg;
     color: white;
     width: 100%;
-    height: 4rem;
-    font-size: 2rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    font-size: var(--fs-sub-title);
   }
 }
 

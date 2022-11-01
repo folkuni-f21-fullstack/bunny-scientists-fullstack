@@ -3,7 +3,7 @@
 .archive-list {
     .archive-list-item {
         margin: 0.3rem 0;
-        h2,
+        h3,
         p {
             color: #fff;
         }
@@ -14,17 +14,21 @@
         }
 
         .archive-list-drop {
-            transition: .1s all;
+            // transitio'n: .1s all;
+            display: flex;
+            // justify-content: center;
+            // align-items: center;
             svg {
-                font-size: var(--fs-title);
+                font-size: var(--fs-sub-title);
                 color: #fff;
             }
         }
         .archive-list-drop-up{
             transform: rotate(180deg);
-            transition: .1s all;
+            display: flex;
+            // transition: .1s all;
             svg {
-                font-size: var(--fs-title);
+                font-size: var(--fs-sub-title);
                 color: #fff;
             }
         }
@@ -44,6 +48,7 @@
         justify-content: space-between;
         align-items: center;
         padding: 0.2rem 0.5rem;
+        cursor: pointer;
     }
 
     .accordion {
@@ -69,8 +74,8 @@
                 font-weight: 700;
             }
         }
-        h2 {
-            font-size: var(--fs-sub-title);
+        h3 {
+            // font-size: var(--fs-sub-title);
             color: #000
         }
         .order-items {

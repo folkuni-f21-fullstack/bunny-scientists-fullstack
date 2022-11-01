@@ -9,6 +9,7 @@
 		flex-direction: column;
 		align-items: center;
 		border-bottom: 2px solid#4C7972;
+
 		li {
 			display: flex;
 			cursor: pointer;
@@ -18,11 +19,13 @@
 			width: 100%;
 			background-color: $light-grey;
 			font-family: $header-font;
-			font-size: 1.5rem;	
-			&:hover{
+			font-size: 1.5rem;
+
+			&:hover {
 				background-color: $medium-grey;
-			}		
+			}
 		}
+
 		li.selected {
 			color: #fff;
 			background-color: $green-bg;
@@ -32,95 +35,65 @@
 	}
 }
 
-.order-details {
-	margin-bottom: 1rem;
-	.order-detail-item {
-		padding: 0 1rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: $light-grey;
-		p {
-			font-family: $header-font;
-		}
-	}
-}
 
-.quantity-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.2rem;
-	margin: 0.2rem;
-	background-color: #fff;
-	border-radius: 20px;
-	p {
-		font-size: var(--fs-sub-title);
-		font-family: $header-font;
-		padding: 0 0.5rem;
-	}
-	.increase, .decrease {
-		@include roundBtnStyle
-	}
-}
+@media only screen and (min-width: 730px) {
+	.admin-page {
+		.admin-wrapper {
+			article {
+				display: grid;
+				grid-auto-rows: auto;
+				grid-template-areas:
+					"details customer"
+					"details customer"
+					"add message"
+					"confirm confirm";
+			}
 
-.customer-info {
-	padding: 0.3rem;
-	background-color: $light-grey;
-	p {
-		font-weight: 700;
-		font-size: var(--fs-text);
-		.message {
-			display: block;
-		}
-		span {
-			font-weight: 400;
-		}
-	}
-	p:nth-child(2) {
-		margin-top: 1rem
-	}
-}
+			.orders-list-container {
+				grid-area: list;
 
-.confirm-btn {
-	@include addBtnStyle;
-	font-size: 1.5rem;
-	align-self: center;
-	margin-bottom: 1rem;
-	cursor: pointer;
-}
+			}
 
-.add-to-order-container {
-	border: 1px solid $dark-grey;
-	padding: 0.3rem;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	max-height: 10rem;
-	box-shadow: $box-shadow;
-	
-	div {
-		display: flex;
-		justify-content: space-between;
-		// border-bottom: 2px dotted $dark-grey;
-		margin-bottom: 0.2rem;
-		box-shadow: $box-shadow;
-		background-color: #fff;
-		padding: 0.3rem;
-		&:hover{
-			background-color: $light-grey;
+			.order-details-container {
+				grid-area: details;
+				overflow-x: hidden;
+				overflow-y: scroll;
+				height: 10rem;
+			}
+
+			.customer-container {
+				grid-area: customer;
+				height: 100%;
+				padding-left: 1rem;
+
+				.customer-info {
+					height: 100%;
+					background-color: $body-bg;
+				}
+
+				.subheading {
+					margin-top: 0;
+				}
+			}
+
+			.add-to-order-container {
+				grid-area: add;
+			}
+
+			.message-to-chef-container {
+				padding-left: 1rem;
+				grid-area: message;
+				textarea {
+					min-height: 10rem;
+				}
+			}
+
+			.confirm-container {
+				grid-area: confirm;
+				display: flex;
+				justify-content: center;
+				margin: 2rem;
+			}
 		}
-	}
-	button {	
-		@include roundBtnStyle
-	}
-	p {
-		font-family: $text-font;
-		font-size: var(--fs-text);
-		font-weight: 400;
-	}
-}
-.message-to-chef{
-	textarea {
-		width: 100%;
 	}
 }
