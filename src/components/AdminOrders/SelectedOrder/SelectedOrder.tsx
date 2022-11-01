@@ -8,8 +8,10 @@ import "./SelectedOrder.scss";
 
 type Props = {
   selectedOrder: Order
+  setAllOrders: ()=>void
 }
-const SelectedOrder = ({ selectedOrder }: Props) => {
+
+const SelectedOrder = ({setAllOrders, selectedOrder }: Props) => {
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
   const [selectedOrderItem, setSelectedOrderItem] = useState<OrderItem[]>(selectedOrder.orderItems)
@@ -53,14 +55,12 @@ function increaseAmount(order: OrderItem) {
   function decreaseAmount(order: OrderItem) {
     console.log(order)
     let dishCopy = [...selectedOrderItem]
+
     let newFilteredMenu:MenuItem[] = []
     dishCopy.map((dish) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
       }
-
-      //Den här funktionen körs bara när man klickar på minus. Inte när man klickar på ordernumren. Därför kollar den bara om amount är 0 (och därför ska ta bort ordern i listan) när man klickat på minus. 
-      //Är amount 0 när man byter order kollas det aldrig av, därför ligger den kvar. 
       
       if (dish.amount < 1 && dish.menuItem.id === order.menuItem.id) {
         dishCopy = removeDish(dishCopy, order.menuItem.id)
@@ -68,6 +68,7 @@ function increaseAmount(order: OrderItem) {
         let menuCopy = [...menuByCategory]
         let menuList: MenuItem[] = []
         console.log("hola")
+        //EN ny lista med alla items i ordern förutom den som har amount 0
         menuCopy.map((category: MenuCategory, i: number) => {
           category.menuItems.map((menuItem, p) => {
             menuList.push(menuItem)
@@ -88,6 +89,7 @@ function increaseAmount(order: OrderItem) {
     })
     setSelectedOrderItem(dishCopy)
   }
+
   function removeDish(array:OrderItem[], id:string){
     return array.filter(item => item.menuItem.id !== id)
   }
