@@ -25,17 +25,26 @@ const CartPage = () => {
   console.log(productList);
 
   //detta är vad vi skickar
+  let localTime = new Date().toLocaleTimeString();
 
   const postOrder = {
-    orderNumber: Math.floor(Math.random() * 1000), // ska ändras
     orderItems: productList,
     customerComment: customerComment,
     customer: customer,
     phoneNumber: phoneNumber,
+    time: localTime,
   };
 
   // skickar ordern till backend db
   async function postData() {
+    let orderNumberResponse = await fetch("/api/ordernumber");
+    let orderNumber = await orderNumberResponse.json();
+    console.log(orderNumber);
+
+    await fetch("/api/orders", {
+      method: "PUT",
+    });
+
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -51,9 +60,9 @@ const CartPage = () => {
     e.preventDefault();
     if (productList.length > 0) {
       navigate("/orders");
+      postData();
+      localStorage.setItem("order", JSON.stringify(postOrder));
       dispatch(removeAll());
-      let data = postData();
-      console.log(data);
     } else {
       console.log("empty shit");
     }

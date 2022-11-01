@@ -4,21 +4,8 @@ import { ArchiveItem, Order } from "./models";
 // export function isValidOrder/isValid etc etc
 
 export function isValidOrder(maybeOrder: Order | ArchiveItem): boolean {
-  if (maybeOrder.hasOwnProperty("orderNumber")) {
-    if (
-      typeof maybeOrder.orderNumber !== "number" ||
-      maybeOrder.orderNumber < 0
-    ) {
-      return false;
-    }
-  } else {
-    return false;
-  }
-
   if (maybeOrder.hasOwnProperty("phoneNumber")) {
-    if (
-      typeof maybeOrder.phoneNumber === "number"
-    ) {
+    if (typeof maybeOrder.phoneNumber === "number") {
       return false;
     }
   } else {

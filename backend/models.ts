@@ -1,54 +1,55 @@
 export type Order = {
-	orderNumber: number;
-	orderItems: OrderItem[];
-	customerComment: string;
-	customer: string;
-	phoneNumber: string;
+  orderNumber: number;
+  orderItems: OrderItem[];
+  customerComment: string;
+  customer: string;
+  phoneNumber: string;
 };
 
 export type OrderItem = {
-	menuItem: MenuItems;
-	amount: number;
+  menuItem: MenuItems;
+  amount: number;
 };
 
 export type MenuItem = {
-	id: string;
-	name: string;
-	price: number;
-	description: string;
+  id: string;
+  name: string;
+  price: number;
+  description: string;
 };
 
 export type Credentials = {
-	username: string,
-	password: string
+  username: string;
+  password: string;
 };
 
 export type Menu = {
-	id: string;
-	name: string;
-	menuItems: MenuItems[];
+  id: string;
+  name: string;
+  menuItems: MenuItems[];
 };
 
 export type MenuItems = {
-	id: string;
-	name: string;
-	price: number;
-	description: string;
-	image: string;
+  id: string;
+  name: string;
+  price: number;
+  description: string;
+  image: string;
 };
 
 export type Schema = {
-	orders: Order[];
-	archive: ArchiveItem[];
-	credentials: Credentials[];
-	menu: Menu[];
+  baseOrderNumber: number;
+  orders: Order[];
+  archive: ArchiveItem[];
+  credentials: Credentials[];
+  menu: Menu[];
 };
 
 export type ArchiveItem = {
-  orderNumber: number,
-  orderItems: OrderItem[],
-  customerComment: string,
-  customer: string,
-  phoneNumber: string,
-  time: string
-}
+  orderNumber: number;
+  orderItems: OrderItem[];
+  customerComment: string;
+  customer: string;
+  phoneNumber: string;
+  time: string;
+};
