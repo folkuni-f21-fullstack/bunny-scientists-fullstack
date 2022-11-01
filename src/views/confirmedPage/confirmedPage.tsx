@@ -2,7 +2,7 @@ import { JSXElementConstructor, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import snail from '../../assets/moving-snail.png';
-import { ArchiveItem, OrderType } from '../../models/data';
+import { ArchiveItem, Order } from '../../models/data';
 import { restoreCart } from '../../reducers/cartReducer';
 import '../confirmedPage/confirmedPage.scss';
 
@@ -11,18 +11,31 @@ const ConfirmedPage = () => {
   const navigate = useNavigate();
   const [latestOrder, setLatestOrder] = useState<ArchiveItem>();
   const [isItems, setIsItems] = useState<boolean>(false)
+  const [checkIfOrderExist, setCheckIfOrderExist] = useState<boolean>(false)
   const dispatch = useDispatch();
 
   function navigateHome() {
     navigate('/');
   }
-  useEffect(() => {    
-      const order: ArchiveItem = JSON.parse(localStorage.getItem('order') || "{}");
-      console.log(order)
-      if (Object.entries(order).length !== 0) {
-        setIsItems(true)
-        setLatestOrder(order)
+  useEffect(()=> {
+    const order: ArchiveItem = JSON.parse(localStorage.getItem('order') || "{}");
+    async function getAllOrders() {
+      const reponse = await fetch('/api/orders')
+      const data: Order[] = await reponse.json()
+      const check = data.filter((order)=> {
+        if(order.orderNumber === order.orderNumber) {
+          return order
+        }
+      })
+      if(check.length > 0) {
+        setCheckIfOrderExist(true)
       }
+    }
+    getAllOrders()
+    if (Object.entries(order).length !== 0) {
+      setIsItems(true)
+      setLatestOrder(order)
+    }
   }, []);
   function restoreOrder(){
     let najs = JSON.parse(localStorage.getItem('order') || "{}")
@@ -67,7 +80,18 @@ const ConfirmedPage = () => {
             <section className='confirmed-text-container'>
               <p className='confirmed-text'><TimeRemaining /></p>
               <p className='confirmed-text'>Ordernummer: <span className='confirmed-bold'>{latestOrder?.orderNumber}</span></p>
-              <p className='confirmed-text'>Klicka <span onClick={()=> {restoreOrder()}} className='confirmed-bold cursor'>här</span> för att ändra ordern</p>
+              {
+                checkIfOrderExist ? (
+                  <>
+                  <p className='confirmed-text'>Klicka <span onClick={()=> {restoreOrder()}} className='confirmed-bold cursor'>här</span> för att ändra ordern</p>
+                  </>
+                ):(
+                  <>
+                  <p className='confirmed-text'>Din order är <strong>Bekräftad</strong> och Tilllagas</p>
+                  </>
+                )
+              }
+              
             </section>
 
             <div className='confirmed-btn-container'>
