@@ -50,5 +50,6 @@ export type ArchiveItem = {
   customerComment: string,
   customer: string,
   phoneNumber: string,
-  time: string
+  time: string,
+  messageToChef: string
 }
