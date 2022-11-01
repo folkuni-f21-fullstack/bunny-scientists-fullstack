@@ -85,11 +85,6 @@
       border-radius: 50%;
       cursor: pointer;
     }
-    .trash-icon {
-      font-size: 2rem;
-      margin-right: 1rem;
-      cursor: pointer;
-    }
   }
   .empty-cart-container {
     height: 5rem;
@@ -97,6 +92,10 @@
     justify-content: flex-end;
     align-items: center;
     .empty-cart {
+      cursor: pointer;
+    }
+    .trash-icon {
+      margin-right: 1rem;
       cursor: pointer;
     }
   }
