@@ -46,10 +46,11 @@ export type Schema = {
 };
 
 export type ArchiveItem = {
-  orderNumber: number;
-  orderItems: OrderItem[];
-  customerComment: string;
-  customer: string;
-  phoneNumber: string;
-  time: string;
-};
+  orderNumber: number,
+  orderItems: OrderItem[],
+  customerComment: string,
+  customer: string,
+  phoneNumber: string,
+  time: string,
+  messageToChef: string
+}

@@ -39,15 +39,6 @@
 @media only screen and (min-width: 730px) {
 	.admin-page {
 		.admin-wrapper {
-			// display: grid;
-			// grid-auto-rows: auto;
-			// grid-template-areas:
-			// 	"list list"
-			// 	"details customer"
-			// 	"details customer"
-			// 	"add message"
-			// 	"confirm confirm";
-
 			article {
 				display: grid;
 				grid-auto-rows: auto;
@@ -92,7 +83,7 @@
 			.message-to-chef-container {
 				padding-left: 1rem;
 				grid-area: message;
-				textarea{
+				textarea {
 					min-height: 10rem;
 				}
 			}

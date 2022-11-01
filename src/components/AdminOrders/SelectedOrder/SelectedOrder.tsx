@@ -7,14 +7,15 @@ import { RootState } from "./../../../store";
 import "./SelectedOrder.scss";
 
 type Props = {
-  selectedOrder: Order
+  selectedOrder: Order,
 }
+
 const SelectedOrder = ({ selectedOrder }: Props) => {
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
+  const [messageToChef, setMessageToChef] = useState<string>("")
   const [selectedOrderItem, setSelectedOrderItem] = useState<OrderItem[]>(selectedOrder.orderItems)
   const [filteredMenu, setFilteredMenu] = useState<MenuItem[]>([])
-  const [newOrder, setNewOrder] = useState<OrderItem>()
 
   useEffect(() => {
     let selectedOrderItemsCopy = [...selectedOrderItem]
@@ -27,64 +28,71 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
       })
     })
 
-    let selectedOrderItemsbajs:MenuItem[] = []
-    selectedOrderItemsCopy.map((majs)=> {
-      selectedOrderItemsbajs.push(majs.menuItem)
+    let selectedOrderItems: MenuItem[] = []
+    selectedOrderItemsCopy.map((order) => {
+      selectedOrderItems.push(order.menuItem)
     })
 
-    let bajs:MenuItem[] = menuList.filter((dish) => {
-      const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
+    let newFilteredMenu: MenuItem[] = menuList.filter((dish) => {
+      const result = selectedOrderItems.find((compare) => dish.id === compare.id);
       return !result;
     });
-
-    setFilteredMenu(bajs)
+    setMessageToChef("")
+    setFilteredMenu(newFilteredMenu)
     setSelectedOrderItem(selectedOrder.orderItems)
   }, [selectedOrder])
 
-function increaseAmount(order: OrderItem) {
-  let dishCopy = [...selectedOrderItem]
-  dishCopy.map((dish) => {
-    if (dish.menuItem.name === order.menuItem.name) {
-      dish.amount++
-    }
-  })
-  setSelectedOrderItem(dishCopy)
-}
-  function decreaseAmount(order: OrderItem) {
-    console.log(order)
+  function increaseAmount(order: OrderItem) {
     let dishCopy = [...selectedOrderItem]
-    let bajs:MenuItem[] = []
+    dishCopy.map((dish) => {
+      if (dish.menuItem.name === order.menuItem.name) {
+        dish.amount++
+      }
+    })
+    setSelectedOrderItem(dishCopy)
+  }
+
+  function decreaseAmount(order: OrderItem) {
+    let dishCopy = [...selectedOrderItem]
+    let newFilteredMenu: MenuItem[] = []
+
     dishCopy.map((dish) => {
       if (dish.menuItem.name === order.menuItem.name) {
         dish.amount--
       }
+
       if (dish.amount < 1 && dish.menuItem.id === order.menuItem.id) {
         dishCopy = removeDish(dishCopy, order.menuItem.id)
-        let selectedOrderItemsCopy = [...dishCopy]
-        let menuCopy = [...menuByCategory]
-        let menuList: MenuItem[] = []
-    
+        // * EN ny lista med alla items i ordern förutom den som har amount 0
+        let selectedOrderItemsCopy = [...dishCopy] // ? selectedOrderItemsCopy är en lista av allt mat man beställt förutom den mat som har amount 0
+
+        let menuCopy = [...menuByCategory] // * kopia på hela menyn.
+
+        let menuList: MenuItem[] = [] // * En lista med alla maträtter istället för kategorier
+
         menuCopy.map((category: MenuCategory, i: number) => {
           category.menuItems.map((menuItem, p) => {
             menuList.push(menuItem)
           })
         })
-    
-        let selectedOrderItemsbajs:MenuItem[] = []
-        selectedOrderItemsCopy.map((majs)=> {
-          selectedOrderItemsbajs.push(majs.menuItem)
+
+        let menuItemArray: MenuItem[] = [] // * En lista med alla maträtter som beställaren har lagt till ::: förutom den som vi tagit bort ::: Vi tar bort AMOUNT, så vi bara har alla maträtter
+
+        selectedOrderItemsCopy.map((order) => {
+          menuItemArray.push(order.menuItem)
         })
-    
-        bajs = menuList.filter((dish) => {
-          const result = selectedOrderItemsbajs.find((compare) => dish.id === compare.id);
+
+        newFilteredMenu = menuList.filter((dish) => {
+          const result = menuItemArray.find((compare) => dish.id === compare.id);
           return !result;
         });
-        setFilteredMenu(bajs)
+        setFilteredMenu(newFilteredMenu)
       }
     })
     setSelectedOrderItem(dishCopy)
   }
-  function removeDish(array:OrderItem[], id:string){
+
+  function removeDish(array: OrderItem[], id: string) {
     return array.filter(item => item.menuItem.id !== id)
   }
 
@@ -93,23 +101,24 @@ function increaseAmount(order: OrderItem) {
     let newOrderItem = item
     let newOrder: OrderItem = { menuItem: { ...newOrderItem }, amount: 1 }
 
-    //Lägg till i databasen tack
+    // * newFilteredMenu Kollar igenom menyn. Finns selected order Items ID där? Då ska den bort
 
-    //Kolla igenom menyn. Finns selected order Items ID där? Då ska den bort
-
-    //Filtrera "lägg till maträtt till det som inte finns i ordern redan typ"
-
-    let bajs:MenuItem[] = filteredMenu.filter((dish) => {
-      if(dish.id !== item.id) {
+    let newFilteredMenu: MenuItem[] = filteredMenu.filter((dish) => {
+      if (dish.id !== item.id) {
         return dish;
       }
-      
+
     });
     selectedOrderItemsCopy.push(newOrder)
     setSelectedOrderItem(selectedOrderItemsCopy)
-    setFilteredMenu(bajs)
+    setFilteredMenu(newFilteredMenu)
   }
-  async function addToArchive(){
+
+  const handleChange = (value:string) => { 
+    setMessageToChef(value)
+  }
+
+  async function addToArchive() {
     let d = new Date()
     let archiveObj = {
       time: d.getTime(),
@@ -117,7 +126,8 @@ function increaseAmount(order: OrderItem) {
       customer: selectedOrder.customer,
       phoneNumber: selectedOrder.phoneNumber,
       customerComment: selectedOrder.customerComment,
-      orderItems: selectedOrderItem
+      orderItems: selectedOrderItem,
+      messageToChef: messageToChef
     }
     await fetch('http://localhost:5174/api/archive', {
       method: 'POST',
@@ -193,11 +203,12 @@ function increaseAmount(order: OrderItem) {
       <div className="message-to-chef-container">
         <h3 className="subheading">Meddelande till kocken</h3>
         <section className="message-to-chef">
-          <textarea name="" id=""></textarea>
+          <textarea onChange={(e)=> handleChange(e.target.value)} value={messageToChef} name="" id=""></textarea>
         </section>
+       
       </div>
       <div className="confirm-container">
-        <button onClick={()=> addToArchive()} className="confirm-btn">Bekräfta</button>
+        <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
       </div>
     </article>
   )
