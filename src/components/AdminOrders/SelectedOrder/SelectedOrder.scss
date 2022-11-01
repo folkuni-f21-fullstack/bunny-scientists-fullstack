@@ -1,16 +1,14 @@
 @import '../../../styles/variables.scss';
 .order-details-container {
-	margin-bottom: 1rem;
-
 	.order-detail-item {
-		padding: 0 1rem;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		background-color: $light-grey;
-
+    padding: .2rem .5rem;
 		p {
 			font-family: $header-font;
+      font-size: var(--fs-large-text);
 		}
 	}
 }

@@ -138,9 +138,11 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
       method: 'DELETE'
     })
   }
+
+
   return (
-    <article>
-      <section className="order-details-container">
+    <article className='change-order-wrapper'>
+      <div className="order-details-container">
         {
           selectedOrderItem.length < 1 ? (
             <div><h3>inget att ändra</h3></div>
@@ -168,7 +170,7 @@ const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
           )
         }
         
-      </section>
+      </div>
       <div className="customer-container">
         <h3 className="subheading">Kundinformation</h3>
         <section className="customer-info">
