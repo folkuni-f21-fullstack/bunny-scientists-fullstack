@@ -63,6 +63,8 @@
 .confirm-container {
 	display: flex;
 	justify-content: center;
+  flex-direction: column;
+  align-items: center;
 	.confirm-btn {
 		@include addBtnStyle;
 		font-size: 1.5rem;
@@ -70,6 +72,12 @@
 		margin-bottom: 1rem;
 		cursor: pointer;
 	}
+  .red {
+    color: red;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+  }
 }
 
 .add-to-order-list {

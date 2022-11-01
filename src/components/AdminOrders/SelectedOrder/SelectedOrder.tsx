@@ -8,9 +8,10 @@ import "./SelectedOrder.scss";
 
 type Props = {
   selectedOrder: Order,
+  allOrders:Order[]
 }
 
-const SelectedOrder = ({ selectedOrder }: Props) => {
+const SelectedOrder = ({allOrders, selectedOrder }: Props) => {
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
   const [messageToChef, setMessageToChef] = useState<string>("")
@@ -39,7 +40,8 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     });
     setMessageToChef("")
     setFilteredMenu(newFilteredMenu)
-    setSelectedOrderItem(selectedOrder.orderItems)
+    let newOrder = JSON.parse(JSON.stringify(selectedOrder.orderItems));
+    setSelectedOrderItem(newOrder)
   }, [selectedOrder])
 
   function increaseAmount(order: OrderItem) {
@@ -63,7 +65,6 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
 
       if (dish.amount < 1 && dish.menuItem.id === order.menuItem.id) {
         dishCopy = removeDish(dishCopy, order.menuItem.id)
-        // * EN ny lista med alla items i ordern förutom den som har amount 0
         let selectedOrderItemsCopy = [...dishCopy] // ? selectedOrderItemsCopy är en lista av allt mat man beställt förutom den mat som har amount 0
 
         let menuCopy = [...menuByCategory] // * kopia på hela menyn.
@@ -101,9 +102,7 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
     let newOrderItem = item
     let newOrder: OrderItem = { menuItem: { ...newOrderItem }, amount: 1 }
 
-    // * newFilteredMenu Kollar igenom menyn. Finns selected order Items ID där? Då ska den bort
-
-    let newFilteredMenu: MenuItem[] = filteredMenu.filter((dish) => {
+    let newFilteredMenu: MenuItem[] = filteredMenu.filter((dish) => {    // * newFilteredMenu Kollar igenom menyn. Finns selected order Items ID där? Då ska den bort
       if (dish.id !== item.id) {
         return dish;
       }
@@ -119,9 +118,8 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
   }
 
   async function addToArchive() {
-    let d = new Date()
     let archiveObj = {
-      time: d.getTime(),
+      time: new Date().toLocaleTimeString(),
       orderNumber: selectedOrder.orderNumber,
       customer: selectedOrder.customer,
       phoneNumber: selectedOrder.phoneNumber,
@@ -143,24 +141,33 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
   return (
     <article>
       <section className="order-details-container">
-        {selectedOrderItem.map((order, i: number) => {
-          return (
-            <article key={i} className="order-detail-item">
-              <p>{order.menuItem.name}</p>
-              <div className="quantity-container">
-                <button onClick={(e) => { decreaseAmount(order) }} className="decrease">
-                  {" "}
-                  <IoIosRemove />
-                </button>
-                <p className="quantity">{order.amount}</p>
-                <button onClick={() => { increaseAmount(order) }} className="increase">
-                  {" "}
-                  <IoIosAdd />
-                </button>
-              </div>
-            </article>
-          );
-        })}
+        {
+          selectedOrderItem.length < 1 ? (
+            <div><h3>inget att ändra</h3></div>
+          ):(
+            <>
+              {selectedOrderItem.map((order, i: number) => {
+                return (
+                  <article key={i} className="order-detail-item">
+                    <p>{order.menuItem.name}</p>
+                    <div className="quantity-container">
+                      <button onClick={(e) => { decreaseAmount(order) }} className="decrease">
+                        {" "}
+                        <IoIosRemove />
+                      </button>
+                      <p className="quantity">{order.amount}</p>
+                      <button onClick={() => { increaseAmount(order) }} className="increase">
+                        {" "}
+                        <IoIosAdd />
+                      </button>
+                    </div>
+                  </article>
+                );
+              })} 
+            </>
+          )
+        }
+        
       </section>
       <div className="customer-container">
         <h3 className="subheading">Kundinformation</h3>
@@ -181,7 +188,7 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
         <h3 className="subheading">Lägg till maträtt</h3>
         <section className="add-to-order-list">
           {menu.loading === "idle" || menu.loading === "pending" && <div>loading...</div>}
-          {menu.loading === "failed" && menu.error ? <div>Error: {menu.error}</div> : null}
+          {menu.loading === "failed" && menu.error ? <div></div> : null}
 
           {menu.loading === "succeeded" && menu.menu.length ? (
             <>
@@ -208,7 +215,27 @@ const SelectedOrder = ({ selectedOrder }: Props) => {
        
       </div>
       <div className="confirm-container">
-        <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+        {
+          allOrders.length < 1 ? ( // * Visa grå button om det inte finns några ordrar
+            <>
+              <button className="confirm-btn offline">Bekräfta</button>
+              <p className="red"><strong>!! no orders</strong></p>
+            </>
+          ): (
+            <>
+            {
+              JSON.stringify(selectedOrder.orderItems) !== JSON.stringify(selectedOrderItem) ? ( // * Visa extra text om ordern har ändrats
+                <>
+                  <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+                  <p className="red"><strong>!!</strong> Dina ändringar <strong>sparas ej</strong> om du byter order <br /> Snälla <strong>Bekräfta</strong> ordern </p>
+                </>
+              ): (
+                <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+              )
+            }
+            </>
+          )
+        }
       </div>
     </article>
   )
