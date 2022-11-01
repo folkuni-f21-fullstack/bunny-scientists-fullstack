@@ -1,14 +1,11 @@
 import { useEffect, useState } from "react";
-import { IoIosAdd, IoIosRemove } from "react-icons/io";
-import { useSelector } from "react-redux";
-import Data from "../../data/data.json";
 import { MenuCategory, MenuItem, Order } from "../../models/data";
-import { RootState } from "./../../store";
 import "./AdminOrders.scss";
 import SelectedOrder from "./SelectedOrder/SelectedOrder";
 
-const AdminOrders = () => {  
+const AdminOrders = () => {
   const [allOrders, setAllOrders] = useState<Order[]>([]);
+  const [originalAllOrders, setOriginalAllOrders] = useState<Order[]>([]);
 
   const [selectedOrder, setSelectedOrder] = useState<Order>({
     orderNumber: 1,
@@ -23,10 +20,20 @@ const AdminOrders = () => {
       const reponse = await fetch('/api/orders')
       const data: Order[] = await reponse.json()
       setAllOrders(data)
-      setSelectedOrder(data[0]);
-    } 
+      let newOrder = JSON.parse(JSON.stringify(data[0]));
+      setSelectedOrder(newOrder);
+    }
     getAllOrders()
   }, []);
+  useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+    setAllOrders(originalAllOrders)
+    console.log(allOrders)
+  }, [originalAllOrders]);
+
+  function changeSelectedOrder(order: Order) {
+    let newOrder = JSON.parse(JSON.stringify(order));
+    setSelectedOrder(newOrder)
+  }
 
   return (
     <div className="admin-wrapper">
@@ -41,7 +48,7 @@ const AdminOrders = () => {
                     key={i}
                     className={order.orderNumber === selectedOrder.orderNumber ? "selected" : ""}
                     onClick={() => {
-                      setSelectedOrder(order);
+                      changeSelectedOrder(order)
                     }}
                   >
                     {order.orderNumber}
@@ -49,11 +56,11 @@ const AdminOrders = () => {
                 );
               })}
             </ul>
-          ): null}
+          ) : null}
         </section>
         <div className="line"></div>
       </div>
-      <SelectedOrder setAllOrders={setAllOrders} selectedOrder={selectedOrder} />
+      <SelectedOrder selectedOrder={selectedOrder} />
     </div>
   );
 };
