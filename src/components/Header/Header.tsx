@@ -23,7 +23,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
 
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  let newList = productList.map((f) => f.amount);
+  let newList = productList.map((f: any) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
 
   const toggleNav = () => {
