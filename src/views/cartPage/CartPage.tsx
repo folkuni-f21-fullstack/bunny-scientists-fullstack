@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { IoMdTrash } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import decrease from '../../assets/icons/decrease-icon.svg';
 import increase from '../../assets/icons/increase-icon.svg';
 import trash from '../../assets/icons/trash-icon.svg';
@@ -14,32 +15,51 @@ import { RootState } from '../../store';
 import './CartPage.scss';
 
 const CartPage = () => {
+  const [customer, setCustomer] = useState<string>("")
+  const [customerComment, setCustomerComment] = useState<string>("")
+  const [phoneNumber, setPhoneNumber] = useState<string>()
 	const dispatch = useDispatch();
+  const navigate = useNavigate();
 	// diplay amount of articles in cart
 	const productList = useSelector((state: RootState) => state.cart);
 	console.log(productList);
 
-  const [nameOpen, setNameOpen] = useState(false);
-  const [messageOpen, setMessageOpen] = useState(false);
+//detta är vad vi skickar
 
-  const [name, setName] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const postOrder = {
+    orderNumber: Math.floor(Math.random() * 1000),
+    orderItems: productList,
+    customerComment: customerComment,
+    customer: customer,
+    phoneNumber: phoneNumber
+  }
 
-  function checkName() {
-    if (!name) {
-      setNameOpen(false);
+// skickar ordern till backend db
+  async function postData() {
+    const response = await fetch('/api/orders', {
+      method: 'POST',  
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(postOrder)      
+    });  
+    return response.json(); 
+  }
+
+  
+const sendOrder: (e: any) => void = (e: any) => {
+  e.preventDefault();
+    if (productList.length > 0){
+      navigate('/orders');
+      dispatch(removeAll())
+      postData()
+    } else {
+      console.log('empty shit')
     }
-    return;
   }
-  function checkMessage() {
-    if (!message) {
-      setMessageOpen(false);
-    }
-    return;
-  }
-  function sendMail() {
-    window.open(`mailto:l.eklind1@gmail.com?subject=${name}&body=${message}`);
-  }
+
+
+  
 	return (
 		<div className='cart-wrapper'>
 			<section className='cart-header'>
@@ -91,14 +111,14 @@ const CartPage = () => {
         </ul>
         <div className='line'></div>
         <section className='form'>
-          <form onSubmit={() => sendMail()} className="contact-form">
+          <form onSubmit={sendOrder} className="contact-form">
             <label htmlFor="name">namn</label>
-            <input type="text" id='name' />
+            <input type="text" id='name' onChange={(e) => setCustomer(e.target.value)} />
             <label htmlFor="number">telefonnummer</label>
-            <input type="text" id="number" />
+            <input type="text" id="number" onChange={(e) => setPhoneNumber(e.target.value)}  />
             <label htmlFor="message">meddelande</label>
-            <textarea id='message' placeholder='Lämna meddelande till resturangen' ></textarea>
-            <input className='submit-button' type="submit" value="beställ" />
+            <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6} onChange={(e) => setCustomerComment(e.target.value)} > </textarea>
+            <input className='submit-button' type="submit" value="Slutför köp" />
           </form>
           <div>
             <h2>

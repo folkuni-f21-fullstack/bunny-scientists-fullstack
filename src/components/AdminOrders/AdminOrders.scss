@@ -92,6 +92,9 @@
 			.message-to-chef-container {
 				padding-left: 1rem;
 				grid-area: message;
+				textarea{
+					min-height: 10rem;
+				}
 			}
 
 			.confirm-container {

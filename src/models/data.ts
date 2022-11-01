@@ -39,6 +39,12 @@ export type MenuCategory = {
   name: string,
   menuItems: MenuItem[]
 }
+
+export type Credentials = {
+  username: string,
+  password: string
+}
+
 /*
               Hur state ska se ut:
         1. Vad ligger i kundvagnen.
