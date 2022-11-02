@@ -136,6 +136,7 @@
         color: $container-bg;
         width: max-content;
         padding: 0.7rem 1.2rem;
+        cursor: pointer;
       }
     }
   }
@@ -280,8 +281,11 @@
         width: 21rem;
       }
       .btn-container {
+        position: absolute;
         display: flex;
         justify-content: center;
+        width: 984px;
+        bottom: 0;
         .submit-button {
           font-size: var(--fs-sub-title);
           font-family: $header-font;
