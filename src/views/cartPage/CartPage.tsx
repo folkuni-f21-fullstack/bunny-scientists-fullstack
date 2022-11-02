@@ -146,11 +146,13 @@ const CartPage = () => {
               rows={6}
               onChange={(e) => setCustomerComment(e.target.value)}
             ></textarea>
-            <input
-              className="submit-button"
-              type="submit"
-              value="Slutför köp"
-            />
+            <div className="btn-container">
+              <input
+                className="submit-button"
+                type="submit"
+                value="Slutför köp"
+              />
+            </div>
           </form>
           <div className="sum-container">
             <h2>
