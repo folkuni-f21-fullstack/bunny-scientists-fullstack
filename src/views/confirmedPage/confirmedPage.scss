@@ -1,60 +1,88 @@
 @import "../../styles/variables.scss";
 
+.confirmed-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 1000px;
+  height: calc(100vh - 12rem);
+  justify-content: space-between;
 
-.confirmed-container{
+  .confirmed-header {
+    font-size: 3rem;
+    margin-top: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .confirmed-img-container {
     display: flex;
+<<<<<<< Updated upstream
     flex-direction: column;
     margin: 0 auto;
     width: 90vw;
     height: calc(100vh - 320px);
     justify-content: space-between;
+=======
+    justify-content: center;
+>>>>>>> Stashed changes
 
-    .confirmed-header{
-        
-            font-size: 3rem;
-            margin-top: 1rem;
-            margin-left: 0.5rem;
+    .confirmed-img {
+      max-width: 10rem;
     }
+  }
 
-    .confirmed-img-container{
-        display: flex;
-        justify-content: center;  
-
-        .confirmed-img{
-            max-width: 10rem;
-        }
-    }
-    
-.confirmed-text-container{
+  .confirmed-text-container {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
 
-    .confirmed-text{
-        font-family: $text-font;
-        font-size: var(--fs-text);
-        margin-bottom: .5rem;
+    .confirmed-text {
+      font-family: $text-font;
+      font-size: var(--fs-text);
+      margin-bottom: 0.5rem;
     }
 
-    .confirmed-bold{
-        font-family: $text-font;
-        font-size: var(--fs-text);
-        font-weight: 600;
-        margin-bottom: .5rem;
+    .confirmed-bold {
+      font-family: $text-font;
+      font-size: var(--fs-text);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
     }
+<<<<<<< Updated upstream
 
+=======
+    .cursor {
+      cursor: pointer;
+    }
+  }
+
+  .confirmed-btn-container {
+    display: flex;
+    justify-content: center;
+
+    .confirmed-btn {
+      @include addBtnStyle;
+    }
+  }
+>>>>>>> Stashed changes
 }
-    
 
-    .confirmed-btn-container{
-        display: flex;
-        justify-content: center;
+@media screen and (min-width: 900px) {
+  .confirmed-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 1000px;
+    height: calc(100vh - 12rem);
+    justify-content: space-between;
+    .confirmed-btn-container {
+      display: flex;
+      justify-content: center;
 
-        .confirmed-btn{
-            @include addBtnStyle;
-           
-        }
+      .confirmed-btn {
+        padding: 2rem 3rem;
+        font-size: 2rem;
+      }
     }
-    
-    
+  }
 }

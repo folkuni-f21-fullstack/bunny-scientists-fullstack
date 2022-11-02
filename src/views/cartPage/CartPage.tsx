@@ -9,10 +9,17 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
+<<<<<<< Updated upstream
   removeItem
 } from '../../reducers/cartReducer';
 import { RootState } from '../../store';
 import './CartPage.scss';
+=======
+  removeItem,
+} from "../../reducers/cartReducer";
+import { RootState } from "../../store";
+import "./CartPage.scss";
+>>>>>>> Stashed changes
 
 const CartPage = () => {
   const [customer, setCustomer] = useState<string>("")
@@ -31,6 +38,7 @@ const CartPage = () => {
     orderItems: productList,
     customerComment: customerComment,
     customer: customer,
+<<<<<<< Updated upstream
     phoneNumber: phoneNumber
   }
 
@@ -39,6 +47,29 @@ const CartPage = () => {
     const response = await fetch('/api/orders', {
       method: 'POST', 
       mode: 'cors', 
+=======
+    phoneNumber: phoneNumber,
+    time: localTime,
+  };
+
+  async function getOrderNumber() {
+    // * Uppdaterar OrderNumber
+    let orderNumberResponse = await fetch("/api/ordernumber", {
+      method: "GET",
+    });
+
+    let orderNumber = await orderNumberResponse.json();
+    console.log(orderNumber);
+    await fetch(`/api/ordernumber/${orderNumber}`, {
+      method: "PUT",
+    });
+  }
+
+  async function postData() {
+    // * skickar ordern till backend db
+    const response = await fetch("/api/orders", {
+      method: "POST",
+>>>>>>> Stashed changes
       headers: {
         'Content-Type': 'application/json'
       },
@@ -58,7 +89,10 @@ const sendOrder: (e: any) => void = (e: any) => {
       console.log('empty shit')
     }
   }
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
   
 	return (
@@ -121,7 +155,7 @@ const sendOrder: (e: any) => void = (e: any) => {
             <textarea id='message' placeholder='Lämna meddelande till resturangen' cols={20} rows={6} onChange={(e) => setCustomerComment(e.target.value)} > </textarea>
             <input className='submit-button' type="submit" value="Slutför köp" />
           </form>
-          <div>
+          <div className="sum-container">
             <h2>
               summa:{productList.reduce((total, currentItem) =>(total = total + currentItem.menuItem.price * currentItem.amount), 0)}.00 kr
             </h2>
