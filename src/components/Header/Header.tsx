@@ -23,7 +23,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
 
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  let newList = productList.map((f) => f.amount);
+  let newList = productList.map((f: any) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
 
   const toggleNav = () => {
@@ -65,6 +65,10 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
     }
   };
 
+  const clearCredentials = () => {
+    localStorage.removeItem('user')
+  }
+
   return (
     <>
       {/* kollar ifall admin finns i URL och visar isåfall admin Header*/}
@@ -83,8 +87,8 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h3 className="logout-text">LOGGA UT</h3>
-                  <BiLogOut className="logout-icon" />
+                  <h3 className="logout-text" onClick={clearCredentials}>LOGGA UT</h3>
+                  <BiLogOut className="logout-icon" />{" "}
                 </Link>
               </div>
             </div>
@@ -99,7 +103,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               }}
             >
               <Link className="logout" to="/">
-                <h1 className="logout-text">LOGGA UT</h1>
+                <h1 className="logout-text" onClick={clearCredentials}>LOGGA UT</h1>
                 <BiLogOut className="logout-icon" />
               </Link>
             </div>

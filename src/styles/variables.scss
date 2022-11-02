@@ -19,8 +19,14 @@ $box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
 
 :root {
   --fs-text: 16px;
+  --fs-large-text: 18px;
   --fs-title: 24px;
   --fs-sub-title: 20px;
+}
+
+.offline {
+  background-color: #B5B5B5 !important;
+  cursor: unset !important;
 }
 
 @mixin menuCardDesign() {

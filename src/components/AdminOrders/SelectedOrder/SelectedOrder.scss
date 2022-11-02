@@ -1,0 +1,120 @@
+@import '../../../styles/variables.scss';
+.order-details-container {
+	.order-detail-item {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		background-color: $light-grey;
+    padding: .2rem .5rem;
+		p {
+			font-family: $header-font;
+      font-size: var(--fs-large-text);
+		}
+	}
+}
+
+.quantity-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0.2rem;
+	margin: 0.2rem;
+	background-color: #fff;
+	border-radius: 20px;
+
+	p {
+		font-size: var(--fs-sub-title);
+		font-family: $header-font;
+		padding: 0 0.5rem;
+	}
+
+	.increase,
+	.decrease {
+		@include roundBtnStyle
+	}
+}
+
+.customer-container {
+	.customer-info {
+		padding: 0.3rem;
+		background-color: $light-grey;
+
+		p {
+			font-weight: 700;
+			font-size: var(--fs-text);
+
+			.message {
+				display: block;
+			}
+
+			span {
+				font-weight: 400;
+			}
+		}
+
+		p:nth-child(2) {
+			margin-top: 1rem
+		}
+	}
+}
+
+.confirm-container {
+	display: flex;
+	justify-content: center;
+  flex-direction: column;
+  align-items: center;
+	.confirm-btn {
+		@include addBtnStyle;
+		font-size: 1.5rem;
+		align-self: center;
+		margin-bottom: 1rem;
+		cursor: pointer;
+	}
+  .red {
+    color: red;
+    font-weight: 400;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+
+.add-to-order-list {
+	border: 1px solid $dark-grey;
+	padding: 0.3rem;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	max-height: 10rem;
+	box-shadow: $box-shadow;
+	
+	div {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		// border-bottom: 2px dotted $dark-grey;
+		margin-bottom: 0.2rem;
+		box-shadow: $box-shadow;
+		background-color: #fff;
+		padding: 0.3rem;
+
+		&:hover {
+			background-color: $light-grey;
+		}
+	}
+
+	button {
+		@include roundBtnStyle
+	}
+
+	p {
+		font-family: $text-font;
+		font-size: var(--fs-text);
+		font-weight: 400;
+	}
+}
+
+.message-to-chef {
+	textarea {
+		width: 100%;
+		resize: none;
+	}
+}

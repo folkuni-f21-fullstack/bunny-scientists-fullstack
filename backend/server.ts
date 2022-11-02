@@ -1,42 +1,46 @@
-import cors from 'cors';
-import * as dotenv from 'dotenv';
-import express from 'express';
+import cors from "cors";
+import * as dotenv from "dotenv";
+import express from "express";
 const app = express();
-dotenv.config()
+dotenv.config();
 const PORT = process.env.PORT;
 
 // const cors = require("cors")
-import { dirname, join } from 'path';
-import { fileURLToPath } from 'url';
-import menuRoute from './routes/menu.js';
-import ordersRoute from './routes/orders.js';
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+import archiveRoute from "./routes/archive.js";
+import credentialsRoute from "./routes/credentials.js";
+import menuRoute from "./routes/menu.js";
+import ordersRoute from "./routes/orders.js";
+import orderNumberRoute from "./routes/ordernumber.js";
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const staticPath = join(__dirname, '../../dist');
+const staticPath = join(__dirname, "../../dist");
 
 //Middleware
 app.use(express.json());
 app.use((req, res, next) => {
-	console.log(req.httpVersion);
-	next();
+  console.log(req.httpVersion);
+  next();
 });
+
 app.use(cors());
 
 app.use((req, res, next) => {
-	console.log(`${req.method}  ${req.url} `, req.body);
-	next();
+  console.log(`${req.method}  ${req.url} `, req.body);
+  next();
 });
 
 // Obs! express.static bör ligga först, när man får många statiska filer
 app.use(express.static(staticPath));
 
 // Routes / endpoints
-
-app.use('/api/menu', menuRoute);
-app.use('/api/orders', ordersRoute);
-// app.use('/api/archive', archiveRoute)
-// app.use('/api/credentials', credentialsRoute)
+app.use("/api/ordernumber", orderNumberRoute);
+app.use("/api/menu", menuRoute);
+app.use("/api/orders", ordersRoute);
+app.use("/api/credentials", credentialsRoute);
+app.use("/api/archive", archiveRoute);
 
 // Starta servern
 app.listen(PORT, () => {
-	console.log(`Server is listening on port ${PORT}.`);
+  console.log(`Server is listening on port ${PORT}.`);
 });

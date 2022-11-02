@@ -35,130 +35,20 @@
 	}
 }
 
-.order-details-container {
-	margin-bottom: 1rem;
-
-	.order-detail-item {
-		padding: 0 1rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		background-color: $light-grey;
-
-		p {
-			font-family: $header-font;
-		}
-	}
-}
-
-.quantity-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	padding: 0.2rem;
-	margin: 0.2rem;
-	background-color: #fff;
-	border-radius: 20px;
-
-	p {
-		font-size: var(--fs-sub-title);
-		font-family: $header-font;
-		padding: 0 0.5rem;
-	}
-
-	.increase,
-	.decrease {
-		@include roundBtnStyle
-	}
-}
-
-.customer-container {
-	.customer-info {
-		padding: 0.3rem;
-		background-color: $light-grey;
-
-		p {
-			font-weight: 700;
-			font-size: var(--fs-text);
-
-			.message {
-				display: block;
-			}
-
-			span {
-				font-weight: 400;
-			}
-		}
-
-		p:nth-child(2) {
-			margin-top: 1rem
-		}
-	}
-}
-
-.confirm-container {
-	display: flex;
-	justify-content: center;
-	.confirm-btn {
-		@include addBtnStyle;
-		font-size: 1.5rem;
-		align-self: center;
-		margin-bottom: 1rem;
-		cursor: pointer;
-	}
-}
-
-.add-to-order-list {
-	// border: 0.5px solid $medium-grey;
-	padding: 0.3rem;
-	overflow-x: hidden;
-	overflow-y: scroll;
-	max-height: 10rem;
-	box-shadow: $box-shadow;
-
-	div>div {
-		display: flex;
-		justify-content: space-between;
-		// border-bottom: 2px dotted $dark-grey;
-		margin-bottom: 0.2rem;
-		box-shadow: $box-shadow;
-		background-color: #fff;
-		padding: 0.3rem;
-
-		&:hover {
-			background-color: $light-grey;
-		}
-	}
-
-	button {
-		@include roundBtnStyle
-	}
-
-	p {
-		font-family: $text-font;
-		font-size: var(--fs-text);
-		font-weight: 400;
-	}
-}
-
-.message-to-chef {
-	textarea {
-		width: 100%;
-	}
-}
 
 @media only screen and (min-width: 730px) {
 	.admin-page {
 		.admin-wrapper {
-			display: grid;
-			grid-auto-rows: auto;
-			grid-template-areas:
-			"archive archive"
-				"list list"
-				"details customer"
-				"details customer"
-				"add message"
-				"confirm confirm";
+			.change-order-wrapper {
+				display: grid;
+				grid-auto-rows: auto;
+				grid-template-areas:
+					"details customer"
+					"details customer"
+					"add message"
+					"confirm confirm";
+        gap: 1rem;
+			}
 
 			.orders-list-container {
 				grid-area: list;
@@ -170,12 +60,14 @@
 				overflow-x: hidden;
 				overflow-y: scroll;
 				height: 10rem;
+        max-width: 314px;
+        display: flex;
+        flex-direction: column;
 			}
 
 			.customer-container {
 				grid-area: customer;
 				height: 100%;
-				padding-left: 1rem;
 
 				.customer-info {
 					height: 100%;
@@ -189,12 +81,12 @@
 
 			.add-to-order-container {
 				grid-area: add;
+        max-width: 314px;
 			}
 
 			.message-to-chef-container {
-				padding-left: 1rem;
 				grid-area: message;
-				textarea{
+				textarea {
 					min-height: 10rem;
 				}
 			}
