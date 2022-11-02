@@ -127,12 +127,14 @@ const CartPage = () => {
               type="text"
               id="name"
               onChange={(e) => setCustomer(e.target.value)}
+              required
             />
             <label htmlFor="number">telefonnummer</label>
             <input
               type="text"
               id="number"
               onChange={(e) => setPhoneNumber(e.target.value)}
+              required
             />
             <label htmlFor="message">meddelande</label>
             <textarea

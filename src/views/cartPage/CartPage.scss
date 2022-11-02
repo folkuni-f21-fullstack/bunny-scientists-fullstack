@@ -4,7 +4,6 @@
 	width: 100%;
 	max-width: 1000px;
 	margin: 0 auto;
-  height: calc(100vh - 220px);
   padding: 0 .5rem;
 }
 .cart-header {
@@ -112,9 +111,19 @@
       font-family: $header-font;
     }
     input {
+      padding: .3rem .5rem;
       font-size: var(--fs-text);
       font-family: $text-font;
-      width: 10rem;
+      width: 14rem;
+      border: none;
+      border-radius: 5px;
+    }
+    textarea {
+      resize: none;
+      padding: .3rem .5rem;
+      font-size: var(--fs-text);
+      font-family: $text-font;
+      width: 30rem;
       border: none;
       border-radius: 5px;
     }
