@@ -1,17 +1,17 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .cart-wrapper {
-	width: 100%;
-	max-width: 1000px;
-	margin: 0 auto;
-  height: calc(100vh - 220px);
-  padding: 0 .5rem;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: 85vh;
+  padding: 0 0.5rem;
 }
 .cart-header {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
   align-items: flex-end;
-	padding: 1.5rem 0 1rem 0;
+  padding: 1.5rem 0 1rem 0;
   h1 {
     font-size: 2.7rem;
     line-height: 2.2rem;
@@ -27,41 +27,46 @@
   max-height: 16rem;
   overflow-y: scroll;
   overflow-x: hidden;
-  padding: 0 1rem;
+  padding: 0 1rem 1rem;
 }
 .product-in-cart {
-	list-style-type: none;
-	display: flex;
+  list-style-type: none;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-	background-color: $container-bg;
-  padding: 1rem;
+  background-color: $container-bg;
+  padding: 0.5rem;
   .product {
     height: max-content;
     display: flex;
-    align-items: flex-end;
-    gap: .8rem;
-    .trash {
-      width: 1.5rem;
-      display: flex;
-      align-items: flex-end;
-      img {
-        width: 100%;
+    align-items: center;
+
+    gap: 0.8rem;
+    figure {
+      .trash {
+        width: 1.5rem;
+        display: flex;
+        align-items: flex-end;
+        img {
+          width: 100%;
+        }
       }
     }
     .product-item {
       display: flex;
-      align-items: flex-end;
-      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
       h2 {
         line-height: 1.4rem;
       }
       p {
         font-weight: 800;
+        font-size: 1rem;
         color: $dark-grey;
       }
     }
-    
   }
   .amount {
     display: flex;
@@ -78,7 +83,7 @@
         font-size: var(--fs-sub-title);
         font-weight: 500;
 
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
       }
       .amount-button {
         display: flex;
@@ -93,18 +98,19 @@
     p {
       font-size: var(--fs-sub-title);
       font-family: $header-font;
-
     }
   }
 }
 .form {
   display: flex;
   width: 100%;
+  flex-direction: column;
   .contact-form {
-    width: 50%;
+    order: 1;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: .5rem;
+    gap: 0.5rem;
     position: relative;
     padding-bottom: 5rem;
     label {
@@ -112,9 +118,10 @@
       font-family: $header-font;
     }
     input {
+      padding: 0.5rem;
       font-size: var(--fs-text);
       font-family: $text-font;
-      width: 10rem;
+      width: 100%;
       border: none;
       border-radius: 5px;
     }
@@ -124,21 +131,173 @@
       background: $green-dark-bg;
       color: $container-bg;
       width: max-content;
-      padding: .7rem 1.2rem;
+      padding: 0.7rem 1.2rem;
       position: absolute;
-      bottom: 0;
-      right: -45px;
+      bottom: 20px;
+      right: 115px;
     }
   }
   div {
-    width: 50%;
+    order: 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    justify-content: flex-end;
 
     p {
       text-decoration: underline;
+    }
+  }
+}
 
+@media screen and (min-width: 600px) {
+  .cart-wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: calc(100vh - 220px);
+    padding: 0 0.5rem;
+  }
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 1.5rem 0 1rem 0;
+    h1 {
+      font-size: 2.7rem;
+      line-height: 2.2rem;
+    }
+    p {
+      font-weight: 400;
+    }
+  }
+  .selected-products {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 16rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0 1rem 1rem;
+  }
+  .product-in-cart {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $container-bg;
+    padding: 1rem;
+    .product {
+      height: max-content;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+
+      .trash {
+        width: 1.5rem;
+        display: flex;
+        align-items: flex-end;
+        img {
+          width: 100%;
+        }
+      }
+      .product-item {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+        h2 {
+          line-height: 1.4rem;
+        }
+        p {
+          font-weight: 800;
+          color: $dark-grey;
+        }
+      }
+    }
+    .amount {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      .add-remove-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.1rem 0.2rem;
+        background-color: #f6f6f6;
+        border-radius: 20px;
+        p {
+          font-size: var(--fs-sub-title);
+          font-weight: 500;
+
+          padding: 0 0.5rem;
+        }
+        .amount-button {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+          width: 2.2rem;
+          img {
+            width: 100%;
+          }
+        }
+      }
+      p {
+        font-size: var(--fs-sub-title);
+        font-family: $header-font;
+      }
+    }
+  }
+  .form {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    .contact-form {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+      padding-bottom: 5rem;
+      order: 0;
+      label {
+        font-size: var(--fs-sub-title);
+        font-family: $header-font;
+      }
+      input {
+        padding: 0.5rem;
+        font-size: var(--fs-text);
+        font-family: $text-font;
+        width: 21rem;
+        border: none;
+        border-radius: 5px;
+      }
+      textarea {
+        padding: 0.2rem;
+      }
+      .submit-button {
+        font-size: var(--fs-sub-title);
+        font-family: $header-font;
+        background: $green-dark-bg;
+        color: $container-bg;
+        width: max-content;
+        padding: 0.7rem 1.2rem;
+        position: absolute;
+        bottom: 0;
+        right: -240px;
+      }
+    }
+    .sum-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+
+      p {
+        text-decoration: underline;
+      }
     }
   }
 }
