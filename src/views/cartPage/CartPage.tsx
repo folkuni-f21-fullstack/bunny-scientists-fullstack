@@ -10,7 +10,7 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem
+  removeItem,
 } from "../../reducers/cartReducer";
 import { RootState } from "../../store";
 import "./CartPage.scss";
@@ -32,22 +32,24 @@ const CartPage = () => {
     customerComment: customerComment,
     customer: customer,
     phoneNumber: phoneNumber,
-    time: localTime
+    time: localTime,
   };
 
-  async function getOrderNumber(){ // * Uppdaterar OrderNumber
+  async function getOrderNumber() {
+    // * Uppdaterar OrderNumber
     let orderNumberResponse = await fetch("/api/ordernumber", {
-      method: "GET"
+      method: "GET",
     });
 
     let orderNumber = await orderNumberResponse.json();
-    console.log(orderNumber)
+    console.log(orderNumber);
     await fetch(`/api/ordernumber/${orderNumber}`, {
       method: "PUT",
     });
   }
 
-  async function postData() {  // * skickar ordern till backend db
+  async function postData() {
+    // * skickar ordern till backend db
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -69,7 +71,7 @@ const CartPage = () => {
     } else {
       console.log("empty shit");
     }
-  };
+  }
 
   return (
     <div className="cart-wrapper">
@@ -150,7 +152,7 @@ const CartPage = () => {
               value="Slutför köp"
             />
           </form>
-          <div>
+          <div className="sum-container">
             <h2>
               summa:
               {productList.reduce(
