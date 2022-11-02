@@ -13,12 +13,6 @@ html {
 }
 
 .App {
-  display: grid;
-  grid-template-areas:
-    "Header"
-    "Content"
-    "Footer";
-  gap: 0;
   min-height: 100vh;
 }
 
