@@ -132,25 +132,14 @@
     position: absolute;
     max-width: 400px;
     min-width: 400px;
-    left: -22rem;
-    top: 100%;
+    right: 10%;
+    top: 130%;
     width: 30vw;
-    padding: 1rem;
-
-    background-color: #f6f6f6;
     &:before {
-      content: "";
-      background-color: #f6f6f6;
-      width: 2rem;
-      height: 2rem;
-      position: absolute;
-      right: 0.8rem;
-      top: -2rem;
-      left: 22.8rem;
-      clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
+      right: 0rem;
     }
-    .empty-cart-container {
-      padding-right: 2rem;
+    .checkout {
+      font-size: var(--);
     }
   }
 }

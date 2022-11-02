@@ -78,8 +78,9 @@ $box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
 }
 @media only screen and (min-width: 730px) {
   :root {
-    --fs-text: 15px;
+    --fs-text: 18px;
+    --fs-large-text: 24px;
     --fs-title: 48px;
-    --fs-sub-title: 23px;
+    --fs-sub-title: 26px;
   }
 }
