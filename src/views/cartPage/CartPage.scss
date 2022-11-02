@@ -4,7 +4,6 @@
   width: 100%;
   max-width: 1000px;
   margin: 0 auto;
-  height: 85vh;
   padding: 0 0.5rem;
 }
 .cart-header {
@@ -106,6 +105,7 @@
   width: 100%;
   flex-direction: column;
   .contact-form {
+    flex: 1;
     order: 1;
     width: 100%;
     display: flex;
@@ -125,19 +125,21 @@
       border: none;
       border-radius: 5px;
     }
-    .submit-button {
-      font-size: var(--fs-sub-title);
-      font-family: $header-font;
-      background: $green-dark-bg;
-      color: $container-bg;
-      width: max-content;
-      padding: 0.7rem 1.2rem;
-      position: absolute;
-      bottom: 20px;
-      right: 115px;
+    .btn-container {
+      display: flex;
+      justify-content: center;
+
+      .submit-button {
+        font-size: var(--fs-sub-title);
+        font-family: $header-font;
+        background: $green-dark-bg;
+        color: $container-bg;
+        width: max-content;
+        padding: 0.7rem 1.2rem;
+      }
     }
   }
-  div {
+  .sum-container {
     order: 0;
     width: 100%;
     display: flex;
@@ -254,7 +256,7 @@
     width: 100%;
     flex-direction: row;
     .contact-form {
-      width: 50%;
+      flex: 1;
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
@@ -275,21 +277,22 @@
       }
       textarea {
         padding: 0.2rem;
+        width: 21rem;
       }
-      .submit-button {
-        font-size: var(--fs-sub-title);
-        font-family: $header-font;
-        background: $green-dark-bg;
-        color: $container-bg;
-        width: max-content;
-        padding: 0.7rem 1.2rem;
-        position: absolute;
-        bottom: 0;
-        right: -240px;
+      .btn-container {
+        display: flex;
+        justify-content: center;
+        .submit-button {
+          font-size: var(--fs-sub-title);
+          font-family: $header-font;
+          background: $green-dark-bg;
+          color: $container-bg;
+          padding: 0.7rem 1.2rem;
+        }
       }
     }
     .sum-container {
-      width: 100%;
+      flex: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
