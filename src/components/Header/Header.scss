@@ -11,8 +11,10 @@
   flex-direction: column;
   .header-container {
     min-height: 5rem;
+    padding: 0 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     .header-desktop {
       display: none;
     }
@@ -124,7 +126,6 @@
     height: 100%;
     display: flex;
     align-items: center;
-    margin-left: 1rem;
     .burger {
       height: 2rem;
       width: 2rem;
@@ -198,7 +199,6 @@
 }
 .logo-container {
   display: flex;
-  margin-left: 2rem;
   .logo {
     aspect-ratio: 1;
     width: 5rem;
@@ -208,15 +208,14 @@
   height: 100%;
   display: flex;
   align-items: center;
-  margin-right: 1rem;
   position: relative;
   .cart {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: white;
   }
   .cart-counter {
     position: absolute;
-    top: 10px;
+    top: -5px;
     right: -10px;
     display: flex;
     align-items: center;
@@ -268,7 +267,6 @@
       }
       .header-desktop {
         width: 100%;
-        margin: 0rem 1rem 0rem 1rem;
         max-width: 1000px;
         display: flex;
         align-items: center;
@@ -309,7 +307,6 @@
           height: 100%;
           display: flex;
           align-items: center;
-          margin-right: 1rem;
           position: relative;
           .cart {
             font-size: 3rem;

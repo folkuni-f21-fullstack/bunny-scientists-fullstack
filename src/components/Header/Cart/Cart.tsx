@@ -5,7 +5,7 @@ import {
   decrementQuantity,
   incrementQuantity,
   removeAll,
-  removeItem,
+  removeItem
 } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
@@ -28,12 +28,12 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
   return (
     <div>
       <div className={cartMenuClass}>
-        <div>
-          <h3 className="product-h2">PRODUKTER</h3>
+        <div className="cart-content-wrapper">
+          <h2 className="product-h2">PRODUKTER</h2>
           <ul className="products">
             {cart.map((item, id) => {
               return (
-                <li key={id} className="product-in-cart">
+                <li key={id} className="product-in-cart--model">
                   <h3 className="menu-item-name">{item.menuItem.name}</h3>
                   <p className="menu-item-price">{item.menuItem.price} kr</p>
                   <div className="add-remove-container">
@@ -54,6 +54,11 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
                 </li>
               );
             })}
+            {
+              cart.length > 4 ? (
+                <div className="cart-shadow">.</div>
+              ): null
+            }
           </ul>
           <div
             className="empty-cart-container"
@@ -74,10 +79,10 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
               kr
             </h3>
           </div>
-          <button onClick={handleCheckOut} className="checkout">
+        </div>
+        <button onClick={handleCheckOut} className="checkout">
             TILL KASSAN
           </button>
-        </div>
       </div>
     </div>
   );
