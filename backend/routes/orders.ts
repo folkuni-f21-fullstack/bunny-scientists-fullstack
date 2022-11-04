@@ -25,7 +25,7 @@ router.post("/", async (req, res) => {
   let newOrder: Order = req.body;
 
   if (!newOrder) {
-    console.log("no data mutherfuker");
+    console.log("no data");
     res.status(400).send("No data");
   } else if (isValidOrder(newOrder)) {
     if (!db.data) {
@@ -37,7 +37,7 @@ router.post("/", async (req, res) => {
     await db.write();
     res.send(newOrder);
   } else {
-    console.log("invalid Order mutherfker");
+    console.log("invalid Order");
     res.status(400).send("Invalid Order");
   }
 });
