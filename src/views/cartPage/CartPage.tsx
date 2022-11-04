@@ -137,14 +137,14 @@ const CartPage = () => {
             <p onClick={() => dispatch(removeAll())}>Töm varukorgen</p>
           </div>
           <form onSubmit={sendOrder} className="contact-form">
-            <label htmlFor="name">namn</label>
+            <label htmlFor="name">namn *</label>
             <input
               type="text"
               id="name"
               onChange={(e) => setCustomer(e.target.value)}
               required
             />
-            <label htmlFor="number">telefonnummer</label>
+            <label htmlFor="number">telefonnummer *</label>
             <input
               type="text"
               id="number"
