@@ -123,6 +123,19 @@ const CartPage = () => {
         </ul>
         <div className="line"></div>
         <section className="form">
+          <div className="sum-container">
+            <h2>
+              summa:
+              {productList.reduce(
+                (total, currentItem) =>
+                  (total =
+                    total + currentItem.menuItem.price * currentItem.amount),
+                0
+              )}
+              .00 kr
+            </h2>
+            <p onClick={() => dispatch(removeAll())}>Töm varukorgen</p>
+          </div>
           <form onSubmit={sendOrder} className="contact-form">
             <label htmlFor="name">namn</label>
             <input
@@ -154,19 +167,7 @@ const CartPage = () => {
               />
             </div>
           </form>
-          <div className="sum-container">
-            <h2>
-              summa:
-              {productList.reduce(
-                (total, currentItem) =>
-                  (total =
-                    total + currentItem.menuItem.price * currentItem.amount),
-                0
-              )}
-              .00 kr
-            </h2>
-            <p onClick={() => dispatch(removeAll())}>Töm varukorgen</p>
-          </div>
+          
         </section>
       </main>
     </div>
