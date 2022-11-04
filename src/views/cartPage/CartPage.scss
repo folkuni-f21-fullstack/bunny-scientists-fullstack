@@ -112,7 +112,6 @@
     flex-direction: column;
     gap: 0.5rem;
     position: relative;
-    padding-bottom: 5rem;
     label {
       font-size: var(--fs-sub-title);
       font-family: $header-font;
@@ -128,6 +127,7 @@
     .btn-container {
       display: flex;
       justify-content: center;
+      margin-top: 2rem;
 
       .submit-button {
         font-size: var(--fs-sub-title);
@@ -286,6 +286,7 @@
         justify-content: center;
         width: 984px;
         bottom: 0;
+        margin-bottom: 1rem;
         .submit-button {
           font-size: var(--fs-sub-title);
           font-family: $header-font;
