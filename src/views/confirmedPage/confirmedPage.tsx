@@ -2,7 +2,7 @@ import { JSXElementConstructor, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import snail from '../../assets/moving-snail.png';
-import { ArchiveItem, Order } from '../../models/data';
+import { ArchiveItem, Order, OrderItem } from '../../models/data';
 import { restoreCart } from '../../reducers/cartReducer';
 import '../confirmedPage/confirmedPage.scss';
 
@@ -38,8 +38,8 @@ const ConfirmedPage = () => {
     }
   }, []);
   async function restoreOrder(){
-    let lastOrder = JSON.parse(localStorage.getItem('order') || "{}")
-    let lastCart = lastOrder.orderItems
+    let lastOrder: ArchiveItem = JSON.parse(localStorage.getItem('order') || "{}")
+    let lastCart:OrderItem[] = lastOrder.orderItems
     dispatch(restoreCart(lastCart))
     await fetch(`/api/orders/${lastOrder.orderNumber}`, {
       method: 'DELETE'
@@ -87,7 +87,7 @@ const ConfirmedPage = () => {
               {
                 checkIfOrderExist ? (
                   <>
-                  <p className='confirmed-text'>Klicka <span onClick={()=> {restoreOrder()}} className='confirmed-bold cursor'>här</span> för att ändra ordern</p>
+                  <p className='confirmed-text'>Klicka <span onClick={()=> {restoreOrder()}} className='confirmed-bold cursor'>här</span> för att avbryta och ändra ordern</p>
                   </>
                 ):(
                   <>
