@@ -37,10 +37,14 @@ const ConfirmedPage = () => {
       setLatestOrder(order)
     }
   }, []);
-  function restoreOrder(){
-    let najs = JSON.parse(localStorage.getItem('order') || "{}")
-    let lastCart = najs.orderItems
+  async function restoreOrder(){
+    let lastOrder = JSON.parse(localStorage.getItem('order') || "{}")
+    let lastCart = lastOrder.orderItems
     dispatch(restoreCart(lastCart))
+    await fetch(`/api/orders/${lastOrder.orderNumber}`, {
+      method: 'DELETE'
+    })
+    localStorage.setItem("order", JSON.stringify([]));
     navigate('/');
   }
   const TimeRemaining = () => {
