@@ -8,6 +8,7 @@
     max-width: 1000px;
     height: calc(100vh - 320px);
     justify-content: space-between;
+   
 
     .confirmed-header{
         
@@ -19,6 +20,7 @@
     .confirmed-img-container{
         display: flex;
         justify-content: center;  
+        
 
         .confirmed-img{
             max-width: 10rem;
@@ -33,7 +35,7 @@
     .confirmed-text{
         font-family: $text-font;
         font-size: var(--fs-text);
-        margin-bottom: .5rem;
+        margin-bottom: .5rem; 
     }
 
     .confirmed-bold{
@@ -46,7 +48,6 @@
       cursor: pointer;
     }
 }
-    
 
     .confirmed-btn-container{
         display: flex;
@@ -54,9 +55,13 @@
 
         .confirmed-btn{
             @include addBtnStyle;
-           
         }
     }
     
     
 }
+
+@media only screen and (max-width: 400px) {
+    .confirmed-container{
+        height: 60vh;   
+}}
