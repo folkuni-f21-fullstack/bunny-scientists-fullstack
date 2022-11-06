@@ -5,7 +5,6 @@ const app = express();
 dotenv.config();
 const PORT = process.env.PORT;
 
-// const cors = require("cors")
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import archiveRoute from "./routes/archive.js";
@@ -30,7 +29,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Obs! express.static bör ligga först, när man får många statiska filer
 app.use(express.static(staticPath));
 
 // Routes / endpoints

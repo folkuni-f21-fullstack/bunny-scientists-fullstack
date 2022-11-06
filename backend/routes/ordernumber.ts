@@ -16,20 +16,20 @@ router.get("/", (req, res) => {
 
 router.put("/:id", async (req: IdParam, res) => {
   if (!db.data) {
-		res.sendStatus(404)
-		return
-	}
+    res.sendStatus(404)
+    return
+  }
   let id: string = req.params.id
-  let compareID:number = parseInt(id)
+  let compareID: number = parseInt(id)
   compareID++
   id = JSON.stringify(compareID)
-	if( compareID > 1000 ) {
-		db.data.baseOrderNumber = id
-		await db.write()
-		res.sendStatus(200)
-	} else {
-		res.sendStatus(400)
-	}
+  if (compareID > 1000) {
+    db.data.baseOrderNumber = id
+    await db.write()
+    res.sendStatus(200)
+  } else {
+    res.sendStatus(400)
+  }
 });
 
 export default router;

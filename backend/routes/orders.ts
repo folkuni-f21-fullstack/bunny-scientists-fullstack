@@ -11,8 +11,6 @@ import { isValidOrder } from "../validation.js";
 //DELETE ta bort ordrar när man skickar vidare till archieve
 //DELETE ta bort order om användare vill ändra sin order
 
-// ändra ordrar lokalt innan man skickar vidare till archieve
-
 router.get("/", (req, res) => {
   if (db.data?.orders) {
     res.send(db.data.orders);

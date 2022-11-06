@@ -1,8 +1,5 @@
 import { ArchiveItem, Order } from "./models";
 
-//här läggs all validering
-// export function isValidOrder/isValid etc etc
-
 export function isValidOrder(maybeOrder: Order | ArchiveItem): boolean {
   if (maybeOrder.hasOwnProperty("phoneNumber")) {
     if (typeof maybeOrder.phoneNumber === "number") {
@@ -27,14 +24,6 @@ export function isValidOrder(maybeOrder: Order | ArchiveItem): boolean {
   } else {
     return false;
   }
-
+  
   return true;
 }
-
-//   if (
-//     maybeOrder.hasOwnProperty(maybeOrder.customer) &&
-//     maybeOrder.hasOwnProperty(maybeOrder.orderNumber) &&
-//     maybeOrder.hasOwnProperty(maybeOrder.phoneNumber)
-//   ) {
-//   } else {
-//   }

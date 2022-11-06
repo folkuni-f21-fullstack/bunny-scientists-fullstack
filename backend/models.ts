@@ -53,4 +53,4 @@ export type ArchiveItem = {
   phoneNumber: string,
   time: string,
   messageToChef: string
-}
+};

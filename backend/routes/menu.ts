@@ -1,7 +1,6 @@
-//GET menu
-//mappa ut från databas istället för data.jsonimport express, { Request, Response } from "express";
+//GET hämtar menu från databasen
 
-import express, { Request, Response } from "express";
+import express from "express";
 import db from "../db.js";
 const router = express.Router();
 
