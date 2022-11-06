@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { MenuCategory, MenuItem, Order, OrderItem } from "../../../models/data";
-import "../AdminOrders.scss";
 import { RootState } from "./../../../store";
+import "../AdminOrders.scss";
 import "./SelectedOrder.scss";
 
 type Props = {
   selectedOrder: Order,
-  allOrders:Order[],
+  allOrders: Order[],
   setOriginalAllOrders: (value: Order[] | ((prevVar: Order[]) => Order[])) => void;
 }
 
@@ -114,7 +114,7 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
     setFilteredMenu(newFilteredMenu)
   }
 
-  const handleChange = (value:string) => { 
+  const handleChange = (value: string) => {
     setMessageToChef(value)
   }
 
@@ -139,8 +139,8 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
       method: 'DELETE'
     })
     // TODO: remove this order from OriginalAllOrders
-    let newOrderArray = allOrders.filter((order)=> {
-      if(order.orderNumber !== archiveObj.orderNumber){
+    let newOrderArray = allOrders.filter((order) => {
+      if (order.orderNumber !== archiveObj.orderNumber) {
         return order
       }
     })
@@ -148,14 +148,13 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
     setOriginalAllOrders(newOrderArray)
   }
 
-
   return (
     <article className='change-order-wrapper'>
       <div className="order-details-container">
         {
           allOrders.length < 1 ? (
             <div><h3>inget att ändra</h3></div>
-          ):(
+          ) : (
             <>
               {selectedOrderItem.map((order, i: number) => {
                 return (
@@ -174,11 +173,11 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
                     </div>
                   </article>
                 );
-              })} 
+              })}
             </>
           )
         }
-        
+
       </div>
       <div className="customer-container">
         <h3 className="subheading">Kundinformation</h3>
@@ -186,7 +185,7 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
           {
             allOrders.length < 1 ? (
               <div></div>
-            ): (
+            ) : (
               <>
                 <p>
                   Meddelande från beställare:
@@ -209,9 +208,9 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
           {menu.loading === "idle" || menu.loading === "pending" && <div>loading...</div>}
           {menu.loading === "failed" && menu.error ? <div></div> : null}
           {
-            allOrders.length < 1 ?(
+            allOrders.length < 1 ? (
               <div></div>
-            ): (
+            ) : (
               <>
                 {menu.loading === "succeeded" && menu.menu.length ? (
                   <>
@@ -235,9 +234,9 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
       <div className="message-to-chef-container">
         <h3 className="subheading">Meddelande till kocken</h3>
         <section className="message-to-chef">
-          <textarea onChange={(e)=> handleChange(e.target.value)} value={messageToChef} name="" id=""></textarea>
+          <textarea onChange={(e) => handleChange(e.target.value)} value={messageToChef} name="" id=""></textarea>
         </section>
-       
+
       </div>
       <div className="confirm-container">
         {
@@ -246,18 +245,18 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
               <button className="confirm-btn offline">Bekräfta</button>
               <p className="red"><strong>!! no orders</strong></p>
             </>
-          ): (
+          ) : (
             <>
-            {
-              JSON.stringify(selectedOrder.orderItems) !== JSON.stringify(selectedOrderItem) ? ( // * Visa extra text om ordern har ändrats
-                <>
+              {
+                JSON.stringify(selectedOrder.orderItems) !== JSON.stringify(selectedOrderItem) ? ( // * Visa extra text om ordern har ändrats
+                  <>
+                    <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+                    <p className="red"><strong>!!</strong> Dina ändringar <strong>sparas ej</strong> om du byter order <br /> Snälla <strong>Bekräfta</strong> ordern </p>
+                  </>
+                ) : (
                   <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
-                  <p className="red"><strong>!!</strong> Dina ändringar <strong>sparas ej</strong> om du byter order <br /> Snälla <strong>Bekräfta</strong> ordern </p>
-                </>
-              ): (
-                <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
-              )
-            }
+                )
+              }
             </>
           )
         }

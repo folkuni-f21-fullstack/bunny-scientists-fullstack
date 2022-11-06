@@ -35,7 +35,6 @@
 	}
 }
 
-
 @media only screen and (min-width: 730px) {
 	.admin-page {
 		.admin-wrapper {
@@ -47,7 +46,7 @@
 					"details customer"
 					"add message"
 					"confirm confirm";
-        gap: 1rem;
+				gap: 1rem;
 			}
 
 			.orders-list-container {
@@ -60,9 +59,9 @@
 				overflow-x: hidden;
 				overflow-y: scroll;
 				height: 10rem;
-        max-width: 314px;
-        display: flex;
-        flex-direction: column;
+				max-width: 314px;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.customer-container {
@@ -81,11 +80,12 @@
 
 			.add-to-order-container {
 				grid-area: add;
-        max-width: 314px;
+				max-width: 314px;
 			}
 
 			.message-to-chef-container {
 				grid-area: message;
+
 				textarea {
 					min-height: 10rem;
 				}

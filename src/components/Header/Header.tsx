@@ -10,8 +10,8 @@ import Cart from "./Cart/Cart";
 import "./Header.scss";
 
 type Props = {
-	isAdminView: boolean;
-	setIsAdminView: (isAdminView: boolean) => void;
+  isAdminView: boolean;
+  setIsAdminView: (isAdminView: boolean) => void;
 };
 
 const Header = ({ setIsAdminView, isAdminView }: Props) => {
@@ -64,7 +64,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       console.log("Cart stängs");
     }
   };
-
+  //logga ut function
   const clearCredentials = () => {
     localStorage.removeItem('user')
   }
@@ -79,13 +79,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               <div className="logo-container-desktop">
                 <img className="logo" src={Logo} alt="" />
               </div>
-
-              <div
-                className="logout-container"
-                onClick={() => {
-                  setIsAdminView(false);
-                }}
-              >
+              <div className="logout-container" onClick={() => { setIsAdminView(false); }}>
                 <Link className="logout" to="/">
                   <h3 className="logout-text" onClick={clearCredentials}>LOGGA UT</h3>
                   <BiLogOut className="logout-icon" />{" "}
@@ -95,13 +89,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
             <div className="logo-container">
               <img className="logo" src={Logo} alt="" />
             </div>
-
-            <div
-              className="logout-container"
-              onClick={() => {
-                setIsAdminView(false);
-              }}
-            >
+            <div className="logout-container" onClick={() => { setIsAdminView(false); }}>
               <Link className="logout" to="/">
                 <h1 className="logout-text" onClick={clearCredentials}>LOGGA UT</h1>
                 <BiLogOut className="logout-icon" />
@@ -159,7 +147,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 <img className="logo" src={Logo} alt="" />
               </div>
             </Link>
-
             <div className="cart-container">
               {displayAmount > 0 && (
                 <p className="cart-counter">{displayAmount}</p>

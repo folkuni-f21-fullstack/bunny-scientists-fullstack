@@ -102,7 +102,7 @@
                         "image": "https://www.sheknows.com/wp-content/uploads/2018/12/jhvm7qchoinvje6owciw.jpeg"
                     }
                 ]
-            }, 
+            },
             {
                 "id": "103",
                 "name": "dryck",
@@ -143,7 +143,8 @@
                         "image": "https://static-prod.adweek.com/wp-content/uploads/2017/06/fanta-spiral-bottle-hed-2017.jpg"
                     }
                 ]
-            },{
+            },
+            {
                 "id": "104",
                 "name": "efterrätt",
                 "menuItems": [

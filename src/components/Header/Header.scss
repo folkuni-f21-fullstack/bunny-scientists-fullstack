@@ -9,18 +9,22 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
   .header-container {
     min-height: 5rem;
     padding: 0 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     .header-desktop {
       display: none;
     }
+
     .logout-container {
       display: flex;
       align-items: center;
+
       .logout {
         display: flex;
         flex-direction: row;
@@ -31,6 +35,7 @@
       }
     }
   }
+
   .nav-accordion {
     display: flex;
     margin-left: 2rem;
@@ -44,8 +49,10 @@
       display: none;
       margin-top: 3rem;
       list-style: none;
+
       li {
         margin: 1rem;
+
         a {
           text-decoration: none;
           color: white;
@@ -54,20 +61,24 @@
         }
       }
     }
+
     .line {
       margin-left: 1rem;
       height: 2px;
       width: 55%;
       background-color: #aeaeae;
     }
+
     .login-container {
       display: none;
       justify-content: flex-end;
       margin-right: 2rem;
       color: white;
+
       .login-icon {
         margin-right: 0.5rem;
       }
+
       a {
         color: white;
         text-decoration: none;
@@ -75,6 +86,7 @@
       }
     }
   }
+
   .nav-accordion-open {
     display: flex;
     margin-left: 2rem;
@@ -87,12 +99,15 @@
     bottom: 0;
     height: calc(100vh - 5rem);
     transition: 0.35s;
+
     ul {
       display: auto;
       margin-top: 3rem;
       list-style: none;
+
       li {
         margin: 1rem;
+
         a {
           text-decoration: none;
           color: white;
@@ -101,31 +116,37 @@
         }
       }
     }
+
     .line {
       margin-left: 1rem;
       height: 2px;
       width: 55%;
       background-color: #aeaeae;
     }
+
     .login-container {
       display: flex;
       justify-content: flex-end;
       margin-right: 2rem;
       color: white;
+
       a {
         text-decoration: none;
         font-family: $text-font;
         color: white;
       }
+
       .login-icon {
         margin-right: 0.5rem;
       }
     }
   }
+
   .nav-button-container {
     height: 100%;
     display: flex;
     align-items: center;
+
     .burger {
       height: 2rem;
       width: 2rem;
@@ -139,6 +160,7 @@
       -o-transition: 0.5s ease-in-out;
       transition: 0.5s ease-in-out;
       cursor: pointer;
+
       span {
         display: block;
         position: absolute;
@@ -157,6 +179,7 @@
         -o-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
       }
+
       span:nth-child(1) {
         top: 0rem;
       }
@@ -170,6 +193,7 @@
         top: 1.2rem;
       }
     }
+
     .open span:nth-child(1) {
       top: 18px;
       width: 0%;
@@ -197,23 +221,28 @@
     }
   }
 }
+
 .logo-container {
   display: flex;
+
   .logo {
     aspect-ratio: 1;
     width: 5rem;
   }
 }
+
 .cart-container {
   height: 100%;
   display: flex;
   align-items: center;
   position: relative;
+
   .cart {
     cursor: pointer;
     font-size: 2.5rem;
     color: white;
   }
+
   .cart-counter {
     position: absolute;
     top: -5px;
@@ -235,6 +264,7 @@
   .burger {
     display: none;
   }
+
   .header {
     display: flex;
     width: 100%;
@@ -247,9 +277,11 @@
       min-width: 100%;
       display: flex;
       justify-content: center;
+
       .logout-container {
         display: none;
         align-items: center;
+
         .logout {
           display: flex;
           flex-direction: row;
@@ -257,15 +289,19 @@
           margin-right: 1rem;
         }
       }
+
       .nav-button-container {
         display: none;
       }
+
       .logo-container {
         display: none;
       }
+
       .cart-container {
         display: none;
       }
+
       .header-desktop {
         width: 100%;
         max-width: 1000px;
@@ -279,9 +315,11 @@
             width: 5rem;
           }
         }
+
         .logout-container {
           display: flex;
           align-items: center;
+
           .logout {
             display: flex;
             flex-direction: row;
@@ -291,6 +329,7 @@
             color: white;
           }
         }
+
         .desktop-nav {
           width: 60%;
           display: flex;
@@ -309,6 +348,7 @@
           display: flex;
           align-items: center;
           position: relative;
+
           .cart {
             font-size: 3rem;
             color: white;

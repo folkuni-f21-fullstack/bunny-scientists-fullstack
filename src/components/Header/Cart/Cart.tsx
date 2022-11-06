@@ -1,14 +1,11 @@
 import { IoMdTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  decrementQuantity,
-  incrementQuantity,
-  removeAll,
-  removeItem
-} from "../../../reducers/cartReducer";
+import { useNavigate } from "react-router-dom";
+import { scrollToTop } from "../../../App";
+import { decrementQuantity, incrementQuantity, removeAll } from "../../../reducers/cartReducer";
 import { RootState } from "../../../store";
 import "./Cart.scss";
+
 type Props = {
   cartMenuClass: string;
   toggleCart: () => void;
@@ -20,10 +17,10 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
   const navigate = useNavigate();
 
   function handleCheckOut() {
+    scrollToTop()
     navigate("/cart");
     toggleCart();
   }
-  // const [orderNumber, setOrderNumber] = useState();
 
   return (
     <div>
@@ -57,7 +54,7 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
             {
               cart.length > 4 ? (
                 <div className="cart-shadow">.</div>
-              ): null
+              ) : null
             }
           </ul>
           <div
@@ -72,8 +69,8 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
             <h3 className="price">
               {cart.reduce(
                 (total, currentItem) =>
-                  (total =
-                    total + currentItem.menuItem.price * currentItem.amount),
+                (total =
+                  total + currentItem.menuItem.price * currentItem.amount),
                 0
               )}{" "}
               kr
@@ -81,8 +78,8 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
           </div>
         </div>
         <button onClick={handleCheckOut} className="checkout">
-            TILL KASSAN
-          </button>
+          TILL KASSAN
+        </button>
       </div>
     </div>
   );

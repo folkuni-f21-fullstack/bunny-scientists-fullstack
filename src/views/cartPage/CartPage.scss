@@ -6,19 +6,23 @@
   margin: 0 auto;
   padding: 0 0.5rem;
 }
+
 .cart-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding: 1.5rem 0 1rem 0;
+
   h1 {
     font-size: 2.7rem;
     line-height: 2.2rem;
   }
+
   p {
     font-weight: 400;
   }
 }
+
 .selected-products {
   display: flex;
   flex-direction: column;
@@ -28,6 +32,7 @@
   overflow-x: hidden;
   padding: 0 1rem 1rem;
 }
+
 .product-in-cart {
   list-style-type: none;
   display: flex;
@@ -36,22 +41,25 @@
   align-items: center;
   background-color: $container-bg;
   padding: 0.5rem;
+
   .product {
     height: max-content;
     display: flex;
     align-items: center;
-
     gap: 0.8rem;
+
     figure {
       .trash {
         width: 1.5rem;
         display: flex;
         align-items: flex-end;
+
         img {
           width: 100%;
         }
       }
     }
+
     .product-item {
       display: flex;
       align-items: center;
@@ -61,6 +69,7 @@
       h2 {
         line-height: 1.4rem;
       }
+
       p {
         font-weight: 800;
         font-size: 1rem;
@@ -68,10 +77,12 @@
       }
     }
   }
+
   .amount {
     display: flex;
     align-items: center;
     gap: 1rem;
+
     .add-remove-container {
       display: flex;
       justify-content: center;
@@ -79,32 +90,37 @@
       padding: 0.1rem 0.2rem;
       background-color: #f6f6f6;
       border-radius: 20px;
+
       p {
         font-size: var(--fs-sub-title);
         font-weight: 500;
-
         padding: 0 0.5rem;
       }
+
       .amount-button {
         display: flex;
         align-items: center;
         cursor: pointer;
         width: 2.2rem;
+
         img {
           width: 100%;
         }
       }
     }
+
     p {
       font-size: var(--fs-sub-title);
       font-family: $header-font;
     }
   }
 }
+
 .form {
   display: flex;
   width: 100%;
   flex-direction: column;
+
   .contact-form {
     flex: 1;
     order: 1;
@@ -113,10 +129,12 @@
     flex-direction: column;
     gap: 0.5rem;
     position: relative;
+
     label {
       font-size: var(--fs-sub-title);
       font-family: $header-font;
     }
+
     input {
       padding: 0.5rem;
       font-size: var(--fs-text);
@@ -125,10 +143,12 @@
       border: none;
       border-radius: 5px;
     }
-    textarea{
+
+    textarea {
       resize: none;
       border: none;
     }
+
     .btn-container {
       display: flex;
       justify-content: center;
@@ -145,6 +165,7 @@
       }
     }
   }
+
   .sum-container {
     order: 0;
     width: 100%;
@@ -152,6 +173,7 @@
     flex-direction: column;
     align-items: flex-end;
     justify-content: flex-end;
+
     p {
       text-decoration: underline;
       cursor: pointer;
@@ -165,19 +187,23 @@
     margin: 0 auto;
     padding: 0 0.5rem;
   }
+
   .cart-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     padding: 1.5rem 0 1rem 0;
+
     h1 {
       font-size: 2.7rem;
       line-height: 2.2rem;
     }
+
     p {
       font-weight: 400;
     }
   }
+
   .selected-products {
     display: flex;
     flex-direction: column;
@@ -187,6 +213,7 @@
     overflow-x: hidden;
     padding: 0 1rem 1rem;
   }
+
   .product-in-cart {
     list-style-type: none;
     display: flex;
@@ -194,6 +221,7 @@
     align-items: center;
     background-color: $container-bg;
     padding: 1rem;
+
     .product {
       height: max-content;
       display: flex;
@@ -204,28 +232,34 @@
         width: 1.5rem;
         display: flex;
         align-items: flex-end;
+
         img {
           width: 100%;
         }
       }
+
       .product-item {
         display: flex;
         flex-direction: row;
         align-items: center;
         gap: 1.5rem;
+
         h2 {
           line-height: 1.4rem;
         }
+
         p {
           font-weight: 800;
           color: $dark-grey;
         }
       }
     }
+
     .amount {
       display: flex;
       align-items: center;
       gap: 1rem;
+
       .add-remove-container {
         display: flex;
         justify-content: center;
@@ -233,32 +267,36 @@
         padding: 0.1rem 0.2rem;
         background-color: #f6f6f6;
         border-radius: 20px;
+
         p {
           font-size: var(--fs-sub-title);
           font-weight: 500;
-
           padding: 0 0.5rem;
         }
+
         .amount-button {
           display: flex;
           align-items: center;
           cursor: pointer;
           width: 2.2rem;
+
           img {
             width: 100%;
           }
         }
       }
+
       p {
         font-size: var(--fs-sub-title);
         font-family: $header-font;
       }
     }
   }
+
   .form {
     display: flex;
-    // width: 100%;
     flex-direction: column;
+
     .contact-form {
       flex: 1;
       display: flex;
@@ -267,10 +305,12 @@
       position: relative;
       padding-bottom: 5rem;
       order: 0;
+
       label {
         font-size: var(--fs-sub-title);
         font-family: $header-font;
       }
+
       input {
         padding: 0.5rem;
         font-size: var(--fs-text);
@@ -279,17 +319,17 @@
         border: none;
         border-radius: 5px;
       }
+
       textarea {
         padding: 0.2rem;
         width: 21rem;
       }
+
       .btn-container {
-        // position: absolute;
         display: flex;
         justify-content: center;
-        // width: 984px;
         bottom: 0;
-        // margin-bottom: 1rem;
+
         .submit-button {
           font-size: var(--fs-sub-title);
           font-family: $header-font;
@@ -299,15 +339,18 @@
         }
       }
     }
+
     .sum-container {
       flex: 0;
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       justify-content: flex-start;
+
       h2 {
         font-size: var(--fs-large-text);
       }
+
       p {
         text-decoration: underline;
       }

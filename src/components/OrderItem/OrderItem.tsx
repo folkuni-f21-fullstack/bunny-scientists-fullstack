@@ -1,8 +1,7 @@
-import { IoMdArrowDropdown } from "react-icons/io";
-import "./OrderItem.scss";
-
 import { useState } from "react";
 import { ArchiveItem, OrderItem } from "../../models/data";
+import { IoMdArrowDropdown } from "react-icons/io";
+import "./OrderItem.scss";
 
 type Props = {
   order: ArchiveItem;
@@ -21,6 +20,7 @@ const OrderListItem = ({ order }: Props) => {
       setAccordionOpen(false);
     }
   }
+
   return (
     <div onClick={toggleDrop} className="archive-list-item">
       <section className="list-item-details">

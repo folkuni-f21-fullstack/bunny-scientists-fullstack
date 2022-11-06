@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { ArchiveItem, Order } from "../../models/data";
+import { ArchiveItem } from "../../models/data";
 import OrderListItem from "../OrderItem/OrderItem";
 import "./AdminArchive.scss";
 
-
+//Hämtar och mappar ut archive från databasen
 const AdminArchive = () => {
   const [archivedOrders, setArchivedOrders] = useState<ArchiveItem[]>([])
 
@@ -13,7 +13,7 @@ const AdminArchive = () => {
         method: 'GET'
       })
       const data: ArchiveItem[] = await reponse.json()
-      if(data.length < 1) {
+      if (data.length < 1) {
         setArchivedOrders([])
       } else {
         data.reverse();
@@ -22,7 +22,7 @@ const AdminArchive = () => {
     }
     getAllOrders()
   }, []);
-  
+
   return (
     <div className="admin-wrapper">
       <section className="archive-list">
@@ -33,4 +33,5 @@ const AdminArchive = () => {
     </div>
   );
 };
+
 export default AdminArchive;

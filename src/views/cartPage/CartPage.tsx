@@ -1,17 +1,11 @@
 import { useState } from "react";
-import { IoMdTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import decrease from "../../assets/icons/decrease-icon.svg";
 import increase from "../../assets/icons/increase-icon.svg";
 import trash from "../../assets/icons/trash-icon.svg";
 import { ArchiveItem } from "../../models/data";
-import {
-  decrementQuantity,
-  incrementQuantity,
-  removeAll,
-  removeItem,
-} from "../../reducers/cartReducer";
+import { decrementQuantity, incrementQuantity, removeAll, removeItem } from "../../reducers/cartReducer";
 import { RootState } from "../../store";
 import "./CartPage.scss";
 
@@ -35,8 +29,8 @@ const CartPage = () => {
     time: localTime,
   };
 
+  // * Uppdaterar OrderNumber
   async function getOrderNumber() {
-    // * Uppdaterar OrderNumber
     let orderNumberResponse = await fetch("/api/ordernumber", {
       method: "GET",
     });
@@ -48,8 +42,8 @@ const CartPage = () => {
     });
   }
 
+  // * skickar ordern till backend db
   async function postData() {
-    // * skickar ordern till backend db
     const response = await fetch("/api/orders", {
       method: "POST",
       headers: {
@@ -69,7 +63,7 @@ const CartPage = () => {
       dispatch(removeAll());
       navigate("/orders");
     } else {
-      console.log("empty shit");
+      console.log("empty");
     }
   }
 
@@ -128,8 +122,8 @@ const CartPage = () => {
               summa:
               {productList.reduce(
                 (total, currentItem) =>
-                  (total =
-                    total + currentItem.menuItem.price * currentItem.amount),
+                (total =
+                  total + currentItem.menuItem.price * currentItem.amount),
                 0
               )}
               .00 kr
@@ -167,7 +161,6 @@ const CartPage = () => {
               />
             </div>
           </form>
-          
         </section>
       </main>
     </div>

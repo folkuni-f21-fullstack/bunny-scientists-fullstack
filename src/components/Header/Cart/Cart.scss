@@ -14,6 +14,7 @@
   box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
+
   &:before {
     content: "";
     background-color: #f6f6f6;
@@ -24,9 +25,11 @@
     top: -2rem;
     clip-path: polygon(50% 45%, 0% 100%, 100% 100%);
   }
-  .product-h2{
+
+  .product-h2 {
     padding: .5rem 0;
   }
+
   .products {
     display: flex;
     flex-direction: column;
@@ -36,19 +39,23 @@
     border-radius: 5px;
     overflow-y: scroll;
     overflow-x: hidden;
+
     .product-in-cart--model {
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 55px;
+
       .menu-item-name {
         flex: 1;
         padding-left: 1rem;
       }
+
       .menu-item-price {
         flex: 0.5;
       }
     }
+
     .cart-shadow {
       position: sticky;
       width: 100%;
@@ -62,6 +69,7 @@
       background-image: linear-gradient(0deg, #f6f6f6 0%, #FFFFFF00 100%);
     }
   }
+
   .add-remove-container {
     display: flex;
     justify-content: center;
@@ -69,11 +77,13 @@
     padding: 0.3rem;
     margin: 0.3rem;
     border-radius: 20px;
+
     p {
       font-size: var(--fs-sub-title);
       font-family: $header-font;
       padding: 0.5rem 0.5rem;
     }
+
     .decrease,
     .increase {
       line-height: 0;
@@ -91,25 +101,31 @@
       cursor: pointer;
     }
   }
+
   .empty-cart-container {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: .8rem 0 1.3rem;
+
     .empty-cart {
       cursor: pointer;
     }
+
     .trash-icon {
       cursor: pointer;
     }
   }
+
   .total-container {
     display: flex;
     justify-content: space-between;
+
     .price {
       color: $green-bg;
     }
   }
+
   .checkout {
     background-color: $green-bg;
     color: white;
@@ -121,6 +137,7 @@
     border: none;
     cursor: pointer;
   }
+
   .cart-content-wrapper {
     padding: 0 1rem;
   }
@@ -135,9 +152,11 @@
     right: 10%;
     top: 130%;
     width: 30vw;
+
     &:before {
       right: 0rem;
     }
+
     .checkout {
       font-size: var(--);
     }

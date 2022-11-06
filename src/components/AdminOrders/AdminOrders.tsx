@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { MenuCategory, MenuItem, Order } from "../../models/data";
-import "./AdminOrders.scss";
+import { Order } from "../../models/data";
 import SelectedOrder from "./SelectedOrder/SelectedOrder";
+import "./AdminOrders.scss";
 
 const AdminOrders = () => {
   const [allOrders, setAllOrders] = useState<Order[]>([]);
@@ -16,11 +16,12 @@ const AdminOrders = () => {
     phoneNumber: "",
   });
 
-  useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+  // Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+  useEffect(() => {
     async function getAllOrders() {
       const reponse = await fetch('/api/orders')
       const data: Order[] = await reponse.json()
-      if(data.length < 1) {
+      if (data.length < 1) {
         setAllOrders([])
       } else {
         setAllOrders(data)
@@ -30,7 +31,8 @@ const AdminOrders = () => {
     }
     getAllOrders()
   }, []);
-  useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+
+  useEffect(() => {
     setAllOrders(originalAllOrders)
   }, [originalAllOrders]);
 

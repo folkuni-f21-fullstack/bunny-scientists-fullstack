@@ -1,7 +1,7 @@
-import '../loginPage/LoginPage.scss'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { Credentials } from '../../models/data'
+import '../loginPage/LoginPage.scss'
 
 type Props = {
     isAdminView: boolean;
