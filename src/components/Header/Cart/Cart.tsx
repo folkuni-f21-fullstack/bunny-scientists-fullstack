@@ -28,6 +28,7 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
         <div className="cart-content-wrapper">
           <h2 className="product-h2">PRODUKTER</h2>
           <ul className="products">
+          {cart.length ? <p></p> : <p>Varukorgen är tom</p>}
             {cart.map((item, id) => {
               return (
                 <li key={id} className="product-in-cart--model">

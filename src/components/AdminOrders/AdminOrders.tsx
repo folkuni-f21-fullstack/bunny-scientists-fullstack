@@ -36,10 +36,12 @@ const AdminOrders = () => {
     setAllOrders(originalAllOrders)
   }, [originalAllOrders]);
 
-  function changeSelectedOrder(order: Order) {
+ function changeSelectedOrder(order: Order) {
     let newOrder = JSON.parse(JSON.stringify(order));
     setSelectedOrder(newOrder)
   }
+ 
+  
 
   return (
     <div className="admin-wrapper">
