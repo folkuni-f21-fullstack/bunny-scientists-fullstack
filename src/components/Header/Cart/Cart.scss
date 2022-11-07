@@ -14,7 +14,7 @@
   box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   -webkit-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: -2px 82px 141px -14px rgba(0, 0, 0, 0.65);
-
+  z-index: 4;
   &:before {
     content: "";
     background-color: #f6f6f6;

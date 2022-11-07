@@ -23,7 +23,6 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
   }
 
   return (
-    <div>
       <div className={cartMenuClass}>
         <div className="cart-content-wrapper">
           <h2 className="product-h2">PRODUKTER</h2>
@@ -81,7 +80,6 @@ const Cart = ({ cartMenuClass, toggleCart }: Props) => {
           TILL KASSAN
         </button>
       </div>
-    </div>
   );
 };
 
