@@ -8,11 +8,12 @@ import "./SelectedOrder.scss";
 
 type Props = {
   selectedOrder: Order,
+  setSelectedOrder: (value: Order) => void,
   allOrders: Order[],
   setOriginalAllOrders: (value: Order[] | ((prevVar: Order[]) => Order[])) => void;
 }
 
-const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props) => {
+const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSelectedOrder }: Props) => {
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
   const [messageToChef, setMessageToChef] = useState<string>("")
@@ -144,8 +145,9 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
         return order
       }
     })
-    // setSelectedOrder(newOrderArray[0]);
-    setMessageToChef("")
+    console.log(newOrderArray[0]);
+    
+    setSelectedOrder(newOrderArray[0]);
     setOriginalAllOrders(newOrderArray)
   }
 

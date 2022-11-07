@@ -68,7 +68,7 @@ const AdminOrders = () => {
         </section>
         <div className="line"></div>
       </div>
-      <SelectedOrder setOriginalAllOrders={setOriginalAllOrders} allOrders={allOrders} selectedOrder={selectedOrder} />
+      <SelectedOrder setOriginalAllOrders={setOriginalAllOrders} allOrders={allOrders} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder} />
     </div>
   );
 };
