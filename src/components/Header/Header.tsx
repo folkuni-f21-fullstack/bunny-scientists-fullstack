@@ -39,14 +39,12 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setCartMenuClass("cart-overlay");
       // cart nu stängd, sätter cartOpen till false
       setCartOpen(false);
-      console.log("accordion öppnas");
     } else {
       // annars betyder det att användaren vill stänga menyn,
       // tar bort klasser för öppen och ändrar tillbaka till hamburgaren
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
-      console.log("accordion stängs");
     }
   };
   const toggleCart = () => {
@@ -57,11 +55,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
-      console.log("cart öppnas");
     } else {
       setCartMenuClass("cart-overlay");
       setCartOpen(false);
-      console.log("Cart stängs");
     }
   };
   //logga ut function
