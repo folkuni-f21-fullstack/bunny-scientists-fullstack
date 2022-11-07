@@ -151,8 +151,15 @@
 
     .btn-container {
       display: flex;
-      justify-content: center;
-      margin-top: 2rem;
+      flex-direction: column;
+      align-items: center;
+
+      p {
+        font-style: italic;
+        color: red;
+        font-weight: 800;
+        margin: 1rem;
+      }
 
       .submit-button {
         font-size: var(--fs-sub-title);
@@ -327,6 +334,7 @@
 
       .btn-container {
         display: flex;
+
         justify-content: center;
         bottom: 0;
 
