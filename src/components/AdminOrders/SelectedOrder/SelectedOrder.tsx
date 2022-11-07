@@ -145,7 +145,6 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSele
         return order
       }
     })
-    console.log(newOrderArray[0]);
     
     setSelectedOrder(newOrderArray[0]);
     setOriginalAllOrders(newOrderArray)

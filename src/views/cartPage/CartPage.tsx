@@ -33,7 +33,6 @@ const CartPage = () => {
     phoneNumber: phoneNumber,
     time: localTime,
   };
-  console.log(productList);
 
   // * Uppdaterar OrderNumber
   async function getOrderNumber() {
@@ -42,7 +41,6 @@ const CartPage = () => {
     });
 
     let orderNumber = await orderNumberResponse.json();
-    console.log(orderNumber);
     await fetch(`/api/ordernumber/${orderNumber}`, {
       method: "PUT",
     });

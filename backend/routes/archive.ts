@@ -20,7 +20,6 @@ router.post('/', async (req, res) => {
 	let newOrder: ArchiveItem = req.body;
 	if (!newOrder) {
 		res.status(400).send('No data');
-		console.log(newOrder)
 
 	} else if (isValidOrder(newOrder)) {
 		if (!db.data) {

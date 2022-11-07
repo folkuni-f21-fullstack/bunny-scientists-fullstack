@@ -23,19 +23,16 @@ router.post("/", async (req, res) => {
   let newOrder: Order = req.body;
 
   if (!newOrder) {
-    console.log("no data");
     res.status(400).send("No data");
   } else if (isValidOrder(newOrder)) {
     if (!db.data) {
       db.data = defaultData;
     }
     addOrderNumber(newOrder);
-    console.log(newOrder)
     db.data.orders.push(newOrder);
     await db.write();
     res.send(newOrder);
   } else {
-    console.log("invalid Order");
     res.status(400).send("Invalid Order");
   }
 });
