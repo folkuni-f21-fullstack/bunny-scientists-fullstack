@@ -8,7 +8,6 @@ const MenuNav = () => {
   const [dessertSelected, setdessertSelected] = useState("");
 
   window.addEventListener('scroll', () => {
-    console.log(window.pageYOffset)
     if (window.innerWidth < 730) {
       if (window.pageYOffset > 240 && window.pageYOffset < 1470) {
         setbeveragesSelected("");
