@@ -145,6 +145,7 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder }: Props
       }
     })
     // setSelectedOrder(newOrderArray[0]);
+    setMessageToChef("")
     setOriginalAllOrders(newOrderArray)
   }
 
