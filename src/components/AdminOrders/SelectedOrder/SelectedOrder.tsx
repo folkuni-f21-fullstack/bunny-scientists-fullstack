@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { IoIosAdd, IoIosRemove } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { MenuCategory, MenuItem, Order, OrderItem } from "../../../models/data";
-import { RootState } from "./../../../store";
 import "../AdminOrders.scss";
+import { RootState } from "./../../../store";
 import "./SelectedOrder.scss";
 
 type Props = {
@@ -17,7 +17,7 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSele
   const menu = useSelector((state: RootState) => state.menu);
   const menuByCategory: MenuCategory[] = menu.menu
   const [messageToChef, setMessageToChef] = useState<string>("")
-  const [selectedOrderItem, setSelectedOrderItem] = useState<OrderItem[]>(selectedOrder.orderItems)
+  const [selectedOrderItem, setSelectedOrderItem] = useState<OrderItem[]>([])
   const [filteredMenu, setFilteredMenu] = useState<MenuItem[]>([])
 
   useEffect(() => {
@@ -42,8 +42,10 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSele
     });
     setMessageToChef("")
     setFilteredMenu(newFilteredMenu)
-    let newOrder = JSON.parse(JSON.stringify(selectedOrder.orderItems));
-    setSelectedOrderItem(newOrder)
+    if(selectedOrder) {
+      let newOrder = JSON.parse(JSON.stringify(selectedOrder.orderItems));
+      setSelectedOrderItem(newOrder)
+    }
   }, [selectedOrder])
 
   function increaseAmount(order: OrderItem) {
@@ -190,16 +192,23 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSele
               <div></div>
             ) : (
               <>
-                <p>
-                  Meddelande från beställare:
-                  <span className="message">{selectedOrder.customerComment}</span>
-                </p>
-                <p>
-                  Kund: <span>{selectedOrder.customer}</span>
-                </p>
-                <p>
-                  Telefon: <span>{selectedOrder.phoneNumber}</span>
-                </p>
+                {
+                  selectedOrder ? (
+                    <>
+                      <p>
+                        Meddelande från beställare:
+                        <span className="message">{selectedOrder.customerComment}</span>
+                      </p>
+                      <p>
+                        Kund: <span>{selectedOrder.customer}</span>
+                      </p>
+                      <p>
+                        Telefon: <span>{selectedOrder.phoneNumber}</span>
+                      </p>
+                    </>
+                  ): null
+                }
+                
               </>
             )
           }
@@ -251,15 +260,27 @@ const SelectedOrder = ({ setOriginalAllOrders, allOrders, selectedOrder, setSele
           ) : (
             <>
               {
-                JSON.stringify(selectedOrder.orderItems) !== JSON.stringify(selectedOrderItem) ? ( // * Visa extra text om ordern har ändrats
+                selectedOrder ? (
                   <>
-                    <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
-                    <p className="red"><strong>!!</strong> Dina ändringar <strong>sparas ej</strong> om du byter order <br /> Snälla <strong>Bekräfta</strong> ordern </p>
+                    {
+                      JSON.stringify(selectedOrder.orderItems) !== JSON.stringify(selectedOrderItem) ? ( // * Visa extra text om ordern har ändrats
+                        <>
+                          <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+                          <p className="red"><strong>!!</strong> Dina ändringar <strong>sparas ej</strong> om du byter order <br /> Snälla <strong>Bekräfta</strong> ordern </p>
+                        </>
+                      ) : (
+                        <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+                      )
+                    }
                   </>
-                ) : (
-                  <button onClick={() => addToArchive()} className="confirm-btn">Bekräfta</button>
+                ): (
+                  <>
+                    <button className="confirm-btn offline">Bekräfta</button>
+                    <p className="red"><strong>!! no orders</strong></p>
+                  </>
                 )
               }
+              
             </>
           )
         }

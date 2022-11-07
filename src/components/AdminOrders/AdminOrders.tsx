@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Order } from "../../models/data";
-import SelectedOrder from "./SelectedOrder/SelectedOrder";
 import "./AdminOrders.scss";
+import SelectedOrder from "./SelectedOrder/SelectedOrder";
 
 const AdminOrders = () => {
   const [allOrders, setAllOrders] = useState<Order[]>([]);
@@ -51,17 +51,23 @@ const AdminOrders = () => {
           {allOrders.length > 0 ? (
             <ul>
               {allOrders.map((order: Order, i: number) => {
-                return (
-                  <li
-                    key={i}
-                    className={order.orderNumber === selectedOrder.orderNumber ? "selected" : ""}
-                    onClick={() => {
-                      changeSelectedOrder(order)
-                    }}
-                  >
-                    {order.orderNumber}
-                  </li>
-                );
+                if(order && selectedOrder) {
+                  return (
+                    <li
+                      key={i}
+                      className={order.orderNumber === selectedOrder.orderNumber ? "selected" : ""}
+                      onClick={() => {
+                        changeSelectedOrder(order)
+                      }}
+                    >
+                      {order.orderNumber}
+                    </li>
+                  );
+                } else {
+                  return (
+                    <div key={i}><h3>Inga ordrar att hämta...</h3></div>
+                  )
+                }
               })}
             </ul>
           ) : null}
