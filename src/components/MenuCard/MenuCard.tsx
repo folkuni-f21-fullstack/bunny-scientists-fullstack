@@ -1,7 +1,7 @@
-import { MenuItem } from '../../models/data';
 import { useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { useDispatch } from 'react-redux';
+import { MenuItem } from '../../models/data';
 import { addToCart } from '../../reducers/cartReducer';
 import "./MenuCard.scss";
 
