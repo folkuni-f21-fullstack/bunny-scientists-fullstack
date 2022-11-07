@@ -28,6 +28,7 @@ const CartPage = () => {
     phoneNumber: phoneNumber,
     time: localTime,
   };
+  console.log(productList)
 
   // * Uppdaterar OrderNumber
   async function getOrderNumber() {
@@ -78,6 +79,7 @@ const CartPage = () => {
       <div className="line"></div>
       <main>
         <ul className="selected-products">
+        {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
           {productList.map((item, id) => {
             return (
               <li key={id} className="product-in-cart">
@@ -153,7 +155,9 @@ const CartPage = () => {
               rows={6}
               onChange={(e) => setCustomerComment(e.target.value)}
             ></textarea>
+            
             <div className="btn-container">
+              {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
               <input
                 className="submit-button"
                 type="submit"
