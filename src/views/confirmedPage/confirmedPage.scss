@@ -9,9 +9,9 @@
     justify-content: space-between;
 
     .confirmed-header {
-        font-size: 3rem;
+        font-size: var(--fs-title);
         margin-top: 1rem;
-        margin-left: 0.5rem;
+        text-align: center;
     }
 
     .confirmed-img-container {
