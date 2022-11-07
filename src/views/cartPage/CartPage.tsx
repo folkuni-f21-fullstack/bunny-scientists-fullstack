@@ -5,7 +5,12 @@ import decrease from "../../assets/icons/decrease-icon.svg";
 import increase from "../../assets/icons/increase-icon.svg";
 import trash from "../../assets/icons/trash-icon.svg";
 import { ArchiveItem } from "../../models/data";
-import { decrementQuantity, incrementQuantity, removeAll, removeItem } from "../../reducers/cartReducer";
+import {
+  decrementQuantity,
+  incrementQuantity,
+  removeAll,
+  removeItem,
+} from "../../reducers/cartReducer";
 import { RootState } from "../../store";
 import "./CartPage.scss";
 
@@ -28,7 +33,7 @@ const CartPage = () => {
     phoneNumber: phoneNumber,
     time: localTime,
   };
-  console.log(productList)
+  console.log(productList);
 
   // * Uppdaterar OrderNumber
   async function getOrderNumber() {
@@ -56,7 +61,7 @@ const CartPage = () => {
     localStorage.setItem("order", JSON.stringify(data));
   }
 
-  async function sendOrder(e: void | any) {
+  async function sendOrder(e: { preventDefault: () => void }) {
     e.preventDefault();
     if (productList.length > 0) {
       await getOrderNumber();
@@ -79,7 +84,7 @@ const CartPage = () => {
       <div className="line"></div>
       <main>
         <ul className="selected-products">
-        {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
+          {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
           {productList.map((item, id) => {
             return (
               <li key={id} className="product-in-cart">
@@ -124,8 +129,8 @@ const CartPage = () => {
               summa:
               {productList.reduce(
                 (total, currentItem) =>
-                (total =
-                  total + currentItem.menuItem.price * currentItem.amount),
+                  (total =
+                    total + currentItem.menuItem.price * currentItem.amount),
                 0
               )}
               .00 kr
@@ -155,7 +160,7 @@ const CartPage = () => {
               rows={6}
               onChange={(e) => setCustomerComment(e.target.value)}
             ></textarea>
-            
+
             <div className="btn-container">
               {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
               <input
