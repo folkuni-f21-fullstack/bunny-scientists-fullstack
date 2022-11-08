@@ -9,8 +9,7 @@ function compareCredentials(user: Credentials) {
 	if (db.data) {
 		console.log("det här är db data", db.data.credentials)
 		const result = db.data.credentials.find(credentials =>
-		credentials.username === user.username && credentials.password === user.password);
-		console.log('här är resultatet', result)
+			credentials.username === user.username && credentials.password === user.password);
 		return result;
 	} else {
 		return false;

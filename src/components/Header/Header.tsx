@@ -10,8 +10,8 @@ import Cart from "./Cart/Cart";
 import "./Header.scss";
 
 type Props = {
-	isAdminView: boolean;
-	setIsAdminView: (isAdminView: boolean) => void;
+  isAdminView: boolean;
+  setIsAdminView: (isAdminView: boolean) => void;
 };
 
 const Header = ({ setIsAdminView, isAdminView }: Props) => {
@@ -23,7 +23,7 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
 
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  let newList = productList.map((f: any) => f.amount);
+  let newList = productList.map((f) => f.amount);
   let displayAmount = [...newList].reduce((a, b) => a + b, 0);
 
   const toggleNav = () => {
@@ -39,14 +39,12 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setCartMenuClass("cart-overlay");
       // cart nu stängd, sätter cartOpen till false
       setCartOpen(false);
-      console.log("accordion öppnas");
     } else {
       // annars betyder det att användaren vill stänga menyn,
       // tar bort klasser för öppen och ändrar tillbaka till hamburgaren
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
-      console.log("accordion stängs");
     }
   };
   const toggleCart = () => {
@@ -57,17 +55,15 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
       setBurgerMenuClass("burger");
       setNavOpen(false);
       setNavOpenClass("nav-accordion");
-      console.log("cart öppnas");
     } else {
       setCartMenuClass("cart-overlay");
       setCartOpen(false);
-      console.log("Cart stängs");
     }
   };
-
+  //logga ut function
   const clearCredentials = () => {
-    localStorage.removeItem('user')
-  }
+    localStorage.removeItem("user");
+  };
 
   return (
     <>
@@ -79,7 +75,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               <div className="logo-container-desktop">
                 <img className="logo" src={Logo} alt="" />
               </div>
-
               <div
                 className="logout-container"
                 onClick={() => {
@@ -87,7 +82,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 }}
               >
                 <Link className="logout" to="/">
-                  <h3 className="logout-text" onClick={clearCredentials}>LOGGA UT</h3>
+                  <h3 className="logout-text" onClick={clearCredentials}>
+                    LOGGA UT
+                  </h3>
                   <BiLogOut className="logout-icon" />{" "}
                 </Link>
               </div>
@@ -95,7 +92,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
             <div className="logo-container">
               <img className="logo" src={Logo} alt="" />
             </div>
-
             <div
               className="logout-container"
               onClick={() => {
@@ -103,7 +99,9 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
               }}
             >
               <Link className="logout" to="/">
-                <h1 className="logout-text" onClick={clearCredentials}>LOGGA UT</h1>
+                <h1 className="logout-text" onClick={clearCredentials}>
+                  LOGGA UT
+                </h1>
                 <BiLogOut className="logout-icon" />
               </Link>
             </div>
@@ -159,7 +157,6 @@ const Header = ({ setIsAdminView, isAdminView }: Props) => {
                 <img className="logo" src={Logo} alt="" />
               </div>
             </Link>
-
             <div className="cart-container">
               {displayAmount > 0 && (
                 <p className="cart-counter">{displayAmount}</p>

@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { IoMdTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import decrease from "../../assets/icons/decrease-icon.svg";
 import increase from "../../assets/icons/increase-icon.svg";
 import trash from "../../assets/icons/trash-icon.svg";
+import { ArchiveItem } from "../../models/data";
 import {
   decrementQuantity,
   incrementQuantity,
@@ -17,24 +17,36 @@ import "./CartPage.scss";
 const CartPage = () => {
   const [customer, setCustomer] = useState<string>("");
   const [customerComment, setCustomerComment] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>();
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   // diplay amount of articles in cart
   const productList = useSelector((state: RootState) => state.cart);
-  console.log(productList);
 
   //detta är vad vi skickar
-
-  const postOrder = {
-    orderNumber: Math.floor(Math.random() * 1000), // ska ändras
+  let localTime = new Date().toLocaleTimeString();
+  const postOrder: ArchiveItem = {
+    orderNumber: 0,
     orderItems: productList,
     customerComment: customerComment,
     customer: customer,
     phoneNumber: phoneNumber,
+    time: localTime,
   };
 
-  // skickar ordern till backend db
+  // * Uppdaterar OrderNumber
+  async function getOrderNumber() {
+    let orderNumberResponse = await fetch("/api/ordernumber", {
+      method: "GET",
+    });
+
+    let orderNumber = await orderNumberResponse.json();
+    await fetch(`/api/ordernumber/${orderNumber}`, {
+      method: "PUT",
+    });
+  }
+
+  // * skickar ordern till backend db
   async function postData() {
     const response = await fetch("/api/orders", {
       method: "POST",
@@ -43,21 +55,21 @@ const CartPage = () => {
       },
       body: JSON.stringify(postOrder),
     });
-
-    return await response.json();
+    let data = await response.json();
+    localStorage.setItem("order", JSON.stringify(data));
   }
 
-  const sendOrder: (e: any) => void = (e: any) => {
+  async function sendOrder(e: { preventDefault: () => void }) {
     e.preventDefault();
     if (productList.length > 0) {
-      navigate("/orders");
+      await getOrderNumber();
+      await postData();
       dispatch(removeAll());
-      let data = postData();
-      console.log(data);
+      navigate("/orders");
     } else {
-      console.log("empty shit");
+      console.log("empty");
     }
-  };
+  }
 
   return (
     <div className="cart-wrapper">
@@ -70,6 +82,7 @@ const CartPage = () => {
       <div className="line"></div>
       <main>
         <ul className="selected-products">
+          {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
           {productList.map((item, id) => {
             return (
               <li key={id} className="product-in-cart">
@@ -109,34 +122,7 @@ const CartPage = () => {
         </ul>
         <div className="line"></div>
         <section className="form">
-          <form onSubmit={sendOrder} className="contact-form">
-            <label htmlFor="name">namn</label>
-            <input
-              type="text"
-              id="name"
-              onChange={(e) => setCustomer(e.target.value)}
-            />
-            <label htmlFor="number">telefonnummer</label>
-            <input
-              type="text"
-              id="number"
-              onChange={(e) => setPhoneNumber(e.target.value)}
-            />
-            <label htmlFor="message">meddelande</label>
-            <textarea
-              id="message"
-              placeholder="Lämna meddelande till resturangen"
-              cols={20}
-              rows={6}
-              onChange={(e) => setCustomerComment(e.target.value)}
-            ></textarea>
-            <input
-              className="submit-button"
-              type="submit"
-              value="Slutför köp"
-            />
-          </form>
-          <div>
+          <div className="sum-container">
             <h2>
               summa:
               {productList.reduce(
@@ -149,6 +135,39 @@ const CartPage = () => {
             </h2>
             <p onClick={() => dispatch(removeAll())}>Töm varukorgen</p>
           </div>
+          <form onSubmit={sendOrder} className="contact-form">
+            <label htmlFor="name">namn *</label>
+            <input
+              type="text"
+              id="name"
+              onChange={(e) => setCustomer(e.target.value)}
+              required
+            />
+            <label htmlFor="number">telefonnummer *</label>
+            <input
+              type="text"
+              id="number"
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+            />
+            <label htmlFor="message">meddelande</label>
+            <textarea
+              id="message"
+              placeholder="Lämna meddelande till resturangen"
+              cols={20}
+              rows={6}
+              onChange={(e) => setCustomerComment(e.target.value)}
+            ></textarea>
+
+            <div className="btn-container">
+              {productList.length ? <p></p> : <p>Varukorgen är tom</p>}
+              <input
+                className="submit-button"
+                type="submit"
+                value="Slutför köp"
+              />
+            </div>
+          </form>
         </section>
       </main>
     </div>

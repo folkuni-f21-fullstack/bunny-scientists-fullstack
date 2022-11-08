@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import "../adminPage/AdminPage.scss";
 import AdminOrders from '../../components/AdminOrders/AdminOrders';
 import AdminArchive from '../../components/AdminArchive/AdminArchive';
 import { useNavigate } from 'react-router-dom';
+import "../adminPage/AdminPage.scss";
 
 type Props = {
   isAdminView: boolean;

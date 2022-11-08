@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import "./App.scss";
-import Footer from "./components/Footer/Footer";
-import Header from "./components/Header/Header";
 import { fetchMenu } from "./reducers/menuReducer";
 import { AppDispatch } from "./store";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import AboutPage from "./views/aboutPage/AboutPage";
 import AdminPage from "./views/adminPage/AdminPage";
 import CartPage from "./views/cartPage/CartPage";
 import ConfirmedPage from "./views/confirmedPage/confirmedPage";
 import HomePage from "./views/homePage/HomePage";
 import LoginPage from "./views/loginPage/LoginPage";
+import "./App.scss";
 
 //funktion för att komma till toppen av sidan vid route navigering
 const scrollToTop = () => {
@@ -57,4 +57,3 @@ function App() {
 }
 
 export { App, scrollToTop };
-

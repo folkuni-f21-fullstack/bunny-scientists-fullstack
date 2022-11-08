@@ -3,23 +3,22 @@
 
 .about-header {
   margin-top: 1rem;
-  margin-left: 0.5rem;
+  font-size: var(--fs-title);
 }
 
 .about-main {
   padding: 2rem;
+  padding-top: 0;
 }
 
 .about-main .line {
-  margin: 0.5rem;
-  width: 90%;
-  margin-bottom: 2rem;
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .about-main p {
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 1.2rem;
-  line-height: 3rem;
 }
 
 .contact {
@@ -39,24 +38,27 @@
   }
 
   .middle-img {
-    height: 12rem;
+    height: 9rem;
   }
-
+  h2 {
+    font-size: var(--fs-sub-title);
+  }
   .name {
+    font-size: var(--fs-text);
     font-style: italic;
     margin: 0;
+    margin-bottom: 1rem;
   }
 }
 
 @media only screen and (min-width: 770px) {
-
   .about-main {
     max-width: 1000px;
     margin: 0 auto;
   }
 
   .about-main p {
-    line-height: 3rem;
+    // line-height: 3rem;
   }
 
   .staff {
@@ -65,7 +67,7 @@
     margin-top: 4rem;
 
     .staff-card {
-      margin: 2rem;
+      margin:2rem;
     }
   }
 }

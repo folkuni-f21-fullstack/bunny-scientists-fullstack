@@ -35,11 +35,10 @@
 	}
 }
 
-
 @media only screen and (min-width: 730px) {
 	.admin-page {
 		.admin-wrapper {
-			article {
+			.change-order-wrapper {
 				display: grid;
 				grid-auto-rows: auto;
 				grid-template-areas:
@@ -47,6 +46,7 @@
 					"details customer"
 					"add message"
 					"confirm confirm";
+				gap: 1rem;
 			}
 
 			.orders-list-container {
@@ -59,12 +59,14 @@
 				overflow-x: hidden;
 				overflow-y: scroll;
 				height: 10rem;
+				max-width: 314px;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.customer-container {
 				grid-area: customer;
 				height: 100%;
-				padding-left: 1rem;
 
 				.customer-info {
 					height: 100%;
@@ -78,11 +80,12 @@
 
 			.add-to-order-container {
 				grid-area: add;
+				max-width: 314px;
 			}
 
 			.message-to-chef-container {
-				padding-left: 1rem;
 				grid-area: message;
+
 				textarea {
 					min-height: 10rem;
 				}

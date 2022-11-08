@@ -5,6 +5,7 @@ export type MenuItem = {
   description: string;
   image: string;
 };
+
 export type OrderType = {
   orderNumber: number;
   order: CartItem[];
@@ -19,21 +20,25 @@ export type OrderItem = {
   menuItem: MenuItem;
   amount: number;
 };
+
 export type Order = {
+  time: string,
   orderNumber: number;
   orderItems: OrderItem[];
   customerComment: string;
   customer: string;
-  phoneNumber: number;
+  phoneNumber: string;
 };
+
 export type ArchiveItem = {
   orderNumber: number;
   orderItems: OrderItem[];
   customerComment: string;
   customer: string;
-  phoneNumber: number;
+  phoneNumber: string;
   time: string;
 };
+
 export type MenuCategory = {
   id: string;
   name: string;
@@ -44,12 +49,3 @@ export type Credentials = {
   username: string;
   password: string;
 };
-
-/*
-              Hur state ska se ut:
-        1. Vad ligger i kundvagnen.
-        2. Administratören behöver kunna se Vilka Orders som har lagts.
-        Alla ordertypeobjekt.
-        Ordertypeobjekt ska bestå utav utcheckade Ordrar som består utav
-        CartItem. De behöver kunna sparas på databasen.
-*/

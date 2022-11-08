@@ -1,11 +1,9 @@
-import { userInfo } from 'os';
-import { useState } from 'react';
 import { useSelector } from "react-redux";
+import { MenuItem } from '../../models/data';
+import { RootState } from "./../../store";
 import Hero from '../../components/Hero/Hero';
 import MenuCard from '../../components/MenuCard/MenuCard';
 import MenuNav from '../../components/MenuNav/MenuNav';
-import { MenuItem } from '../../models/data';
-import { RootState } from "./../../store";
 import './HomePage.scss';
 
 const HomePage = () => {
@@ -45,7 +43,6 @@ const HomePage = () => {
           </section>
         </div>
       ) : null}
-
     </main>
   );
 };

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MenuCategory, MenuItem, Order } from "../../models/data";
+import { Order } from "../../models/data";
 import "./AdminOrders.scss";
 import SelectedOrder from "./SelectedOrder/SelectedOrder";
 
@@ -8,59 +8,73 @@ const AdminOrders = () => {
   const [originalAllOrders, setOriginalAllOrders] = useState<Order[]>([]);
 
   const [selectedOrder, setSelectedOrder] = useState<Order>({
+    time: "",
     orderNumber: 1,
     orderItems: [],
     customerComment: "",
     customer: "",
-    phoneNumber: 0,
+    phoneNumber: "",
   });
 
-  useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+  // Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+  useEffect(() => {
     async function getAllOrders() {
       const reponse = await fetch('/api/orders')
       const data: Order[] = await reponse.json()
-      setAllOrders(data)
-      let newOrder = JSON.parse(JSON.stringify(data[0]));
-      setSelectedOrder(newOrder);
+      if (data.length < 1) {
+        setAllOrders([])
+      } else {
+        setAllOrders(data)
+        let newOrder = JSON.parse(JSON.stringify(data[0]));
+        setSelectedOrder(newOrder);
+      }
     }
     getAllOrders()
   }, []);
-  useEffect(() => {// Sätter första ordern i listan som selected när sidan startas och när allOrders ändras.
+
+  useEffect(() => {
     setAllOrders(originalAllOrders)
-    console.log(allOrders)
   }, [originalAllOrders]);
 
-  function changeSelectedOrder(order: Order) {
+ function changeSelectedOrder(order: Order) {
     let newOrder = JSON.parse(JSON.stringify(order));
     setSelectedOrder(newOrder)
   }
+ 
+  
 
   return (
     <div className="admin-wrapper">
       <div className="orders-list-container">
         <section className="orders-list">
-          {allOrders.length === 0 && <div>loading...</div>}
+          {allOrders.length === 0 && <div><h3>Inga ordrar att hämta...</h3></div>}
           {allOrders.length > 0 ? (
             <ul>
               {allOrders.map((order: Order, i: number) => {
-                return (
-                  <li
-                    key={i}
-                    className={order.orderNumber === selectedOrder.orderNumber ? "selected" : ""}
-                    onClick={() => {
-                      changeSelectedOrder(order)
-                    }}
-                  >
-                    {order.orderNumber}
-                  </li>
-                );
+                if(order && selectedOrder) {
+                  return (
+                    <li
+                      key={i}
+                      className={order.orderNumber === selectedOrder.orderNumber ? "selected" : ""}
+                      onClick={() => {
+                        changeSelectedOrder(order)
+                      }}
+                    >
+                      {order.orderNumber}
+                    </li>
+                  );
+                } else {
+                  return (
+                    <div key={i}><h3>Inga ordrar att hämta...</h3></div>
+                  )
+                }
               })}
             </ul>
           ) : null}
         </section>
         <div className="line"></div>
       </div>
-      <SelectedOrder selectedOrder={selectedOrder} />
+      <SelectedOrder setOriginalAllOrders={setOriginalAllOrders} allOrders={allOrders} selectedOrder={selectedOrder} setSelectedOrder={setSelectedOrder} />
     </div>
   );
 };

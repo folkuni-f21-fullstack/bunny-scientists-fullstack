@@ -32,7 +32,7 @@ const Footer = () => {
 				</section>
 			</article>
 			<Link to='/login' onClick={scrollToTop}>
-        Admin inlogg <BiLogIn />
+				Admin inlogg <BiLogIn />
 			</Link>
 			<p>© 2022 All rights reserved Escargot Togo</p>
 		</footer>

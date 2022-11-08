@@ -1,14 +1,13 @@
-import "./OrderItem.scss";
-import { IoMdArrowDropdown } from "react-icons/io";
-
 import { useState } from "react";
+import { ArchiveItem, OrderItem } from "../../models/data";
+import { IoMdArrowDropdown } from "react-icons/io";
+import "./OrderItem.scss";
 
 type Props = {
-  order: any;
-  index: number;
+  order: ArchiveItem;
 }
 
-const OrderItem = ({ order, index }: Props) => {
+const OrderListItem = ({ order }: Props) => {
   const [className, setClassName] = useState<string>('accordion')
   const [accordionOpen, setAccordionOpen] = useState<boolean>(false);
 
@@ -21,11 +20,12 @@ const OrderItem = ({ order, index }: Props) => {
       setAccordionOpen(false);
     }
   }
+
   return (
-    <div onClick={toggleDrop} key={index} className="archive-list-item">
+    <div onClick={toggleDrop} className="archive-list-item">
       <section className="list-item-details">
         <p>kl {order.time}</p>
-        <h3>{order.ordernr}</h3>
+        <h3>{order.orderNumber}</h3>
         {accordionOpen ?
           <figure className="archive-list-drop-up">
             <IoMdArrowDropdown />
@@ -38,24 +38,24 @@ const OrderItem = ({ order, index }: Props) => {
       <section className={className}>
         <div>
           <h3>Order</h3>
-          {order.order.map((order: any, i: number) => {
+          {order.orderItems.map((order: OrderItem, i: number) => {
             return (
-              <p className="order-items" key={i}> <span> {order.quantity} st </span>{order.type}</p>
+              <p className="order-items" key={i}> <span> {order.amount} st </span>{order.menuItem.name}</p>
             )
           })}
         </div>
         <div className="customer">
           <h3>Beställare</h3>
-          <p>{order.customer.name}</p>
-          <p>{order.customer.phone}</p>
+          <p>{order.customer}</p>
+          <p>{order.phoneNumber}</p>
         </div>
         <div className="order-comment">
           <h3>Kommentar</h3>
-          <p>{order.comment}</p>
+          <p>{order.customerComment}</p>
         </div>
       </section>
     </div>
   )
 }
 
-export default OrderItem
+export default OrderListItem

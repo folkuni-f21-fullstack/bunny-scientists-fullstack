@@ -1,8 +1,8 @@
-import "../aboutPage/AboutPage.scss";
 import VD from "../../assets/staff/vd.jpg"
 import Reception from "../../assets/staff/reception.jpg"
 import Chef from "../../assets/staff/chef.jpg"
 import data from '../../data/data.json'
+import "../aboutPage/AboutPage.scss";
 
 const AboutPage = () => {
 

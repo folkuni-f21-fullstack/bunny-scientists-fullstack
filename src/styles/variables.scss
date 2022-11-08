@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap');
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
-
 $green-bg: #4c7972;
 $green-light-bg: #7E9E99;
 $green-dark-bg: #406862;
@@ -19,13 +18,18 @@ $box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
 
 :root {
   --fs-text: 16px;
+  --fs-large-text: 18px;
   --fs-title: 24px;
   --fs-sub-title: 20px;
 }
 
+.offline {
+  background-color: #B5B5B5 !important;
+  cursor: unset !important;
+}
+
 @mixin menuCardDesign() {
   overflow: hidden;
- 
   background-color: $container-bg;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
   border-radius: .2rem
@@ -43,37 +47,40 @@ $box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.212);
   &:hover {
     background-color: $green-light-bg
   }
-  &:active{
+
+  &:active {
     background-color: $green-dark-bg
   }
-  
 }
+
 @mixin roundBtnStyle() {
   display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: var(--fs-text);
-	width: 22px;
-	height: 22px;
-	color: #fff;
-	background: #4C7972;
-	border: 1px solid #FFFFFF;
-	box-shadow: $box-shadow;
-	border-radius: 50%;
-	cursor: pointer;
-
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs-text);
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  background: #4C7972;
+  border: 1px solid #FFFFFF;
+  box-shadow: $box-shadow;
+  border-radius: 50%;
+  cursor: pointer;
 
   &:hover {
     background-color: $green-light-bg
   }
-  &:active{
+
+  &:active {
     background-color: $green-dark-bg
   }
 }
+
 @media only screen and (min-width: 730px) {
   :root {
-    --fs-text: 15px;
+    --fs-text: 18px;
+    --fs-large-text: 24px;
     --fs-title: 48px;
-    --fs-sub-title: 23px;
+    --fs-sub-title: 26px;
   }
 }

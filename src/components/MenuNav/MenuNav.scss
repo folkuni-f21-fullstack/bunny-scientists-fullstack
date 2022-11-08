@@ -23,29 +23,33 @@
 			padding: 0.7rem 0;
 		}
 	}
+
 	.vertical-line {
 		margin: 0.2rem;
 		width: 2px;
 		background-color: $dark-grey;
 	}
+
 	a {
 		text-decoration: none;
-    cursor: pointer;
+		cursor: pointer;
 		font-family: $header-font;
 		color: #000;
 	}
+
 	a:active {
 		color: $green-bg;
 	}
+
 	.active {
 		color: $green-bg;
 	}
 }
+
 @media screen and (min-width: 1090px) {
 	.menu-nav {
 		a {
 			font-size: 23px;
 		}
 	}
-	
 }

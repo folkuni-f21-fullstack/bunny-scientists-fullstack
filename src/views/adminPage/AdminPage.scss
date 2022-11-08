@@ -4,23 +4,28 @@
     width: 100%;
     max-width: 700px;
     margin: 0 auto;
+    padding: 1rem;
+
     .admin-wrapper {
         display: flex;
         flex-direction: column;
+
         .subheading {
             margin-top: 1rem;
         }
     }
-    padding: 1rem;
+
     header {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
+
     h2 {
         color: $footer-bg;
         cursor: pointer;
     }
+
     .active {
         color: $dark-grey;
     }
