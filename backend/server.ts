@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 import express from "express";
 const app = express();
 dotenv.config();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5174;
 
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
