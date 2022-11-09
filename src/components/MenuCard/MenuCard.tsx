@@ -5,14 +5,13 @@ import { MenuItem } from "../../models/data";
 import { addToCart } from "../../reducers/cartReducer";
 import "./MenuCard.scss";
 
-export default function MenuCard(props: { menuItem: MenuItem; id: string }) {
+export default function MenuCard(props: { menuItem: MenuItem }) {
   const [menuCardContainer, setMenuCardContainer] =
     useState<string>("menucard-container");
   const [menuCardContainerOpen, setMenuCardContainerOpen] =
     useState<boolean>(false);
   const dispatch = useDispatch();
   const menuItem: MenuItem = props.menuItem;
-  let id: string = props.id;
 
   const toggleDrop = () => {
     if (window.innerWidth < 730) {
@@ -34,7 +33,7 @@ export default function MenuCard(props: { menuItem: MenuItem; id: string }) {
   });
 
   return (
-    <article id={id} className={menuCardContainer}>
+    <article id={menuItem.id} className={menuCardContainer}>
       <div onClick={toggleDrop} className="menucard">
         <div className="title-container">
           <h3 className="title">{menuItem.name}</h3>

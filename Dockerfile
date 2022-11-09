@@ -12,7 +12,7 @@ RUN npm run build
 
 RUN npm run build-backend
 
-EXPOSE 5050
+EXPOSE 5174
 
 CMD ["npm", "run", "run-backend"]
 
